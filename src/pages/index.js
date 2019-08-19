@@ -1,10 +1,14 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
-import { rhythm } from "../utils/typography"
-import Layout from "../components/layout"
 
-export default ({ data }) => {
+import { rhythm } from "../utils/typography"
+import Layout from "../components/layout";
+
+import '../utils/i18n';
+
+const Index =  ({ data, i18n }) => {
+  console.log({lang: i18n && i18n.language });
   return (
     <Layout>
       <div>
@@ -48,6 +52,9 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default Index;
+
 
 export const query = graphql`
   query {

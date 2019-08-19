@@ -2,9 +2,14 @@ import React from "react";
 import { css } from "@emotion/core";
 import { useStaticQuery, Link, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
+import { Segment, Button } from 'semantic-ui-react';
+import { useTranslation } from 'react-i18next';
 
 import { rhythm } from "../utils/typography";
-export default ({ children }) => {
+
+import LanguageSwitcher from './languageSwitcher';
+
+const Layout = ({ children }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -16,8 +21,11 @@ export default ({ children }) => {
       }
     `
   )
+  const { t, i18n, ready } = useTranslation('shared', { useSuspense: false });
+  console.log({i18n: i18n.language})
+
   return (
-    <div
+    <Segment
       css={css`
         margin: 0 auto;
         max-width: 700px;
@@ -30,6 +38,9 @@ export default ({ children }) => {
         <title>{data.site.siteMetadata.title}</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
+      <Button
+        content="test"
+      />
       <Link to={`/`}>
         <h3
           css={css`
@@ -47,9 +58,11 @@ export default ({ children }) => {
           float: right;
         `}
       >
-        About
+        {t('heading')}
       </Link>
       {children}
-    </div>
+    </Segment>
   )
 }
+
+export default Layout;
