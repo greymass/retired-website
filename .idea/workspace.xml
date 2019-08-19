@@ -2,21 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d548b5af-9fdd-4eaa-a422-7a4316414633" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gatsby-node.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/layout.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/about.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/blog/pandas-and-bananas.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/blog/sweet-pandas-eating-sweets.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/my-files.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/blog-post.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/typography.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gatsby-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/languageSwitcher.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/locales/en/shared.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/locales/fr/shared.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/i18n.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gatsby-node.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-node.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/my-files.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/my-files.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/layout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+            <state relative-caret-position="454">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -42,13 +40,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/languageSwitcher.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-520">
+              <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1716">
-              <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="78">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locales/fr/shared.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locales/en/shared.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -56,65 +81,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gatsby-node.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1092">
-              <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+            <state relative-caret-position="388">
+              <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/templates/blog-post.js">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/blog/pandas-and-bananas.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="156">
-                <caret line="6" column="122" selection-start-line="6" selection-start-column="122" selection-end-line="6" selection-end-column="122" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/about.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/typography.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gatsby-config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="910">
-              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+            <state relative-caret-position="26">
+              <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -122,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/my-files.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1196">
-              <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -132,18 +109,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/blog/sweet-pandas-eating-sweets.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="234">
-                <caret line="9" column="122" selection-start-line="9" selection-start-column="122" selection-end-line="9" selection-end-column="122" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/utils/i18n.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="596">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fontp</find>
+      <find>seman</find>
+      <find>less</find>
+      <find>withI18nextTranslation</find>
+      <find>layou</find>
+      <find>gatsby-start</find>
+      <find>hello</find>
+      <find>withTransl</find>
+      <find>extra</find>
+      <find>languag</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -154,13 +145,21 @@
         <option value="$PROJECT_DIR$/src/components/layouts.js" />
         <option value="$PROJECT_DIR$/src/utils/typography.js" />
         <option value="$PROJECT_DIR$/src/pages/about.js" />
-        <option value="$PROJECT_DIR$/src/pages/my-files.js" />
         <option value="$PROJECT_DIR$/src/pages/sweet-pandas-eating-sweets.md" />
         <option value="$PROJECT_DIR$/src/pages/pandas-and-bananas.md" />
-        <option value="$PROJECT_DIR$/gatsby-node.js" />
         <option value="$PROJECT_DIR$/src/templates/blog-post.js" />
-        <option value="$PROJECT_DIR$/src/pages/index.js" />
+        <option value="$PROJECT_DIR$/src/semantic/theme.config" />
         <option value="$PROJECT_DIR$/gatsby-config.js" />
+        <option value="$PROJECT_DIR$/gatsby-browser.js" />
+        <option value="$PROJECT_DIR$/src/locales/shared.json" />
+        <option value="$PROJECT_DIR$/src/locales/fr/shared.json" />
+        <option value="$PROJECT_DIR$/src/locales/en/shared.json" />
+        <option value="$PROJECT_DIR$/gatsby-node.js" />
+        <option value="$PROJECT_DIR$/src/pages/my-files.js" />
+        <option value="$PROJECT_DIR$/src/pages/index.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/utils/i18n.js" />
+        <option value="$PROJECT_DIR$/src/components/languageSwitcher.js" />
         <option value="$PROJECT_DIR$/src/components/layout.js" />
       </list>
     </option>
@@ -194,7 +193,39 @@
             <path>
               <item name="greymass-website" type="b2602c69:ProjectViewProjectNode" />
               <item name="greymass-website" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="greymass-website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="greymass-website" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="greymass-website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="greymass-website" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locales" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="greymass-website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="greymass-website" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locales" type="462c0819:PsiDirectoryNode" />
+              <item name="en" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="greymass-website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="greymass-website" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locales" type="462c0819:PsiDirectoryNode" />
+              <item name="fr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="greymass-website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="greymass-website" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -212,7 +243,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/locales/fr" />
+      <recent name="$PROJECT_DIR$/src/semantic" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/locales/en" />
       <recent name="$PROJECT_DIR$/src/pages/blog" />
     </key>
   </component>
@@ -239,15 +276,16 @@
       <option name="presentableId" value="Default" />
       <updated>1566030645258</updated>
       <workItem from="1566030646433" duration="2229000" />
-      <workItem from="1566045393061" duration="190000" />
+      <workItem from="1566045393061" duration="4936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2419000" />
+    <option name="totallyTimeSpent" value="7165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="83" y="23" width="1439" height="948" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -275,33 +313,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/utils.js" />
     <entry file="file://$PROJECT_DIR$/src/templates.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/layout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1716">
-          <caret line="70" column="1" selection-start-line="70" selection-start-column="1" selection-end-line="70" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gatsby-node.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1092">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/blog-post.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -342,23 +353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gatsby-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/my-files.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
-          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/blog/sweet-pandas-eating-sweets.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -366,6 +360,134 @@
             <caret line="9" column="122" selection-start-line="9" selection-start-column="122" selection-end-line="9" selection-end-column="122" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/site/views/ad.overrides">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/site/elements/button.overrides">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/site/elements/button.variables">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/site/elements/step.overrides">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/site/elements/rail.overrides">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/semantic/theme.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="85" column="18" selection-start-line="85" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gatsby-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/semantic-ui-less/theme.config.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-352" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gatsby-browser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/en.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/en">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/my-files.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/i18n.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/locales/en/shared.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gatsby-node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="45" column="30" selection-start-line="45" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/en/shared.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/fr/shared.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/languageSwitcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-520">
+          <caret line="7" column="70" selection-start-line="7" selection-start-column="70" selection-end-line="7" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/layout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
