@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { css } from "@emotion/core";
-import { useStaticQuery, Link, graphql } from "gatsby";
+import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Segment, Button } from 'semantic-ui-react';
 import { withTranslation } from 'react-i18next';
@@ -9,29 +9,19 @@ import { rhythm } from "../utils/typography";
 
 import LanguageSwitcher from './languageSwitcher';
 
-import '../utils/i18n';
-
 class Layout extends Component {
   render() {
-    const { children, i18n, t } = this.props;
+    const { children, t } = this.props;
 
     return (
       <Segment
-        css={css`
-        margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
-      `}
+        basic
       >
         <Helmet>
           <meta charSet="utf-8" />
           <title>Greymass</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-        <Button
-          content="test"
-        />
         <Link to={`/`}>
           <h3
             css={css`
@@ -40,20 +30,49 @@ class Layout extends Component {
             font-style: normal;
           `}
           >
-            Home
+            {t('home')}
           </h3>
         </Link>
-        <LanguageSwitcher />
-
+        &nbsp;
+        |
+        &nbsp;
         <Link
           to={`/about/`}
-          css={css`
-          float: right;
-        `}
         >
-          {t('heading')}
+          <h3
+            css={css`
+            margin-bottom: ${rhythm(2)};
+            display: inline-block;
+            font-style: normal;
+          `}
+          >
+            {t('about')}
+          </h3>
         </Link>
-        {children}
+
+        <br />
+        <h2>{t('heading')}</h2>
+        <Segment
+          css={css`
+            margin: 50 auto;
+            max-width: 700px;
+            padding: ${rhythm(10)};
+            padding-top: ${rhythm(1.5)};
+          `}
+        >
+          {children}
+        </Segment>
+        <br />
+        <br />
+        Semantic UI Example:
+        <br />
+        <Button
+          content="This button is useless!"
+        />
+        <br />
+        <br />
+        Switch between Languages:
+        <LanguageSwitcher />
       </Segment>
     )
   }

@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 
 import { rhythm } from "../utils/typography";
 
+import '../utils/i18n';
+
 const Layout = lazy(() => import('../components/layout'));
 
 class Index extends Component {
@@ -12,16 +14,8 @@ class Index extends Component {
 
     return (
       <Suspense fallback={<div>Loading...</div>}>
-        <Layout fallback={<p>loading</p>} >
+        <Layout>
           <div>
-            <h1
-              css={css`
-              display: inline-block;
-              border-bottom: 1px solid;
-            `}
-            >
-              Amazing Pandas Eating Things
-            </h1>
             <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <div key={node.id}>
@@ -37,7 +31,6 @@ class Index extends Component {
                     margin-bottom: ${rhythm(1 / 4)};
                   `}
                   >
-                    {node.fields.slug}
                     {node.frontmatter.title}{" "}
                     <span
                       css={css`
