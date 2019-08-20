@@ -11,6 +11,30 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-plugin-i18n',
+      options: {
+        langKeyDefault: 'en',
+        useLangKeyLayout: false,
+        markdownRemark: {
+          postPage: 'src/templates/blog-post.js',
+          query: `
+          {
+              allMarkdownRemark {
+                  edges {
+                  node {
+                      fields {
+                      slug,
+                      langKey
+                      }
+                  }
+                  }
+              }
+          }
+          `
+        }
+      }
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -32,6 +56,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-helmet`
   ],
 }

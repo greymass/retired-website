@@ -1,19 +1,20 @@
 import React, { Component } from "react"
 import classNames from "classnames"
-import { useTranslation } from "react-i18next"
+import { withTranslation } from "react-i18next"
 
 class LanguageSwitcher extends Component {
   constructor(props) {
     super(props)
-    const { i18n } = useTranslation('shared', { useSuspense: false });
 
-    this.state = { language: i18n && i18n.language }
+    const { i18n } = this.props;
+
+    this.state = { language: i18n.language }
 
     this.handleChangeLanguage = this.handleChangeLanguage.bind(this)
   }
 
   handleChangeLanguage(lng) {
-    const { i18n } = useTranslation('shared', { useSuspense: false });
+    const { i18n } = this.props;
 
     i18n.changeLanguage(lng)
   }
@@ -48,4 +49,4 @@ class LanguageSwitcher extends Component {
   }
 }
 
-export default LanguageSwitcher;
+export default withTranslation('shared')(LanguageSwitcher);
