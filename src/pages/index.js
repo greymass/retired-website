@@ -1,56 +1,61 @@
-import React from "react"
+import React, { Component, lazy, Suspense } from "react"
 import { css } from "@emotion/core"
 import { Link, graphql } from "gatsby"
 
-import { rhythm } from "../utils/typography"
-import Layout from "../components/layout";
+import { rhythm } from "../utils/typography";
 
-import '../utils/i18n';
+const Layout = lazy(() => import('../components/layout'));
 
-const Index =  ({ data, i18n }) => {
-  console.log({lang: i18n && i18n.language });
-  return (
-    <Layout>
-      <div>
-        <h1
-          css={css`
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}
-        >
-          Amazing Pandas Eating Things
-        </h1>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
-            <Link
-              to={node.fields.slug}
+class Index extends Component {
+  render() {
+    const { data } = this.props;
+
+    return (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Layout fallback={<p>loading</p>} >
+          <div>
+            <h1
               css={css`
-                text-decoration: none;
-                color: inherit;
-              `}
+              display: inline-block;
+              border-bottom: 1px solid;
+            `}
             >
-              <h3
-                css={css`
-                  margin-bottom: ${rhythm(1 / 4)};
-                `}
-              >
-                {node.frontmatter.title}{" "}
-                <span
+              Amazing Pandas Eating Things
+            </h1>
+            <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <div key={node.id}>
+                <Link
+                  to={node.fields.slug}
                   css={css`
-                    color: #bbb;
-                  `}
+                  text-decoration: none;
+                  color: inherit;
+                `}
                 >
-                  — {node.frontmatter.date}
-                </span>
-              </h3>
-              <p>{node.excerpt}</p>
-            </Link>
+                  <h3
+                    css={css`
+                    margin-bottom: ${rhythm(1 / 4)};
+                  `}
+                  >
+                    {node.fields.slug}
+                    {node.frontmatter.title}{" "}
+                    <span
+                      css={css`
+                      color: #bbb;
+                    `}
+                    >
+                    — {node.frontmatter.date}
+                  </span>
+                  </h3>
+                  <p>{node.excerpt}</p>
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </Layout>
-  )
+        </Layout>
+      </Suspense>
+    )
+  }
 }
 
 export default Index;
