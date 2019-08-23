@@ -3,7 +3,7 @@ import { css } from "@emotion/core";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import { Segment, Button } from 'semantic-ui-react';
-import { withTranslation } from 'react-i18next';
+import { translate } from 'react-i18next';
 
 import { rhythm } from "../utils/typography";
 
@@ -78,4 +78,4 @@ class Layout extends Component {
   }
 }
 
-export default withTranslation('shared')(Layout);
+export default translate('shared')(Layout);
