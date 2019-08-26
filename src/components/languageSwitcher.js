@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import classNames from "classnames"
-import { withTranslation } from "react-i18next"
+import { translate } from "react-i18next"
 
 class LanguageSwitcher extends Component {
   constructor(props) {
@@ -49,4 +49,4 @@ class LanguageSwitcher extends Component {
   }
 }
 
-export default withTranslation('shared')(LanguageSwitcher);
+export default translate('shared')(LanguageSwitcher);
