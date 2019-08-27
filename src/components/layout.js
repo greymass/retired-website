@@ -16,7 +16,9 @@ import LanguageSwitcher from './languageSwitcher';
 
 class Layout extends Component {
   render() {
-    const { children, t } = this.props;
+    const { children, t, i18n: i18nObject } = this.props;
+
+    const cleanedUpLocaleName = i18nObject.language.split('-')[0];
 
     return (
       <I18nextProvider i18n={i18n}>
@@ -31,10 +33,10 @@ class Layout extends Component {
           <Link to={`/`}>
             <h3
               css={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline-block;
-            font-style: normal;
-          `}
+                margin-bottom: ${rhythm(2)};
+                display: inline-block;
+                font-style: normal;
+              `}
             >
               {t('home')}
             </h3>
@@ -47,10 +49,10 @@ class Layout extends Component {
           >
             <h3
               css={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline-block;
-            font-style: normal;
-          `}
+                margin-bottom: ${rhythm(2)};
+                display: inline-block;
+                font-style: normal;
+              `}
             >
               {t('about')}
             </h3>
@@ -66,7 +68,7 @@ class Layout extends Component {
             padding-top: ${rhythm(1.5)};
           `}
           >
-            {children}
+            {children(cleanedUpLocaleName)}
           </Segment>
           <br />
           <br />
