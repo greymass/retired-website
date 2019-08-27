@@ -4,8 +4,6 @@ import { Link, graphql } from "gatsby"
 
 import { rhythm } from "../utils/typography";
 
-import '../utils/i18n';
-
 import Layout from '../components/layout';
 
 class Index extends Component {
