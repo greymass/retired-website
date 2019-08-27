@@ -1,11 +1,11 @@
-import i18n from 'i18next'
+import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { reactI18nextModule } from 'react-i18next'
 import XHR from 'i18next-xhr-backend'
 
 export const options = {
   fallbackLng: 'en',
-
+  load: 'languageOnly',
   ns: ['shared'],
   defaultNS: 'shared',
 
@@ -17,6 +17,7 @@ export const options = {
 
   react: {
     wait: true,
+    nsMode: 'default',
   },
   backend: {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
