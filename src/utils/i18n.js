@@ -4,25 +4,18 @@ import { reactI18nextModule } from 'react-i18next'
 import XHR from 'i18next-xhr-backend'
 
 export const options = {
-  fallbackLng: 'en',
-
-  ns: ['shared'],
-  defaultNS: 'shared',
-
-  debug: true,
-
-  interpolation: {
-    escapeValue: false, // not needed for react!!
-  },
-
-  react: {
-    wait: true,
-  },
   backend: {
     loadPath: '/locales/{{lng}}/{{ns}}.json',
   },
+  debug: true,
+  defaultNS: 'shared',
+  fallbackLng: 'en',
+  ns: ['about', 'shared'],
+  react: {
+    wait: true,
+  }
 }
-// for browser use xhr backend to load translations and browser lng detector
+
 i18n
   .use(XHR)
   .use(LanguageDetector)
