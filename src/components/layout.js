@@ -14,6 +14,8 @@ import { rhythm } from "../utils/typography";
 
 import LanguageSwitcher from './languageSwitcher';
 
+import 'semantic-ui-less/semantic.less'
+
 class Layout extends Component {
   render() {
     const { children, t, i18n: i18nObject } = this.props;
