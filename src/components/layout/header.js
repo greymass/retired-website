@@ -12,9 +12,11 @@ class Header extends Component {
     return (
       <Menu secondary>
         <Menu.Item active={activeItem === 'home'}>
-          <h3>
-            LOGO
-          </h3>
+          <Link to={`/`}>
+            <h3>
+              LOGO
+            </h3>
+          </Link>
         </Menu.Item>
         <Menu.Item active={activeItem === 'about'}>
           <Link to={`about`}>
