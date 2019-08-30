@@ -12,7 +12,7 @@ import { translate } from 'react-i18next';
 
 import { rhythm } from "../utils/typography";
 
-import LanguageSwitcher from './languageSwitcher';
+import LanguageSwitcher from './layout/languageSwitcher';
 
 import 'semantic-ui-less/semantic.less'
 
@@ -89,4 +89,4 @@ class Layout extends Component {
   }
 }
 
-export default translate('shared')(Layout);
+export default translate('layout')(Layout);
