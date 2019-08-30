@@ -1,14 +1,14 @@
-import React from "react"
+import React, { Component } from "react"
 
 import Layout from '../components/layout';
 
-class About extends React.Component {
+class Projects extends Component {
   render() {
     return (
       <Layout>
         { () => (
           <div>
-            ABOUT PAGE
+            PROJECTS PAGE
           </div>
         )}
       </Layout>
@@ -16,4 +16,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default Projects;
