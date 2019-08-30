@@ -6,6 +6,9 @@ import { Link } from "gatsby";
 
 class Header extends Component {
   render() {
+    const { data, t } = this.props;
+    console.log({data})
+    const activeItem = ''
     return (
       <Menu secondary>
         <Menu.Item active={activeItem === 'home'}>

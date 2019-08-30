@@ -1,6 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: `Greymass Site`,
+    officialEmail: `info@greymass.com`,
+    officialAddress: '#1 Vancouver Road, Vancouver, BC',
+    links: {
+      youtube: '',
+      telegram: '',
+      twitter: '',
+      reddit: '',
+      github: '',
+      steem: '',
+    }
   },
   plugins: [
     {
@@ -20,16 +30,16 @@ module.exports = {
           postPage: 'src/templates/blog-post.js',
           query: `
           {
-              allMarkdownRemark {
-                  edges {
-                  node {
-                      fields {
-                      slug,
-                      langKey
-                      }
+            allMarkdownRemark {
+              edges {
+                node {
+                  fields {
+                    slug,
+                    langKey
                   }
-                  }
+                }
               }
+            }
           }
           `
         }
