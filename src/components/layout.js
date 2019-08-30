@@ -1,92 +1,58 @@
 import React, { Component } from "react"
-import { css } from "@emotion/core";
 
 import { I18nextProvider } from 'react-i18next';
 
 import i18n from '../utils/i18n';
 
-import { Link } from "gatsby";
+import { graphql, StaticQuery } from "gatsby"
 import { Helmet } from "react-helmet";
-import { Segment, Button } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 
-import { rhythm } from "../utils/typography";
-
-import LanguageSwitcher from './layout/languageSwitcher';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
 
 import 'semantic-ui-less/semantic.less'
 
 class Layout extends Component {
   render() {
-    const { children, t, i18n: i18nObject } = this.props;
+    const { children, data, i18n: i18nObject } = this.props;
 
     const cleanedUpLocaleName = i18nObject.language.split('-')[0];
 
     return (
       <I18nextProvider i18n={i18n}>
-        <Segment
-          basic
-        >
+        <Container basic>
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Greymass</title>
+            <title>{data.site.siteMetadata.title}</title>
             <link rel="canonical" href="http://mysite.com/example" />
           </Helmet>
-          <Link to={`/`}>
-            <h3
-              css={css`
-                margin-bottom: ${rhythm(2)};
-                display: inline-block;
-                font-style: normal;
-              `}
-            >
-              {t('home')}
-            </h3>
-          </Link>
-          &nbsp;
-          |
-          &nbsp;
-          <Link
-            to={`/about/`}
-          >
-            <h3
-              css={css`
-                margin-bottom: ${rhythm(2)};
-                display: inline-block;
-                font-style: normal;
-              `}
-            >
-              {t('about')}
-            </h3>
-          </Link>
-
-          <br />
-          <h2>{t('heading')}</h2>
-          <Segment
-            css={css`
-            margin: 50 auto;
-            max-width: 700px;
-            padding: ${rhythm(10)};
-            padding-top: ${rhythm(1.5)};
-          `}
-          >
+          <Header />
+          <Container>
             {children(cleanedUpLocaleName)}
-          </Segment>
-          <br />
-          <br />
-          Semantic UI Example:
-          <br />
-          <Button
-            content="This button is useless!"
-          />
-          <br />
-          <br />
-          Switch between Languages:
-          <LanguageSwitcher />
-        </Segment>
+          </Container>
+          <Footer />
+        </Container>
       </I18nextProvider>
     )
   }
 }
 
-export default translate('layout')(Layout);
+const LayoutWrapper = translate('layout')(Layout);
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+          site {
+            siteMetadata {
+              officialEmail
+            }
+          }
+        }
+    `}
+    render={data => <LayoutWrapper data={data} {...props} />}
+  />
+);
+
