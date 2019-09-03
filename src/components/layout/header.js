@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Menu } from "semantic-ui-react";
 import { translate } from 'react-i18next';
-import { Link } from "gatsby";
+import { graphql, Link, StaticQuery } from "gatsby"
 
 class Header extends Component {
   render() {
@@ -53,4 +53,23 @@ class Header extends Component {
   }
 }
 
-export default translate('layout')(Header);
+const HeaderWrapper = translate('layout')(Header);
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        fileName: file(relativePath: { eq: "static/greymass-logo.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 400, maxHeight: 250) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => <HeaderWrapper data={data} {...props} />}
+  />
+);
+
+
