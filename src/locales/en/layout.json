@@ -1,6 +1,8 @@
 {
-  "about": "About Us",
-  "contact": "Contact Us",
+  "about": "About",
+  "blog": "Blog",
+  "contact": "Contact",
   "heading": "Welcome to the Greymass Website!",
-  "home": "Home"
+  "home": "Home",
+  "support_us": "Support Us"
 }
