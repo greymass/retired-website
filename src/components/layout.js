@@ -29,7 +29,7 @@ class Layout extends Component {
             <link rel="canonical" href="http://mysite.com/example" />
           </Helmet>
           <Header />
-          <Container>
+          <Container style={{ padding: '50px' }}>
             {children(cleanedUpLocaleName)}
           </Container>
           <Footer />
