@@ -32,8 +32,8 @@ class Layout extends Component {
           <Container style={{ padding: '50px' }}>
             {children(cleanedUpLocaleName)}
           </Container>
-          <Footer />
         </Container>
+        <Footer />
       </I18nextProvider>
     )
   }

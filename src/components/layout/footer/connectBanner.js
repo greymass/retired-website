@@ -1,14 +1,16 @@
-import React, { Component } from "react";
-import { Grid } from "semantic-ui-react";
-import { graphql, StaticQuery, Link } from "gatsby"
-import { translate } from "react-i18next"
+import React, { Component } from 'react';
+import { Grid } from 'semantic-ui-react';
+import { graphql, StaticQuery } from 'gatsby';
+import { translate } from 'react-i18next';
+
+import ConnectBannerLink from './connectBanner/link'
 
 class FooterConnectBanner extends Component {
   render() {
     const { data, t } = this.props;
 
     return (
-      <Grid padded>
+      <Grid style={{ backgroundColor: '#0091E2' }}>
         <Grid.Column width={3} />
         <Grid.Column width={4}>
           <h3>
@@ -16,24 +18,26 @@ class FooterConnectBanner extends Component {
           </h3>
         </Grid.Column>
         <Grid.Column width={6}>
-          <Link to={data.site.siteMetadata.links.youtube} style={{ padding: 5 }}>
-            YouTube
-          </Link>
-          <Link to={data.site.siteMetadata.links.telegram} style={{ padding: 5 }}>
-            Telegram
-          </Link>
-          <Link to={data.site.siteMetadata.links.twitter} style={{ padding: 5 }}>
-            Twitter
-          </Link>
-          <Link to={data.site.siteMetadata.links.reddit} style={{ padding: 5 }}>
-            Reddit
-          </Link>
-          <Link to={data.site.siteMetadata.links.github} style={{ padding: 5 }}>
-            Github
-          </Link>
-          <Link to={data.site.siteMetadata.links.steem} style={{ padding: 5 }}>
-            Steem
-          </Link>
+          <ConnectBannerLink
+            to={data.site.siteMetadata.links.youtube}
+            type={`youtube`}
+          />
+          <ConnectBannerLink
+            to={data.site.siteMetadata.links.telegram}
+            type={`telegram`}
+          />
+          <ConnectBannerLink
+            to={data.site.siteMetadata.links.reddit}
+            type={`reddit`}
+          />
+          <ConnectBannerLink
+            to={data.site.siteMetadata.links.github}
+            type={`github`}
+          />
+          <ConnectBannerLink
+            to={data.site.siteMetadata.links.steem}
+            type={`steem`}
+          />
         </Grid.Column>
         <Grid.Column width={3} />
       </Grid>
