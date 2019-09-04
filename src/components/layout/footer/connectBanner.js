@@ -1,46 +1,70 @@
 import React, { Component } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 import { translate } from 'react-i18next';
 
-import ConnectBannerLink from './connectBanner/link'
+import ConnectBannerLink from './connectBanner/link';
 
 class FooterConnectBanner extends Component {
   render() {
     const { data, t } = this.props;
 
+    const textStyle = {
+      color: 'white',
+      fontFamily: 'Poppins',
+      fontSize: '36px',
+      fontStyle: 'normal',
+      fontWeight: 500,
+      letterSpacing: '0.02em',
+      lineHeight: '54px',
+      textAlign: 'center',
+      textTransform: 'uppercase',
+    };
+
+    const containerStyle = {
+      backgroundColor: '#0091E2',
+      margin: 'auto',
+      paddingBottom: '30px',
+      paddingTop: '20px',
+      width: '1000px',
+    };
+
     return (
-      <Grid style={{ backgroundColor: '#0091E2' }}>
-        <Grid.Column width={3} />
-        <Grid.Column width={4}>
-          <h3>
-            {t('connect_with_us')} ->
-          </h3>
-        </Grid.Column>
-        <Grid.Column width={6}>
-          <ConnectBannerLink
-            to={data.site.siteMetadata.links.youtube}
-            type={`youtube`}
-          />
-          <ConnectBannerLink
-            to={data.site.siteMetadata.links.telegram}
-            type={`telegram`}
-          />
-          <ConnectBannerLink
-            to={data.site.siteMetadata.links.reddit}
-            type={`reddit`}
-          />
-          <ConnectBannerLink
-            to={data.site.siteMetadata.links.github}
-            type={`github`}
-          />
-          <ConnectBannerLink
-            to={data.site.siteMetadata.links.steem}
-            type={`steem`}
-          />
-        </Grid.Column>
-        <Grid.Column width={3} />
-      </Grid>
+      <div style={{ backgroundColor: '#0091E2' }}>
+        <Grid style={containerStyle}>
+          <Grid.Column width={8}>
+            <h3 style={textStyle}>
+              {t('connect_with_us')}
+              <Icon
+                name='arrow right'
+                style={{ marginLeft: '12%' }}
+              />
+            </h3>
+          </Grid.Column>
+          <Grid.Column width={8} style={{ paddingTop: '30px' }}>
+            <ConnectBannerLink
+              to={data.site.siteMetadata.links.youtube}
+              type={`youtube`}
+            />
+            <ConnectBannerLink
+              to={data.site.siteMetadata.links.telegram}
+              type={`telegram plane`}
+            />
+            <ConnectBannerLink
+              to={data.site.siteMetadata.links.twitter}
+              type={`twitter`}
+            />
+            <ConnectBannerLink
+              to={data.site.siteMetadata.links.reddit}
+              type={`reddit alien`}
+            />
+            <ConnectBannerLink
+              to={data.site.siteMetadata.links.github}
+              type={`github alternate`}
+            />
+          </Grid.Column>
+        </Grid>
+      </div>
     )
   }
 }

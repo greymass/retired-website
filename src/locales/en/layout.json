@@ -1,9 +1,17 @@
 {
   "about": "About",
   "blog": "Blog",
+  "bp_info": "BP Info",
+  "code_of_conduct": "Code of Conduct",
   "connect_with_us": "Connect With Us",
   "contact": "Contact",
   "heading": "Welcome to the Greymass Website!",
   "home": "Home",
-  "support_us": "Support Us"
+  "ownership": "Ownership",
+  "privacy_policy": "Privacy Policy",
+  "support_us": "Support Us",
+  "terms_of_use": "Terms of Use",
+  "copyright_text": "Copyright 2019 Greymass Inc.",
+  "email": "E: {{email}}",
+  "address": "A: {{address}}"
 }

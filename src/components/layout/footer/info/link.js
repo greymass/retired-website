@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { Link } from "gatsby";
+import { Link } from 'gatsby';
 
 class LayoutHeaderLink extends Component {
   render() {
@@ -10,8 +10,14 @@ class LayoutHeaderLink extends Component {
     } = this.props;
 
     const linkStyle = {
-      padding: '10px',
-      paddingBottom: '0px',
+      fontFamily: 'Roboto',
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      letterSpacing: '0.05em',
+      lineHeight: '30px',
+      margin: '5px',
+      textTransform: 'uppercase',
+      color: 'white',
     };
 
     return (
