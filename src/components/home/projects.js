@@ -14,14 +14,13 @@ class HomeProjects extends Component {
     const arrowStyles = {
       margin: 'auto',
       width: '150px',
-    }
+    };
 
     const containerStyles = {
       backgroundColor: 'white',
-      padding: '40px',
       textAlign: 'center',
       width: '100%',
-    }
+    };
 
     const headerTextStyles = {
       color: '#424954',
@@ -31,7 +30,8 @@ class HomeProjects extends Component {
       fontWeight: '600',
       letterSpacing: '0.02em',
       lineHeight: '44px',
-    }
+      padding: '40px',
+    };
 
     const supportUsLinkStyles = {
       color: '#0091E2',
@@ -42,12 +42,12 @@ class HomeProjects extends Component {
       letterSpacing: '0.02em',
       lineHeight: '25px',
       textTransform: 'uppercase',
-    }
-
+    };
+    console.log({edges: data.allFile.edges[0].node.childImageSharp.fluid})
     return (
       <div>
         <Img
-          fluid={data.fileName.childImageSharp.fluid}
+          fluid={data.allFile.edges[0].node.childImageSharp.fluid}
           alt='arrow-down'
           style={arrowStyles}
         />
@@ -57,38 +57,39 @@ class HomeProjects extends Component {
             {t('projects_title')}
           </h4>
 
-          <Grid centered>
+          <Grid stackable centered padded>
             <HomeProjectCard
               icon={'eos'}
               imageAlt="eos-image"
-              imageSrc={'eos-image'}
+              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               primary
               text={t('projects_main')}
             />
             <HomeProjectCard
               icon={'eos'}
               imageAlt="eos-image"
-              imageSrc={'eos-image'}
+              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               text={t('projects_one')}
             />
             <HomeProjectCard
               icon={'steem'}
               imageAlt="eos-image"
-              imageSrc={'steem-image'}
+              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               text={t('projects_two')}
             />
             <HomeProjectCard
               icon={'steem'}
               imageAlt="eos-image"
-              imageSrc={'steem-image'}
+              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               text={t('projects_three')}
             />
           </Grid>
-
-          <Link style={supportUsLinkStyles} to={`projects`}>
-            {t('projects_portfolio_link')}
-            <Icon name="arrow right" style={{ marginLeft: '5px'}} />
-          </Link>
+          <div style={{ margin: '50px' }}>
+            <Link style={supportUsLinkStyles} to={`projects`}>
+              {t('projects_portfolio_link')}
+              <Icon name="arrow right" style={{ marginLeft: '5px'}} />
+            </Link>
+          </div>
         </Container>
       </div>
     )
@@ -101,10 +102,14 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        fileName: file(relativePath: { eq: "images/arrowDown.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
+        allFile(filter: {relativePath: {in: ["images/arrowDown.png", "images/eosImage.png"]}}) {
+          edges {
+            node {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

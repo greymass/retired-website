@@ -16,32 +16,31 @@ export default class HomeProjectCard extends Component {
     } = this.props;
 
     const bottomContainer = {
-      backgroundColor: '#0091E2',
-      padding: '20px'
+      backgroundColor: primary ? '#0091E2' : '#B6BDC9',
+      padding: '20px',
+      paddingTop: '50px',
+      paddingBottom: '50px'
     }
 
     const textStyles = {
       color: 'white',
       fontFamily: 'Roboto',
-      fontSize: '21px',
+      fontSize: '16px',
       fontStyle: 'normal',
       fontWeight: 'bold',
       letterSpacing: '0.02em',
-      lineHeight: '25px',
+      lineHeight: '22px',
       textAlign: 'center',
     };
 
-    const linkStyles = {
-
-    }
-
     return (
-      <Grid.Column width={primary ? 3 : 2}>
-        <Link style={linkStyles} to={linkTo}>
+      <Grid.Column width={primary ? 4 : 3}>
+        <Link to={linkTo}>
           {imageFluid && (
             <Img
-              fluid={imageFluid}
               alt={imageAlt}
+              fluid={imageFluid}
+              style={{ height: '200px' }}
             />
           )}
 
