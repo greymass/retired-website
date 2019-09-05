@@ -22,17 +22,17 @@ class Layout extends Component {
 
     return (
       <I18nextProvider i18n={i18n}>
-        <Container basic>
+        <div style={{ backgroundColor: '#F4F4F4' }}>
           <Helmet>
             <meta charSet="utf-8" />
             <title>{data.site.siteMetadata.title}</title>
             <link rel="canonical" href="http://mysite.com/example" />
           </Helmet>
-          <Header />
-          <Container style={{ padding: '50px' }}>
-            {children(cleanedUpLocaleName)}
+          <Container basic>
+            <Header />
           </Container>
-        </Container>
+          {children(cleanedUpLocaleName)}
+        </div>
         <Footer />
       </I18nextProvider>
     )

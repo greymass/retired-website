@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import { Menu } from "semantic-ui-react";
+import { Menu } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-import { graphql, Link, StaticQuery } from "gatsby";
+import { graphql, Link, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import LayoutHeaderLink from './header/link';
