@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import Layout from '../components/layout';
+import HomeHeader from '../components/home/header';
 
 class Index extends Component {
   render() {
@@ -8,7 +9,7 @@ class Index extends Component {
       <Layout>
         { () => (
           <div>
-           HOME PAGE
+            <HomeHeader />
           </div>
         )}
       </Layout>
