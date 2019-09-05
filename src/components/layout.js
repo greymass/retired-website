@@ -27,7 +27,10 @@ class Layout extends Component {
             <meta charSet="utf-8" />
             <title>{data.site.siteMetadata.title}</title>
             <link rel="canonical" href="https://greymass.com" />
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap" />
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto&display=swap"
+            />
           </Helmet>
           <Container basic>
             <Header />

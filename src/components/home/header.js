@@ -23,7 +23,7 @@ class HomeHeader extends Component {
       letterSpacing: '0.02em',
       lineHeight: '44px',
       margin: 'auto',
-      paddingTop: '40px',
+      paddingTop: '60px',
       paddingBottom: '20px',
       maxWidth: '600px',
       textAlign: 'center',
@@ -45,7 +45,7 @@ class HomeHeader extends Component {
       fontSize: '16px',
     };
     return (
-      <Container style={{ paddingBottom: '100px' }} basic>
+      <Container style={{ paddingBottom: '50px' }} basic>
         <h4 style={headerTextStyles}>
          {t('header_one')}
         </h4>
@@ -57,7 +57,7 @@ class HomeHeader extends Component {
         <h4 style={headerTextStyles}>
           {t('header_two')}
         </h4>
-        <div style={{ marginTop: '100px' }}>
+        <div style={{ marginTop: '40px' }}>
           <h5 style={subheaderTestStyles}>
             {t('subheader_one')}
           </h5>
