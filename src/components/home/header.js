@@ -29,7 +29,7 @@ class HomeHeader extends Component {
       textAlign: 'center',
       textTransform: 'uppercase',
     };
-    const subheaderTestStyles = {
+    const subheaderTextStyles = {
       fontFamily: 'Roboto',
       fontSize: '18px',
       fontStyle: 'normal',
@@ -58,10 +58,10 @@ class HomeHeader extends Component {
           {t('header_two')}
         </h4>
         <div style={{ marginTop: '40px' }}>
-          <h5 style={subheaderTestStyles}>
+          <h5 style={subheaderTextStyles}>
             {t('subheader_one')}
           </h5>
-          <h5 style={subheaderTestStyles}>
+          <h5 style={subheaderTextStyles}>
             {t('subheader_two')}
             &nbsp;
             <Link style={supportUsLinkStyle} to={`#support-us`}>
