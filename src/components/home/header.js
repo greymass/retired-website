@@ -59,13 +59,13 @@ class HomeHeader extends Component {
         </h4>
         <div style={{ marginTop: '40px' }}>
           <h5 style={subheaderTextStyles}>
-            {t('subheader_one')}
+            {t('header_bottom_one')}
           </h5>
           <h5 style={subheaderTextStyles}>
-            {t('subheader_two')}
+            {t('header_bottom_two')}
             &nbsp;
             <Link style={supportUsLinkStyle} to={`#support-us`}>
-              {t('subheader_two_link_text')}
+              {t('header_bottom_link')}
             </Link>
           </h5>
         </div>
