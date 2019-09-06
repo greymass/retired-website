@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import { graphql, Link, StaticQuery } from 'gatsby';
 
 import Img from 'gatsby-image';
-import HomeProjectCard from "./projects/projectCard"
+import HomeProjectsCard from "./projects/card"
 
 class HomeProjects extends Component {
   render() {
@@ -57,32 +57,33 @@ class HomeProjects extends Component {
           </h4>
 
           <Grid stackable centered padded>
-            <HomeProjectCard
-              icon={'eos'}
+            <HomeProjectsCard
+              icon="github alternate"
               imageAlt="eos-image"
               imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               primary
-              text={t('projects_main')}
+              text={t('projects_primary')}
             />
-            <HomeProjectCard
-              icon={'eos'}
+            <HomeProjectsCard
+              icon="github alternate"
               imageAlt="eos-image"
               imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               text={t('projects_one')}
             />
-            <HomeProjectCard
-              icon={'steem'}
+            <HomeProjectsCard
+              icon="github alternate"
               imageAlt="eos-image"
               imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               text={t('projects_two')}
             />
-            <HomeProjectCard
-              icon={'steem'}
+            <HomeProjectsCard
+              icon="github alternate"
               imageAlt="eos-image"
               imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
               text={t('projects_three')}
             />
           </Grid>
+
           <div style={{ padding: '60px', paddingBottom: '80px' }}>
             <Link style={supportUsLinkStyles} to={`projects`}>
               {t('projects_portfolio_link')}

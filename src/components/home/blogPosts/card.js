@@ -3,24 +3,20 @@ import React, { Component } from "react"
 import { Container, Grid } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
-import Img from 'gatsby-image';
-
-export default class HomeProjectCard extends Component {
+export default class HomeBlogPostCard extends Component {
   render() {
     const {
-      imageAlt,
-      imageFluid,
       linkTo,
       primary,
       text,
     } = this.props;
 
-    const bottomContainer = {
+    const containerStyles = {
       backgroundColor: primary ? '#0091E2' : '#B6BDC9',
       padding: '20px',
-      paddingTop: '50px',
-      paddingBottom: '50px'
-    }
+      paddingTop: '100px',
+      paddingBottom: '100px'
+    };
 
     const textStyles = {
       color: 'white',
@@ -36,15 +32,7 @@ export default class HomeProjectCard extends Component {
     return (
       <Grid.Column width={primary ? 4 : 3}>
         <Link to={linkTo}>
-          {imageFluid && (
-            <Img
-              alt={imageAlt}
-              fluid={imageFluid}
-              style={{ height: '200px' }}
-            />
-          )}
-
-          <Container style={bottomContainer}>
+          <Container style={containerStyles}>
             <h4 style={textStyles}>
               {text}
             </h4>

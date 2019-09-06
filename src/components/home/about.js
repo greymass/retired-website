@@ -12,7 +12,7 @@ class HomeHeader extends Component {
 
     const containerStyles = {
       backgroundColor: '#0091E2',
-      paddingBottom: '50px',
+      paddingBottom: '100px',
       position: 'relative',
       width: '100%',
     };
