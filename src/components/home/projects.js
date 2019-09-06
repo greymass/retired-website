@@ -43,7 +43,6 @@ class HomeProjects extends Component {
       lineHeight: '25px',
       textTransform: 'uppercase',
     };
-    console.log({edges: data.allFile.edges[0].node.childImageSharp.fluid})
     return (
       <div>
         <Img
@@ -84,7 +83,7 @@ class HomeProjects extends Component {
               text={t('projects_three')}
             />
           </Grid>
-          <div style={{ margin: '50px' }}>
+          <div style={{ padding: '60px', paddingBottom: '80px' }}>
             <Link style={supportUsLinkStyles} to={`projects`}>
               {t('projects_portfolio_link')}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />

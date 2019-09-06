@@ -1,13 +1,16 @@
 {
+  "about_link": "about us",
+  "about_paragraph": "Bacon ipsum dolor amet ball tip sausage brisket landjaeger, prosciutto buffalo burgdoggen. Bresaola bacon jowl brisket turkey ground round ham frankfurter ribeye pastrami corned beef. Bresaola sausage leberkas kielbasa pork loin landjaeger cow boudin biltong chuck hamburger.",
+  "about_title": "What is Greymass?",
+  "header_bottom_link": "supporting us.",
+  "header_bottom_one": "Like what we do?",
+  "header_bottom_two": "Please consider",
   "header_one": "We are",
   "header_two": "A super awesome group of nerds who do good shit (TBD Tagline)",
-  "projects_portfolio_link": "See full portfolio",
-  "projects_title": "Recent Innovations",
-  "subheader_one": "Like what we do?",
-  "subheader_two": "Please consider",
-  "subheader_two_link_text": "supporting us.",
   "projects_main": "PRIMARY TITLE HERE FOR SOMETHING MORE FOCUSED",
   "projects_one": "TITLE HERE FOR SOMETHING MORE FOCUSED",
-  "projects_two": "TITLE HERE FOR SOMETHING MORE FOCUSED",
-  "projects_three": "TITLE HERE FOR SOMETHING MORE FOCUSED"
+  "projects_portfolio_link": "See full portfolio",
+  "projects_three": "TITLE HERE FOR SOMETHING MORE FOCUSED",
+  "projects_title": "Recent Innovations",
+  "projects_two": "TITLE HERE FOR SOMETHING MORE FOCUSED"
 }
