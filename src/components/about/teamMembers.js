@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 
-import { Container, Icon, Grid } from "semantic-ui-react"
+import { Container, Grid } from "semantic-ui-react"
 import { translate } from 'react-i18next';
-import { Link } from 'gatsby';
+import { graphql, StaticQuery } from "gatsby"
 
-import HomeBlogPostsCard from './blogPosts/card';
+import AboutTeamMembersCard from './teamMembers/card';
 
-class HomeBlogPosts extends Component {
+class AboutTeamMembers extends Component {
   render() {
-    const { t } = this.props;
+    const { data, t } = this.props;
 
     const containerStyles = {
       backgroundColor: 'white',
@@ -28,16 +28,6 @@ class HomeBlogPosts extends Component {
       padding: '40px',
     };
 
-    const supportUsLinkStyles = {
-      color: '#0091E2',
-      fonSize: '21px',
-      fontFamily: 'Roboto',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '25px',
-      textTransform: 'uppercase',
-    };
     return (
       <Container style={containerStyles} basic>
         <h4 style={headerTextStyles}>
@@ -45,33 +35,42 @@ class HomeBlogPosts extends Component {
         </h4>
 
         <Grid stackable centered padded>
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_primary`}
-            primary
-            text={t('blog_posts_primary')}
-          />
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_one`}
-            text={t('blog_posts_one')}
-          />
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_two`}
-            text={t('blog_posts_two')}
-          />
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_three`}
-            text={t('blog_posts_three')}
-          />
+          {data.site.siteMetadata.teamMembers.map((teamMember) => (
+            <AboutTeamMembersCard
+              name={teamMember.name}
+              title={teamMember.title}
+              description={teamMember.description}
+              {...teamMember.socialMedia}
+            />
+          ))}
         </Grid>
-        <div style={{ padding: '60px', paddingBottom: '70px' }}>
-          <Link style={supportUsLinkStyles} to={`projects`}>
-            {t('blog_posts_link')}
-            <Icon name="arrow right" style={{ marginLeft: '5px'}} />
-          </Link>
-        </div>
       </Container>
     )
   }
 }
 
-export default translate('home')(HomeBlogPosts);
+const AboutTeamMembersWrapper = translate('home')(AboutTeamMembers);
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              teamMembers {
+                edges {
+                  node {
+                    description
+                    name
+                    socialMedia
+                    title
+                  }
+                }
+              }
+            }
+          }
+        }
+    `}
+    render={data => <AboutTeamMembersWrapper data={data} {...props} />}
+  />
+);
