@@ -1,20 +1,12 @@
 import React, { Component } from "react"
 
-import { Container } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-import { graphql, Link, StaticQuery } from 'gatsby';
-
-import Img from 'gatsby-image';
 
 class AboutHeader extends Component {
   render() {
     const { data, t } = this.props;
 
-    const imageStyles = {
-      display: 'block',
-      margin: 'auto',
-      maxWidth: '800px',
-    };
     const headerTextStyles = {
       fontFamily: 'Montserrat',
       fontSize: '26px',
@@ -29,7 +21,7 @@ class AboutHeader extends Component {
       textAlign: 'center',
       textTransform: 'uppercase',
     };
-    const subheaderTextStyles = {
+    const paragraphTextStyles = {
       fontFamily: 'Roboto',
       fontSize: '18px',
       fontStyle: 'normal',
@@ -39,39 +31,27 @@ class AboutHeader extends Component {
       textAlign: 'center',
       margin: '0',
     };
-    const supportUsLinkStyle = {
-      color: '#0091E2',
-      textTransform: 'uppercase',
-      fontSize: '16px',
+    const blueBarStyles = {
+      backgroundColor: '#0091E2',
     };
+
     return (
-      <Container style={{ paddingBottom: '50px' }} basic>
-        <h4 style={headerTextStyles}>
-          {t('header_one')}
-        </h4>
-        <Img
-          fluid={data.fileName.childImageSharp.fluid}
-          alt='greymass-header-image'
-          style={imageStyles}
-        />
-        <h4 style={headerTextStyles}>
-          {t('header_two')}
-        </h4>
-        <div style={{ marginTop: '40px' }}>
-          <h5 style={subheaderTextStyles}>
-            {t('header_bottom_one')}
-          </h5>
-          <h5 style={subheaderTextStyles}>
-            {t('header_bottom_two')}
-            &nbsp;
-            <Link style={supportUsLinkStyle} to={`#support-us`}>
-              {t('header_bottom_link')}
-            </Link>
-          </h5>
-        </div>
-      </Container>
+      <Grid style={{ paddingBottom: '50px' }} basic>
+        <Grid.Column />
+        <Grid.Column>
+          <div style={blueBarStyles} />
+        </Grid.Column>
+        <Grid.Column width={9} >
+          <h4 style={headerTextStyles}>
+            {t('header')}
+          </h4>
+          <p style={paragraphTextStyles}>
+            {t('paragraph')}
+          </p>
+        </Grid.Column>
+      </Grid>
     )
   }
 }
 
-export default translate('home')(AboutHeader);
+export default translate('about')(AboutHeader);
