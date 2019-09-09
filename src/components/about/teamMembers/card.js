@@ -1,11 +1,15 @@
 import React, { Component } from "react"
 
 import { Container, Grid, Icon } from 'semantic-ui-react';
-import { Link } from 'gatsby';
 
+import { translate} from 'react-i18next';
+
+import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-export default class HomeTeamMembebersCard extends Component {
+class AboutTeamMembersCard extends Component {
+  state = { expanded: false };
+
   render() {
     const {
       description,
@@ -19,6 +23,8 @@ export default class HomeTeamMembebersCard extends Component {
       twitterLink,
       youtubeLink,
     } = this.props;
+
+    const { expanded } = this.state;
 
     const bottomContainerStyles = {
       backgroundColor: primary ? '#0091E2' : '#B6BDC9',
@@ -47,7 +53,7 @@ export default class HomeTeamMembebersCard extends Component {
     };
 
     return (
-      <Grid.Column width={primary ? 4 : 3}>
+      <Grid.Column width={4}>
         <Link to={linkTo}>
           {imageFluid && (
             <Img
@@ -62,7 +68,14 @@ export default class HomeTeamMembebersCard extends Component {
               {name}
             </h2>
             <h3 style={titleStyles}>
-              {title}
+              {expanded ? title : (
+                <div>
+                  {`${title.substr(0,200)}...`}
+                  <a onClick={setState({ expanded: true})}>
+                    {t('team_member_card_read_more')}
+                  </a>
+                </div>
+              )}
             </h3>
             <h4 style={descriptionStyles}>
               {description}
@@ -80,6 +93,8 @@ export default class HomeTeamMembebersCard extends Component {
     )
   }
 }
+
+export default translate('about')(AboutTeamMembersCard);
 
 const SocialMediaButton = ({name, link}) => link ? (
   <Grid.Column>
