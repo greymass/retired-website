@@ -42,7 +42,7 @@ export default class AboutValuesCard extends Component {
     };
 
     return (
-      <Grid.Column width={primary ? 4 : 3}>
+      <Grid.Column width={4}>
         <div style={containerStyles}>
           <Icon
             name={iconName}

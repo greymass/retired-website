@@ -1,12 +1,11 @@
 import React, { Component } from "react"
 
-import { Container, Icon, Grid } from "semantic-ui-react"
+import { Container, Grid } from "semantic-ui-react"
 import { translate } from 'react-i18next';
-import { Link } from 'gatsby';
 
-import HomeBlogPostsCard from './blogPosts/card';
+import AboutValuesCard from "./values/card"
 
-class HomeBlogPosts extends Component {
+class AboutValues extends Component {
   render() {
     const { t } = this.props;
 
@@ -28,50 +27,40 @@ class HomeBlogPosts extends Component {
       padding: '40px',
     };
 
-    const supportUsLinkStyles = {
-      color: '#0091E2',
-      fonSize: '21px',
-      fontFamily: 'Roboto',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '25px',
-      textTransform: 'uppercase',
-    };
+    const paragraphTextStyles = {
+
+    }
+
     return (
       <Container style={containerStyles} basic>
         <h4 style={headerTextStyles}>
-          {t('blog_posts_title')}
+          {t('values_title')}
+        </h4>
+
+        <h4 style={paragraphTextStyles}>
+          {t('values_title')}
         </h4>
 
         <Grid stackable centered padded>
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_primary`}
-            primary
-            text={t('blog_posts_primary')}
+          <AboutValuesCard
+            description={t('values_reliability_description')}
+            iconName="reliability"
+            title={t('values_reliability_title')}
           />
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_one`}
-            text={t('blog_posts_one')}
+          <AboutValuesCard
+            description={t('values_engagement_description')}
+            iconName="engagement"
+            title={t('values_engagement_title')}
           />
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_two`}
-            text={t('blog_posts_two')}
-          />
-          <HomeBlogPostsCard
-            linkTo={`blog_posts_three`}
-            text={t('blog_posts_three')}
+          <AboutValuesCard
+            description={t('values_trust_description')}
+            iconName="trust"
+            title={t('values_trust_title')}
           />
         </Grid>
-        <div style={{ padding: '60px', paddingBottom: '70px' }}>
-          <Link style={supportUsLinkStyles} to={`projects`}>
-            {t('blog_posts_link')}
-            <Icon name="arrow right" style={{ marginLeft: '5px'}} />
-          </Link>
-        </div>
       </Container>
     )
   }
 }
 
-export default translate('home')(HomeBlogPosts);
+export default translate('about')(AboutValues);
