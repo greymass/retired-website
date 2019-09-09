@@ -31,7 +31,7 @@ class AboutTeamMembers extends Component {
     return (
       <Container style={containerStyles} basic>
         <h4 style={headerTextStyles}>
-          {t('blog_posts_title')}
+          {t('team_members_title')}
         </h4>
 
         <Grid stackable centered padded>
