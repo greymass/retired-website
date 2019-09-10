@@ -28,7 +28,17 @@ class AboutValues extends Component {
     };
 
     const paragraphTextStyles = {
-
+      fontFamily: 'Roboto',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      fontSize: '18px',
+      lineHeight: '34px',
+      textAlign: 'center',
+      letterSpacing: '0.1em',
+      textTransform: 'uppercase',
+      color: '#424954',
+      marginRight: '20%',
+      marginLeft: '20%',
     }
 
     return (
@@ -38,23 +48,23 @@ class AboutValues extends Component {
         </h4>
 
         <h4 style={paragraphTextStyles}>
-          {t('values_title')}
+          {t('values_description')}
         </h4>
 
-        <Grid stackable centered padded>
+        <Grid style={{ padding: '80px' }} stackable centered padded>
           <AboutValuesCard
             description={t('values_reliability_description')}
-            iconName="reliability"
+            iconName="thumbs up"
             title={t('values_reliability_title')}
           />
           <AboutValuesCard
             description={t('values_engagement_description')}
-            iconName="engagement"
+            iconName="comments"
             title={t('values_engagement_title')}
           />
           <AboutValuesCard
             description={t('values_trust_description')}
-            iconName="trust"
+            iconName="handshake"
             title={t('values_trust_title')}
           />
         </Grid>
