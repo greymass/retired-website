@@ -12,9 +12,11 @@ class AboutTeamMembers extends Component {
 
     const containerStyles = {
       backgroundColor: 'white',
+      borderBottom: '2px solid #0091E2',
+      paddingLeft: '100px',
+      paddingRight: '100px',
       textAlign: 'center',
       width: '100%',
-      borderBottom: '2px solid #0091E2',
     };
 
     const headerTextStyles = {
@@ -36,13 +38,15 @@ class AboutTeamMembers extends Component {
 
         <Grid stackable centered padded>
           {data.site.siteMetadata.teamMembers.map((teamMember) => (
-            <AboutTeamMembersCard
-              name={teamMember.name}
-              title={teamMember.title}
-              description={teamMember.description}
-              profileImages={data.profileImages}
-              {...teamMember.socialMedia}
-            />
+            <Grid.Column width={5} style={{ padding: '4%' }}>
+              <AboutTeamMembersCard
+                name={teamMember.name}
+                title={teamMember.title}
+                description={teamMember.description}
+                profileImages={data.profileImages}
+                {...teamMember.socialMedia}
+              />
+            </Grid.Column>
           ))}
         </Grid>
       </Container>
