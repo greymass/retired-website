@@ -15,10 +15,10 @@ class AboutTeamMembersCard extends Component {
       description,
       facebookLink,
       githubLink,
-      imageAlt,
-      imageFluid,
+      profileImages,
       linkedinLink,
       name,
+      t,
       title,
       twitterLink,
       youtubeLink,
@@ -26,8 +26,13 @@ class AboutTeamMembersCard extends Component {
 
     const { expanded } = this.state;
 
+    const firstName = name.split(' ')[0];
+
+    const profileImage =
+      profileImages.edges.find(edge => edge.node.childImageSharp.src.includes(firstName));
+
     const bottomContainerStyles = {
-      backgroundColor: primary ? '#0091E2' : '#B6BDC9',
+      backgroundColor: '#B6BDC9',
       padding: '20px',
       paddingTop: '50px',
       paddingBottom: '50px'
@@ -54,41 +59,40 @@ class AboutTeamMembersCard extends Component {
 
     return (
       <Grid.Column width={4}>
-        <Link to={linkTo}>
-          {imageFluid && (
-            <Img
-              alt={imageAlt}
-              fluid={imageFluid}
-              style={{ height: '200px' }}
-            />
-          )}
+        {profileImage && (
+          <Img
+            alt={`${name} profile image`}
+            fluid={profileImage.node.childImageSharp.fluid}
+            style={{ height: '200px' }}
+          />
+        )}
 
-          <Container style={bottomContainerStyles}>
-            <h2 styles={nameStyles}>
-              {name}
-            </h2>
-            <h3 style={titleStyles}>
-              {expanded ? title : (
-                <div>
-                  {`${title.substr(0,200)}...`}
-                  <a onClick={setState({ expanded: true})}>
-                    {t('team_member_card_read_more')}
-                  </a>
-                </div>
-              )}
-            </h3>
-            <h4 style={descriptionStyles}>
-              {description}
-            </h4>
-            <Grid>
-              <SocialMediaButton name="facebook" link={facebookLink} />
-              <SocialMediaButton name="twitter" link={twitterLink} />
-              <SocialMediaButton name="linkedin" link={linkedinLink} />
-              <SocialMediaButton name="github" link={githubLink} />
-              <SocialMediaButton name="youtube" link={youtubeLink} />
-            </Grid>
-          </Container>
-        </Link>
+        <Container style={bottomContainerStyles}>
+          <h2 styles={nameStyles}>
+            {name}
+          </h2>
+          <h3 style={titleStyles}>
+            {description}
+          </h3>
+          <h4 style={descriptionStyles}>
+            {expanded ? title : (
+              <div>
+                {`${title.substr(0,200)}...`}
+                <Container basic onClick={this.setState({ expanded: true})}>
+                  {t('team_member_card_read_more')}
+                </Container>
+              </div>
+            )}
+          </h4>
+
+          <Grid>
+            <SocialMediaButton name="facebook" link={facebookLink} />
+            <SocialMediaButton name="twitter" link={twitterLink} />
+            <SocialMediaButton name="linkedin" link={linkedinLink} />
+            <SocialMediaButton name="github" link={githubLink} />
+            <SocialMediaButton name="youtube" link={youtubeLink} />
+          </Grid>
+        </Container>
       </Grid.Column>
     )
   }
@@ -96,7 +100,7 @@ class AboutTeamMembersCard extends Component {
 
 export default translate('about')(AboutTeamMembersCard);
 
-const SocialMediaButton = ({name, link}) => link ? (
+const SocialMediaButton = ({name, url}) => url ? (
   <Grid.Column>
     <Link to={url} >
       <Icon name={name} />
