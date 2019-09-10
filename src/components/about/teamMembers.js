@@ -40,6 +40,7 @@ class AboutTeamMembers extends Component {
               name={teamMember.name}
               title={teamMember.title}
               description={teamMember.description}
+              profileImages={data.profileImages}
               {...teamMember.socialMedia}
             />
           ))}
@@ -49,7 +50,7 @@ class AboutTeamMembers extends Component {
   }
 }
 
-const AboutTeamMembersWrapper = translate('home')(AboutTeamMembers);
+const AboutTeamMembersWrapper = translate('about')(AboutTeamMembers);
 
 export default props => (
   <StaticQuery
@@ -58,18 +59,31 @@ export default props => (
           site {
             siteMetadata {
               teamMembers {
-                edges {
-                  node {
-                    description
-                    name
-                    socialMedia
-                    title
-                  }
+                description
+                name
+                title
+                socialMedia {
+                  facebookLink
+                  githubLink
+                  linkedinLink
+                  twitterLink,
+                  youtubeLink,
+                }
+              }
+            }
+          }
+          profileImages: allFile(filter: {relativeDirectory: {eq: "images/teamMembers"}}) {
+            edges {
+            node {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
           }
         }
+      }
     `}
     render={data => <AboutTeamMembersWrapper data={data} {...props} />}
   />
