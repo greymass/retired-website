@@ -18,7 +18,14 @@ export default class AboutValuesCard extends Component {
     } = this.props;
 
     const titleStyles = {
-
+      fontFamily: 'Montserrat',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      fontSize: '28px',
+      lineHeight: '44px',
+      textAlign: 'center',
+      letterSpacing: '0.05em',
+      textTransform: 'uppercase',
     };
 
     const descriptionStyles = {
@@ -35,8 +42,10 @@ export default class AboutValuesCard extends Component {
     const iconContainerStyles = {
       backgroundColor: '#424954',
       borderRadius: '50%',
-      margin: '10px',
-      padding: '30px 12px 18px 16px',
+      margin: 'auto',
+      padding: '90px 50px',
+      height: '200px',
+      width: '200px',
     };
 
     return (
@@ -45,7 +54,7 @@ export default class AboutValuesCard extends Component {
           <Icon
             name={iconName}
             style={{
-              fontSize: '30px',
+              fontSize: '90px',
               color: 'white',
             }}
           />
@@ -53,7 +62,7 @@ export default class AboutValuesCard extends Component {
         <h2 style={titleStyles}>
           {title}
           <Popup
-            trigger={<Icon name="info circle" />}
+            trigger={<Icon style={{ marginLeft: '5px' }} name="info circle" />}
           >
             <Container>
               <h2 style={titleStyles}>
