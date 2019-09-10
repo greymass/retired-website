@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 
 class AboutHeader extends Component {
   render() {
-    const { data, t } = this.props;
+    const { t } = this.props;
 
     const headerTextStyles = {
       fontFamily: 'Montserrat',

@@ -17,7 +17,6 @@ export default class AboutValuesCard extends Component {
       title,
     } = this.props;
 
-
     const titleStyles = {
 
     };
@@ -33,9 +32,8 @@ export default class AboutValuesCard extends Component {
       textAlign: 'center',
     };
 
-    const containerStyles = {
-      background: active ? '#0091E2' : 'white',
-      border: active ? '6px solid white' : '',
+    const iconContainerStyles = {
+      backgroundColor: '#424954',
       borderRadius: '50%',
       margin: '10px',
       padding: '30px 12px 18px 16px',
@@ -43,30 +41,30 @@ export default class AboutValuesCard extends Component {
 
     return (
       <Grid.Column width={4}>
-        <div style={containerStyles}>
+        <div style={iconContainerStyles}>
           <Icon
             name={iconName}
             style={{
               fontSize: '30px',
-              color: active ? 'white' : '#343941'
+              color: 'white',
             }}
           />
-          <h2 style={titleStyles}>
-            {title}
-            <Popup
-              trigger={<Icon name="info circle" />}
-            >
-              <Container>
-                <h2 style={titleStyles}>
-                  {title}
-                </h2>
-                <p style={descriptionStyles}>
-                  {description}
-                </p>
-              </Container>
-            </Popup>
-          </h2>
-        </Link>
+        </div>
+        <h2 style={titleStyles}>
+          {title}
+          <Popup
+            trigger={<Icon name="info circle" />}
+          >
+            <Container>
+              <h2 style={titleStyles}>
+                {title}
+              </h2>
+              <p style={descriptionStyles}>
+                {description}
+              </p>
+            </Container>
+          </Popup>
+        </h2>
       </Grid.Column>
     )
   }
