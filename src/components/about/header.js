@@ -18,8 +18,9 @@ class AboutHeader extends Component {
       paddingTop: '60px',
       paddingBottom: '20px',
       maxWidth: '600px',
-      textAlign: 'center',
+      textAlign: 'left',
       textTransform: 'uppercase',
+      marginLeft: 0,
     };
     const paragraphTextStyles = {
       fontFamily: 'Roboto',
@@ -28,25 +29,29 @@ class AboutHeader extends Component {
       fontWeight: 'normal',
       letterSpacing: '0.02em',
       lineHeight: '30px',
-      textAlign: 'center',
+      textAlign: 'left',
       margin: '0',
     };
     const blueBarStyles = {
       backgroundColor: '#0091E2',
+      width: '10px',
+      height: '120px',
+      marginTop: '60px',
+      float: 'right',
     };
 
     return (
-      <Grid style={{ paddingBottom: '50px' }} basic>
+      <Grid style={{ marginTop: '40px', marginBottom: '50px' }} basic>
         <Grid.Column />
-        <Grid.Column>
+        <Grid.Column width={2}>
           <div style={blueBarStyles} />
         </Grid.Column>
-        <Grid.Column width={9} >
+        <Grid.Column width={7} >
           <h4 style={headerTextStyles}>
-            {t('header')}
+            {t('header_title')}
           </h4>
           <p style={paragraphTextStyles}>
-            {t('paragraph')}
+            {t('header_paragraph')}
           </p>
         </Grid.Column>
       </Grid>

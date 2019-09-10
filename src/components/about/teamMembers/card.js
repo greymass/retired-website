@@ -27,65 +27,109 @@ class AboutTeamMembersCard extends Component {
     const { expanded } = this.state;
 
     const firstName = name.split(' ')[0];
-
     const profileImage =
-      profileImages.edges.find(edge => edge.node.childImageSharp.src.includes(firstName));
+      profileImages.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase()));
 
     const bottomContainerStyles = {
       backgroundColor: '#B6BDC9',
-      padding: '20px',
+      padding: '30px',
       paddingTop: '50px',
-      paddingBottom: '50px'
+      paddingBottom: '50px',
+      minHeight: '500px',
     };
 
     const nameStyles = {
-
+      color: 'white',
+      fontFamily: 'Montserrat',
+      fontSize: '28px',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      letterSpacing: '0.02em',
+      lineHeight: '44px',
     };
 
     const titleStyles = {
-
-    };
-
-    const descriptionStyles = {
-      color: 'white',
+      color: '#424954',
       fontFamily: 'Roboto',
       fontSize: '16px',
       fontStyle: 'normal',
       fontWeight: 'bold',
       letterSpacing: '0.02em',
       lineHeight: '22px',
-      textAlign: 'center',
+      textAlign: 'left',
     };
 
+    const descriptionStyles = {
+      color: '#424954',
+      fontFamily: 'Roboto',
+      fontSize: '16px',
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      letterSpacing: '0.02em',
+      lineHeight: '22px',
+      textAlign: 'left',
+    };
+
+    const expandButtonStyles = {
+      color: '#0091E2',
+      cursor: 'pointer',
+      fontFamily: 'Roboto',
+      fontSize: '18px',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      letterSpacing: '0.02em',
+      lineHeight: '21px',
+      marginLeft: '20px',
+    }
+
     return (
-      <Grid.Column width={4}>
+      <Container basic>
         {profileImage && (
           <Img
             alt={`${name} profile image`}
             fluid={profileImage.node.childImageSharp.fluid}
-            style={{ height: '200px' }}
+            style={{ height: '250px' }}
           />
         )}
 
         <Container style={bottomContainerStyles}>
-          <h2 styles={nameStyles}>
+          <h2 style={nameStyles}>
             {name}
           </h2>
           <h3 style={titleStyles}>
-            {description}
+            {title}
           </h3>
           <h4 style={descriptionStyles}>
-            {expanded ? title : (
+            {expanded ? (
               <div>
-                {`${title.substr(0,200)}...`}
-                <Container basic onClick={this.setState({ expanded: true})}>
+                {description}
+                <span
+                  style={{
+                    ...expandButtonStyles,
+                    display: 'block',
+                    textAlign: 'center',
+                    marginTop: '30px',
+                  }}
+                  onClick={() => this.setState({ expanded: false })}
+                >
+                  {t('team_member_card_read_less')}
+                  <Icon style={{ marginLeft: '5px' }} name="arrow up" />
+                </span>
+              </div>
+            ) : (
+              <div>
+                {`${description.substr(0,270)}...`}
+                <span
+                  style={expandButtonStyles}
+                  onClick={() => this.setState({ expanded: true })}
+                >
                   {t('team_member_card_read_more')}
-                </Container>
+                </span>
               </div>
             )}
           </h4>
 
-          <Grid>
+          <Grid style={{ paddingTop: '25px' }}>
             <SocialMediaButton name="facebook" link={facebookLink} />
             <SocialMediaButton name="twitter" link={twitterLink} />
             <SocialMediaButton name="linkedin" link={linkedinLink} />
@@ -93,17 +137,17 @@ class AboutTeamMembersCard extends Component {
             <SocialMediaButton name="youtube" link={youtubeLink} />
           </Grid>
         </Container>
-      </Grid.Column>
+      </Container>
     )
   }
 }
 
 export default translate('about')(AboutTeamMembersCard);
 
-const SocialMediaButton = ({name, url}) => url ? (
+const SocialMediaButton = ({name, link}) => link ? (
   <Grid.Column>
-    <Link to={url} >
-      <Icon name={name} />
+    <Link to={link} >
+      <Icon style={{ fontSize: '40px', color: '#424954' }} name={name} />
     </Link>
   </Grid.Column>
 ) : '';
