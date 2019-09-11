@@ -20,23 +20,12 @@ export default class AboutValuesCard extends Component {
     const titleStyles = {
       fontFamily: 'Montserrat',
       fontStyle: 'normal',
-      fontWeight: '500',
+      fontWeight: '600',
       fontSize: '28px',
       lineHeight: '44px',
       textAlign: 'center',
       letterSpacing: '0.05em',
       textTransform: 'uppercase',
-    };
-
-    const descriptionStyles = {
-      color: 'white',
-      fontFamily: 'Roboto',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '22px',
-      textAlign: 'center',
     };
 
     const iconContainerStyles = {
@@ -46,6 +35,47 @@ export default class AboutValuesCard extends Component {
       padding: '90px 50px',
       height: '200px',
       width: '200px',
+    };
+
+    const popupIconStyles = {
+      color: '#0091E2',
+      cursor: 'pointer',
+      fontSize: '25px',
+      marginLeft: '5px',
+    };
+
+    const popupStyles = {
+      opacity: '0.9',
+      backgroundColor: '#0091E2',
+      // Will need to add "popup:backgroundColor: '#0091E2'" for the arrow to get styled;
+    };
+
+    const popupContainerStyles = {
+      padding: '20px',
+      width: '400px',
+    };
+
+    const popupTitleStyles = {
+      fontFamily: 'Montserrat',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      fontSize: '28px',
+      lineHeight: '44px',
+      letterSpacing: '0.05em',
+      textTransform: 'uppercase',
+      color: 'white',
+      textAlign: 'left',
+    };
+
+    const popupDescriptionStyles = {
+      color: 'white',
+      fontFamily: 'Roboto',
+      fontSize: '16px',
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      letterSpacing: '0.02em',
+      lineHeight: '22px',
+      textAlign: 'left',
     };
 
     return (
@@ -62,13 +92,14 @@ export default class AboutValuesCard extends Component {
         <h2 style={titleStyles}>
           {title}
           <Popup
-            trigger={<Icon style={{ marginLeft: '5px' }} name="info circle" />}
+            trigger={<Icon style={popupIconStyles} name="info circle" />}
+            style={popupStyles}
           >
-            <Container>
-              <h2 style={titleStyles}>
+            <Container style={popupContainerStyles} basic>
+              <h2 style={popupTitleStyles}>
                 {title}
               </h2>
-              <p style={descriptionStyles}>
+              <p style={popupDescriptionStyles}>
                 {description}
               </p>
             </Container>

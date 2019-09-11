@@ -34,10 +34,10 @@ class AboutHeader extends Component {
     };
     const blueBarStyles = {
       backgroundColor: '#0091E2',
-      width: '10px',
+      float: 'right',
       height: '120px',
       marginTop: '60px',
-      float: 'right',
+      width: '10px',
     };
 
     return (
