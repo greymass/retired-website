@@ -1,19 +1,32 @@
 import React, { Component } from "react"
 
-import { Container, Icon, Grid } from "semantic-ui-react"
+import { Container, Icon, Grid } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { graphql, Link, StaticQuery } from 'gatsby';
+import HomeProjectCard from './projects/card';
 
-import Img from 'gatsby-image';
-import HomeProjectsCard from "./projects/card"
+import homeAboutBackground from '../../images/homeAboutBackground.svg'
 
 class HomeProjects extends Component {
   render() {
     const { data, t } = this.props;
 
-    const arrowStyles = {
-      margin: 'auto',
-      width: '150px',
+    const arrowDownContainerStyles = {
+      height: '100px',
+      width: '100%',
+      overflow: 'hidden',
+      position: 'relative',
+    };
+
+    const arrowDownIconStyles = {
+      color: '#424954',
+      left: '0',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      position: 'absolute',
+      right: '0',
+      top: '17px',
+      fontSize: '18px',
     };
 
     const containerStyles = {
@@ -30,7 +43,8 @@ class HomeProjects extends Component {
       fontWeight: '600',
       letterSpacing: '0.02em',
       lineHeight: '44px',
-      padding: '40px',
+      padding: '20px',
+      marginBottom: '30px',
     };
 
     const supportUsLinkStyles = {
@@ -45,11 +59,14 @@ class HomeProjects extends Component {
     };
     return (
       <div>
-        <Img
-          fluid={data.allFile.edges[0].node.childImageSharp.fluid}
-          alt='arrow-down'
-          style={arrowStyles}
-        />
+        <div style={arrowDownContainerStyles}>
+          <Icon name="arrow down" style={arrowDownIconStyles} />
+          <img
+            alt='projects-page-background'
+            src={homeAboutBackground}
+            style={{ width: '100%' }}
+          />
+        </div>
 
         <Container style={containerStyles} basic>
           <h4 style={headerTextStyles}>
@@ -57,33 +74,32 @@ class HomeProjects extends Component {
           </h4>
 
           <Grid stackable centered padded>
-            <HomeProjectsCard
-              icon="github alternate"
+            <HomeProjectCard
+              icon={'github'}
               imageAlt="eos-image"
-              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
+              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
               primary
               text={t('projects_primary')}
             />
-            <HomeProjectsCard
-              icon="github alternate"
+            <HomeProjectCard
+              icon={'github'}
               imageAlt="eos-image"
-              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
+              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
               text={t('projects_one')}
             />
-            <HomeProjectsCard
-              icon="github alternate"
+            <HomeProjectCard
+              icon={'github'}
               imageAlt="eos-image"
-              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
+              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
               text={t('projects_two')}
             />
-            <HomeProjectsCard
-              icon="github alternate"
+            <HomeProjectCard
+              icon={'github'}
               imageAlt="eos-image"
-              imageFluid={data.allFile.edges[1].node.childImageSharp.fluid}
+              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
               text={t('projects_three')}
             />
           </Grid>
-
           <div style={{ padding: '60px', paddingBottom: '80px' }}>
             <Link style={supportUsLinkStyles} to={`projects`}>
               {t('projects_portfolio_link')}
@@ -102,7 +118,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allFile(filter: {relativePath: {in: ["images/arrowDown.png", "images/eosImage.png"]}}) {
+        allFile(filter: {relativePath: {in: ["images/eosImage.png"]}}) {
           edges {
             node {
               childImageSharp {

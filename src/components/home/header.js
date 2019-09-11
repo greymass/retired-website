@@ -1,16 +1,16 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
 import { Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-import { graphql, Link, StaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 
-import Img from 'gatsby-image';
+import greymassHeaderBackground from '../../images/greymassHeaderBackground.svg';
 
 class HomeHeader extends Component {
   render() {
-    const { data, t } = this.props;
+    const { t } = this.props;
 
-    const imageStyles = {
+    const backgroundStyles = {
       display: 'block',
       margin: 'auto',
       maxWidth: '800px',
@@ -23,8 +23,8 @@ class HomeHeader extends Component {
       letterSpacing: '0.02em',
       lineHeight: '44px',
       margin: 'auto',
-      paddingTop: '60px',
-      paddingBottom: '20px',
+      paddingTop: '50px',
+      paddingBottom: '60px',
       maxWidth: '600px',
       textAlign: 'center',
       textTransform: 'uppercase',
@@ -43,27 +43,30 @@ class HomeHeader extends Component {
       color: '#0091E2',
       textTransform: 'uppercase',
       fontSize: '16px',
+      marginLeft: '5px',
     };
+
     return (
       <Container style={{ paddingBottom: '50px' }} basic>
         <h4 style={headerTextStyles}>
          {t('header_one')}
         </h4>
-        <Img
-          fluid={data.fileName.childImageSharp.fluid}
-          alt='greymass-header-image'
-          style={imageStyles}
+        <img
+          alt='greymass-header'
+          style={backgroundStyles}
+          src={greymassHeaderBackground}
         />
         <h4 style={headerTextStyles}>
           {t('header_two')}
         </h4>
+
         <div style={{ marginTop: '40px' }}>
           <h5 style={subheaderTextStyles}>
             {t('header_bottom_one')}
           </h5>
           <h5 style={subheaderTextStyles}>
             {t('header_bottom_two')}
-            &nbsp;
+
             <Link style={supportUsLinkStyle} to={`#support-us`}>
               {t('header_bottom_link')}
             </Link>
@@ -74,21 +77,4 @@ class HomeHeader extends Component {
   }
 }
 
-const HomeHeaderWrapper = translate('home')(HomeHeader);
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        fileName: file(relativePath: { eq: "images/greymassHeaderImage.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => <HomeHeaderWrapper data={data} {...props} />}
-  />
-);
+export default translate('home')(HomeHeader);
