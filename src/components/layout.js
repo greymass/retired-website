@@ -9,8 +9,8 @@ import { Helmet } from "react-helmet";
 import { Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 
-import Header from './layout/Header';
-import Footer from './layout/Footer';
+import LayoutHeader from './layout/header';
+import LayoutFooter from './layout/footer';
 
 import 'semantic-ui-less/semantic.less'
 
@@ -33,11 +33,11 @@ class Layout extends Component {
             />
           </Helmet>
           <Container basic>
-            <Header />
+            <LayoutHeader />
           </Container>
           {children(cleanedUpLocaleName)}
         </div>
-        <Footer />
+        <LayoutFooter />
       </I18nextProvider>
     )
   }
