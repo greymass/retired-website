@@ -14,13 +14,12 @@ class AboutHeader extends Component {
       fontWeight: '500',
       letterSpacing: '0.02em',
       lineHeight: '44px',
-      margin: 'auto',
-      paddingTop: '60px',
-      paddingBottom: '20px',
       maxWidth: '600px',
+      marginBottom: 0,
+      paddingBottom: '20px',
+      paddingTop: '60px',
       textAlign: 'left',
       textTransform: 'uppercase',
-      marginLeft: 0,
     };
     const paragraphTextStyles = {
       fontFamily: 'Roboto',
@@ -29,8 +28,9 @@ class AboutHeader extends Component {
       fontWeight: 'normal',
       letterSpacing: '0.02em',
       lineHeight: '30px',
-      textAlign: 'left',
       margin: '0',
+      marginBottom: '60px',
+      textAlign: 'left',
     };
     const blueBarStyles = {
       backgroundColor: '#0091E2',

@@ -12,11 +12,11 @@ class AboutTeamMembers extends Component {
 
     const containerStyles = {
       backgroundColor: 'white',
-      borderBottom: '2px solid #0091E2',
       paddingLeft: '100px',
       paddingRight: '100px',
       textAlign: 'center',
       width: '100%',
+      marginBottom: '70px',
     };
 
     const headerTextStyles = {
