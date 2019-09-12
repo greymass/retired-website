@@ -1,0 +1,20 @@
+.container {
+  background-color: var(--mainBlue);
+  padding: 40px 0 60px 0;
+  width: 100%;
+}
+.grid {
+  margin: auto;
+}
+.text {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 54px;
+  text-align: right;
+  text-transform: uppercase;
+  margin-right: 10px;
+}

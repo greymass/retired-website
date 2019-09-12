@@ -1,0 +1,41 @@
+.container {
+  background-color: var(--mainBlack);
+  height: 300px;
+  padding: 50px 30px !important;
+  font-size: 18px;
+}
+
+.copyright {
+  font-family: 'Font Awesome 5 Free', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+  line-height: 21px;
+  margin-top: 8px;
+  color: var(--backgroundGrey);
+}
+
+.divider {
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.contactInfoText {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: white;
+  max-width: 300px;
+}
+
+.languageSwitcherContainer {
+  padding: 30px;
+  padding-left: 80px
+}
+

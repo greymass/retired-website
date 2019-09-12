@@ -1,0 +1,26 @@
+.imageContainer {
+  background-color: var(--mainBlue);
+  border-radius: 5px;
+  width: 60px;
+  height: 54px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.supportUsButton {
+  border: 1px solid var(--mainBlue);
+  padding: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.supportUsTextStyle {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}

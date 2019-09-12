@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
 import { Link } from 'gatsby';
-import { Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react';
+
+import linkStyles from './link.module.css';
 
 class LayoutHeaderLink extends Component {
   state = {
@@ -16,27 +18,26 @@ class LayoutHeaderLink extends Component {
 
     const { active } = this.state;
 
-    const containerStyles = {
-      background: active ? '#0091E2' : 'white',
-      border: active ? '6px solid white' : '',
-      borderRadius: '50%',
-      margin: '10px',
-      padding: '30px 12px 18px 16px',
-    };
-
     return (
       <Link
-        to={to}
-        style={containerStyles}
+        className={
+          `${linkStyles.container} ${
+            active ?
+              linkStyles.activeContainer :
+              linkStyles.inactiveContainer
+          }`
+        }
         onMouseEnter={() => this.setState({ active: true})}
         onMouseLeave={() => this.setState({ active: false})}
+        to={to}
       >
         <Icon
           name={type}
-          style={{
-            fontSize: '30px',
-            color: active ? 'white' : '#343941'
-          }}
+          className={
+            `${linkStyles.linkIcon} ${
+              active ? linkStyles.activeLinkIcon : linkStyles.inactiveLinkIcon
+            }`
+          }
         />
       </Link>
     )
