@@ -1,0 +1,28 @@
+.container {
+  background-color: white;
+  border-bottom: 2px solid var(--mainBlue);
+  text-align: center;
+  width: 100%;
+}
+
+.headerText {
+  color: var(--mainBlack);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  padding: 40px;
+}
+
+.supportUsLink {
+  color: var(--mainBlue);
+  font-size: 21px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 25px;
+  text-transform: uppercase;
+}
