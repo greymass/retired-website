@@ -1,0 +1,29 @@
+.container {
+  padding: 60px;
+  min-height: 500px;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  margin: auto;
+  margin-bottom: 50px;
+  max-width: 600px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  line-height: 30px;
+  text-align: center;
+  margin: 0;
+}

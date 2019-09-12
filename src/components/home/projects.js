@@ -1,66 +1,22 @@
 import React, { Component } from "react"
 
-import { Container, Icon, Grid } from 'semantic-ui-react';
+import { Icon, Grid } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import HomeProjectCard from './projects/card';
 
-import homeAboutBackground from '../../images/homeAboutBackground.svg'
+import homeAboutBackground from '../../images/homeAboutBackground.svg';
+
+import homeProjectsStyles from './projects.module.css';
 
 class HomeProjects extends Component {
   render() {
     const { data, t } = this.props;
 
-    const arrowDownContainerStyles = {
-      height: '100px',
-      width: '100%',
-      overflow: 'hidden',
-      position: 'relative',
-    };
-
-    const arrowDownIconStyles = {
-      color: '#424954',
-      left: '0',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      position: 'absolute',
-      right: '0',
-      top: '17px',
-      fontSize: '18px',
-    };
-
-    const containerStyles = {
-      backgroundColor: 'white',
-      textAlign: 'center',
-      width: '100%',
-    };
-
-    const headerTextStyles = {
-      color: '#424954',
-      fontFamily: 'Montserrat',
-      fontSize: '36px',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      letterSpacing: '0.02em',
-      lineHeight: '44px',
-      padding: '20px',
-      marginBottom: '30px',
-    };
-
-    const supportUsLinkStyles = {
-      color: '#0091E2',
-      fonSize: '21px',
-      fontFamily: 'Roboto',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '25px',
-      textTransform: 'uppercase',
-    };
     return (
       <div>
-        <div style={arrowDownContainerStyles}>
-          <Icon name="arrow down" style={arrowDownIconStyles} />
+        <div className={homeProjectsStyles.arrowDownContainer}>
+          <Icon name="arrow down" className={homeProjectsStyles.arrowDownIcon} />
           <img
             alt='projects-page-background'
             src={homeAboutBackground}
@@ -68,8 +24,8 @@ class HomeProjects extends Component {
           />
         </div>
 
-        <Container style={containerStyles} basic>
-          <h4 style={headerTextStyles}>
+        <div className={homeProjectsStyles.container}>
+          <h4 className={homeProjectsStyles.headerText}>
             {t('projects_title')}
           </h4>
 
@@ -101,12 +57,12 @@ class HomeProjects extends Component {
             />
           </Grid>
           <div style={{ padding: '60px', paddingBottom: '80px' }}>
-            <Link style={supportUsLinkStyles} to={`projects`}>
+            <Link className={homeProjectsStyles.supportUsLink} to={`projects`}>
               {t('projects_portfolio_link')}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>
           </div>
-        </Container>
+        </div>
       </div>
     )
   }

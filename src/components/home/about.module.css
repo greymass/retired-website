@@ -1,0 +1,55 @@
+.container {
+  background-color: var(--mainBlue);
+  padding: 100px 0 100px 0;
+  position: relative;
+  width: 100%;
+}
+
+.imageContainer {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.image {
+  width: 800px;
+  margin-top: -150px;
+}
+
+.titleText {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 66px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 112px;
+  margin-top: 80px;
+}
+
+.paragraphText {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 44px;
+  letter-spacing: 0.02em;
+  margin-left: 100px;
+  margin-right: 200px;
+  margin-bottom: 60px;
+}
+.aboutUsLink {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 25px;
+  margin-left: 50px;
+  margin-top: 50px;
+  text-align: center;
+  text-transform: uppercase;
+}

@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
 
+import homeProjectCardStyles from './card.module.css';
+
 export default class HomeProjectCard extends Component {
   render() {
     const {
@@ -16,44 +18,16 @@ export default class HomeProjectCard extends Component {
       text,
     } = this.props;
 
-    const bottomContainerStyles = {
-      backgroundColor: primary ? '#0091E2' : '#B6BDC9',
-      padding: '20px',
-      paddingTop: '50px',
-      paddingBottom: '50px'
-    }
-
-    const textStyles = {
-      color: 'white',
-      fontFamily: 'Roboto',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '22px',
-      textAlign: 'center',
-    };
-
-    const iconContainerStyles = {
-      backgroundColor: primary ? '#0091E2' : 'white',
-      border: primary ? '' : '1px solid #B6BDC9',
-      color: primary ? 'white' : '#0091E2',
-      fontSize: '25px',
-      height: '40px',
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      width: '40px',
-      zIndex: 1000,
-      padding: 'auto',
-    };
-
     return (
       <Grid.Column width={primary ? 4 : 3}>
         <Link to={linkTo}>
           {imageFluid && (
             <div style={{ position: 'relative' }}>
-              <div style={iconContainerStyles}>
+              <div className={
+                `${homeProjectCardStyles.iconContainer} ${
+                  primary ? homeProjectCardStyles.primaryIconContainer : ''
+                }`
+              }>
                 <Icon name={icon} style={{ margin: '5px', marginTop: '10px' }} />
               </div>
               <Img
@@ -64,8 +38,12 @@ export default class HomeProjectCard extends Component {
             </div>
           )}
 
-          <Container style={bottomContainerStyles}>
-            <h4 style={textStyles}>
+          <Container
+            className={`${homeProjectCardStyles.bottomContainer} ${
+              primary ? homeProjectCardStyles.primaryBottomContainer : ''
+            }`}
+          >
+            <h4 className={homeProjectCardStyles.text}>
               {text}
             </h4>
           </Container>
@@ -74,4 +52,3 @@ export default class HomeProjectCard extends Component {
     )
   }
 }
-

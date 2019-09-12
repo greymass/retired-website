@@ -1,0 +1,45 @@
+.arrowDownContainer {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.arrowDownIcon {
+  color: var(--mainBlack);
+  left: 0;
+  margin: 0 auto 0 auto !important;
+  position: absolute;
+  right: 0;
+  top: 17px;
+  font-size: 18px !important;
+}
+
+.container {
+  background-color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.headerText {
+  color: var(--mainBlack);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.supportUsLink {
+  color: var(--mainBlue);
+  font-size: 21px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 25px;
+  text-transform: uppercase;
+}
