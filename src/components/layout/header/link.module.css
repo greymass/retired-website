@@ -1,0 +1,38 @@
+.container {
+  padding-bottom: 0px,
+}
+
+.activeContainer {
+  padding: 13px;
+}
+
+.inactiveContainer {
+  padding: 10px;
+  padding-top: 6px;
+}
+
+.text {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.activeText {
+  font-weight: bold;
+}
+
+.inactiveText {
+  font-weight: normal;
+}
+
+.activeBottomBar {
+  background-color: var(--mainBlue);
+  border-radius: 2px;
+  height: 4px;
+  width: 100%;
+}
+

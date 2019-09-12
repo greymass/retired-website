@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Link } from 'gatsby';
 
+import linkStyles from './link.module.css';
+
 class LayoutHeaderLink extends Component {
   render() {
     const {
@@ -9,19 +11,8 @@ class LayoutHeaderLink extends Component {
       to,
     } = this.props;
 
-    const linkStyle = {
-      fontFamily: 'Roboto',
-      fontStyle: 'normal',
-      fontWeight: 'normal',
-      letterSpacing: '0.05em',
-      lineHeight: '30px',
-      margin: '5px',
-      textTransform: 'uppercase',
-      color: 'white',
-    };
-
     return (
-      <Link to={to} style={linkStyle}>
+      <Link to={to} className={linkStyles.link}>
         {content}
       </Link>
     )

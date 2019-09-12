@@ -5,39 +5,21 @@ import { translate } from 'react-i18next';
 
 import ConnectBannerLink from './connectBanner/link';
 
+import footerConnectBannerStyles from './connectBanner.module.css';
+
 class FooterConnectBanner extends Component {
   render() {
     const { data, t } = this.props;
 
-    const textStyle = {
-      color: 'white',
-      fontFamily: 'Poppins',
-      fontSize: '36px',
-      fontStyle: 'normal',
-      fontWeight: 500,
-      letterSpacing: '0.02em',
-      lineHeight: '54px',
-      textAlign: 'center',
-      textTransform: 'uppercase',
-    };
-
-    const containerStyle = {
-      backgroundColor: '#0091E2',
-      margin: 'auto',
-      paddingBottom: '30px',
-      paddingTop: '20px',
-      width: '1000px',
-    };
-
     return (
-      <div style={{ backgroundColor: '#0091E2' }}>
-        <Grid container style={containerStyle}>
+      <div className={footerConnectBannerStyles.container}>
+        <Grid container className={footerConnectBannerStyles.grid}>
           <Grid.Column width={8}>
-            <h3 style={textStyle}>
+            <h3 className={footerConnectBannerStyles.text}>
               {t('connect_with_us')}
               <Icon
                 name='arrow right'
-                style={{ marginLeft: '12%' }}
+                style={{ marginLeft: '6%' }}
               />
             </h3>
           </Grid.Column>

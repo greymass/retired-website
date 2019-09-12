@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 
 import { I18nextProvider } from 'react-i18next';
-
 import i18n from '../utils/i18n';
 
 import { graphql, StaticQuery } from "gatsby"
@@ -9,10 +8,10 @@ import { Helmet } from "react-helmet";
 import { Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 
+import 'semantic-ui-less/semantic.less';
+
 import LayoutHeader from './layout/header';
 import LayoutFooter from './layout/footer';
-
-import 'semantic-ui-less/semantic.less'
 
 class Layout extends Component {
   render() {

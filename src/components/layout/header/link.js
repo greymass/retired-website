@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { Link } from "gatsby";
 
+import linkStyles from './link.module.css'
+
 class LayoutHeaderLink extends Component {
   render() {
     const {
@@ -10,36 +12,29 @@ class LayoutHeaderLink extends Component {
       to,
     } = this.props;
 
-    const containerStyles = {
-      padding: active ? '13px' : '10px',
-      paddingBottom: '0px',
-    };
-
-    const textStyles = {
-      fontFamily:  'Roboto',
-      fontStyle: 'normal',
-      fontWeight: active ? 'bold' : 'normal',
-      fontSize: '18px',
-      lineHeight: '25px',
-      letterSpacing: '0.02em',
-      marginBottom: '5px',
-      textTransform: 'uppercase',
-    };
-
     return (
-      <div style={containerStyles}>
+      <div
+        className={
+          `${linkStyles.container} ${
+            active ?
+              linkStyles.activeContainer :
+              linkStyles.inactiveContainer
+          }`
+        }
+      >
         <Link to={to}>
-          <h3 style={textStyles}>
+          <h3
+            className={
+              `${linkStyles.text} ${
+                active ?
+                  linkStyles.activeText :
+                  linkStyles.inactiveText
+              }`}>
             {content}
           </h3>
           {active && (
             <div
-              style={{
-                backgroundColor: '#0091E2',
-                borderRadius: '2px',
-                height: '4px',
-                width: '100%',
-              }}
+              className={linkStyles.activeBottomBar}
             />
           )}
         </Link>

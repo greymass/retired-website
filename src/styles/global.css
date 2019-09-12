@@ -1,4 +1,5 @@
 :root {
-  --backgroundGrey: 'pink';
-  --mainBlue: '#0091E2'
+  --backgroundGrey: #B6B6B6;
+  --mainBlack: #343941;
+  --mainBlue: #0091E2;
 }
