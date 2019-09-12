@@ -4,8 +4,9 @@ import { Container, Grid, Icon } from 'semantic-ui-react';
 
 import { translate} from 'react-i18next';
 
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
+
+import aboutTeamMembersCardStyles from './card.module.css';
 
 class AboutTeamMembersCard extends Component {
   state = { expanded: false };
@@ -30,58 +31,6 @@ class AboutTeamMembersCard extends Component {
     const profileImage =
       profileImages.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase()));
 
-    const bottomContainerStyles = {
-      backgroundColor: '#B6BDC9',
-      padding: '30px',
-      paddingTop: '50px',
-      paddingBottom: '50px',
-      minHeight: '500px',
-    };
-
-    const nameStyles = {
-      color: 'white',
-      fontFamily: 'Montserrat',
-      fontSize: '28px',
-      fontStyle: 'normal',
-      fontWeight: '500',
-      letterSpacing: '0.02em',
-      lineHeight: '44px',
-    };
-
-    const titleStyles = {
-      color: '#424954',
-      fontFamily: 'Roboto',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '22px',
-      textAlign: 'left',
-    };
-
-    const descriptionStyles = {
-      color: '#424954',
-      fontFamily: 'Roboto',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: 'normal',
-      letterSpacing: '0.02em',
-      lineHeight: '22px',
-      textAlign: 'left',
-    };
-
-    const expandButtonStyles = {
-      color: '#0091E2',
-      cursor: 'pointer',
-      fontFamily: 'Roboto',
-      fontSize: '18px',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '21px',
-      marginLeft: '20px',
-    }
-
     return (
       <Container basic>
         {profileImage && (
@@ -92,20 +41,20 @@ class AboutTeamMembersCard extends Component {
           />
         )}
 
-        <Container style={bottomContainerStyles}>
-          <h2 style={nameStyles}>
+        <Container className={aboutTeamMembersCardStyles.bottomContainer}>
+          <h2 className={aboutTeamMembersCardStyles.name}>
             {name}
           </h2>
-          <h3 style={titleStyles}>
+          <h3 className={aboutTeamMembersCardStyles.title}>
             {title}
           </h3>
-          <h4 style={descriptionStyles}>
+          <h4 className={aboutTeamMembersCardStyles.description}>
             {expanded ? (
               <div>
                 {description}
                 <span
+                  className={aboutTeamMembersCardStyles.expandButtonStyles}
                   style={{
-                    ...expandButtonStyles,
                     display: 'block',
                     textAlign: 'center',
                     marginTop: '30px',
@@ -120,7 +69,7 @@ class AboutTeamMembersCard extends Component {
               <div>
                 {`${description.substr(0,270)}...`}
                 <span
-                  style={expandButtonStyles}
+                  className={aboutTeamMembersCardStyles.expandButton}
                   onClick={() => this.setState({ expanded: true })}
                 >
                   {t('team_member_card_read_more')}
@@ -146,9 +95,9 @@ export default translate('about')(AboutTeamMembersCard);
 
 const SocialMediaButton = ({name, link}) => link ? (
   <Grid.Column>
-    <Link to={link} >
+    <a href={link} >
       <Icon style={{ fontSize: '40px', color: '#424954' }} name={name} />
-    </Link>
+    </a>
   </Grid.Column>
 ) : '';
 

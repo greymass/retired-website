@@ -6,33 +6,15 @@ import { graphql, StaticQuery } from "gatsby"
 
 import AboutTeamMembersCard from './teamMembers/card';
 
+import aboutTeamMembersStyles from './teamMembers.module.css';
+
 class AboutTeamMembers extends Component {
   render() {
     const { data, t } = this.props;
 
-    const containerStyles = {
-      backgroundColor: 'white',
-      paddingLeft: '100px',
-      paddingRight: '100px',
-      textAlign: 'center',
-      width: '100%',
-      marginBottom: '70px',
-    };
-
-    const headerTextStyles = {
-      color: '#424954',
-      fontFamily: 'Montserrat',
-      fontSize: '36px',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      letterSpacing: '0.02em',
-      lineHeight: '44px',
-      padding: '40px',
-    };
-
     return (
-      <Container style={containerStyles} basic>
-        <h4 style={headerTextStyles}>
+      <div className={aboutTeamMembersStyles.container}>
+        <h4 className={aboutTeamMembersStyles.headerText}>
           {t('team_members_title')}
         </h4>
 
@@ -40,16 +22,16 @@ class AboutTeamMembers extends Component {
           {data.site.siteMetadata.teamMembers.map((teamMember) => (
             <Grid.Column width={5} style={{ padding: '4%' }}>
               <AboutTeamMembersCard
-                name={teamMember.name}
-                title={teamMember.title}
                 description={teamMember.description}
+                name={teamMember.name}
                 profileImages={data.profileImages}
+                title={teamMember.title}
                 {...teamMember.socialMedia}
               />
             </Grid.Column>
           ))}
         </Grid>
-      </Container>
+      </div>
     )
   }
 }

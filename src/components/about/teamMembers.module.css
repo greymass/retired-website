@@ -1,0 +1,19 @@
+.container {
+  background-color: white;
+  padding-left: 100px;
+  padding-right: 100px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.headerText {
+  color: var(--mainBlack);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  padding: 40px;
+}

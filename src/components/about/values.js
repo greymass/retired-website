@@ -3,51 +3,21 @@ import React, { Component } from "react"
 import { Container, Grid } from "semantic-ui-react"
 import { translate } from 'react-i18next';
 
-import AboutValuesCard from "./values/card"
+import AboutValuesCard from './values/card';
+
+import aboutValuesStyle from './values.module.css';
 
 class AboutValues extends Component {
   render() {
     const { t } = this.props;
 
-    const containerStyles = {
-      backgroundColor: 'white',
-      textAlign: 'center',
-      width: '100%',
-      borderBottom: '2px solid #0091E2',
-    };
-
-    const headerTextStyles = {
-      color: '#424954',
-      fontFamily: 'Montserrat',
-      fontSize: '36px',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      letterSpacing: '0.02em',
-      lineHeight: '44px',
-      padding: '40px',
-    };
-
-    const paragraphTextStyles = {
-      fontFamily: 'Roboto',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      fontSize: '18px',
-      lineHeight: '34px',
-      textAlign: 'center',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      color: '#424954',
-      marginRight: '20%',
-      marginLeft: '20%',
-    }
-
     return (
-      <Container style={containerStyles} basic>
-        <h4 style={headerTextStyles}>
+      <div className={aboutValuesStyle.container}>
+        <h4 className={aboutValuesStyle.headerText}>
           {t('values_title')}
         </h4>
 
-        <h4 style={paragraphTextStyles}>
+        <h4 className={aboutValuesStyle.paragraphText}>
           {t('values_description')}
         </h4>
 
@@ -68,7 +38,7 @@ class AboutValues extends Component {
             title={t('values_trust_title')}
           />
         </Grid>
-      </Container>
+      </div>
     )
   }
 }

@@ -1,0 +1,51 @@
+.bottomContainer {
+  background-color: var(--mainGrey);
+  padding: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  min-height: 500px;
+}
+
+.name {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+}
+
+.title {
+  color: var(--mainBlack);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 22px;
+  text-align: left;
+}
+
+.description {
+  color: var(--mainBlack);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  line-height: 22px;
+  text-align: left;
+}
+
+.expandButton {
+  color: var(--mainBlue);
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 21px;
+  margin-left: 20px;
+}
