@@ -1,0 +1,19 @@
+.bottomContainer {
+  background-color: var(--mainGrey);
+  padding: 50px 20px 50px 20px;
+}
+
+.primaryBottomContainer {
+  background-color: var(--mainBlue);
+}
+
+.text {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 22px;
+  text-align: center;
+}
