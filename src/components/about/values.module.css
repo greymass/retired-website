@@ -1,0 +1,31 @@
+.container {
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  border-bottom: 2px solid var(--mainBlue);
+}
+
+.headerText {
+  color: var(--mainBlack);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  padding: 40px;
+}
+
+.paragraphText {
+  color: var(--mainBlack);
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 34px;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  text-transform: uppercase;
+}

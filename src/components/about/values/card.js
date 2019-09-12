@@ -7,6 +7,8 @@ import {
   Popup,
 } from 'semantic-ui-react';
 
+import aboutValuesCardStyles from './card.module.css';
+
 export default class AboutValuesCard extends Component {
   state = { expanded: false };
 
@@ -17,70 +19,9 @@ export default class AboutValuesCard extends Component {
       title,
     } = this.props;
 
-    const titleStyles = {
-      fontFamily: 'Montserrat',
-      fontStyle: 'normal',
-      fontWeight: '600',
-      fontSize: '28px',
-      lineHeight: '44px',
-      textAlign: 'center',
-      letterSpacing: '0.05em',
-      textTransform: 'uppercase',
-    };
-
-    const iconContainerStyles = {
-      backgroundColor: '#424954',
-      borderRadius: '50%',
-      margin: 'auto',
-      padding: '90px 50px',
-      height: '200px',
-      width: '200px',
-    };
-
-    const popupIconStyles = {
-      color: '#0091E2',
-      cursor: 'pointer',
-      fontSize: '25px',
-      marginLeft: '5px',
-    };
-
-    const popupStyles = {
-      opacity: '0.9',
-      backgroundColor: '#0091E2',
-      // Will need to add "popup:backgroundColor: '#0091E2'" for the arrow to get styled;
-    };
-
-    const popupContainerStyles = {
-      padding: '20px',
-      width: '400px',
-    };
-
-    const popupTitleStyles = {
-      fontFamily: 'Montserrat',
-      fontStyle: 'normal',
-      fontWeight: '500',
-      fontSize: '28px',
-      lineHeight: '44px',
-      letterSpacing: '0.05em',
-      textTransform: 'uppercase',
-      color: 'white',
-      textAlign: 'left',
-    };
-
-    const popupDescriptionStyles = {
-      color: 'white',
-      fontFamily: 'Roboto',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight: 'bold',
-      letterSpacing: '0.02em',
-      lineHeight: '22px',
-      textAlign: 'left',
-    };
-
     return (
       <Grid.Column width={4}>
-        <div style={iconContainerStyles}>
+        <div className={aboutValuesCardStyles.iconContainer}>
           <Icon
             name={iconName}
             style={{
@@ -89,17 +30,17 @@ export default class AboutValuesCard extends Component {
             }}
           />
         </div>
-        <h2 style={titleStyles}>
+        <h2 className={aboutValuesCardStyles.title}>
           {title}
           <Popup
-            trigger={<Icon style={popupIconStyles} name="info circle" />}
-            style={popupStyles}
+            trigger={<Icon className={aboutValuesCardStyles.popupIcon} name="info circle" />}
+            className={aboutValuesCardStyles.popup}
           >
-            <Container style={popupContainerStyles} basic>
-              <h2 style={popupTitleStyles}>
+            <Container className={aboutValuesCardStyles.popupContainer} basic>
+              <h2 className={aboutValuesCardStyles.popupTitle}>
                 {title}
               </h2>
-              <p style={popupDescriptionStyles}>
+              <p className={aboutValuesCardStyles.popupDescription}>
                 {description}
               </p>
             </Container>
