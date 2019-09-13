@@ -76,18 +76,18 @@ export default props => (
               }
             }
           }
-          profileImages: allFile(filter: {relativeDirectory: {eq: "images/teamMembers"}}) {
+          profileImages: allFile(filter: {relativeDirectory: {regex: "/teamMembers/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
             edges {
-            node {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
+              node {
+                childImageSharp {
+                  fluid(maxWidth: 600) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
           }
-        }
-      }
+       }
     `}
     render={data => <AboutTeamMembersWrapper data={data} {...props} />}
   />
