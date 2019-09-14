@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "eos": {
+      "list": [
+        {
+          "name": "projects_anchor_name",
+          "projectKey": "anchor",
+          "description": "projects_anchor_description",
+          "githubLink": "https://github.com/greymass/eos-voter",
+          "featured": true
+        }
+      ]
+    }
+  }
+}
