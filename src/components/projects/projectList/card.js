@@ -10,37 +10,34 @@ import homeProjectCardStyles from './card.module.css';
 export default class HomeProjectCard extends Component {
   render() {
     const {
-      imageAlt,
-      imageFluid,
       linkTo,
-      primary,
+      projectKey,
       text,
     } = this.props;
 
+    const image =
+      images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(projectKey));
+
     return (
-      <Grid.Column width={primary ? 4 : 3}>
+      <div>
         <Link to={linkTo}>
-          {imageFluid && (
+          {image && (
             <Img
-              alt={imageAlt}
-              fluid={imageFluid}
+              alt={projectKey}
+              fluid={image.node.childImageSharp.fluid}
               style={{ height: '200px' }}
             />
           )}
 
           <Container
-            className={
-              `${homeProjectCardStyles.bottomContainer} ${
-                primary ? homeProjectCardStyles.primaryBottomContainer : ''
-              }`
-            }
+            className={homeProjectCardStyles.bottomContainer}
           >
             <h4 className={homeProjectCardStyles.text}>
               {text}
             </h4>
           </Container>
         </Link>
-      </Grid.Column>
+      </div>
     )
   }
 }
