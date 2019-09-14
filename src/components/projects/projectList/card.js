@@ -1,19 +1,26 @@
 import React, { Component } from "react"
 
-import { Container, Grid } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import { Link } from 'gatsby';
+
+import { translate } from 'react-i18next';
 
 import Img from 'gatsby-image';
 
 import homeProjectCardStyles from './card.module.css';
 
-export default class HomeProjectCard extends Component {
+class ProjectCard extends Component {
   render() {
     const {
+      images,
+      project,
+    } = this.props;
+
+    const {
+      description,
       linkTo,
       projectKey,
-      text,
-    } = this.props;
+    } = project;
 
     const image =
       images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(projectKey));
@@ -33,7 +40,7 @@ export default class HomeProjectCard extends Component {
             className={homeProjectCardStyles.bottomContainer}
           >
             <h4 className={homeProjectCardStyles.text}>
-              {text}
+              {description}
             </h4>
           </Container>
         </Link>
@@ -41,3 +48,5 @@ export default class HomeProjectCard extends Component {
     )
   }
 }
+
+export default translate('projects')(ProjectCard)

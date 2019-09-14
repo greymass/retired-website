@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Container, Grid } from "semantic-ui-react"
+import { Grid } from "semantic-ui-react"
 import { translate } from 'react-i18next';
 import { graphql, StaticQuery } from "gatsby"
 
@@ -12,6 +12,8 @@ class AboutTeamMembers extends Component {
   render() {
     const { data, t } = this.props;
 
+    const teamMembers = data.allDataJson.edges[0].node.teamMembers;
+
     return (
       <div className={aboutTeamMembersStyles.container}>
         <h4 className={aboutTeamMembersStyles.headerText}>
@@ -19,7 +21,7 @@ class AboutTeamMembers extends Component {
         </h4>
 
         <Grid stackable centered padded>
-          {data.site.siteMetadata.teamMembers.map((teamMember) => (
+          {teamMembers.map((teamMember) => (
             <Grid.Column width={5} style={{ padding: '4%' }}>
               <AboutTeamMembersCard
                 description={teamMember.description}
@@ -42,18 +44,13 @@ export default props => (
   <StaticQuery
     query={graphql`
        query {
-          site {
-            siteMetadata {
-              teamMembers {
-                description
-                name
-                title
-                socialMedia {
-                  facebookLink
-                  githubLink
-                  linkedinLink
-                  twitterLink,
-                  youtubeLink,
+          allDataJson(filter: {teamMembers: {elemMatch: {name: {ne: null}}}}) {
+            edges {
+              node {
+                teamMembers {
+                  description
+                  name
+                  title
                 }
               }
             }
