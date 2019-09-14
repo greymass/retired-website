@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Container, Grid } from "semantic-ui-react"
+import { Grid } from "semantic-ui-react"
 import { translate } from 'react-i18next';
 
 import AboutValuesCard from './values/card';

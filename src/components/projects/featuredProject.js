@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 import { Grid, Icon } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-import { graphql, Link, StaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
 
@@ -10,24 +10,35 @@ import featuredProjectStyles from './featuredProject.module.css';
 
 class FeaturedProject extends Component {
   render() {
-    const { data, t } = this.props;
+    const {
+      data,
+      images,
+      project,
+      t
+    } = this.props;
+
+    const image =
+      images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(project.projectKey))
 
     return (
       <div className={featuredProjectStyles.container}>
         <Grid stackable>
           <Grid.Column width={6} >
-            <Img
-              alt='greymass-header-image'
-              fluid={data.fileName.childImageSharp.fluid}
-              className={featuredProjectStyles.image}
-            />
+            {image && (
+              <Img
+                alt='greymass-header-image'
+                fluid={image.node.childImageSharp.fluid}
+                className={featuredProjectStyles.image}
+              />
+            )}
+
           </Grid.Column>
           <Grid.Column width={8} >
             <h4 className={featuredProjectStyles.titleText}>
-              {t('projects_featured_title')}
+              {t(project.title)}
             </h4>
             <h4 className={featuredProjectStyles.paragraphText}>
-              {t('projects_featured_description')}
+              {t(project.description)}
             </h4>
             <Link className={featuredProjectStyles.aboutUsLink} to={`#support-us`}>
               {t('projects_featured_see_on_github')}
@@ -40,21 +51,4 @@ class FeaturedProject extends Component {
   }
 }
 
-const FeaturedProjectWrapper = translate('home')(FeaturedProject);
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        fileName: file(relativePath: { eq: "images/anchor.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => <FeaturedProjectWrapper data={data} {...props} />}
-  />
-);
+export default translate('home')(FeaturedProject);
