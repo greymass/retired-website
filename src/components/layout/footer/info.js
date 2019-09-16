@@ -47,41 +47,43 @@ class FooterInfo extends Component {
     }
 
     return (
-      <Grid style={containerStyles}>
-        <Grid.Column width={6}>
-          <div style={{ fontSize: '18px' }}>
-            <FooterInfoLink to={`bp-info`} content={t('bp_info')} />
-            <span style={dividerStyles}>|</span>
-            <FooterInfoLink to={`code-of-conduct`} content={t('code_of_conduct')} />
-            <span style={dividerStyles}>|</span>
-            <FooterInfoLink to={`ownership`} content={t('ownership')} />
-          </div>
-          <div style={{ fontSize: '16px' }}>
-            <FooterInfoLink to={`terms-of-use`} content={t('terms_of_use')} />
-            <span style={dividerStyles}>|</span>
-            <FooterInfoLink to={`privacy-policy`} content={t('privacy_policy')} />
-          </div>
-          <h4 style={copyrightStyles}>
-            <span style={{ margin: '5px' }}>&#9400;</span>
-            {t('copyright_text')}
-          </h4>
-        </Grid.Column>
-        <Grid.Column
-          floated="right"
-          style={{ padding: '30px', paddingTop: '10px'}}
-          width={4}
-        >
-          <h4 style={contactInfoTextStyles}>
-            {t('email', { email: data.site.siteMetadata.officialEmail })}
-          </h4>
-          <h4 style={contactInfoTextStyles}>
-            {t('address', { address: data.site.siteMetadata.officialAddress })}
-          </h4>
-          <div style={{ padding: '30px', paddingLeft: '80px' }}>
-            <FooterInfoLanguageSwitcher />
-          </div>
-        </Grid.Column>
-      </Grid>
+      <div style={containerStyles}>
+        <Grid container>
+          <Grid.Column width={6}>
+            <div style={{ fontSize: '18px' }}>
+              <FooterInfoLink to={`bp-info`} content={t('bp_info')} />
+              <span style={dividerStyles}>|</span>
+              <FooterInfoLink to={`code-of-conduct`} content={t('code_of_conduct')} />
+              <span style={dividerStyles}>|</span>
+              <FooterInfoLink to={`ownership`} content={t('ownership')} />
+            </div>
+            <div style={{ fontSize: '16px' }}>
+              <FooterInfoLink to={`terms-of-use`} content={t('terms_of_use')} />
+              <span style={dividerStyles}>|</span>
+              <FooterInfoLink to={`privacy-policy`} content={t('privacy_policy')} />
+            </div>
+            <h4 style={copyrightStyles}>
+              <span style={{ margin: '5px' }}>&#9400;</span>
+              {t('copyright_text')}
+            </h4>
+          </Grid.Column>
+          <Grid.Column
+            floated="right"
+            style={{ padding: '30px', paddingTop: '10px'}}
+            width={4}
+          >
+            <h4 style={contactInfoTextStyles}>
+              {t('email', { email: data.site.siteMetadata.officialEmail })}
+            </h4>
+            <h4 style={contactInfoTextStyles}>
+              {t('address', { address: data.site.siteMetadata.officialAddress })}
+            </h4>
+            <div style={{ padding: '30px', paddingLeft: '80px' }}>
+              <FooterInfoLanguageSwitcher />
+            </div>
+          </Grid.Column>
+        </Grid>
+      </div>
     )
   }
 }

@@ -31,7 +31,7 @@ class FooterConnectBanner extends Component {
 
     return (
       <div style={{ backgroundColor: '#0091E2' }}>
-        <Grid style={containerStyle}>
+        <Grid container style={containerStyle}>
           <Grid.Column width={8}>
             <h3 style={textStyle}>
               {t('connect_with_us')}
