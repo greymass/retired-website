@@ -10,8 +10,10 @@ class ProjectList extends React.Component {
   render() {
     const {
       images,
+      platform,
       primary,
       projects,
+      t,
     } = this.props;
 
     const settings = {
@@ -25,29 +27,45 @@ class ProjectList extends React.Component {
     };
 
     return (
-      <Slider {...settings}>
-        {projects.map(project => (
-          <ProjectListCard
-            images={images}
-            primary={primary}
-            project={project}
-          />
-        ))}
-      </Slider>
+      <div className={projectListStyles.container} >
+        {primary ? (
+          <h2 className={projectListStyles.primaryHeader}>{t('project_list_primary_header')}</h2>
+        ) : (
+          <h3 className={projectListStyles.secondaryHeader}>{t(`projects_platform_${platform}`)}</h3>
+        )}
+
+        <Slider
+          className={primary ?
+            projectListStyles.primaryCarousel :
+            projectListStyles.secondaryCarousel
+          }
+          {...settings}
+        >
+          {projects.filter(project => project.platform === platform).map(project => (
+            <div>
+              <ProjectListCard
+                images={images}
+                primary={primary}
+                project={project}
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
     );
   }
 }
 
 const PrevArrow = ({onClick}) => (
-  <div className={projectListStyles.arrow} onClick={onClick}>
+  <div className={`${projectListStyles.arrow} ${projectListStyles.arrowLeft}`} onClick={onClick}>
     <Icon className={projectListStyles.arrowIcon} name="arrow left" />
   </div>
 );
 
 const NextArrow = ({onClick}) => (
-  <div className={projectListStyles.arrow} onClick={onClick}>
+  <div className={`${projectListStyles.arrow} ${projectListStyles.arrowRight}`} onClick={onClick}>
     <Icon className={projectListStyles.arrowIcon} name="arrow right" />
   </div>
 );
 
-export default translate('about')(ProjectList);
+export default translate('projects')(ProjectList);

@@ -17,10 +17,10 @@ class Projects extends Component {
         { () => (
           <div>
             <Header />
-            <ProjectList images={data.images} projects={projects} category="eos" primary />
+            <ProjectList images={data.images} projects={projects} platform="eos" primary />
             <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
-            <ProjectList images={data.images} projects={projects} category="steem" />
-            <ProjectList images={data.images} projects={projects} category="others" />
+            <ProjectList images={data.images} projects={projects} platform="steem" />
+            <ProjectList images={data.images} projects={projects} platform="others" />
           </div>
         )}
       </Layout>
@@ -36,11 +36,11 @@ export default props => (
             edges {
               node {
                 projects {
-                  category
                   description
                   featured
                   githubLink
                   name
+                  platform
                   projectKey
                 }
               }

@@ -7,13 +7,15 @@ import { translate } from 'react-i18next';
 
 import Img from 'gatsby-image';
 
-import homeProjectCardStyles from './card.module.css';
+import projectCardStyles from './card.module.css';
 
 class ProjectCard extends Component {
   render() {
     const {
       images,
+      primary,
       project,
+      t,
     } = this.props;
 
     const {
@@ -26,7 +28,11 @@ class ProjectCard extends Component {
       images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(projectKey));
 
     return (
-      <div>
+      <div className={`${projectCardStyles.container } ${
+        primary ?
+          projectCardStyles.primaryContainer :
+          projectCardStyles.secondaryContainer
+      }`}>
         <Link to={linkTo}>
           {image && (
             <Img
@@ -37,10 +43,10 @@ class ProjectCard extends Component {
           )}
 
           <Container
-            className={homeProjectCardStyles.bottomContainer}
+            className={projectCardStyles.bottomContainer}
           >
-            <h4 className={homeProjectCardStyles.text}>
-              {description}
+            <h4 className={projectCardStyles.text}>
+              {t(description)}
             </h4>
           </Container>
         </Link>
