@@ -1,11 +1,61 @@
 .arrow {
+  background-color: var(--mainGrey);
   border-radius: 50%;
   margin: 10px;
   padding: 30px 12px 18px 16px;
-  background-color: var(--mainGrey);
+  width: 70px;
+}
+
+.arrowRight {
+  float: right;
+  margin-top: -200px;
+  margin-left: 50px;
+}
+
+.arrowLeft {
+  float: left;
+  margin-top: 100px;
+  margin-right: 50px;
 }
 
 .arrowIcon {
+  color: var(--mainBlack);
   font-size: 30px !important;
-  color: var(--mainBlack)
+}
+
+.container {
+  background-color: white;
+  padding: 30px 20px 30px 20px;
+}
+
+.primaryCarousel {
+  max-width: 50%;
+  margin: auto;
+}
+
+.secondaryCarousel {
+  max-width: 90%;
+}
+
+.primaryHeader {
+  color: var(--mainBlack);
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  margin: 50px 20% 50px 20%;
+}
+
+.secondaryHeader {
+  color: var(--mainBlack);
+  font-family: Montserrat, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  margin: 30px 10% 30px 10%;
+  text-transform: uppercase;
 }

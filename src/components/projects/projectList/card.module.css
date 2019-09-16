@@ -1,3 +1,15 @@
+.container {
+  border: solid 1px var(--mainGrey);
+}
+
+.primaryContainer {
+  width: 300px
+}
+
+.secondaryContainer {
+  margin: 10px;
+}
+
 .bottomContainer {
   background-color: var(--mainGrey);
   padding: 50px 20px 50px 20px;
