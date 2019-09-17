@@ -1,11 +1,17 @@
 .container {
   background-color: var(--anchorGreen);
   padding: 100px 0 100px 0;
-  width: 100%;
 }
 
 .image {
+  margin: auto;
   width: 500px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .image {
+    width: 300px;
+  }
 }
 
 .nameText {
