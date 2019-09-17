@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Grid, Icon, Container } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { Link } from 'gatsby';
 

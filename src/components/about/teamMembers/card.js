@@ -53,12 +53,11 @@ class AboutTeamMembersCard extends Component {
               <div>
                 {description}
                 <span
-                  className={aboutTeamMembersCardStyles.expandButtonStyles}
-                  style={{
-                    display: 'block',
-                    textAlign: 'center',
-                    marginTop: '30px',
-                  }}
+                  className={`${
+                    aboutTeamMembersCardStyles.expandButtonStyles
+                  } ${
+                    aboutTeamMembersCardStyles.expandedButtonStyles
+                  }`}
                   onClick={() => this.setState({ expanded: false })}
                 >
                   {t('team_member_card_read_less')}

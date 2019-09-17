@@ -1,14 +1,16 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
+
+import { graphql, StaticQuery } from 'gatsby';
+import { translate } from 'react-i18next';
 
 import Layout from '../components/layout';
-import Header from '../components/projects/header';
+import SharedHeader from '../components/shared/header';
 import ProjectList from '../components/projects/projectList';
 import FeaturedProject from '../components/projects/featuredProject';
-import { graphql, StaticQuery } from "gatsby"
 
 class Projects extends Component {
   render() {
-    const { data } = this.props;
+    const { data, t } = this.props;
     const projects = data.allDataJson.edges[0].node.projects;
     const featuredProject = projects.find(project => project.featured === true);
 
@@ -16,7 +18,10 @@ class Projects extends Component {
       <Layout>
         { () => (
           <div>
-            <Header />
+            <SharedHeader
+              title={t('header_title')}
+              paragraph={t('header_paragraph')}
+            />
             <ProjectList images={data.images} projects={projects} platform="eos" primary />
             <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
             <ProjectList images={data.images} projects={projects} platform="steem" />
@@ -27,6 +32,8 @@ class Projects extends Component {
     )
   }
 }
+
+const ProjectsWrapper = translate('projects')(Projects);
 
 export default props => (
   <StaticQuery
@@ -59,7 +66,7 @@ export default props => (
           }
        }
     `}
-    render={data => <Projects data={data} {...props} />}
+    render={data => <ProjectsWrapper data={data} {...props} />}
   />
 );
 
