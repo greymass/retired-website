@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid, Icon, Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { Link } from 'gatsby';
 
@@ -17,13 +17,13 @@ class FeaturedProject extends Component {
     } = this.props;
 
     const image =
-      images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(project.projectKey))
+      images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(project.projectKey));
 
     return (
       <div className={featuredProjectStyles.container}>
-        <Grid stackable>
-          <Grid.Column width={2} />
-          <Grid.Column width={5} >
+        <Grid container>
+          <Grid.Column mobile={16} tablet={16} computer={1} />
+          <Grid.Column mobile={16} tablet={16} computer={6} >
             {image && (
               <Img
                 alt='greymass-header-image'
@@ -33,8 +33,8 @@ class FeaturedProject extends Component {
             )}
 
           </Grid.Column>
-          <Grid.Column />
-          <Grid.Column width={6} >
+          <Grid.Column mobile={0} tablet={0} computer={2} />
+          <Grid.Column mobile={16} tablet={16} computer={6} >
             <h4 className={featuredProjectStyles.nameText}>
               {t(project.name)}
             </h4>

@@ -1,3 +1,8 @@
+.container {
+  margin-top: 50px !important;
+  margin-bottom: 100px !important;
+}
+
 .headerText {
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;

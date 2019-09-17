@@ -1,13 +1,14 @@
 .container {
   border: solid 1px var(--mainGrey);
+  margin: auto;
 }
 
 .primaryContainer {
-  width: 300px
+  width: 340px
 }
 
 .secondaryContainer {
-  margin: 10px;
+  width: 240px;
 }
 
 .bottomContainer {
