@@ -48,4 +48,7 @@
   letter-spacing: 0.02em;
   line-height: 21px;
   margin-left: 20px;
+  display: block;
+  text-align: center;
+  margin-top: 30px;
 }
