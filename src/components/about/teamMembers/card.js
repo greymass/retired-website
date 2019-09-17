@@ -54,9 +54,9 @@ class AboutTeamMembersCard extends Component {
                 {description}
                 <span
                   className={`${
-                    aboutTeamMembersCardStyles.expandButtonStyles
+                    aboutTeamMembersCardStyles.expandButton
                   } ${
-                    aboutTeamMembersCardStyles.expandedButtonStyles
+                    aboutTeamMembersCardStyles.expandedButton
                   }`}
                   onClick={() => this.setState({ expanded: false })}
                 >
