@@ -1,55 +1,35 @@
 
-import React, { Component } from "react";
-import { css } from "@emotion/core";
-import { Link, graphql } from "gatsby";
+import React, { Component } from 'react';
+import { graphql } from 'gatsby';
 
 import { translate } from 'react-i18next';
+import { Grid } from 'semantic-ui-react';
 
-import { rhythm } from "../utils/typography";
 import Layout from '../components/layout';
+import FeaturedBlogPosts from '../components/shared/featuredBlogPosts';
+
+import BlogPostList from '../components/blog/BlogPostList';
+import RecentPodcasts from '../components/blog/RecentPodcasts';
 
 class Blog extends Component {
   render() {
-    const { data, i18n, t } = this.props;
-
     return (
       <Layout>
         { () => (
-          <React.Fragment>
-            <h4>{t('posts')}</h4>
-            {data
-              .allMarkdownRemark.edges
-              .filter( ({ node }) => node.fields.slug.includes(`${i18n.language}/`))
-              .map(({ node }) => (
-                <div key={node.id}>
-                  <Link
-                    to={node.fields.slug}
-                    css={css`
-                            text-decoration: none;
-                            color: inherit;
-                          `}
-                  >
-                    <h3
-                      css={css`
-                              margin-bottom: ${rhythm(1 / 4)};
-                            `}
-                    >
-                      {node.frontmatter.title}{" "}
-                      <span
-                        css={css`
-                                color: #bbb;
-                              `}
-                      >
-                          — {node.frontmatter.date}
-                          </span>
-                    </h3>
-                    <p>{node.excerpt}</p>
-                  </Link>
-                </div>
-              ))}
-            </React.Fragment>
-          )}
-        </Layout>
+          <div>
+            <FeaturedBlogPosts primary title="home:blog_posts_title" />
+
+            <Grid stackable>
+              <Grid.Column>
+                <BlogPostList />
+              </Grid.Column>
+              <Grid.Column>
+                <RecentPodcasts />
+              </Grid.Column>
+            </Grid>
+          </div>
+        )}
+      </Layout>
     )
   }
 }
@@ -75,5 +55,4 @@ export const query = graphql`
       }
     }
   }
-`
-
+`;

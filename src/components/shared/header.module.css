@@ -32,7 +32,11 @@
 .blueBar {
   background-color: var(--mainBlue);
   float: right;
-  height: 120px;
+  height: 50px;
   margin-top: 60px;
   width: 10px;
+}
+
+.longBlueBar {
+  height: 120px;
 }
