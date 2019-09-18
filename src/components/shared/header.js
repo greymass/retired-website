@@ -11,7 +11,9 @@ export default class SharedHeader extends Component {
     return (
       <Grid container className={sharedHeaderStyles.container} basic>
         <Grid.Column>
-          <div className={sharedHeaderStyles.blueBar} />
+          <div className={`${sharedHeaderStyles.blueBar} ${
+            paragraph ? sharedHeaderStyles.longBlueBar :  ''
+          }`}/>
         </Grid.Column>
         <Grid.Column width={10} >
           <h4 className={sharedHeaderStyles.headerText}>
@@ -24,4 +26,6 @@ export default class SharedHeader extends Component {
       </Grid>
     )
   }
+}
+
 }
