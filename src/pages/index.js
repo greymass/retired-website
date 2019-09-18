@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 import HomeHeader from '../components/home/header';
 import HomeProjects from '../components/home/projects';
 import HomeAbout from '../components/home/about';
-import HomeBlogPosts from '../components/home/blogPosts';
+import FeaturedBlogPosts from '../components/shared/featuredblogPosts';
 import HomeNewsletter from '../components/home/newsletter';
 
 class Index extends Component {
@@ -16,7 +16,7 @@ class Index extends Component {
             <HomeHeader />
             <HomeProjects />
             <HomeAbout />
-            <HomeBlogPosts />
+            <FeaturedBlogPosts title="home:blog_posts_title" />
             <HomeNewsletter />
           </div>
         )}

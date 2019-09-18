@@ -38,35 +38,39 @@ const ProjectsWrapper = translate('projects')(Projects);
 export default props => (
   <StaticQuery
     query={graphql`
-       query {
-          allDataJson(filter: {projects: {elemMatch: {name: {ne: null}}}}) {
-            edges {
-              node {
-                projects {
-                  description
-                  featured
-                  githubLink
-                  name
-                  platform
-                  projectKey
-                }
-              }
-            }
-          }
-          images: allFile(filter: {relativeDirectory: {regex: "/projects/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
-            edges {
-              node {
-                childImageSharp {
-                  fluid(maxWidth: 600) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-       }
+
     `}
     render={data => <ProjectsWrapper data={data} {...props} />}
   />
 );
+
+export const query = graphql`
+  query {
+    allDataJson(filter: {projects: {elemMatch: {name: {ne: null}}}}) {
+      edges {
+        node {
+          projects {
+            description
+            featured
+            githubLink
+            name
+            platform
+            projectKey
+          }
+        }
+      }
+    }
+    images: allFile(filter: {relativeDirectory: {regex: "/projects/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 600) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
