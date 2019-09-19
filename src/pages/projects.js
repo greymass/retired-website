@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import { translate } from 'react-i18next';
 
 import Layout from '../components/layout';
@@ -33,16 +33,7 @@ class Projects extends Component {
   }
 }
 
-const ProjectsWrapper = translate('projects')(Projects);
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-
-    `}
-    render={data => <ProjectsWrapper data={data} {...props} />}
-  />
-);
+export default translate('projects')(Projects);
 
 export const query = graphql`
   query {

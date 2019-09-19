@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
 import { Grid } from 'semantic-ui-react';
 
@@ -26,6 +26,4 @@ export default class SharedHeader extends Component {
       </Grid>
     )
   }
-}
-
 }

@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
 import { Container, Grid } from 'semantic-ui-react';
 import { Link } from 'gatsby';

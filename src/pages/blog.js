@@ -8,8 +8,8 @@ import { Grid } from 'semantic-ui-react';
 import Layout from '../components/layout';
 import FeaturedBlogPosts from '../components/shared/featuredBlogPosts';
 
-import BlogPostList from '../components/blog/BlogPostList';
-import RecentPodcasts from '../components/blog/RecentPodcasts';
+import BlogPostList from '../components/blog/blogPostList';
+import RecentPodcasts from '../components/blog/recentPodcasts';
 
 class Blog extends Component {
   render() {
