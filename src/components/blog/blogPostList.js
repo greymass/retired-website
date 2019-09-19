@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 
 import { List } from 'semantic-ui-react';
 
-import BlogPostListItem from './BlogPostList/Item';
+import BlogPostListItem from './blogPostList/item';
 import { graphql, StaticQuery } from "gatsby"
 
 class BlogPostList extends Component {
   render() {
-    const { data } = this.props;
+    const { data, i18n } = this.props;
 
     return (
       <List>
@@ -27,7 +27,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC, limit: 4 }) {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
               id

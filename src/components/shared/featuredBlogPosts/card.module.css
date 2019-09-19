@@ -1,11 +1,9 @@
 
 .container {
   background-color: var(--mainGrey);
-  padding: 20px;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 35%;
+  min-height: 200px;
 }
-
 .primaryContainer {
   background-color: var(--mainBlue);
 }

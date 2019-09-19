@@ -1,12 +1,11 @@
 import React, { Component } from "react"
 
-import { Icon, Grid } from "semantic-ui-react"
+import { Icon, Grid } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-import { graphql, Link, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from 'gatsby';
 
 import FeaturedBlogPostsCard from './featuredBlogPosts/card';
-
-import Header from './Header';
+import Header from './header';
 
 import featuredBlogPostsStyles from './featuredBlogPosts.module.css';
 
@@ -14,6 +13,7 @@ class FeaturedBlogPosts extends Component {
   render() {
     const {
       data,
+      i18n,
       primary,
       t,
       title
@@ -26,23 +26,23 @@ class FeaturedBlogPosts extends Component {
     return (
       <div className={featuredBlogPostsStyles.container}>
         {primary ? (
-          <Header title={title} />
+          <Header title={t(title)} />
         ) : (
           <h4 className={featuredBlogPostsStyles.headerText}>
-            {title}
+            {t(title)}
           </h4>
         )}
 
         <Grid container stackable centered padded>
           <FeaturedBlogPostsCard
-            linkTo={featuredBlogPosts[0].fields.slug}
+            linkTo={featuredBlogPosts[0].node.fields.slug}
             primary
-            text={featuredBlogPosts[0].frontmatter.title}
+            text={featuredBlogPosts[0].node.frontmatter.title}
           />
-          {featuredBlogPosts.slice(1, -1).map(featuredBlogPost => (
+          {featuredBlogPosts.slice(1).map(featuredBlogPost => (
             <FeaturedBlogPostsCard
-              linkTo={featuredBlogPost.fields.slug}
-              text={t(featuredBlogPost.frontmatter.title)}
+              linkTo={featuredBlogPost.node.fields.slug}
+              text={t(featuredBlogPost.node.frontmatter.title)}
             />
           ))}
         </Grid>
@@ -57,13 +57,13 @@ class FeaturedBlogPosts extends Component {
   }
 }
 
-const FeaturedBlogPostsWrapper = translate('home')(FeaturedBlogPosts);
+const FeaturedBlogPostsWrapper = translate()(FeaturedBlogPosts);
 
 export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC, limit: 4 }) {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
           edges {
             node {
               frontmatter {
