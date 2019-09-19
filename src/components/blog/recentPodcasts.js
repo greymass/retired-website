@@ -24,12 +24,15 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        recentPodcastsJson {
+        allDataJson(filter: {podcasts: {elemMatch: {title: {ne: null}}}}) {
           edges {
             node {
-              title
-              date
-              link
+              podcasts {
+                title
+                description
+                date
+                link
+              }
             }
           }
         }
