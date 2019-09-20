@@ -2,9 +2,10 @@
 import React, { Component } from 'react';
 
 import { List } from 'semantic-ui-react';
+import { graphql, StaticQuery } from 'gatsby';
+import { translate } from 'react-i18next';
 
 import BlogPostListItem from './blogPostList/item';
-import { graphql, StaticQuery } from "gatsby"
 
 class BlogPostList extends Component {
   render() {
@@ -22,6 +23,8 @@ class BlogPostList extends Component {
     );
   }
 }
+
+const BlogPostListWrapper = translate()(BlogPostList);
 
 export default props => (
   <StaticQuery
@@ -44,7 +47,7 @@ export default props => (
         }
       }
     `}
-    render={data => <BlogPostList data={data} {...props} />}
+    render={data => <BlogPostListWrapper data={data} {...props} />}
   />
 );
 
