@@ -11,7 +11,7 @@ class BlogRecentPodcasts extends Component {
     return (
       <List>
         {data
-          .recentPodcastsJson.edges
+          .allDataJson.edges
           .map(({ node }) => (
             <Podcast podcast={node} />
           ))}

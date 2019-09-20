@@ -1,3 +1,7 @@
+.gridComponent {
+  margin: auto !important;
+}
+
 .container {
   background-color: white;
   border-bottom: 2px solid var(--mainBlue);
