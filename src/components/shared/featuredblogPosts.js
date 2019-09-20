@@ -33,7 +33,7 @@ class FeaturedBlogPosts extends Component {
           </h4>
         )}
 
-        <Grid container stackable centered padded>
+        <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
           <FeaturedBlogPostsCard
             linkTo={featuredBlogPosts[0].node.fields.slug}
             primary
