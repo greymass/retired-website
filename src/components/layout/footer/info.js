@@ -15,7 +15,7 @@ class FooterInfo extends Component {
     return (
       <div className={footerInfoStyles.container}>
         <Grid container>
-          <Grid.Column width={6}>
+          <Grid.Column width={8}>
             <div>
               <FooterInfoLink to={`bp-info`} content={t('bp_info')} />
               <span className={footerInfoStyles.divider}>|</span>
