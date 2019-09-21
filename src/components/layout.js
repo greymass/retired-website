@@ -1,22 +1,24 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../utils/i18n';
 
 import { graphql, StaticQuery } from "gatsby"
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 import { Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-
-import 'semantic-ui-less/semantic.less';
 
 import LayoutHeader from './layout/header';
 import LayoutFooter from './layout/footer';
 
+import layoutStyles from './layout.module.css';
+
+import 'semantic-ui-less/semantic.less';
+
 class Layout extends Component {
   render() {
     const {
-      backgroundColor,
+      containerClassName,
       children,
       data,
       i18n: i18nObject
@@ -26,7 +28,7 @@ class Layout extends Component {
 
     return (
       <I18nextProvider i18n={i18n}>
-        <div style={{ backgroundColor: backgroundColor|| '#F4F4F4' }}>
+        <div className={(layoutStyles[containerClassName || 'greyBackground'])}>
           <Helmet>
             <meta charSet="utf-8" />
             <title>{data.site.siteMetadata.title}</title>

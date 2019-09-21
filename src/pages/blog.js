@@ -14,7 +14,7 @@ import RecentPodcasts from '../components/blog/recentPodcasts';
 class Blog extends Component {
   render() {
     return (
-      <Layout backgroundColor="white">
+      <Layout containerClassName="whiteBackground">
         { () => (
           <div>
             <FeaturedBlogPosts primary title="blog:featured_blog_post_title" />

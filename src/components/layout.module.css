@@ -1,0 +1,7 @@
+.whiteBackground {
+  background-color: white;
+}
+
+.greyBackground {
+  background-color: var(--lightGrey);
+}
