@@ -19,12 +19,12 @@ class Blog extends Component {
           <div>
             <FeaturedBlogPosts primary title="blog:featured_blog_post_title" />
 
-            <Grid stackable>
-              <Grid.Column width={8}>
+            <Grid stackable container>
+              <Grid.Column width={10}>
                 <BlogPostList />
               </Grid.Column>
               <Grid.Column />
-              <Grid.Column width={6}>
+              <Grid.Column width={5}>
                 <RecentPodcasts />
               </Grid.Column>
             </Grid>

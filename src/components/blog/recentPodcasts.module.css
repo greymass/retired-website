@@ -1,0 +1,54 @@
+.container {
+  padding: 80px 0;
+}
+
+.header {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 28px;
+}
+
+.link {
+  color: var(--mainBlue);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  line-height: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.linkIcon {
+  margin-left: 10px !important;
+}
+
+.podcastContainer {
+  padding: 15px 0;
+}
+
+.podcastHeader {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+
+.podcastDate {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin-top: 0;
+}

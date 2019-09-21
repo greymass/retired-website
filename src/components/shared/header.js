@@ -10,7 +10,7 @@ export default class SharedHeader extends Component {
 
     return (
       <Grid container className={sharedHeaderStyles.container} basic>
-        <Grid.Column width={2}>
+        <Grid.Column>
           <div className={`${sharedHeaderStyles.blueBar} ${
             paragraph ? sharedHeaderStyles.longBlueBar :  ''
           }`}/>
