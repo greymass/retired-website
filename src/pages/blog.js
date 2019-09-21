@@ -14,16 +14,17 @@ import RecentPodcasts from '../components/blog/recentPodcasts';
 class Blog extends Component {
   render() {
     return (
-      <Layout>
+      <Layout backgroundColor="white">
         { () => (
           <div>
-            <FeaturedBlogPosts primary title="home:blog_posts_title" />
+            <FeaturedBlogPosts primary title="blog:featured_blog_post_title" />
 
             <Grid stackable>
-              <Grid.Column>
+              <Grid.Column width={8}>
                 <BlogPostList />
               </Grid.Column>
-              <Grid.Column>
+              <Grid.Column />
+              <Grid.Column width={6}>
                 <RecentPodcasts />
               </Grid.Column>
             </Grid>
@@ -34,7 +35,7 @@ class Blog extends Component {
   }
 }
 
-export default translate('blog')(Blog);
+export default translate()(Blog);
 
 export const query = graphql`
   query {
