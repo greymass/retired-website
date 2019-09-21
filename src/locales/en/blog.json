@@ -1,5 +1,7 @@
 {
-  "posts": "Posts",
+  "blog_post_list_title": "Recent Mumblings",
   "featured_blog_post_title": "Stay Up To Date",
-  "blog_post_list_title": "Recent Mumblings"
+  "posts": "Posts",
+  "recent_podcasts_header": "Recent Podcasts",
+  "recent_podcasts_link": "See All Podcasts"
 }

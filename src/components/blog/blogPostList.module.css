@@ -1,5 +1,5 @@
 .container {
-  padding: 80px 20%;
+  padding: 80px 6%;
 }
 
 .headerText {
@@ -10,7 +10,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 44px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .list {
