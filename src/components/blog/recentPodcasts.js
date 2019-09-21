@@ -12,7 +12,9 @@ class BlogRecentPodcasts extends Component {
   render() {
     const { data, i18n, t } = this.props;
 
-    return (i18n.language === 'en') ? (
+    const cleanedUpLocaleName = i18n.language.split('-')[0];
+
+    return (cleanedUpLocaleName === 'en') ? (
       <div className={recentPodcastsStyles.container}>
         <h3 className={recentPodcastsStyles.header}>
           {t('recent_podcasts_header')}
