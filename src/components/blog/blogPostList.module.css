@@ -1,0 +1,18 @@
+.container {
+  padding: 80px 20%;
+}
+
+.headerText {
+  color: var(--mainBlack);
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  margin-bottom: 80px;
+}
+
+.list {
+  padding: 100px;
+}
