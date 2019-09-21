@@ -1,30 +1,43 @@
 
 import React, { Component } from 'react';
 
-import { List } from 'semantic-ui-react';
+import { Icon, List } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
 import { translate } from 'react-i18next';
 
+import recentPodcastsStyles from './recentPodcasts.module.css';
+
 class BlogRecentPodcasts extends Component {
   render() {
-    const { data, i18n } = this.props;
-
-    console.log({data})
+    const { data, i18n, t } = this.props;
 
     return (i18n.language === 'en') ? (
-      <List>
-        {data
-          .allDataJson.edges
-          .map(({ node }) => (
-            <Podcast podcast={node} />
-          ))}
-      </List>
+      <div className={recentPodcastsStyles.container}>
+        <h3 className={recentPodcastsStyles.header}>
+          {t('recent_podcasts_header')}
+        </h3>
+        <List>
+          {data
+            .allDataJson.edges[0].node.podcasts
+            .map((podcast) => {
+              console.log({podcast})
+              return (
+                <Podcast podcast={podcast} />
+              )
+            })}
+        </List>
+
+        <a href="/#podcasts" className={recentPodcastsStyles.link}>
+          {t('recent_podcasts_link')}
+          <Icon name="arrow right" className={recentPodcastsStyles.linkIcon} />
+        </a>
+      </div>
     ) : '';
   }
 }
 
-const BlogRecentPodcastsWrapper = translate()(BlogRecentPodcasts)
+const BlogRecentPodcastsWrapper = translate('blog')(BlogRecentPodcasts)
 
 export default props => (
   <StaticQuery
@@ -48,10 +61,19 @@ export default props => (
   />
 );
 
-const Podcast = ({ podcast }) => (
-  <a href={podcast.link}>
-    <h3>{podcast.title}</h3>
-    <h4>{podcast.date}</h4>
-  </a>
-);
+const Podcast = ({ podcast }) => {
+  return (
+    <a href={podcast.link}>
+      <div className={recentPodcastsStyles.podcastContainer}>
+        <h3 className={recentPodcastsStyles.podcastHeader}>
+          {podcast.title}
+        </h3>
+        <h4 className={recentPodcastsStyles.podcastDate}>
+          <Icon name="calendar alternate outline" />
+          {(new Date(podcast.date).toLocaleDateString())}
+        </h4>
+      </div>
+    </a>
+  );
+}
 

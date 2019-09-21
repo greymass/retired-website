@@ -14,7 +14,7 @@ export default class HomeBlogPostCard extends Component {
     } = this.props;
 
     return (
-      <Grid.Column width={primary ? 4 : 3}>
+      <Grid.Column width={primary ? 6 : 3}>
         <Link to={linkTo}>
           <Container
             className={
