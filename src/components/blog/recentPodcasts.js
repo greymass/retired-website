@@ -2,13 +2,17 @@
 import React, { Component } from 'react';
 
 import { List } from 'semantic-ui-react';
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from 'gatsby';
+
+import { translate } from 'react-i18next';
 
 class BlogRecentPodcasts extends Component {
   render() {
-    const { data } = this.props;
+    const { data, i18n } = this.props;
 
-    return (
+    console.log({data})
+
+    return (i18n.language === 'en') ? (
       <List>
         {data
           .allDataJson.edges
@@ -16,9 +20,11 @@ class BlogRecentPodcasts extends Component {
             <Podcast podcast={node} />
           ))}
       </List>
-    );
+    ) : '';
   }
 }
+
+const BlogRecentPodcastsWrapper = translate()(BlogRecentPodcasts)
 
 export default props => (
   <StaticQuery
@@ -38,7 +44,7 @@ export default props => (
         }
       }
     `}
-    render={data => <BlogRecentPodcasts data={data} {...props} />}
+    render={data => <BlogRecentPodcastsWrapper data={data} {...props} />}
   />
 );
 

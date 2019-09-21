@@ -15,13 +15,18 @@ import LayoutFooter from './layout/footer';
 
 class Layout extends Component {
   render() {
-    const { children, data, i18n: i18nObject } = this.props;
+    const {
+      backgroundColor,
+      children,
+      data,
+      i18n: i18nObject
+    } = this.props;
 
     const cleanedUpLocaleName = i18nObject.language.split('-')[0];
 
     return (
       <I18nextProvider i18n={i18n}>
-        <div style={{ backgroundColor: '#F4F4F4' }}>
+        <div style={{ backgroundColor: backgroundColor|| '#F4F4F4' }}>
           <Helmet>
             <meta charSet="utf-8" />
             <title>{data.site.siteMetadata.title}</title>

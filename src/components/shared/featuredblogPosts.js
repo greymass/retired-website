@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Icon, Grid } from 'semantic-ui-react';
+import { Icon, Grid, Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { graphql, Link, StaticQuery } from 'gatsby';
 
@@ -12,6 +12,7 @@ import featuredBlogPostsStyles from './featuredBlogPosts.module.css';
 class FeaturedBlogPosts extends Component {
   render() {
     const {
+      blogPostLink,
       data,
       i18n,
       primary,
@@ -25,39 +26,43 @@ class FeaturedBlogPosts extends Component {
 
     return (
       <div className={featuredBlogPostsStyles.container}>
-        {primary ? (
-          <Header title={t(title)} />
-        ) : (
-          <h4 className={featuredBlogPostsStyles.headerText}>
-            {t(title)}
-          </h4>
-        )}
+        <Container>
+          {primary ? (
+            <Header title={t(title)} />
+          ) : (
+            <h4 className={featuredBlogPostsStyles.headerText}>
+              {t(title)}
+            </h4>
+          )}
 
-        <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
-          <FeaturedBlogPostsCard
-            linkTo={featuredBlogPosts[0].node.fields.slug}
-            primary
-            text={featuredBlogPosts[0].node.frontmatter.title}
-          />
-          {featuredBlogPosts.slice(1).map(featuredBlogPost => (
+          <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
             <FeaturedBlogPostsCard
-              linkTo={featuredBlogPost.node.fields.slug}
-              text={t(featuredBlogPost.node.frontmatter.title)}
+              linkTo={featuredBlogPosts[0].node.fields.slug}
+              primary
+              text={featuredBlogPosts[0].node.frontmatter.title}
             />
-          ))}
-        </Grid>
-        <div style={{ padding: '60px', paddingBottom: '70px' }}>
-          <Link className={featuredBlogPostsStyles.supportUsLink} to={`projects`}>
-            {t('blog_posts_link')}
-            <Icon name="arrow right" style={{ marginLeft: '5px'}} />
-          </Link>
-        </div>
+            {featuredBlogPosts.slice(1).map(featuredBlogPost => (
+              <FeaturedBlogPostsCard
+                linkTo={featuredBlogPost.node.fields.slug}
+                text={t(featuredBlogPost.node.frontmatter.title)}
+              />
+            ))}
+          </Grid>
+          {blogPostLink && (
+            <div className={featuredBlogPostsStyles.linkContainer}>
+              <Link className={featuredBlogPostsStyles.supportUsLink} to={`projects`}>
+                {t(blogPostLink)}
+                <Icon name="arrow right" style={{ marginLeft: '5px'}} />
+              </Link>
+            </div>
+          )}
+        </Container>
       </div>
     )
   }
 }
 
-const FeaturedBlogPostsWrapper = translate()(FeaturedBlogPosts);
+const FeaturedBlogPostsWrapper = translate('blog')(FeaturedBlogPosts);
 
 export default props => (
   <StaticQuery
