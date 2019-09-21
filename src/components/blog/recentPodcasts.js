@@ -23,7 +23,6 @@ class BlogRecentPodcasts extends Component {
           {data
             .allDataJson.edges[0].node.podcasts
             .map((podcast) => {
-              console.log({podcast})
               return (
                 <Podcast podcast={podcast} />
               )
