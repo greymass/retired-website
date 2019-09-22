@@ -12,12 +12,15 @@ import featuredBlogPostsStyles from './featuredBlogPosts.module.css';
 class FeaturedBlogPosts extends Component {
   render() {
     const {
-      blogPostLink,
+      containerClassName,
+      textClassName,
       data,
+      hasPrimaryPost,
       i18n,
-      primary,
+      link,
       t,
-      title
+      title,
+      withFullHeader
     } = this.props;
 
     const featuredBlogPosts =
@@ -25,12 +28,16 @@ class FeaturedBlogPosts extends Component {
           .filter(({ node }) => node.fields.slug.includes(`${i18n.language}/`));
 
     return (
-      <div className={featuredBlogPostsStyles.container}>
+      <div className={
+        `${featuredBlogPostsStyles.container} ${featuredBlogPostsStyles[containerClassName]}`
+      }>
         <Container>
-          {primary ? (
+          {withFullHeader ? (
             <Header title={t(title)} />
           ) : (
-            <h4 className={featuredBlogPostsStyles.headerText}>
+            <h4 className={
+              `${featuredBlogPostsStyles.headerText} ${featuredBlogPostsStyles[textClassName]}`
+            }>
               {t(title)}
             </h4>
           )}
@@ -38,20 +45,25 @@ class FeaturedBlogPosts extends Component {
           <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
             <FeaturedBlogPostsCard
               linkTo={featuredBlogPosts[0].node.fields.slug}
-              primary
+              primary={hasPrimaryPost}
               text={featuredBlogPosts[0].node.frontmatter.title}
             />
-            {featuredBlogPosts.slice(1).map(featuredBlogPost => (
+            {featuredBlogPosts.slice(1, hasPrimaryPost ? 4 : 5).map(featuredBlogPost => (
               <FeaturedBlogPostsCard
                 linkTo={featuredBlogPost.node.fields.slug}
                 text={t(featuredBlogPost.node.frontmatter.title)}
               />
             ))}
           </Grid>
-          {blogPostLink && (
+          {link && (
             <div className={featuredBlogPostsStyles.linkContainer}>
-              <Link className={featuredBlogPostsStyles.supportUsLink} to={`projects`}>
-                {t(blogPostLink)}
+              <Link
+                className={
+                  `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
+                }
+                to={`blog`}
+              >
+                {t(link)}
                 <Icon name="arrow right" style={{ marginLeft: '5px'}} />
               </Link>
             </div>

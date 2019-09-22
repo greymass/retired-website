@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
+import { Container } from 'semantic-ui-react';
+
 import Layout from '../components/layout';
 
 import blogPostStyles from './blog-post.module.css'
+
+import FeaturedBlogPosts from '../components/shared/featuredBlogPosts';
 
 class BlogPost extends Component {
   render() {
@@ -17,7 +21,15 @@ class BlogPost extends Component {
             <div className={blogPostStyles.headerContainer}>
               <h1 className={blogPostStyles.headerText}>{post.frontmatter.title}</h1>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <Container className={blogPostStyles.markdownContainer}>
+              <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            </Container>
+            <FeaturedBlogPosts
+              containerClassName="lightBlueBackground"
+              link="blog:featured_blog_post_link"
+              textClassName="whiteText"
+              title="blog:featured_blog_post_header"
+            />
           </div>
         )}
       </Layout>

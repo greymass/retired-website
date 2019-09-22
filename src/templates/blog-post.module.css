@@ -18,3 +18,7 @@
   line-height: 66px;
   text-align: center;
 }
+
+.markdownContainer {
+  padding: 60px 0;
+}

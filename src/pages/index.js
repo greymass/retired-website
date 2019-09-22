@@ -16,7 +16,11 @@ class Index extends Component {
             <HomeHeader />
             <HomeProjects />
             <HomeAbout />
-            <FeaturedBlogPosts title="home:blog_posts_title" link="home:blog_post_link" />
+            <FeaturedBlogPosts
+              hasPrimaryPost
+              link="home:blog_posts_link"
+              title="home:blog_posts_title"
+            />
             <HomeNewsletter />
           </div>
         )}
