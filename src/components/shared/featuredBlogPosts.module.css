@@ -10,6 +10,14 @@
   padding: 60px 60px 70px 60px;
 }
 
+.lightBlueBackground {
+  background: var(--lightBlueGradient);
+}
+
+.whiteText {
+  color: white !important;
+}
+
 .headerText {
   color: var(--mainBlack);
   font-family: 'Montserrat', sans-serif;
