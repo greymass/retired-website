@@ -17,7 +17,11 @@ class Blog extends Component {
       <Layout containerClassName="whiteBackground">
         { () => (
           <div>
-            <FeaturedBlogPosts primary title="blog:featured_blog_post_title" />
+            <FeaturedBlogPosts
+              hasPrimaryPost
+              title="blog:featured_blog_post_title"
+              withFullHeader
+            />
 
             <Grid stackable container>
               <Grid.Column width={10}>
