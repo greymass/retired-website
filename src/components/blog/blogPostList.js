@@ -13,6 +13,8 @@ class BlogPostList extends Component {
   render() {
     const { data, i18n, t } = this.props;
 
+    const cleanedUpLocaleName = i18n.language.split('-')[0];
+
     return (
       <div className={blogPostListStyles.container}>
         <h3 className={blogPostListStyles.headerText}>
@@ -21,7 +23,7 @@ class BlogPostList extends Component {
         <List className={blogPostListStyles.list}>
           {data
             .allMarkdownRemark.edges
-            .filter( ({ node }) => node.fields.slug.includes(`${i18n.language}/`))
+            .filter( ({ node }) => node.fields.slug.includes(`${cleanedUpLocaleName}/`))
             .map(({ node }) => (
               <BlogPostListItem blogPost={node} />
             ))}

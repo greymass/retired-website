@@ -21,10 +21,7 @@ class Layout extends Component {
       containerClassName,
       children,
       data,
-      i18n: i18nObject
     } = this.props;
-
-    const cleanedUpLocaleName = i18nObject.language.split('-')[0];
 
     return (
       <I18nextProvider i18n={i18n}>
@@ -41,7 +38,7 @@ class Layout extends Component {
           <Container basic>
             <LayoutHeader />
           </Container>
-          {children(cleanedUpLocaleName)}
+          {children()}
         </div>
         <LayoutFooter />
       </I18nextProvider>

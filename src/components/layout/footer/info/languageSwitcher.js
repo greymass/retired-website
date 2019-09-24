@@ -29,6 +29,8 @@ class FooterInfoLanguageSwitcher extends Component {
   render() {
     const { i18n, t } = this.props;
 
+    const cleanedUpLocaleName = i18n.language.split('-')[0];
+
     const languageOptions = [
       { key: "en", text: t('shared:english'), value: "en" },
       { key: "fr", text: t('shared:french'), value: "fr" },
@@ -41,7 +43,7 @@ class FooterInfoLanguageSwitcher extends Component {
           onChange={this.handleLanguageChange}
           options={languageOptions}
           simple
-          value={i18n.language}
+          value={cleanedUpLocaleName}
         />
       </Menu>
     )
