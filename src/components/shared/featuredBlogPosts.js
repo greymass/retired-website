@@ -23,9 +23,11 @@ class FeaturedBlogPosts extends Component {
       withFullHeader
     } = this.props;
 
+    const cleanedUpLocaleName = i18n.language.split('-')[0];
+
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
-          .filter(({ node }) => node.fields.slug.includes(`${i18n.language}/`));
+          .filter(({ node }) => node.fields.slug.includes(`${cleanedUpLocaleName}/`));
 
     return (
       <div className={
@@ -43,11 +45,14 @@ class FeaturedBlogPosts extends Component {
           )}
 
           <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
-            <FeaturedBlogPostsCard
-              linkTo={featuredBlogPosts[0].node.fields.slug}
-              primary={hasPrimaryPost}
-              text={featuredBlogPosts[0].node.frontmatter.title}
-            />
+            {featuredBlogPosts[0] && (
+              <FeaturedBlogPostsCard
+                linkTo={featuredBlogPosts[0].node.fields.slug}
+                primary={hasPrimaryPost}
+                text={featuredBlogPosts[0].node.frontmatter.title}
+              />
+            )}
+
             {featuredBlogPosts.slice(1, hasPrimaryPost ? 4 : 5).map(featuredBlogPost => (
               <FeaturedBlogPostsCard
                 linkTo={featuredBlogPost.node.fields.slug}
