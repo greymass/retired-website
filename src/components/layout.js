@@ -35,10 +35,9 @@ class Layout extends Component {
               href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto&display=swap"
             />
           </Helmet>
-          <Container basic>
-            <LayoutHeader />
-          </Container>
-          {children()}
+          <LayoutHeader>
+            {children()}
+          </LayoutHeader>
         </div>
         <LayoutFooter />
       </I18nextProvider>

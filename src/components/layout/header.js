@@ -1,77 +1,51 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { Menu } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 
-import LayoutHeaderLink from './header/link';
+import { Responsive } from 'semantic-ui-react';
+import { graphql, StaticQuery } from 'gatsby';
 
-import headerStyles from './header.module.css';
+import HeaderMobile from './header/mobile';
+import HeaderDesktop from './header/desktop';
 
 class Header extends Component {
   render() {
-    const { data, t } = this.props;
+    const { children, data, t } = this.props;
 
     const activeItem = window.location.pathname.split('/')[1];
 
+    const navbarItems = [
+      { as: '/', content: t('home'), key: 'home' },
+      { as: 'about', content: t('about'), key: 'about' },
+      { as: 'projects', content: t('projects'), key: 'projects' },
+      { as: 'blog', content: t('blog'), key: 'blog' },
+    ];
+
     return (
-      <Menu secondary>
-        <Menu.Item>
-          <Link to={`/`}>
-            <div className={headerStyles.imageContainer}>
-              <Img
-                fluid={data.fileName.childImageSharp.fluid}
-                alt="logo"
-              />
-            </div>
-          </Link>
-        </Menu.Item>
-        <Menu.Item>
-          <LayoutHeaderLink
-            active={activeItem === ''}
-            content={t('home')}
-            to={`/`}
+      <div>
+        <Responsive {...Responsive.onlyMobile}>
+          <HeaderMobile
+            activeItem={activeItem}
+            data={data}
+            navbarItems={navbarItems}
+          >
+            {children}
+          </HeaderMobile>
+        </Responsive>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <HeaderDesktop
+            activeItem={activeItem}
+            navbarItems={navbarItems}
+            data={data}
           />
-        </Menu.Item>
-        <Menu.Item>
-          <LayoutHeaderLink
-            active={activeItem === 'about'}
-            content={t('about')}
-            to={`about`}
-          />
-        </Menu.Item>
-        <Menu.Item>
-          <LayoutHeaderLink
-            active={activeItem === 'projects'}
-            content={t('projects')}
-            to={`projects`}
-          />
-        </Menu.Item>
-        <Menu.Item>
-          <LayoutHeaderLink
-            active={activeItem === 'blog'}
-            content={t('blog')}
-            to={`blog`}
-          />
-        </Menu.Item>
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Link to={`support_us`}>
-              <div className={headerStyles.supportUsButton}>
-                <h3 style={headerStyles.supportUsText}>
-                  {t('support_us')}
-                </h3>
-              </div>
-            </Link>
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
+          {children}
+        </Responsive>
+      </div>
     )
   }
 }
 
-const HeaderWrapper = translate('layout')(Header);
+const HeaderWrapper = translate('navbar')(Header);
 
 export default props => (
   <StaticQuery
@@ -89,5 +63,3 @@ export default props => (
     render={data => <HeaderWrapper data={data} {...props} />}
   />
 );
-
-
