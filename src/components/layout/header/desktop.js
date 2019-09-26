@@ -8,7 +8,7 @@ import Img from 'gatsby-image';
 
 import LayoutHeaderLink from './desktop/link';
 
-import desktopHeaderStyles from './desktop.module.css';
+import sharedHeaderStyles from './shared.module.css';
 
 class HeaderDesktop extends Component {
   render() {
@@ -25,7 +25,7 @@ class HeaderDesktop extends Component {
       <Menu secondary>
         <Menu.Item>
           <Link to={`/`}>
-            <div className={desktopHeaderStyles.imageContainer}>
+            <div className={sharedHeaderStyles.imageContainer}>
               <Img
                 fluid={data.fileName.childImageSharp.fluid}
                 alt="logo"
@@ -47,8 +47,8 @@ class HeaderDesktop extends Component {
         <Menu.Menu position='right'>
           <Menu.Item>
             <Link to={`support_us`}>
-              <div className={desktopHeaderStyles.supportUsButton}>
-                <h3 style={desktopHeaderStyles.supportUsText}>
+              <div className={sharedHeaderStyles.supportUsButton}>
+                <h3 style={sharedHeaderStyles.supportUsText}>
                   {t('support_us')}
                 </h3>
               </div>
