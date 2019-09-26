@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.image {
+  width: 100%;
+}
+
 .arrowDownIcon {
   color: var(--mainBlack);
   left: 0;
@@ -42,4 +46,20 @@
   letter-spacing: 0.02em;
   line-height: 25px;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 800px) {
+  .arrowDownIcon {
+    top: 25px;
+  }
+
+  .headerText {
+    font-size: 24px;
+    margin: 12px;
+    padding-top: 0;
+  }
+
+  .supportUsLink {
+    font-size: 18px;
+  }
 }

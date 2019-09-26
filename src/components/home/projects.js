@@ -1,11 +1,12 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
-import { Icon, Grid } from 'semantic-ui-react';
+import { Icon, Grid, Responsive } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import HomeProjectCard from './projects/card';
 
-import homeAboutBackground from '../../images/homeAboutBackground.svg';
+import projectsBackgroundForDesktop from '../../images/projectsBackgroundForDesktop.svg';
+import projectsBackgroundForMobile from '../../images/projectsBackgroundForMobile.svg';
 
 import homeProjectsStyles from './projects.module.css';
 
@@ -17,11 +18,20 @@ class HomeProjects extends Component {
       <div>
         <div className={homeProjectsStyles.arrowDownContainer}>
           <Icon name="arrow down" className={homeProjectsStyles.arrowDownIcon} />
-          <img
-            alt='projects-page-background'
-            src={homeAboutBackground}
-            style={{ width: '100%' }}
-          />
+          <Responsive {...Responsive.onlyMobile}>
+            <img
+              alt='projects-page-background-mobile'
+              src={projectsBackgroundForMobile}
+              className={homeProjectsStyles.image}
+            />
+          </Responsive>
+          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+            <img
+              alt='projects-page-background-desktop'
+              src={projectsBackgroundForDesktop}
+              className={homeProjectsStyles.image}
+            />
+          </Responsive>
         </div>
 
         <div className={homeProjectsStyles.container}>
