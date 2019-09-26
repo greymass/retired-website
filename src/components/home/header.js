@@ -17,7 +17,7 @@ class HomeHeader extends Component {
         </h4>
         <img
           alt='greymass-header'
-          className={homeHeaderStyles.background}
+          className={homeHeaderStyles.image}
           src={greymassHeaderBackground}
         />
         <h4 className={homeHeaderStyles.headerText}>
