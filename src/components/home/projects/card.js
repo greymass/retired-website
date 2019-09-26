@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Container, Grid, Icon } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
@@ -38,7 +38,7 @@ export default class HomeProjectCard extends Component {
             </div>
           )}
 
-          <Container
+          <div
             className={
               `${homeProjectCardStyles.bottomContainer} ${
                 primary ? homeProjectCardStyles.primaryBottomContainer : ''
@@ -48,7 +48,7 @@ export default class HomeProjectCard extends Component {
             <h4 className={homeProjectCardStyles.text}>
               {text}
             </h4>
-          </Container>
+          </div>
         </Link>
       </Grid.Column>
     )
