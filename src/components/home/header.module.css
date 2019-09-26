@@ -1,4 +1,4 @@
-.background {
+.image {
   display: block;
   margin: auto;
   max-width: 800px;
@@ -35,4 +35,25 @@
   text-transform: uppercase;
   font-size: 16px;
   margin-left: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  .image {
+    max-width: 80%;
+    margin-bottom: 30px;
+    line-height: 20px;
+  }
+
+  .headerText {
+    font-size: 14px;
+    padding: 30px 40px;
+  }
+
+  .subheaderText {
+    font-size: 12px;
+  }
+
+  .supportUsLink {
+    font-size: 12px;
+  }
 }
