@@ -4,7 +4,12 @@ import { translate } from 'react-i18next';
 
 import { Icon, Sidebar, Menu } from 'semantic-ui-react';
 
+import Img from 'gatsby-image';
 import { Link } from 'gatsby';
+
+import headerStyles from '../header.module.css';
+
+import mobileHeaderStyles from './mobile.module.css'
 
 class HeaderMobile extends Component {
   state = { visible: false };
@@ -18,7 +23,7 @@ class HeaderMobile extends Component {
   handleToggle = () => this.setState({ visible: !this.state.visible });
 
   render() {
-    const { children, navbarItems } = this.props;
+    const { children, data, navbarItems } = this.props;
 
     const { visible } = this.state;
 
@@ -34,7 +39,7 @@ class HeaderMobile extends Component {
         >
           {navbarItems.map(navbarItem => (
             <Menu.Item>
-              <Link to={navbarItem.as}>
+              <Link className={mobileHeaderStyles.linkText} to={navbarItem.as}>
                 {navbarItem.content}
               </Link>
             </Menu.Item>
@@ -43,10 +48,24 @@ class HeaderMobile extends Component {
         <Sidebar.Pusher
           dimmed={visible}
           onClick={this.handlePusher}
-          style={{ minHeight: "100vh" }}
+          className={mobileHeaderStyles.sidebarPusher}
         >
           <Menu>
-            <Menu.Item position='right' onClick={this.handleToggle}>
+            <Menu.Item>
+              <Link to={`/`}>
+                <div className={mobileHeaderStyles.imageContainer}>
+                  <Img
+                    fluid={data.fileName.childImageSharp.fluid}
+                    alt="logo"
+                  />
+                </div>
+              </Link>
+            </Menu.Item>
+            <Menu.Item
+              className={mobileHeaderStyles.sidebarButton}
+              position='right'
+              onClick={this.handleToggle}
+            >
               <Icon name="sidebar" />
             </Menu.Item>
           </Menu>
