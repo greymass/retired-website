@@ -1,6 +1,6 @@
 .container {
   background-color: var(--mainBlue);
-  padding: 100px 0 100px 0;
+  padding: 100px 0;
   position: relative;
   width: 100%;
 }
@@ -35,9 +35,7 @@
   font-size: 18px;
   line-height: 44px;
   letter-spacing: 0.02em;
-  margin-left: 100px;
-  margin-right: 200px;
-  margin-bottom: 60px;
+  margin: 0 200px 60px 100px;
 }
 .aboutUsLink {
   color: white;
@@ -51,4 +49,31 @@
   margin-top: 50px;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 40px 0 60px 0;
+  }
+
+  .image {
+    width: 400px;
+  }
+
+  .titleText {
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .paragraphText {
+    font-size: 12px;
+    line-height: 20px;
+    margin: 30px 60px 30px 60px;
+  }
+
+  .aboutUsLink {
+    font-size: 14px;
+    margin-left: 60px;
+  }
 }
