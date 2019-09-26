@@ -35,8 +35,8 @@ class Header extends Component {
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <HeaderDesktop
             activeItem={activeItem}
-            navbarItems={navbarItems}
             data={data}
+            navbarItems={navbarItems}
           />
           {children}
         </Responsive>

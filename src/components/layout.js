@@ -5,7 +5,6 @@ import i18n from '../utils/i18n';
 
 import { graphql, StaticQuery } from "gatsby"
 import { Helmet } from 'react-helmet';
-import { Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 
 import LayoutHeader from './layout/header';

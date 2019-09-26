@@ -6,9 +6,9 @@ import { Menu } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 
-import LayoutHeaderLink from './shared/link';
+import LayoutHeaderLink from './desktop/link';
 
-import headerStyles from '../header.module.css';
+import desktopHeaderStyles from './desktop.module.css';
 
 class HeaderDesktop extends Component {
   render() {
@@ -19,11 +19,13 @@ class HeaderDesktop extends Component {
       t
     } = this.props;
 
+    console.log({data})
+
     return (
       <Menu secondary>
         <Menu.Item>
           <Link to={`/`}>
-            <div className={headerStyles.imageContainer}>
+            <div className={desktopHeaderStyles.imageContainer}>
               <Img
                 fluid={data.fileName.childImageSharp.fluid}
                 alt="logo"
@@ -45,8 +47,8 @@ class HeaderDesktop extends Component {
         <Menu.Menu position='right'>
           <Menu.Item>
             <Link to={`support_us`}>
-              <div className={headerStyles.supportUsButton}>
-                <h3 style={headerStyles.supportUsText}>
+              <div className={desktopHeaderStyles.supportUsButton}>
+                <h3 style={desktopHeaderStyles.supportUsText}>
                   {t('support_us')}
                 </h3>
               </div>
