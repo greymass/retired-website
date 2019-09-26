@@ -21,9 +21,9 @@ class HomeHeader extends Component {
             className={homeAboutStyles.image}
           />
         </div>
-        <Grid stackable>
-          <Grid.Column width={6} />
-          <Grid.Column width={8} >
+        <Grid>
+          <Grid.Column mobile={16} tablet={16} computer={6} />
+          <Grid.Column mobile={16} tablet={16} computer={8}>
             <h4 className={homeAboutStyles.titleText}>
               {t('about_title')}
             </h4>
