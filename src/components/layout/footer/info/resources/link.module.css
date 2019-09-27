@@ -8,3 +8,9 @@
   text-transform: uppercase;
   color: white;
 }
+
+@media only screen and (max-width: 800px) {
+  .link {
+    font-size: 13px;
+  }
+}

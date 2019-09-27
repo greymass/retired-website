@@ -24,3 +24,16 @@
 .inactiveLinkIcon {
   color: var(--mainBlack);
 }
+
+
+@media only screen and (max-width: 800px) {
+  .container {
+    border-radius: 50%;
+    margin: 7px;
+    padding: 18px 8px 12px 11px;
+  }
+
+  .linkIcon {
+    font-size: 20px !important;
+  }
+}

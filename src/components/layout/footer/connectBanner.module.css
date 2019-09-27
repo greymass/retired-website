@@ -17,4 +17,25 @@
   text-align: right;
   text-transform: uppercase;
   margin-right: 10px;
+  margin-top: 10px !important;
+}
+
+.arrowIcon {
+  margin-left: 6% !important;
+}
+
+.connectBannerLinksContainer {
+  padding-top: 40px !important;
+}
+
+@media only screen and (max-width: 800px) {
+  .connectBannerLinksContainer {
+    margin-left: 9% !important;
+    padding-top: 10px !important;
+  }
+
+  .text {
+    font-size: 24px;
+    margin-right: 9%;
+  }
 }
