@@ -1,7 +1,6 @@
 .container {
   background-color: white;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding: 0 100px;
   text-align: center;
   width: 100%;
   margin-bottom: 70px;
@@ -16,4 +15,18 @@
   letter-spacing: 0.02em;
   line-height: 44px;
   padding: 40px;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: 20px 10px;
+    margin-bottom: 0;
+  }
+
+  .headerText {
+    font-size: 26px;
+    line-height: 26px;
+    margin-bottom: 0;
+    padding: 40px;
+  }
 }

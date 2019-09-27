@@ -32,7 +32,7 @@ class AboutTeamMembersCard extends Component {
       profileImages.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase()));
 
     return (
-      <Container basic>
+      <div basic>
         {profileImage && (
           <Img
             alt={`${name} profile image`}
@@ -41,7 +41,7 @@ class AboutTeamMembersCard extends Component {
           />
         )}
 
-        <Container className={aboutTeamMembersCardStyles.bottomContainer}>
+        <div className={aboutTeamMembersCardStyles.bottomContainer}>
           <h2 className={aboutTeamMembersCardStyles.name}>
             {name}
           </h2>
@@ -84,8 +84,8 @@ class AboutTeamMembersCard extends Component {
             <SocialMediaButton name="github" link={githubLink} />
             <SocialMediaButton name="youtube" link={youtubeLink} />
           </Grid>
-        </Container>
-      </Container>
+        </div>
+      </div>
     )
   }
 }
