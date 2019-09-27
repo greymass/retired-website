@@ -6,20 +6,30 @@ import { Link } from 'gatsby';
 import homeBlogPostsCardStyles from './card.module.css';
 
 export default class HomeBlogPostCard extends Component {
+  state = {
+    inverted: false,
+  }
   render() {
     const {
       linkTo,
-      primary,
       text,
     } = this.props;
 
+    const {
+      inverted
+    } = this.state;
+
     return (
-      <Grid.Column width={primary ? 6 : 3}>
-        <Link to={linkTo}>
+      <Grid.Column width={inverted ? 4 : 3}>
+        <Link
+          to={linkTo}
+          onMouseEnter={() => this.setState({ inverted: true})}
+          onMouseLeave={() => this.setState({ inverted: false})}
+        >
           <Container
             className={
               `${homeBlogPostsCardStyles.container} ${
-                primary ? homeBlogPostsCardStyles.primaryContainer : ''
+                inverted ? homeBlogPostsCardStyles.primaryContainer : ''
               }`
             }
           >

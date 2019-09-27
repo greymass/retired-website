@@ -31,7 +31,9 @@ class FeaturedBlogPosts extends Component {
 
     return (
       <div className={
-        `${featuredBlogPostsStyles.container} ${featuredBlogPostsStyles[containerClassName]}`
+        `${featuredBlogPostsStyles.container} ${
+          containerClassName ? featuredBlogPostsStyles[containerClassName] : ''
+        }`
       }>
         <Container>
           {withFullHeader ? (

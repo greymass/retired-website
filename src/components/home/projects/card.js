@@ -8,32 +8,41 @@ import Img from 'gatsby-image';
 import homeProjectCardStyles from './card.module.css';
 
 export default class HomeProjectCard extends Component {
+  state = {
+    inverted: false,
+  };
+
   render() {
     const {
       icon,
       imageAlt,
       imageFluid,
       linkTo,
-      primary,
       text,
     } = this.props;
 
+    const { inverted } = this.state;
+
     return (
-      <Grid.Column width={primary ? 4 : 3}>
-        <Link to={linkTo}>
+      <Grid.Column className={homeProjectCardStyles.container} width={inverted ? 6 : 3}>
+        <a
+          href={linkTo}
+          onMouseEnter={() => this.setState({ inverted: true})}
+          onMouseLeave={() => this.setState({ inverted: false})}
+        >
           {imageFluid && (
-            <div style={{ position: 'relative' }}>
+            <div className={homeProjectCardStyles.imageContainer}>
               <div className={
                 `${homeProjectCardStyles.iconContainer} ${
-                  primary ? homeProjectCardStyles.primaryIconContainer : ''
+                  inverted ? homeProjectCardStyles.primaryIconContainer : ''
                 }`
               }>
-                <Icon name={icon} style={{ margin: '5px', marginTop: '10px' }} />
+                <Icon name={icon} className={homeProjectCardStyles.icon} />
               </div>
               <Img
                 alt={imageAlt}
                 fluid={imageFluid}
-                style={{ height: '200px' }}
+                className={homeProjectCardStyles.image}
               />
             </div>
           )}
@@ -41,7 +50,7 @@ export default class HomeProjectCard extends Component {
           <div
             className={
               `${homeProjectCardStyles.bottomContainer} ${
-                primary ? homeProjectCardStyles.primaryBottomContainer : ''
+                inverted ? homeProjectCardStyles.primaryBottomContainer : ''
               }`
             }
           >
@@ -49,7 +58,7 @@ export default class HomeProjectCard extends Component {
               {text}
             </h4>
           </div>
-        </Link>
+        </a>
       </Grid.Column>
     )
   }

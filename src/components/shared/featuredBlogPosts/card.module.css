@@ -14,14 +14,8 @@
   font-size: 16px;
   font-style: normal;
   font-weight: bold;
-  height: 33%;
-  left: 50%;
   letter-spacing: 0.02em;
   line-height: 22px;
-  margin: -15% 0 0 -25%;
-  max-width: 260px;
-  position: absolute;
   text-align: center;
-  top: 30%;
-  width: 50%;
+  padding: 50px 10px;
 }
