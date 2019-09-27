@@ -21,7 +21,7 @@ class AboutValues extends Component {
           {t('values_description')}
         </h4>
 
-        <Grid style={{ padding: '80px' }} stackable centered padded>
+        <Grid className={aboutValuesStyle.grid} stackable centered padded>
           <AboutValuesCard
             description={t('values_reliability_description')}
             iconName="thumbs up"

@@ -2,7 +2,7 @@
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 24px;
   line-height: 44px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -21,8 +21,7 @@
 .popupIcon {
   color: var(--mainBlue);
   cursor: pointer;
-  font-size: 25px;
-  margin-left: 5px;
+  margin-left: 12px !important;
 }
 
 .popup {
@@ -33,8 +32,6 @@
 .popup::before {
   background-color: var(--mainBlue) !important;
 }
-
-
 
 .popupContainer {
   padding: 20px;
