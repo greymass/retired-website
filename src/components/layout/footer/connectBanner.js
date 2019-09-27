@@ -14,16 +14,21 @@ class FooterConnectBanner extends Component {
     return (
       <div className={footerConnectBannerStyles.container}>
         <Grid container className={footerConnectBannerStyles.grid}>
-          <Grid.Column width={8}>
+          <Grid.Column computer={8} tablet={8} mobile={16} >
             <h3 className={footerConnectBannerStyles.text}>
               {t('connect_with_us')}
               <Icon
                 name='arrow right'
-                style={{ marginLeft: '6%' }}
+                className={footerConnectBannerStyles.arrowIcon}
               />
             </h3>
           </Grid.Column>
-          <Grid.Column width={8} style={{ paddingTop: '30px' }}>
+          <Grid.Column
+            computer={8}
+            tablet={8}
+            mobile={16}
+            className={footerConnectBannerStyles.connectBannerLinksContainer}
+          >
             <ConnectBannerLink
               to={data.site.siteMetadata.links.youtube}
               type={`youtube`}

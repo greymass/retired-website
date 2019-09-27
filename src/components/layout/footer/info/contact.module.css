@@ -1,0 +1,33 @@
+.divider {
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.container {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.text {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: white;
+  max-width: 300px;
+}
+
+.languageSwitcherContainer {
+  padding: 30px 80px;
+}
+
+@media only screen and (max-width: 800px) {
+  .text {
+    font-size: 15px;
+    margin: 10px auto;
+  }
+}
