@@ -51,7 +51,7 @@
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1400px) {
   .container {
     padding: 40px 0 60px 0;
   }
