@@ -48,6 +48,10 @@
   text-transform: uppercase;
 }
 
+.portfolioContainer {
+  padding: 60px 60px 80px 60px;
+}
+
 @media only screen and (max-width: 800px) {
   .arrowDownIcon {
     top: 25px;

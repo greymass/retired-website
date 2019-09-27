@@ -14,6 +14,10 @@ class HomeProjects extends Component {
   render() {
     const { data, t } = this.props;
 
+    console.log({data})
+
+    const projects = data.allDataJson.edges[0].node.projects;
+
     return (
       <div>
         <div className={homeProjectsStyles.arrowDownContainer}>
@@ -36,39 +40,31 @@ class HomeProjects extends Component {
 
         <div className={homeProjectsStyles.container}>
           <h4 className={homeProjectsStyles.headerText}>
-            {t('projects_title')}
+            {t('home:projects_title')}
           </h4>
 
           <Grid stackable centered padded>
-            <HomeProjectCard
-              icon={'github'}
-              imageAlt="eos-image"
-              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
-              primary
-              text={t('projects_primary')}
-            />
-            <HomeProjectCard
-              icon={'github'}
-              imageAlt="eos-image"
-              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
-              text={t('projects_one')}
-            />
-            <HomeProjectCard
-              icon={'github'}
-              imageAlt="eos-image"
-              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
-              text={t('projects_two')}
-            />
-            <HomeProjectCard
-              icon={'github'}
-              imageAlt="eos-image"
-              imageFluid={data.allFile.edges[0].node.childImageSharp.fluid}
-              text={t('projects_three')}
-            />
+            {projects.slice(0, 4).map(project => (
+              <HomeProjectCard
+                icon={project.icon}
+                imageAlt={`${project.projectKey}-image`}
+                imageFluid={
+                  data.images.edges.find(edge => {
+                    return edge.node
+                      .childImageSharp
+                      .fluid
+                      .src
+                      .includes(project.projectKey)
+                  }).node.childImageSharp.fluid
+                }
+                linkTo={project.githubLink}
+                text={t(project.name)}
+              />
+            ))}
           </Grid>
-          <div style={{ padding: '60px', paddingBottom: '80px' }}>
+          <div className={homeProjectsStyles.portfolioContainer}>
             <Link className={homeProjectsStyles.supportUsLink} to={`projects`}>
-              {t('projects_portfolio_link')}
+              {t('home:projects_portfolio_link')}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>
           </div>
@@ -78,13 +74,28 @@ class HomeProjects extends Component {
   }
 }
 
-const HomeProjectsWrapper = translate('home')(HomeProjects);
+const HomeProjectsWrapper = translate('projects')(HomeProjects);
 
 export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allFile(filter: {relativePath: {in: ["images/eosImage.png"]}}) {
+        allDataJson(filter: {projects: {elemMatch: {name: {ne: null}}}}) {
+          edges {
+            node {
+              projects {
+                description
+                featured
+                githubLink
+                icon
+                name
+                platform
+                projectKey
+              }
+            }
+          }
+        }
+        images: allFile(filter: {relativeDirectory: {regex: "/projects/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
           edges {
             node {
               childImageSharp {
