@@ -20,7 +20,7 @@ export default class HomeBlogPostCard extends Component {
     } = this.state;
 
     return (
-      <Grid.Column width={inverted ? 4 : 3}>
+      <Grid.Column mobile={16} tablet={8} computer={inverted ? 4 : 3}>
         <Link
           to={linkTo}
           onMouseEnter={() => this.setState({ inverted: true})}

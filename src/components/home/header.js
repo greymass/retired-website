@@ -11,7 +11,7 @@ class HomeHeader extends Component {
     const { t } = this.props;
 
     return (
-      <div style={{ paddingBottom: '50px' }} basic>
+      <div className={homeHeaderStyles.container}>
         <h4 className={homeHeaderStyles.headerText}>
          {t('header_one')}
         </h4>
@@ -24,7 +24,7 @@ class HomeHeader extends Component {
           {t('header_two')}
         </h4>
 
-        <div style={{ marginTop: '40px' }}>
+        <div className={homeHeaderStyles.bottomContainer}>
           <h5 className={homeHeaderStyles.subheaderText}>
             {t('header_bottom_one')}
           </h5>

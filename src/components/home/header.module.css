@@ -1,3 +1,11 @@
+.container {
+  padding-bottom: 50px;
+}
+
+.bottomContainer {
+  margin-top: 40px;
+}
+
 .image {
   display: block;
   margin: auto;
@@ -37,7 +45,7 @@
   margin-left: 5px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 933px) {
   .image {
     max-width: 80%;
     margin-bottom: 30px;

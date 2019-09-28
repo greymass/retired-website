@@ -24,7 +24,7 @@ class FooterInfo extends Component {
               <FooterInfoResources />
             </Grid.Column>
 
-            <Grid.Column width={4} floated="right">
+            <Grid.Column tablet={6} computer={5} floated="right">
               <FooterInfoContact />
             </Grid.Column>
           </Grid>

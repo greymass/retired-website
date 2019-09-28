@@ -13,8 +13,8 @@ class FooterConnectBanner extends Component {
 
     return (
       <div className={footerConnectBannerStyles.container}>
-        <Grid container className={footerConnectBannerStyles.grid}>
-          <Grid.Column computer={8} tablet={8} mobile={16} >
+        <Grid container className={footerConnectBannerStyles.grid} centered>
+          <Grid.Column computer={8} tablet={6} mobile={16} >
             <h3 className={footerConnectBannerStyles.text}>
               {t('connect_with_us')}
               <Icon
@@ -25,30 +25,32 @@ class FooterConnectBanner extends Component {
           </Grid.Column>
           <Grid.Column
             computer={8}
-            tablet={8}
-            mobile={16}
+            tablet={10}
+            mobile={15}
             className={footerConnectBannerStyles.connectBannerLinksContainer}
           >
-            <ConnectBannerLink
-              to={data.site.siteMetadata.links.youtube}
-              type={`youtube`}
-            />
-            <ConnectBannerLink
-              to={data.site.siteMetadata.links.telegram}
-              type={`telegram plane`}
-            />
-            <ConnectBannerLink
-              to={data.site.siteMetadata.links.twitter}
-              type={`twitter`}
-            />
-            <ConnectBannerLink
-              to={data.site.siteMetadata.links.reddit}
-              type={`reddit alien`}
-            />
-            <ConnectBannerLink
-              to={data.site.siteMetadata.links.github}
-              type={`github alternate`}
-            />
+            <div className={footerConnectBannerStyles.connectBannerLinksInnerContainer}>
+              <ConnectBannerLink
+                to={data.site.siteMetadata.links.youtube}
+                type={`youtube`}
+              />
+              <ConnectBannerLink
+                to={data.site.siteMetadata.links.telegram}
+                type={`telegram plane`}
+              />
+              <ConnectBannerLink
+                to={data.site.siteMetadata.links.twitter}
+                type={`twitter`}
+              />
+              <ConnectBannerLink
+                to={data.site.siteMetadata.links.reddit}
+                type={`reddit alien`}
+              />
+              <ConnectBannerLink
+                to={data.site.siteMetadata.links.github}
+                type={`github alternate`}
+              />
+            </div>
           </Grid.Column>
         </Grid>
       </div>

@@ -40,7 +40,7 @@
   height: 150px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .headerText {
     font-size: 18px;
     padding: 30px 0 10px 0;
@@ -51,7 +51,10 @@
   }
 
   .blueBar {
-    height: 180px;
     margin-top: 30px;
+  }
+
+  .longBlueBar {
+    height: 150px;
   }
 }

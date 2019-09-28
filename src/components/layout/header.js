@@ -15,7 +15,7 @@ class Header extends Component {
     const activeItem = window.location.pathname.split('/')[1];
 
     const navbarItems = [
-      { as: '/', content: t('home'), key: 'home' },
+      { as: '', content: t('home'), key: 'home' },
       { as: 'about', content: t('about'), key: 'about' },
       { as: 'projects', content: t('projects'), key: 'projects' },
       { as: 'blog', content: t('blog'), key: 'blog' },

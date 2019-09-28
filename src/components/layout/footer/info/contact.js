@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import { graphql, StaticQuery } from 'gatsby';
 
-import FooterContactInfoLanguageSwitcher from './contactInfo/languageSwitcher';
+import FooterContactInfoLanguageSwitcher from './contact/languageSwitcher';
 
 import contactInfoStyles from './contact.module.css';
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Grid } from "semantic-ui-react"
+import { Container, Grid } from "semantic-ui-react"
 import { translate } from 'react-i18next';
 import { graphql, StaticQuery } from "gatsby"
 
@@ -16,23 +16,25 @@ class AboutTeamMembers extends Component {
 
     return (
       <div className={aboutTeamMembersStyles.container}>
-        <h4 className={aboutTeamMembersStyles.headerText}>
-          {t('team_members_title')}
-        </h4>
+        <Container>
+          <h4 className={aboutTeamMembersStyles.headerText}>
+            {t('team_members_title')}
+          </h4>
 
-        <Grid stackable centered padded>
-          {teamMembers.map((teamMember) => (
-            <Grid.Column width={5} style={{ padding: '4%' }}>
-              <AboutTeamMembersCard
-                description={teamMember.description}
-                name={teamMember.name}
-                profileImages={data.profileImages}
-                title={teamMember.title}
-                {...teamMember.socialMedia}
-              />
-            </Grid.Column>
-          ))}
-        </Grid>
+          <Grid stackable centered padded>
+            {teamMembers.map((teamMember) => (
+              <Grid.Column computer={5} tablet={16} mobile={16}>
+                <AboutTeamMembersCard
+                  description={teamMember.description}
+                  name={teamMember.name}
+                  profileImages={data.profileImages}
+                  title={teamMember.title}
+                  {...teamMember.socialMedia}
+                />
+              </Grid.Column>
+            ))}
+          </Grid>
+        </Container>
       </div>
     )
   }

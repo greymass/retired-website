@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 
 import { Grid, Icon } from 'semantic-ui-react';
-import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
 
@@ -24,7 +23,12 @@ export default class HomeProjectCard extends Component {
     const { inverted } = this.state;
 
     return (
-      <Grid.Column className={homeProjectCardStyles.container} width={inverted ? 6 : 3}>
+      <Grid.Column
+        className={homeProjectCardStyles.container}
+        computer={inverted ? 6 : 3}
+        mobile={16}
+        tablet={8}
+      >
         <a
           href={linkTo}
           onMouseEnter={() => this.setState({ inverted: true})}
