@@ -12,7 +12,7 @@
 }
 
 .secondaryContainer {
-  width: 240px;
+  max-width: 260px;
 }
 
 .bottomContainer {
@@ -34,5 +34,11 @@
 @media only screen and (max-width: 767px) {
   .primaryContainer {
     width: 260px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .secondaryContainer {
+    width: 340px;
   }
 }

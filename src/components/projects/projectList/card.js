@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 
-import { Container } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
 import { translate } from 'react-i18next';

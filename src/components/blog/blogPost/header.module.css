@@ -1,0 +1,26 @@
+.headerContainer {
+  background-color: var(--lightGrey);
+  padding: 80px 0 50px 0;
+  text-align: center;
+}
+
+.headerText {
+  color: var(--mainBlack);
+  font-family: Montserrat, sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 66px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .headerText {
+    font-size: 24px;
+  }
+
+  .headerContainer {
+    padding-top: 30px;
+  }
+}

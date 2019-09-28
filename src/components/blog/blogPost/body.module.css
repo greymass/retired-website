@@ -1,0 +1,17 @@
+
+.markdownContainer {
+  padding: 30px;
+}
+
+.markdownContainer a, p, h1, h2, h3, h4, h5, h6, li {
+  color: var(--darkGrey);
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  line-height: 24px;
+}
+
+.markdownContainer a {
+  color: var(--mainBlue);
+}
