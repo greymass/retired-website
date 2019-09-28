@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Container, Grid, Icon } from 'semantic-ui-react';
+import { Grid, Icon } from 'semantic-ui-react';
 
 import { translate} from 'react-i18next';
 
@@ -32,7 +32,7 @@ class AboutTeamMembersCard extends Component {
       profileImages.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase()));
 
     return (
-      <div basic>
+      <div className={aboutTeamMembersCardStyles.container}>
         {profileImage && (
           <Img
             alt={`${name} profile image`}
@@ -77,7 +77,7 @@ class AboutTeamMembersCard extends Component {
             )}
           </h4>
 
-          <Grid style={{ paddingTop: '25px' }}>
+          <Grid className={aboutTeamMembersCardStyles.grid}>
             <SocialMediaButton name="facebook" link={facebookLink} />
             <SocialMediaButton name="twitter" link={twitterLink} />
             <SocialMediaButton name="linkedin" link={linkedinLink} />

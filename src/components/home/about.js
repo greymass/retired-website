@@ -22,8 +22,8 @@ class HomeHeader extends Component {
           />
         </div>
         <Grid>
-          <Grid.Column mobile={16} tablet={16} computer={6} />
-          <Grid.Column mobile={16} tablet={16} computer={8}>
+          <Grid.Column mobile={16} tablet={6} computer={6} />
+          <Grid.Column mobile={16} tablet={10} computer={8}>
             <h4 className={homeAboutStyles.titleText}>
               {t('about_title')}
             </h4>
@@ -32,7 +32,7 @@ class HomeHeader extends Component {
             </h4>
             <Link className={homeAboutStyles.aboutUsLink} to={`#support-us`}>
               {t('about_link')}
-              <Icon name="arrow right" style={{ marginLeft: '5px' }} />
+              <Icon name="arrow right" className={homeAboutStyles.icon} />
             </Link>
           </Grid.Column>
         </Grid>

@@ -1,15 +1,22 @@
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
 .bottomContainer {
   background-color: var(--mainGrey);
-  padding: 30px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  min-height: 500px;
+  padding: 50px 30px;
+  min-height: 420px;
+}
+
+.grid {
+  padding-top: 25px;
 }
 
 .name {
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 500;
   letter-spacing: 0.02em;

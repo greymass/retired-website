@@ -28,14 +28,42 @@
   padding-top: 40px !important;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .connectBannerLinksContainer {
-    margin-left: 9% !important;
     padding-top: 10px !important;
   }
 
+  .connectBannerLinksInnerContainer {
+    width: 250px;
+    margin: auto;
+  }
+
   .text {
-    font-size: 24px;
-    margin-right: 9%;
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .connectBannerLinksContainer {
+    padding-top: 10px !important;
+  }
+
+  .connectBannerLinksInnerContainer {
+    margin: 30px auto 0 auto;
+  }
+
+  .text {
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 667px) {
+  .connectBannerLinksInnerContainer {
+    width: 250px;
+    margin: auto;
   }
 }

@@ -34,7 +34,7 @@
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 767px) {
   .headerText {
     font-size: 26px;
     line-height: 26px;

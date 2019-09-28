@@ -20,7 +20,7 @@ export default class AboutValuesCard extends Component {
     } = this.props;
 
     return (
-      <Grid.Column width={4}>
+      <Grid.Column mobile={16} tablet={10} computer={5}>
         <div className={aboutValuesCardStyles.iconContainer}>
           <Icon
             name={iconName}

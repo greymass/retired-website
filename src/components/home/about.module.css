@@ -51,7 +51,7 @@
   text-transform: uppercase;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1024px) {
   .container {
     padding: 40px 0 60px 0;
   }
@@ -69,11 +69,15 @@
   .paragraphText {
     font-size: 12px;
     line-height: 20px;
-    margin: 30px 60px 30px 60px;
+    margin: 30px 25%;
   }
 
   .aboutUsLink {
     font-size: 14px;
-    margin-left: 60px;
+    margin-left: 25%;
+  }
+
+  .icon {
+    margin-left: 5px;
   }
 }
