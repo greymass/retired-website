@@ -1,8 +1,9 @@
 :root {
   --anchorGreen: #80C341;
+  --darkGrey: #424954;
+  --lightGrey: #F4F4F4;
   --mainBlack: #343941;
   --mainBlue: #0091E2;
   --mainGrey: #B6B6B6;
-  --lightGrey: #F4F4F4;
   --lightBlueGradient: linear-gradient(112.06deg, #0091E2 9.23%, #00ABD0 100%);
 }

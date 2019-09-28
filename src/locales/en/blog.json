@@ -1,4 +1,5 @@
 {
+  "blog_post_entry_written_by": "Written By: {{author}}",
   "blog_post_list_title": "Recent Mumblings",
   "featured_blog_post_header": "Recent Mumblings",
   "featured_blog_post_link": "See Blog",
