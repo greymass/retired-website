@@ -1,43 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
+
 import { graphql } from 'gatsby';
 
-import { Container, Icon } from 'semantic-ui-react';
-import { translate } from 'react-i18next';
+import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 
 import Layout from '../components/layout';
 
-import FeaturedBlogPosts from '../components/shared/featuredBlogPosts';
+import BlogPostHeader from '../components/blog/blogPost/header';
+import BlogPostBody from '../components/blog/blogPost/body';
 
 import blogPostStyles from './blog-post.module.css'
 
 class BlogPost extends Component {
+  contextRef = createRef();
+
   render() {
-    const { data, t } = this.props;
+    const { data } = this.props;
     const post = data.markdownRemark;
 
     return (
       <Layout>
         { () => (
           <div className={blogPostStyles.container}>
-            <div className={blogPostStyles.headerContainer}>
-              <Container>
-                <h1 className={blogPostStyles.headerText}>
-                  {post.frontmatter.title}
-                </h1>
-              </Container>
-            </div>
-            <Container className={blogPostStyles.markdownContainer}>
-              <h5 className={blogPostStyles.dateText}>
-                <Icon name="calendar alternate" />
-                &nbsp;&nbsp;
-                {(new Date(post.frontmatter.date)).toLocaleDateString()}
-                &nbsp;&nbsp;|&nbsp;&nbsp;
-                <span className={blogPostStyles.writtenBySpan}>
-                  {t('blog_post_entry_written_by', { author: post.frontmatter.author })}
-                </span>
-              </h5>
-              <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            </Container>
+            <BlogPostHeader post={post} />
+            <BlogPostBody post={post} />
             <FeaturedBlogPosts
               containerClassName="lightBlueBackground"
               link="blog:featured_blog_post_link"
@@ -51,7 +37,7 @@ class BlogPost extends Component {
   }
 }
 
-export default translate('blog')(BlogPost);
+export default BlogPost;
 
 export const query = graphql`
   query($slug: String!) {

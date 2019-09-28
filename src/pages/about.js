@@ -5,7 +5,7 @@ import { translate } from 'react-i18next';
 import AboutValues from '../components/about/values';
 import AboutTeamMembers from '../components/about/teamMembers';
 import Layout from '../components/layout';
-import SharedHeader from '../components/shared/header';
+import SharedHeader from '../components/shared/sections/header';
 
 class About extends React.Component {
   render() {

@@ -19,7 +19,6 @@ class ProjectList extends React.Component {
     const settings = {
       dots: false,
       infinite: true,
-      slidesToScroll: 1,
       slidesToShow: primary ? 2 : 4,
       speed: 500,
       prevArrow: <LeftArrow />,
@@ -29,11 +28,16 @@ class ProjectList extends React.Component {
           breakpoint: 767,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
             initialSlide: 1
           }
         },
-
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 1,
+            initialSlide: 1
+          }
+        },
       ]
     };
 

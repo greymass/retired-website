@@ -9,6 +9,7 @@ import { Link } from 'gatsby';
 
 import mobileHeaderStyles from './mobile.module.css';
 import sharedHeaderStyles from './shared.module.css';
+import SupportUsButton from'../../shared/buttons/supportUs';
 
 class HeaderMobile extends Component {
   state = { visible: false };
@@ -22,7 +23,7 @@ class HeaderMobile extends Component {
   handleToggle = () => this.setState({ visible: !this.state.visible });
 
   render() {
-    const { children, data, navbarItems, t } = this.props;
+    const { children, data, navbarItems } = this.props;
 
     const { visible } = this.state;
 
@@ -44,13 +45,7 @@ class HeaderMobile extends Component {
             </Menu.Item>
           ))}
           <Menu.Item>
-            <Link to={`support_us`}>
-              <div className={sharedHeaderStyles.supportUsButton}>
-                <h3 style={sharedHeaderStyles.supportUsText}>
-                  {t('support_us')}
-                </h3>
-              </div>
-            </Link>
+            <SupportUsButton />
           </Menu.Item>
         </Sidebar>
         <Sidebar.Pusher

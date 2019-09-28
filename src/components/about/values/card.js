@@ -21,13 +21,10 @@ export default class AboutValuesCard extends Component {
 
     return (
       <Grid.Column mobile={16} tablet={10} computer={5}>
-        <div className={aboutValuesCardStyles.iconContainer}>
+        <div className={aboutValuesCardStyles.mainIconContainer}>
           <Icon
             name={iconName}
-            style={{
-              fontSize: '90px',
-              color: 'white',
-            }}
+            className={aboutValuesCardStyles.mainIcon}
           />
         </div>
         <h2 className={aboutValuesCardStyles.title}>

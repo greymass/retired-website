@@ -9,6 +9,7 @@ import Img from 'gatsby-image';
 import LayoutHeaderLink from './desktop/link';
 
 import sharedHeaderStyles from './shared.module.css';
+import SupportUsButton from "../../shared/buttons/supportUs"
 
 class HeaderDesktop extends Component {
   render() {
@@ -45,13 +46,7 @@ class HeaderDesktop extends Component {
 
           <Menu.Menu position='right'>
             <Menu.Item>
-              <Link to={`support_us`}>
-                <div className={sharedHeaderStyles.supportUsButton}>
-                  <h3 style={sharedHeaderStyles.supportUsText}>
-                    {t('support_us')}
-                  </h3>
-                </div>
-              </Link>
+              <SupportUsButton />
             </Menu.Item>
           </Menu.Menu>
         </Menu>

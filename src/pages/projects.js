@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { translate } from 'react-i18next';
 
 import Layout from '../components/layout';
-import SharedHeader from '../components/shared/header';
+import SharedHeader from '../components/shared/sections/header';
 import ProjectList from '../components/projects/projectList';
 import FeaturedProject from '../components/projects/featuredProject';
 

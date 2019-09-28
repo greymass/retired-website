@@ -1,0 +1,17 @@
+
+.dateText {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 19px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.writtenBySpan {
+  color: var(--darkGrey);
+  font-weight: normal;
+}

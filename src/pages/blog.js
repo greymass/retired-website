@@ -6,7 +6,7 @@ import { translate } from 'react-i18next';
 import { Grid } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
-import FeaturedBlogPosts from '../components/shared/featuredBlogPosts';
+import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 
 import BlogPostList from '../components/blog/blogPostList';
 import RecentPodcasts from '../components/blog/recentPodcasts';

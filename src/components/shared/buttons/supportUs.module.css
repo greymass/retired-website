@@ -1,0 +1,15 @@
+.supportUsButton {
+  border: 1px solid var(--mainBlue);
+  padding: 10px 20px;
+  max-width: 140px;
+}
+
+.supportUsTextStyle {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
