@@ -1,9 +1,16 @@
 .arrow {
   background: var(--mainGrey) !important;
   border-radius: 50%;
+  cursor: pointer;
   padding: 16px 12px 16px 16px;
   width: 70px;
   height: 70px;
+}
+
+.arrowIcon {
+  color: var(--mainBlack);
+  cursor: pointer;
+  font-size: 30px !important;
 }
 
 .arrow::before {
@@ -16,11 +23,6 @@
 
 .arrowLeft {
   left: -75px;
-}
-
-.arrowIcon {
-  color: var(--mainBlack);
-  font-size: 30px !important;
 }
 
 .container {
@@ -59,4 +61,42 @@
   line-height: 44px;
   margin: 30px 0 30px 60px;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    min-width: 260px !important;
+  }
+
+  .primaryHeader {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .secondaryHeader {
+    text-align: center;
+    margin: 40px 0;
+  }
+
+  .arrow {
+    padding: 2px 2px 10px 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrowIcon {
+    font-size: 15px !important;
+  }
+
+  .arrowRight {
+    right: 0px;
+  }
+
+  .arrowLeft {
+    left: 0px;
+  }
+
+  .secondaryCarousel {
+    margin-left: 0;
+  }
 }
