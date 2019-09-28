@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+.image {
+  height: 200px;
+}
+
 .primaryContainer {
   width: 340px
 }
@@ -25,4 +29,10 @@
   letter-spacing: 0.02em;
   line-height: 22px;
   text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .primaryContainer {
+    width: 260px;
+  }
 }

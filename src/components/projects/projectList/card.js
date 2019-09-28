@@ -38,17 +38,15 @@ class ProjectCard extends Component {
             <Img
               alt={projectKey}
               fluid={image.node.childImageSharp.fluid}
-              style={{ height: '200px' }}
+              className={projectCardStyles.image}
             />
           )}
 
-          <Container
-            className={projectCardStyles.bottomContainer}
-          >
+          <div className={projectCardStyles.bottomContainer}>
             <h4 className={projectCardStyles.text}>
               {t(description)}
             </h4>
-          </Container>
+          </div>
         </Link>
       </div>
     )

@@ -24,6 +24,17 @@ class ProjectList extends React.Component {
       speed: 500,
       prevArrow: <LeftArrow />,
       nextArrow: <RightArrow />,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 1
+          }
+        },
+
+      ]
     };
 
     return (
@@ -43,13 +54,11 @@ class ProjectList extends React.Component {
             {...settings}
           >
             {projects.filter(project => project.platform === platform).map(project => (
-              <div>
-                <ProjectListCard
-                  images={images}
-                  primary={primary}
-                  project={project}
-                />
-              </div>
+              <ProjectListCard
+                images={images}
+                primary={primary}
+                project={project}
+              />
             ))}
           </Slider>
         </Container>
