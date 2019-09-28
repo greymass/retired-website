@@ -1,6 +1,7 @@
 ---
 title: "Driving Adoption: a look at the internet, the web, and now crypto."
 date: "2019-09-02"
+author: "Jesta"
 ---
 
 This post attempts to put thought behind the question of “how do you drive adoption of blockchain”, primarily focused on EOS (and EOSIO), but could also be applied to many other Distributed Ledger Technology (**DLT**) ecosystems. The perspective I hope to bring is that of a 20 year veteran of the web industry and as someone who has been involved in the crypto space for the past 4 years. It’s my belief that DLTs are on a similar trajectory that we saw from the web, and that hopefully we can apply some of that knowledge to help accelerate adoption within this new industry.

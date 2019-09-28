@@ -11,7 +11,7 @@
 .headerText {
   color: var(--mainBlack);
   font-family: Montserrat, sans-serif;
-  font-size: 54px;
+  font-size: 44px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -19,6 +19,33 @@
   text-align: center;
 }
 
+.dateText {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  line-height: 19px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.writtenBySpan {
+  color: var(--darkGrey);
+  font-weight: normal;
+}
+
 .markdownContainer {
-  padding: 60px 0;
+  padding: 30px 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .headerText {
+    font-size: 24px;
+  }
+
+  .headerContainer {
+    padding-top: 30px;
+  }
 }

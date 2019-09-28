@@ -1,3 +1,9 @@
 /*******************************
          Site Overrides
 *******************************/
+
+@mobileBreakpoint            : 320px;
+@tabletBreakpoint            : 768px;
+@computerBreakpoint          : 992px;
+@largeMonitorBreakpoint      : 1280px;
+@widescreenMonitorBreakpoint : 1920px;
