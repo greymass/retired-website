@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import { List, Responsive, Divider } from "semantic-ui-react"
+import { List } from "semantic-ui-react"
 import { graphql, StaticQuery } from 'gatsby';
 import { translate } from 'react-i18next';
 

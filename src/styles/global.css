@@ -7,3 +7,8 @@
   --mainGrey: #B6B6B6;
   --lightBlueGradient: linear-gradient(112.06deg, #0091E2 9.23%, #00ABD0 100%);
 }
+
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
 import { translate } from 'react-i18next';
-import { Divider, Grid, Responsive } from "semantic-ui-react"
+import { Grid } from "semantic-ui-react"
 
 import Layout from '../components/layout';
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
