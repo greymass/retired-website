@@ -30,6 +30,7 @@
 
 .podcastContainer {
   padding: 15px 0;
+  cursor: pointer;
 }
 
 .podcastHeader {
@@ -51,4 +52,11 @@
   font-weight: bold;
   letter-spacing: 0.08em;
   margin-top: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 25px 40px 25px;
+    margin-top: 0;
+  }
 }

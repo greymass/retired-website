@@ -12,7 +12,6 @@ class Sticker extends Component {
 
   render() {
     const { t, visible } = this.props;
-    console.log({visible})
 
     return(
       <Transition visible={visible} animation='scale' duration={500}>
@@ -31,11 +30,3 @@ class Sticker extends Component {
 }
 
 export default translate('blog')(Sticker);
-
-function getScrollPercent() {
-  var h = document.documentElement,
-    b = document.body,
-    st = 'scrollTop',
-    sh = 'scrollHeight';
-  return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-}

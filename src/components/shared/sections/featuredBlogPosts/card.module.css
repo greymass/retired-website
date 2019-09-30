@@ -19,3 +19,9 @@
   text-align: center;
   padding: 50px 20px;
 }
+
+@media only screen and (max-width: 767px) {
+  .container {
+    min-height: 120px;
+  }
+}

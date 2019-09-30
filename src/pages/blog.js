@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
 import { translate } from 'react-i18next';
-import { Grid } from 'semantic-ui-react';
+import { Divider, Grid, Responsive } from "semantic-ui-react"
 
 import Layout from '../components/layout';
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
@@ -24,11 +24,10 @@ class Blog extends Component {
             />
 
             <Grid stackable container>
-              <Grid.Column width={10}>
+              <Grid.Column mobile={16} tablet={10} computer={10}>
                 <BlogPostList />
               </Grid.Column>
-              <Grid.Column />
-              <Grid.Column width={5}>
+              <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>
                 <RecentPodcasts />
               </Grid.Column>
             </Grid>
