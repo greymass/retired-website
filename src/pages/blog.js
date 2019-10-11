@@ -18,7 +18,6 @@ class Blog extends Component {
         { () => (
           <div>
             <FeaturedBlogPosts
-              hasPrimaryPost
               title="blog:featured_blog_post_title"
               withFullHeader
             />

@@ -13,12 +13,13 @@ class FeaturedBlogPosts extends Component {
   render() {
     const {
       containerClassName,
-      textClassName,
       data,
       hasPrimaryPost,
       i18n,
+      inverted,
       link,
       t,
+      textClassName,
       title,
       withFullHeader
     } = this.props;
@@ -47,16 +48,9 @@ class FeaturedBlogPosts extends Component {
           )}
 
           <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
-            {featuredBlogPosts[0] && (
+            {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
               <FeaturedBlogPostsCard
-                linkTo={featuredBlogPosts[0].node.fields.slug}
-                primary={hasPrimaryPost}
-                text={featuredBlogPosts[0].node.frontmatter.title}
-              />
-            )}
-
-            {featuredBlogPosts.slice(1, hasPrimaryPost ? 4 : 5).map(featuredBlogPost => (
-              <FeaturedBlogPostsCard
+                inverted={inverted}
                 linkTo={featuredBlogPost.node.fields.slug}
                 text={t(featuredBlogPost.node.frontmatter.title)}
               />

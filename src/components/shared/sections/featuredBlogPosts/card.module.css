@@ -8,6 +8,10 @@
   background-color: var(--mainBlue);
 }
 
+.primaryInvertedContainer {
+  background-color: white;
+}
+
 .text {
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -18,6 +22,10 @@
   line-height: 22px;
   text-align: center;
   padding: 50px 20px;
+}
+
+.textInverted {
+  color: var(--mainBlue);
 }
 
 @media only screen and (max-width: 767px) {
