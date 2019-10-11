@@ -9,15 +9,7 @@
 
 .activeContainer {
   background: white;
-  color: var(--mainBlack);
-}
-
-.activeIcon {
-  color: white;
-}
-
-.inactiveIcon {
-  color: var(--mainBlack);
+  color: var(--mainBlue);
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1400px) {
