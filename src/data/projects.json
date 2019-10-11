@@ -1,7 +1,6 @@
 {
   "projects": [
     {
-      "description": "projects_anchor_description",
       "featured": true,
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
@@ -9,98 +8,84 @@
       "projectKey": "anchor"
     },
     {
-      "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "eosio",
       "projectKey": "eos_voter"
     },
     {
-      "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "eosio",
       "projectKey": "light_history_node"
     },
     {
-      "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "steem",
       "projectKey": "anchor"
     },
     {
-      "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "steem",
       "projectKey": "eos_voter"
     },
     {
-      "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "steem",
       "projectKey": "light_history_node"
     },
     {
-      "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "steem",
       "projectKey": "anchor"
     },
     {
-      "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "steem",
       "projectKey": "eos_voter"
     },
     {
-      "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "steem",
       "projectKey": "light_history_node"
     },
     {
-      "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "others",
       "projectKey": "anchor"
     },
     {
-      "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "others",
       "projectKey": "eos_voter"
     },
     {
-      "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "others",
       "projectKey": "light_history_node"
     },
     {
-      "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "others",
       "projectKey": "anchor"
     },
     {
-      "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "others",
       "projectKey": "eos_voter"
     },
     {
-      "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "platform": "others",
