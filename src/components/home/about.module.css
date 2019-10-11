@@ -62,7 +62,7 @@
   }
 
   .titleText {
-    font-size: 30px;
+    font-size: 26px;
     text-align: center;
     line-height: 30px;
   }
@@ -70,7 +70,7 @@
   .paragraphText {
     font-size: 12px;
     line-height: 20px;
-    margin: 30px 25%;
+    margin: 30px 40px;
   }
 
   .aboutUsLink {

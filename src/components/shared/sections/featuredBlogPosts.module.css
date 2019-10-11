@@ -43,3 +43,9 @@
 .linkContainer {
   padding: 60px 60px 0 60px;
 }
+
+@media only screen and (max-width: 767px) {
+  .headerText {
+    font-size: 22px;
+  }
+}
