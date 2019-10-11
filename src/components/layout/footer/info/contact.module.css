@@ -6,7 +6,7 @@
 
 .container {
   padding-top: 10px;
-  text-align: center;
+  text-align: right;
 }
 
 .text {
@@ -22,10 +22,14 @@
 }
 
 .languageSwitcherContainer {
-  padding: 30px 60px;
+  padding: 30px 0;
 }
 
 @media only screen and (max-width: 933px) {
+  .container {
+    text-align: center;
+  }
+
   .text {
     font-size: 15px;
     margin: 10px auto;
