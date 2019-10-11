@@ -37,7 +37,7 @@ export default translate('projects')(Projects);
 
 export const query = graphql`
   query {
-    allDataJson(filter: {projects: {elemMatch: {name: {ne: null}}}}) {
+    allDataJson(filter: {projects: {elemMatch: {projectKey: {ne: null}}}}) {
       edges {
         node {
           projects {

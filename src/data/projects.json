@@ -5,7 +5,6 @@
       "featured": true,
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_anchor_name",
       "platform": "eosio",
       "projectKey": "anchor"
     },
@@ -13,7 +12,6 @@
       "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_eos_voter_name",
       "platform": "eosio",
       "projectKey": "eos_voter"
     },
@@ -21,7 +19,6 @@
       "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_light_history_node_name",
       "platform": "eosio",
       "projectKey": "light_history_node"
     },
@@ -29,7 +26,6 @@
       "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_anchor_name",
       "platform": "steem",
       "projectKey": "anchor"
     },
@@ -37,7 +33,6 @@
       "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_eos_voter_name",
       "platform": "steem",
       "projectKey": "eos_voter"
     },
@@ -45,7 +40,6 @@
       "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_light_history_node_name",
       "platform": "steem",
       "projectKey": "light_history_node"
     },
@@ -53,7 +47,6 @@
       "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_anchor_name",
       "platform": "steem",
       "projectKey": "anchor"
     },
@@ -61,7 +54,6 @@
       "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_eos_voter_name",
       "platform": "steem",
       "projectKey": "eos_voter"
     },
@@ -69,7 +61,6 @@
       "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_light_history_node_name",
       "platform": "steem",
       "projectKey": "light_history_node"
     },
@@ -77,7 +68,6 @@
       "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_anchor_name",
       "platform": "others",
       "projectKey": "anchor"
     },
@@ -85,7 +75,6 @@
       "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_eos_voter_name",
       "platform": "others",
       "projectKey": "eos_voter"
     },
@@ -93,7 +82,6 @@
       "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_light_history_node_name",
       "platform": "others",
       "projectKey": "light_history_node"
     },
@@ -101,7 +89,6 @@
       "description": "projects_anchor_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_anchor_name",
       "platform": "others",
       "projectKey": "anchor"
     },
@@ -109,7 +96,6 @@
       "description": "projects_eos_voter_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_eos_voter_name",
       "platform": "others",
       "projectKey": "eos_voter"
     },
@@ -117,7 +103,6 @@
       "description": "projects_light_history_node_description",
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
-      "name": "projects_light_history_node_name",
       "platform": "others",
       "projectKey": "light_history_node"
     }

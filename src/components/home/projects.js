@@ -54,11 +54,11 @@ class HomeProjects extends Component {
                       .childImageSharp
                       .fluid
                       .src
-                      .includes(project.projectKey)
+                    .includes(project.projectKey)
                   }).node.childImageSharp.fluid
                 }
                 linkTo={project.githubLink}
-                text={t(project.name)}
+                text={t(`project_${project.projectKey}_name`)}
               />
             ))}
           </Grid>
@@ -80,7 +80,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allDataJson(filter: {projects: {elemMatch: {name: {ne: null}}}}) {
+        allDataJson(filter: {projects: {elemMatch: {projectKey: {ne: null}}}}) {
           edges {
             node {
               projects {
@@ -88,7 +88,6 @@ export default props => (
                 featured
                 githubLink
                 icon
-                name
                 platform
                 projectKey
               }
