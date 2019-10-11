@@ -14,7 +14,7 @@ class Sticker extends Component {
     const { t, visible } = this.props;
 
     return(
-      <Transition visible={visible} animation='scale' duration={500}>
+      <Transition visible={visible} animation='scale' duration={300}>
         <Segment className={supportUsStickerStyles.segment} basic>
           <h2 className={supportUsStickerStyles.title}>
             {t('sticky_banner_title')}

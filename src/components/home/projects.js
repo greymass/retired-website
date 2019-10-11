@@ -14,8 +14,6 @@ class HomeProjects extends Component {
   render() {
     const { data, t } = this.props;
 
-    console.log({data})
-
     const projects = data.allDataJson.edges[0].node.projects;
 
     return (
@@ -44,23 +42,26 @@ class HomeProjects extends Component {
           </p>
 
           <Grid stackable centered padded>
-            {projects.slice(0, 4).map(project => (
-              <HomeProjectCard
-                icon={project.icon}
-                imageAlt={`${project.projectKey}-image`}
-                imageFluid={
-                  data.images.edges.find(edge => {
-                    return edge.node
-                      .childImageSharp
-                      .fluid
-                      .src
-                    .includes(project.projectKey)
-                  }).node.childImageSharp.fluid
-                }
-                linkTo={project.githubLink}
-                text={t(`project_${project.projectKey}_name`)}
-              />
-            ))}
+            {projects.slice(0, 4).map(project => {
+              const imageFluidEdge = data.images.edges.find(edge => {
+                return edge.node
+                  .childImageSharp
+                  .fluid
+                  .src
+                  .includes(project.projectKey)
+              })
+              const imageFluid =
+                imageFluidEdge && imageFluidEdge.node.childImageSharp.fluid;
+              return (
+                <HomeProjectCard
+                  icon={project.icon}
+                  imageAlt={`${project.projectKey}-image`}
+                  imageFluid={imageFluid}
+                  linkTo={project.githubLink}
+                  text={t(`project_${project.projectKey}_name`)}
+                />
+              )
+            })}
           </Grid>
           <div className={homeProjectsStyles.portfolioContainer}>
             <Link className={homeProjectsStyles.supportUsLink} to={`projects`}>
@@ -84,7 +85,6 @@ export default props => (
           edges {
             node {
               projects {
-                description
                 featured
                 githubLink
                 icon

@@ -9,10 +9,10 @@ import {
 } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 
-import SupportUsSticker from './supportUsColumn/sticker';
+import SupportUsSticker from './desktop/sticker';
 
 class BlogPostBodyDesktopn extends Component {
-  state = { stickerVisible: true };
+  state = { stickerVisible: false };
 
   handleUpdate = (e, { calculations }) => {
     const updateShouldBeIgnored =
@@ -23,7 +23,10 @@ class BlogPostBodyDesktopn extends Component {
       return;
     }
 
-    this.setState({ stickerVisible: calculations.percentagePassed < 0.5 });
+    this.setState({
+      stickerVisible: calculations.percentagePassed > 0.2 &&
+                        calculations.percentagePassed < 0.95
+    });
   }
 
   render() {
