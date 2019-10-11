@@ -11,12 +11,12 @@ class HomeNewsletter extends Component {
 
     return (
       <Container className={newsletterStyles.container} basic>
-        <h4 className={newsletterStyles.title}>
+        <p className={newsletterStyles.title}>
           {t('newsletter_title')}
-        </h4>
-        <h4 className={newsletterStyles.subtitle}>
+        </p>
+        <p className={newsletterStyles.subtitle}>
           {t('newsletter_subtitle')}
-        </h4>
+        </p>
       </Container>
     )
   }

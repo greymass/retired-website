@@ -18,9 +18,13 @@ class AboutValues extends Component {
             {t('values_title')}
           </h4>
 
-          <h4 className={aboutValuesStyle.paragraphText}>
-            {t('values_description')}
-          </h4>
+          <p className={aboutValuesStyle.paragraphText}>
+            {t('values_description_one')}
+          </p>
+
+          <p className={aboutValuesStyle.paragraphText}>
+            {t('values_description_two')}
+          </p>
 
           <Grid className={aboutValuesStyle.grid} stackable centered padded>
             <AboutValuesCard

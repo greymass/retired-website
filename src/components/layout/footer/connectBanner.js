@@ -15,13 +15,13 @@ class FooterConnectBanner extends Component {
       <div className={footerConnectBannerStyles.container}>
         <Grid container className={footerConnectBannerStyles.grid} centered>
           <Grid.Column computer={8} tablet={6} mobile={16} >
-            <h3 className={footerConnectBannerStyles.text}>
+            <p className={footerConnectBannerStyles.text}>
               {t('connect_with_us')}
               <Icon
                 name='arrow right'
                 className={footerConnectBannerStyles.arrowIcon}
               />
-            </h3>
+            </p>
           </Grid.Column>
           <Grid.Column
             computer={8}

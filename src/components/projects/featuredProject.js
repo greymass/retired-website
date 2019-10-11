@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Grid, Icon } from 'semantic-ui-react';
+import { Header, Grid, Icon } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { Link } from 'gatsby';
 
@@ -31,16 +31,22 @@ class FeaturedProject extends Component {
                 className={featuredProjectStyles.image}
               />
             )}
-
           </Grid.Column>
           <Grid.Column mobile={0} tablet={0} computer={2} />
           <Grid.Column mobile={16} tablet={16} computer={6} >
-            <h4 className={featuredProjectStyles.nameText}>
-              {t(project.name)}
-            </h4>
-            <h4 className={featuredProjectStyles.paragraphText}>
-              {t(project.description)}
-            </h4>
+            <Header
+              className={featuredProjectStyles.nameText}
+              inverted
+              size="huge"
+            >
+              {t(`project_${project.projectKey}_name`)}
+              <Header.Subheader>
+                {t(`project_${project.projectKey}_subtitle`)}
+              </Header.Subheader>
+            </Header>
+            <p className={featuredProjectStyles.paragraphText}>
+              {t(`project_${project.projectKey}_description`)}
+            </p>
             <Link className={featuredProjectStyles.linkText} to={`#support-us`}>
               {t('projects_featured_see_on_github')}
               <Icon name="arrow right" style={{ marginLeft: '5px' }} />

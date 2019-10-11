@@ -39,9 +39,9 @@ class HomeProjects extends Component {
         </div>
 
         <div className={homeProjectsStyles.container}>
-          <h4 className={homeProjectsStyles.headerText}>
+          <p className={homeProjectsStyles.headerText}>
             {t('home:projects_title')}
-          </h4>
+          </p>
 
           <Grid stackable centered padded>
             {projects.slice(0, 4).map(project => (

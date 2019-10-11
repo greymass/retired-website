@@ -58,9 +58,9 @@ export default class HomeProjectCard extends Component {
               }`
             }
           >
-            <h4 className={homeProjectCardStyles.text}>
-              {text}
-            </h4>
+            <p className={homeProjectCardStyles.text}>
+            {text}
+            </p>
           </div>
         </a>
       </Grid.Column>

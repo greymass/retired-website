@@ -1,15 +1,16 @@
 {
   "values_title": "Our Values",
-  "values_description": "Bacon ipsum dolor amet turkey ground round t-bone tongue, ribeye hamburger capicola shoulder bacon shankle. Shankle filet mignon pork chop tenderloin.",
+  "values_description_one": "As an organization whos primary responsibility is to ensure the success of these systems, we believe we need to go above and beyond what you'd expect of a normal company. Greymass doesn't have customers, we have constituents.",
+  "values_description_two": "To those within our electorates, we offer:",
   "team_members_title": "The Team",
-  "header_title": "Who we is",
-  "header_paragraph":"Bacon ipsum dolor amet turkey ground round t-bone tongue, ribeye hamburger capicola shoulder bacon shankle. Shankle filet mignon pork chop tenderloin.",
+  "header_title": "Composition of Greymass",
+  "header_paragraph": "Greymass is comprised of an international team of people passionate about distributed ledgers and how this technology will change the world.",
   "values_reliability_title": "Reliability",
-  "values_reliability_description":"Bacon ipsum dolor amet turkey ground round t-bone tongue, ribeye hamburger capicola shoulder bacon shankle. Shankle filet mignon pork chop tenderloin.",
+  "values_reliability_description": "Our top concern is the operation and realibility of the infrastructure we provide to power these systems. As both a block producer and a public service provider, we utilize redundancy, automation, and monitoring to ensure that our systems are available to both the end user and to the networks themselves.",
   "values_engagement_title": "Engagement",
-  "values_engagement_description":"Bacon ipsum dolor amet turkey ground round t-bone tongue, ribeye hamburger capicola shoulder bacon shankle. Shankle filet mignon pork chop tenderloin.",
+  "values_engagement_description": "Our team works to make themselves available to the members of each community we service. We perform outreach, engage in discussions, give presentations, and provide technical support to the early adopters as they start to explore these new technologies.",
   "values_trust_title": "Trust",
-  "values_trust_description":"Bacon ipsum dolor amet turkey ground round t-bone tongue, ribeye hamburger capicola shoulder bacon shankle. Shankle filet mignon pork chop tenderloin.",
+  "values_trust_description": "A big part of our reputation in this space involves the trust in our abilities and our team. With members of our team operating in this space since 2014, we have built a reputation for an organization in the space which can be looked to for guidance and help.",
   "team_member_card_read_more": "Read More",
   "team_member_card_read_less": "Read Less"
 }

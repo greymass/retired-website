@@ -12,29 +12,29 @@ class HomeHeader extends Component {
 
     return (
       <div className={homeHeaderStyles.container}>
-        <h4 className={homeHeaderStyles.headerText}>
-         {t('header_one')}
-        </h4>
+        <p className={homeHeaderStyles.headerText}>
+          {t('header_one')}
+        </p>
         <img
           alt='greymass-header'
           className={homeHeaderStyles.image}
           src={greymassHeaderBackground}
         />
-        <h4 className={homeHeaderStyles.headerText}>
+        <p className={homeHeaderStyles.headerText}>
           {t('header_two')}
-        </h4>
+        </p>
 
         <div className={homeHeaderStyles.bottomContainer}>
-          <h5 className={homeHeaderStyles.subheaderText}>
+          <p className={homeHeaderStyles.subheaderText}>
             {t('header_bottom_one')}
-          </h5>
-          <h5 className={homeHeaderStyles.subheaderText}>
+          </p>
+          <p className={homeHeaderStyles.subheaderText}>
             {t('header_bottom_two')}
 
             <Link className={homeHeaderStyles.supportUsLink} to={`#support-us`}>
               {t('header_bottom_link')}
             </Link>
-          </h5>
+          </p>
         </div>
       </div>
     )

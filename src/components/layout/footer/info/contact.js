@@ -11,12 +11,12 @@ class FooterInfoContact extends Component {
     const { data, t } = this.props;
     return (
       <div className={contactInfoStyles.container}>
-        <h4 className={contactInfoStyles.text}>
+        <p className={contactInfoStyles.text}>
           {t('email', { email: data.site.siteMetadata.officialEmail })}
-        </h4>
-        <h4 className={contactInfoStyles.text}>
+        </p>
+        <p className={contactInfoStyles.text}>
           {t('address', { address: data.site.siteMetadata.officialAddress })}
-        </h4>
+        </p>
         <div className={contactInfoStyles.languageSwitcherContainer}>
           <FooterContactInfoLanguageSwitcher />
         </div>

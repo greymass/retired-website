@@ -20,14 +20,13 @@ class Resources extends Component {
           <span className={footerResourcesStyles.divider}>|</span>
           <FooterResourcesLink to={`privacy-policy`} content={t('privacy_policy')} />
         </div>
-        <h4 className={footerResourcesStyles.copyright}>
+        <p className={footerResourcesStyles.copyright}>
           <span className={footerResourcesStyles.copyrightSpan}>&#9400;</span>
           {t('copyright_text')}
-        </h4>
+        </p>
       </div>
     )
   }
 }
 
 export default translate('layout')(Resources);
-

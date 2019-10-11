@@ -27,11 +27,15 @@ class HomeHeader extends Component {
             <h4 className={homeAboutStyles.titleText}>
               {t('about_title')}
             </h4>
-            <h4 className={homeAboutStyles.paragraphText}>
-              {t('about_paragraph')}
-            </h4>
+            <p className={homeAboutStyles.paragraphText}>
+              {t('about_paragraph_one')}
+            </p>
+            <p className={homeAboutStyles.paragraphText}>
+              {t('about_paragraph_two')}
+            </p>
             <Link className={homeAboutStyles.aboutUsLink} to={`#support-us`}>
               {t('about_link')}
+              {' '}
               <Icon name="arrow right" className={homeAboutStyles.icon} />
             </Link>
           </Grid.Column>

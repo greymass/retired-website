@@ -44,11 +44,7 @@ class ProjectList extends React.Component {
     return (
       <div className={projectListStyles.container} >
         <Container>
-          {primary ? (
-            <h2 className={projectListStyles.primaryHeader}>{t('project_list_primary_header')}</h2>
-          ) : (
-            <h3 className={projectListStyles.secondaryHeader}>{t(`projects_platform_${platform}`)}</h3>
-          )}
+          <h3 className={projectListStyles.secondaryHeader}>{t(`platform_${platform}`)}</h3>
 
           <Slider
             className={primary ?

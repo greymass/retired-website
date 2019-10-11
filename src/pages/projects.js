@@ -22,7 +22,7 @@ class Projects extends Component {
               title={t('header_title')}
               paragraph={t('header_paragraph')}
             />
-            <ProjectList images={data.images} projects={projects} platform="eos" primary />
+            <ProjectList images={data.images} projects={projects} platform="eosio" primary />
             <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
             <ProjectList images={data.images} projects={projects} platform="steem" />
             <ProjectList images={data.images} projects={projects} platform="others" />
@@ -44,7 +44,6 @@ export const query = graphql`
             description
             featured
             githubLink
-            name
             platform
             projectKey
           }
@@ -64,4 +63,3 @@ export const query = graphql`
     }
   }
 `
-

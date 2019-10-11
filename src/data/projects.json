@@ -6,7 +6,7 @@
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "name": "projects_anchor_name",
-      "platform": "eos",
+      "platform": "eosio",
       "projectKey": "anchor"
     },
     {
@@ -14,7 +14,7 @@
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "name": "projects_eos_voter_name",
-      "platform": "eos",
+      "platform": "eosio",
       "projectKey": "eos_voter"
     },
     {
@@ -22,7 +22,7 @@
       "githubLink": "https://github.com/greymass/eos-voter",
       "icon": "github",
       "name": "projects_light_history_node_name",
-      "platform": "eos",
+      "platform": "eosio",
       "projectKey": "light_history_node"
     },
     {
