@@ -14,7 +14,6 @@ class FeaturedBlogPosts extends Component {
     const {
       containerClassName,
       data,
-      hasPrimaryPost,
       i18n,
       inverted,
       link,

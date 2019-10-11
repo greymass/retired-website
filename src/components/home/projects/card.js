@@ -25,7 +25,7 @@ export default class HomeProjectCard extends Component {
     return (
       <Grid.Column
         className={homeProjectCardStyles.container}
-        computer={inverted ? 6 : 3}
+        computer={3}
         mobile={16}
         tablet={8}
       >
