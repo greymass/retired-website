@@ -17,7 +17,6 @@ class Index extends Component {
             <HomeProjects />
             <HomeAbout />
             <FeaturedBlogPosts
-              hasPrimaryPost
               link="home:blog_posts_link"
               title="home:blog_posts_title"
             />

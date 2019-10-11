@@ -7,33 +7,48 @@ import homeBlogPostsCardStyles from './card.module.css';
 
 export default class HomeBlogPostCard extends Component {
   state = {
-    inverted: false,
+    primary: false,
   }
   render() {
     const {
       linkTo,
       text,
+      inverted
     } = this.props;
 
     const {
-      inverted
+      primary
     } = this.state;
 
+    console.log({inverted})
+
+    const primaryInverted = primary && inverted;
+    console.log({primaryInverted})
+
     return (
-      <Grid.Column mobile={16} tablet={8} computer={inverted ? 4 : 3}>
+      <Grid.Column mobile={16} tablet={8} computer={3}>
         <Link
           to={linkTo}
-          onMouseEnter={() => this.setState({ inverted: true})}
-          onMouseLeave={() => this.setState({ inverted: false})}
+          onMouseEnter={() => this.setState({ primary: true})}
+          onMouseLeave={() => this.setState({ primary: false})}
         >
           <Container
             className={
               `${homeBlogPostsCardStyles.container} ${
-                inverted ? homeBlogPostsCardStyles.primaryContainer : ''
+                primary ? homeBlogPostsCardStyles.primaryContainer : ''
+              } ${
+                primaryInverted ?
+                  homeBlogPostsCardStyles.primaryInvertedContainer : ''
               }`
             }
           >
-            <h4 className={homeBlogPostsCardStyles.text}>
+            <h4
+              className={
+                `${homeBlogPostsCardStyles.text} ${
+                  primaryInverted ? homeBlogPostsCardStyles.textInverted : ''
+                }`
+              }
+            >
               {text}
             </h4>
           </Container>

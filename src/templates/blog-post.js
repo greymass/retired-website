@@ -26,6 +26,7 @@ class BlogPost extends Component {
             <BlogPostBody post={post} />
             <FeaturedBlogPosts
               containerClassName="lightBlueBackground"
+              inverted
               link="blog:featured_blog_post_link"
               textClassName="whiteText"
               title="blog:featured_blog_post_header"
