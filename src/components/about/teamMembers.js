@@ -53,6 +53,13 @@ export default props => (
                   description
                   name
                   title
+                  socialMedia {
+                    facebookLink
+                    githubLink
+                    linkedinLink
+                    twitterLink
+                    youtubeLink
+                  }
                 }
               }
             }

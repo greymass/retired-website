@@ -6,6 +6,8 @@ import { translate} from 'react-i18next';
 
 import Img from 'gatsby-image';
 
+import SocialMediaButton from './card/socialMediaButton';
+
 import aboutTeamMembersCardStyles from './card.module.css';
 
 class AboutTeamMembersCard extends Component {
@@ -24,6 +26,8 @@ class AboutTeamMembersCard extends Component {
       twitterLink,
       youtubeLink,
     } = this.props;
+
+    console.log({githubLink})
 
     const { expanded } = this.state;
 
@@ -67,6 +71,8 @@ class AboutTeamMembersCard extends Component {
             ) : (
               <div>
                 {`${description.substr(0,270)}...`}
+                <br />
+                <br />
                 <span
                   className={aboutTeamMembersCardStyles.expandButton}
                   onClick={() => this.setState({ expanded: true })}
@@ -78,7 +84,7 @@ class AboutTeamMembersCard extends Component {
           </h4>
 
           <Grid className={aboutTeamMembersCardStyles.grid}>
-            <SocialMediaButton name="facebook" link={facebookLink} />
+            <SocialMediaButton name="facebook f" link={facebookLink} />
             <SocialMediaButton name="twitter" link={twitterLink} />
             <SocialMediaButton name="linkedin" link={linkedinLink} />
             <SocialMediaButton name="github" link={githubLink} />
@@ -91,12 +97,3 @@ class AboutTeamMembersCard extends Component {
 }
 
 export default translate('about')(AboutTeamMembersCard);
-
-const SocialMediaButton = ({name, link}) => link ? (
-  <Grid.Column>
-    <a href={link} >
-      <Icon style={{ fontSize: '40px', color: '#424954' }} name={name} />
-    </a>
-  </Grid.Column>
-) : '';
-

@@ -32,6 +32,7 @@ export default class AboutValuesCard extends Component {
           <Popup
             trigger={<Icon className={aboutValuesCardStyles.popupIcon} name="info circle" />}
             className={aboutValuesCardStyles.popup}
+            position= "top center"
           >
             <Container className={aboutValuesCardStyles.popupContainer} basic>
               <h2 className={aboutValuesCardStyles.popupTitle}>

@@ -19,7 +19,7 @@
 }
 
 .mainIcon {
-  font-size: 90px;
+  font-size: 90px !important;
   color: white;
 }
 
@@ -30,8 +30,9 @@
 }
 
 .popup {
-  opacity: 0.8;
+  opacity: 0.9;
   background-color: var(--mainBlue) !important;
+  margin: 10px;
 }
 
 .popup::before {
