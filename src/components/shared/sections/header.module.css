@@ -4,14 +4,14 @@
 
 .headerText {
   font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
+  font-size: 34px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 44px;
   max-width: 600px;
   margin-bottom: 0;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   padding-top: 60px;
   text-align: left;
   text-transform: uppercase;
@@ -21,11 +21,12 @@
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-style: normal;
-  font-weight: normal;
+  font-weight: bold;
   letter-spacing: 0.02em;
   line-height: 30px;
   margin: 0 0 60px 0;
   text-align: left;
+  text-transform: uppercase;
 }
 
 .blueBar {
@@ -42,7 +43,7 @@
 
 @media only screen and (max-width: 767px) {
   .headerText {
-    font-size: 18px;
+    font-size: 16px;
     padding: 30px 0 10px 0;
   }
 
