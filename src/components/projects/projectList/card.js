@@ -18,7 +18,6 @@ class ProjectCard extends Component {
     } = this.props;
 
     const {
-      description,
       linkTo,
       projectKey,
     } = project;
