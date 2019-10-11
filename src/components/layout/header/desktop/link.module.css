@@ -1,14 +1,5 @@
-.container {
-  padding-bottom: 0px,
-}
-
-.activeContainer {
-  padding: 13px;
-}
-
 .inactiveContainer {
-  padding: 10px;
-  padding-top: 6px;
+  padding: 20px 10px 6px 10px;
 }
 
 .text {
@@ -16,13 +7,14 @@
   font-style: normal;
   font-size: 18px;
   line-height: 25px;
+  margin-bottom: 8px;
   letter-spacing: 0.02em;
-  margin-bottom: 5px;
   text-transform: uppercase;
 }
 
 .activeText {
   font-weight: bold;
+  padding-top: 25px;
 }
 
 .inactiveText {

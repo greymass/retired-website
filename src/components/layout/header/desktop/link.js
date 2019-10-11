@@ -14,12 +14,9 @@ class LayoutHeaderLink extends Component {
 
     return (
       <div
-        className={
-          `${linkStyles.container} ${
-            active ?
-              linkStyles.activeContainer :
-              linkStyles.inactiveContainer
-          }`
+        className={active ?
+          linkStyles.activeContainer :
+          linkStyles.inactiveContainer
         }
       >
         <Link to={to}>
