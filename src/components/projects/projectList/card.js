@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Link } from 'gatsby';
+import { graphql, Link, StaticQuery } from "gatsby"
 
 import { translate } from 'react-i18next';
 
@@ -11,6 +11,7 @@ import projectCardStyles from './card.module.css';
 class ProjectCard extends Component {
   render() {
     const {
+      data,
       images,
       primary,
       project,
@@ -22,6 +23,9 @@ class ProjectCard extends Component {
       projectKey,
     } = project;
 
+    console.log({data: data.fileName.childImageSharp.fluid})
+    console.log({images})
+
     const image =
       images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(projectKey));
 
@@ -32,13 +36,15 @@ class ProjectCard extends Component {
           projectCardStyles.secondaryContainer
       }`}>
         <Link to={linkTo}>
-          {image && (
-            <Img
-              alt={projectKey}
-              fluid={image.node.childImageSharp.fluid}
-              className={projectCardStyles.image}
-            />
-          )}
+          <Img
+            alt={projectKey}
+            fluid={
+              image ?
+                image.node.childImageSharp.fluid :
+                data.fileName.childImageSharp.fluid
+            }
+            className={projectCardStyles.image}
+          />
 
           <div className={projectCardStyles.bottomContainer}>
             <Header
@@ -57,4 +63,21 @@ class ProjectCard extends Component {
   }
 }
 
-export default translate('projects')(ProjectCard)
+const ProjectCardWrapper = translate('projects')(ProjectCard)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        fileName: file(relativePath: { eq: "images/projectPlaceholder.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => <ProjectCardWrapper data={data} {...props} />}
+  />
+);

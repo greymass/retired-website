@@ -12,12 +12,13 @@
 }
 
 .secondaryContainer {
-  max-width: 260px;
+  max-width: 300px;
 }
 
 .bottomContainer {
   background-color: var(--mainGrey);
   padding: 50px 20px 50px 20px;
+  min-height: 260px;
 }
 
 .text {
