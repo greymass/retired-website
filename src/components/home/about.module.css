@@ -19,12 +19,13 @@
 .titleText {
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 66px;
+  font-size: 56px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.05em;
   line-height: 112px;
   margin-top: 80px;
+  text-transform: uppercase;
 }
 
 .paragraphText {
@@ -35,7 +36,7 @@
   font-size: 18px;
   line-height: 44px;
   letter-spacing: 0.02em;
-  margin: 0 200px 60px 100px;
+  margin: 0 80px 60px 80px;
 }
 .aboutUsLink {
   color: white;
