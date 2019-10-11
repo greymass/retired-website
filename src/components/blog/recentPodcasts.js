@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import { Icon, List } from 'semantic-ui-react';
+import { Header, Icon, List } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
 import { translate } from 'react-i18next';
@@ -16,9 +16,11 @@ class BlogRecentPodcasts extends Component {
 
     return (cleanedUpLocaleName === 'en') ? (
       <div className={recentPodcastsStyles.container}>
-        <h3 className={recentPodcastsStyles.header}>
-          {t('recent_podcasts_header')}
-        </h3>
+        <Header
+          as="h3"
+          className={recentPodcastsStyles.header}
+          content={t('recent_podcasts_header')}
+        />
         <List>
           {data
             .allDataJson.edges[0].node.podcasts
@@ -77,4 +79,3 @@ const Podcast = ({ podcast }) => {
     </a>
   );
 }
-

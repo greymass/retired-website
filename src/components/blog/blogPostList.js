@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 
-import { List } from "semantic-ui-react"
+import { Header, List } from "semantic-ui-react"
 import { graphql, StaticQuery } from 'gatsby';
 import { translate } from 'react-i18next';
 
@@ -17,9 +17,11 @@ class BlogPostList extends Component {
 
     return (
       <div className={blogPostListStyles.container}>
-        <h3 className={blogPostListStyles.headerText}>
-          {t('blog_post_list_title')}
-        </h3>
+        <Header
+          as="h3"
+          content={t('blog_post_list_title')}
+          className={blogPostListStyles.headerText}
+        />
         <List className={blogPostListStyles.list}>
           {data
             .allMarkdownRemark.edges
@@ -59,4 +61,3 @@ export default props => (
     render={data => <BlogPostListWrapper data={data} {...props} />}
   />
 );
-
