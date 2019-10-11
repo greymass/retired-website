@@ -1,0 +1,28 @@
+.container {
+  background-color: var(--mainBlack);
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  margin-top: 30px;
+  padding: 10px 6px 8px 8px;
+}
+
+.activeContainer {
+  background: white;
+  color: var(--mainBlack);
+}
+
+.activeIcon {
+  color: white;
+}
+
+.inactiveIcon {
+  color: var(--mainBlack);
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1400px) {
+  .container {
+    padding: 8px 4px 6px 6px;
+    font-size: 12px !important;
+  }
+}

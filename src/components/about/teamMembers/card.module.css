@@ -6,11 +6,7 @@
 .bottomContainer {
   background-color: var(--mainGrey);
   padding: 50px 30px;
-  min-height: 420px;
-}
-
-.grid {
-  padding-top: 25px;
+  min-height: 530px;
 }
 
 .name {
@@ -24,7 +20,7 @@
 }
 
 .title {
-  color: var(--mainBlack);
+  color: var(--darkGrey);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -35,7 +31,7 @@
 }
 
 .description {
-  color: var(--mainBlack);
+  color: var(--darkGrey);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -54,12 +50,26 @@
   font-weight: bold;
   letter-spacing: 0.02em;
   line-height: 21px;
-  margin-left: 20px;
 }
 
 .expandedButton {
   display: block;
   text-align: center;
   margin-top: 30px;
-  color: var(--mainBlack);
+  color: var(--mainBlue);
+}
+
+.grid {
+  margin-top: 30px !important;
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1370px) {
+  .bottomContainer {
+    min-height: 700px;
+  }
+
+  .grid {
+    margin-right: 0 !important;
+  }
+
 }
