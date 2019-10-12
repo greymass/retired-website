@@ -23,9 +23,6 @@ class ProjectCard extends Component {
       projectKey,
     } = project;
 
-    console.log({data: data.fileName.childImageSharp.fluid})
-    console.log({images})
-
     const image =
       images.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(projectKey));
 
