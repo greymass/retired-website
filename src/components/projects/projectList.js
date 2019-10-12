@@ -16,10 +16,14 @@ class ProjectList extends React.Component {
       t,
     } = this.props;
 
+    const platformProjects =
+      projects.filter(project => project.platform === platform);
+
     const settings = {
       dots: false,
       infinite: true,
-      slidesToShow: primary ? 2 : 4,
+      slidesToShow:
+        primary ? 2 : (platformProjects.length > 3 ? 4 : platformProjects.length),
       speed: 500,
       prevArrow: <LeftArrow />,
       nextArrow: <RightArrow />,
@@ -53,7 +57,7 @@ class ProjectList extends React.Component {
             }
             {...settings}
           >
-            {projects.filter(project => project.platform === platform).map(project => (
+            {platformProjects.map(project => (
               <ProjectListCard
                 images={images}
                 primary={primary}
