@@ -10,7 +10,7 @@ class SupportUsButton extends Component {
     const { t } = this.props;
 
     return (
-      <Link to={`support_us`}>
+      <Link to={`/support`}>
         <div className={supportUsButtonStyles.supportUsButton}>
           <h3 style={supportUsButtonStyles.supportUsText}>
             {t('support_us')}
@@ -22,4 +22,3 @@ class SupportUsButton extends Component {
 }
 
 export default translate('shared')(SupportUsButton);
-
