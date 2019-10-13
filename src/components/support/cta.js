@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 class SupportCTA extends Component {
   render() {
     return (
-     <Container style={{ minHeight: '400px', padding: '50px 0' }}>
+     <Container style={{ minHeight: '1000px', padding: '50px 0' }}>
        <SupportIntegationsEEP7Proxy />
      </Container>
     )

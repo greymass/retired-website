@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Segment } from 'semantic-ui-react';
+import { Button, Header, Segment } from 'semantic-ui-react';
 
 const { SigningRequest } = require("eosio-signing-transport");
 
@@ -93,7 +93,7 @@ class SupportIntegationsEEP7Proxy extends Component {
          loading={processing}
        >
          <Button
-           content="Proxy to GreymassVote"
+           content="Proxy Vote"
            onClick={this.vote}
            primary
            size="huge"
@@ -108,8 +108,14 @@ class SupportIntegationsEEP7Proxy extends Component {
          }
          {(response)
            ? (
-             <Segment secondary>
-               {JSON.stringify(response)}
+             <Segment secondary size="large">
+               <Header size="large">
+                 Thank you, {response.a.split("@")[0]}!
+                 <Header.Subheader>
+                   We truly appreciate your support.
+                 </Header.Subheader>
+               </Header>
+               <p>If you'd like to vote again with a different account, simply click the button again and change accounts.</p>
              </Segment>
            )
            : false
