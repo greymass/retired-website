@@ -19,7 +19,7 @@
 .titleText {
   color: white;
   font-family: 'Montserrat', sans-serif;
-  font-size: 56px;
+  font-size: 47px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -36,7 +36,7 @@
   font-size: 18px;
   line-height: 44px;
   letter-spacing: 0.02em;
-  margin: 0 80px 60px 80px;
+  margin: 0 20px 60px 20px;
 }
 .aboutUsLink {
   color: white;

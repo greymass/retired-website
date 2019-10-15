@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Grid, Icon } from 'semantic-ui-react';
+import { Grid, Icon, Container } from 'semantic-ui-react';
 import { translate } from 'react-i18next';
 import { graphql, Link, StaticQuery } from 'gatsby';
 
@@ -21,25 +21,27 @@ class HomeHeader extends Component {
             className={homeAboutStyles.image}
           />
         </div>
-        <Grid>
-          <Grid.Column mobile={16} tablet={6} computer={6} />
-          <Grid.Column mobile={16} tablet={10} computer={8}>
-            <h4 className={homeAboutStyles.titleText}>
-              {t('about_title')}
-            </h4>
-            <p className={homeAboutStyles.paragraphText}>
-              {t('about_paragraph_one')}
-            </p>
-            <p className={homeAboutStyles.paragraphText}>
-              {t('about_paragraph_two')}
-            </p>
-            <Link className={homeAboutStyles.aboutUsLink} to={`#support-us`}>
-              {t('about_link')}
-              {' '}
-              <Icon name="arrow right" className={homeAboutStyles.icon} />
-            </Link>
-          </Grid.Column>
-        </Grid>
+        <Container>
+          <Grid>
+            <Grid.Column mobile={16} tablet={6} computer={6} />
+            <Grid.Column mobile={16} tablet={10} computer={8}>
+              <h4 className={homeAboutStyles.titleText}>
+                {t('about_title')}
+              </h4>
+              <p className={homeAboutStyles.paragraphText}>
+                {t('about_paragraph_one')}
+              </p>
+              <p className={homeAboutStyles.paragraphText}>
+                {t('about_paragraph_two')}
+              </p>
+              <Link className={homeAboutStyles.aboutUsLink} to={`#support-us`}>
+                {t('about_link')}
+                {' '}
+                <Icon name="arrow right" className={homeAboutStyles.icon} />
+              </Link>
+            </Grid.Column>
+          </Grid>
+        </Container>
       </div>
     )
   }
