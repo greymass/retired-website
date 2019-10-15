@@ -24,3 +24,17 @@
   width: 100%;
   height: 1000px;
 }
+
+@media only screen and (max-width: 933px) {
+  .imageBackground {
+    height: 700px;
+  }
+
+  .shortHeader {
+    height: 300px;
+  }
+
+  .imageBackgroundContainer {
+    top: 0;
+  }
+}

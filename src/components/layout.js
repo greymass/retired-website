@@ -24,16 +24,14 @@ class Layout extends Component {
     const {
       children,
       data,
+      shortHeader,
     } = this.props;
 
     let {
       containerClassName
     } = this.props;
 
-    console.log({containerClassName})
-
     containerClassName = containerClassName || 'greyBackground';
-
     return (
       <I18nextProvider i18n={i18n}>
           <Helmet>
@@ -52,7 +50,11 @@ class Layout extends Component {
                 <Img
                   alt='paper-bg-desktop'
                   fluid={data.mobileImage.childImageSharp.fluid}
-                  className={layoutStyles.imageBackground}
+                  className={
+                    `${layoutStyles.imageBackground} ${
+                      shortHeader ? layoutStyles.shortHeader : ''
+                    }`
+                  }
                 />
               </Responsive>
               <Responsive minWidth={Responsive.onlyTablet.minWidth}>
@@ -68,9 +70,9 @@ class Layout extends Component {
             <LayoutHeader>
               {children()}
             </LayoutHeader>
+            <LayoutFooter />
           </div>
         </div>
-        <LayoutFooter />
       </I18nextProvider>
     )
   }
