@@ -52,7 +52,7 @@ export default props => (
               fields {
                 slug
               }
-              excerpt
+              excerpt(pruneLength: 280)
             }
           }
         }

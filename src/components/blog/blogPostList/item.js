@@ -14,7 +14,7 @@ class BlogPostListItem extends Component {
           to={blogPost.fields.slug}
         >
           <h3 className={blogPostItemStyles.headerText}>
-            {blogPost.frontmatter.title}{" "}
+            {blogPost.frontmatter.title}
           </h3>
           <p className={blogPostItemStyles.descriptionText}>
             {blogPost.excerpt}
