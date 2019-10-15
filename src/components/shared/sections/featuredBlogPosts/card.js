@@ -20,10 +20,7 @@ export default class HomeBlogPostCard extends Component {
       primary
     } = this.state;
 
-    console.log({inverted})
-
     const primaryInverted = primary && inverted;
-    console.log({primaryInverted})
 
     return (
       <Grid.Column mobile={16} tablet={8} computer={3}>

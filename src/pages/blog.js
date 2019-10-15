@@ -11,10 +11,12 @@ import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 import BlogPostList from '../components/blog/blogPostList';
 import RecentPodcasts from '../components/blog/recentPodcasts';
 
+import blogStyles from './blog.module.css';
+
 class Blog extends Component {
   render() {
     return (
-      <Layout containerClassName="whiteBackground">
+      <Layout>
         { () => (
           <div>
             <FeaturedBlogPosts
@@ -22,14 +24,16 @@ class Blog extends Component {
               withFullHeader
             />
 
-            <Grid stackable container>
-              <Grid.Column mobile={16} tablet={10} computer={10}>
-                <BlogPostList />
-              </Grid.Column>
-              <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>
-                <RecentPodcasts />
-              </Grid.Column>
-            </Grid>
+            <div className={blogStyles.container}>
+              <Grid stackable container>
+                <Grid.Column mobile={16} tablet={10} computer={10}>
+                  <BlogPostList />
+                </Grid.Column>
+                <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>
+                  <RecentPodcasts />
+                </Grid.Column>
+              </Grid>
+            </div>
           </div>
         )}
       </Layout>

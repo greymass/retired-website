@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { translate } from 'react-i18next';
+
 import { Link } from 'gatsby';
 
 import greymassHeaderBackground from '../../images/greymassHeaderBackground.svg';
