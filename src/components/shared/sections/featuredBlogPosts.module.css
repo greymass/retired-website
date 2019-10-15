@@ -3,7 +3,6 @@
 }
 
 .container {
-  background-color: white;
   border-bottom: 2px solid var(--mainBlue);
   text-align: center;
   width: 100%;

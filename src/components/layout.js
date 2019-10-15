@@ -3,7 +3,12 @@ import React, { Component } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../utils/i18n';
 
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from 'gatsby';
+
+import Img from 'gatsby-image';
+
+import { Responsive } from 'semantic-ui-react';
+
 import { Helmet } from 'react-helmet';
 import { translate } from 'react-i18next';
 
@@ -17,14 +22,20 @@ import 'semantic-ui-less/semantic.less';
 class Layout extends Component {
   render() {
     const {
-      containerClassName,
       children,
       data,
     } = this.props;
 
+    let {
+      containerClassName
+    } = this.props;
+
+    console.log({containerClassName})
+
+    containerClassName = containerClassName || 'greyBackground';
+
     return (
       <I18nextProvider i18n={i18n}>
-        <div className={(layoutStyles[containerClassName || 'greyBackground'])}>
           <Helmet>
             <meta charSet="utf-8" />
             <title>{data.site.siteMetadata.title}</title>
@@ -34,9 +45,30 @@ class Layout extends Component {
               href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto&display=swap"
             />
           </Helmet>
-          <LayoutHeader>
-            {children()}
-          </LayoutHeader>
+        <div className={(layoutStyles[containerClassName])}>
+          {containerClassName === 'greyBackground' && (
+            <div className={layoutStyles.imageBackgroundContainer}>
+              <Responsive {...Responsive.onlyMobile}>
+                <Img
+                  alt='paper-bg-desktop'
+                  fluid={data.mobileImage.childImageSharp.fluid}
+                  className={layoutStyles.imageBackground}
+                />
+              </Responsive>
+              <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+                <Img
+                  alt='paper-bg-mobile'
+                  fluid={data.desktopImage.childImageSharp.fluid}
+                  className={layoutStyles.imageBackground}
+                />
+              </Responsive>
+            </div>
+          )}
+          <div className={layoutStyles.contentContainer}>
+            <LayoutHeader>
+              {children()}
+            </LayoutHeader>
+          </div>
         </div>
         <LayoutFooter />
       </I18nextProvider>
@@ -50,14 +82,30 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-          site {
-            siteMetadata {
-              officialEmail
+        site {
+          siteMetadata {
+            officialEmail
+          }
+        }
+        desktopImage: file(relativePath: { eq: "images/paper-bg-desktop.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 3200) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
+  			mobileImage: file(relativePath: { eq: "images/paper-bg-mobile.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
     `}
     render={data => <LayoutWrapper data={data} {...props} />}
   />
 );
+
+
 

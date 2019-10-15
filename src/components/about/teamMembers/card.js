@@ -27,8 +27,6 @@ class AboutTeamMembersCard extends Component {
       youtubeLink,
     } = this.props;
 
-    console.log({githubLink})
-
     const { expanded } = this.state;
 
     const firstName = name.split(' ')[0];
