@@ -7,6 +7,8 @@ import HomeAbout from '../components/home/about';
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 import HomeNewsletter from '../components/home/newsletter';
 
+import homeStyles from './index.module.css';
+
 class Index extends Component {
   render() {
     return (
@@ -16,11 +18,13 @@ class Index extends Component {
             <HomeHeader />
             <HomeProjects />
             <HomeAbout />
-            <FeaturedBlogPosts
-              link="home:blog_posts_link"
-              title="home:blog_posts_title"
-            />
-            <HomeNewsletter />
+            <div className={homeStyles.bottomContainer}>
+              <FeaturedBlogPosts
+                link="home:blog_posts_link"
+                title="home:blog_posts_title"
+              />
+              <HomeNewsletter />
+            </div>
           </div>
         )}
       </Layout>

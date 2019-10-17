@@ -5,10 +5,6 @@ import i18n from '../utils/i18n';
 
 import { graphql, StaticQuery } from 'gatsby';
 
-import Img from 'gatsby-image';
-
-import { Responsive } from 'semantic-ui-react';
-
 import { Helmet } from 'react-helmet';
 import { translate } from 'react-i18next';
 
@@ -24,7 +20,6 @@ class Layout extends Component {
     const {
       children,
       data,
-      shortHeader,
     } = this.props;
 
     let {
@@ -44,34 +39,10 @@ class Layout extends Component {
             />
           </Helmet>
         <div className={(layoutStyles[containerClassName])}>
-          {containerClassName === 'greyBackground' && (
-            <div className={layoutStyles.imageBackgroundContainer}>
-              <Responsive {...Responsive.onlyMobile}>
-                <Img
-                  alt='paper-bg-desktop'
-                  fluid={data.mobileImage.childImageSharp.fluid}
-                  className={
-                    `${layoutStyles.imageBackground} ${
-                      shortHeader ? layoutStyles.shortHeader : ''
-                    }`
-                  }
-                />
-              </Responsive>
-              <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-                <Img
-                  alt='paper-bg-mobile'
-                  fluid={data.desktopImage.childImageSharp.fluid}
-                  className={layoutStyles.imageBackground}
-                />
-              </Responsive>
-            </div>
-          )}
-          <div className={layoutStyles.contentContainer}>
-            <LayoutHeader>
-              {children()}
-            </LayoutHeader>
-            <LayoutFooter />
-          </div>
+          <LayoutHeader>
+            {children()}
+          </LayoutHeader>
+          <LayoutFooter />
         </div>
       </I18nextProvider>
     )
