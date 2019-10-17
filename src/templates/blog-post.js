@@ -21,9 +21,11 @@ class BlogPost extends Component {
     return (
       <Layout>
         { () => (
-          <div className={blogPostStyles.container}>
+          <div>
             <BlogPostHeader post={post} />
-            <BlogPostBody post={post} />
+            <div className={blogPostStyles.bodyContainer}>
+              <BlogPostBody post={post} />
+            </div>
             <FeaturedBlogPosts
               containerClassName="lightBlueBackground"
               inverted
