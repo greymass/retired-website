@@ -1,9 +1,8 @@
 .container {
   background-color: white;
-  padding: 0 100px;
+  padding: 0 100px 70px 100px;
   text-align: center;
   width: 100%;
-  margin-bottom: 70px;
 }
 
 .headerText {

@@ -16,7 +16,7 @@ import blogStyles from './blog.module.css';
 class Blog extends Component {
   render() {
     return (
-      <Layout shortHeader>
+      <Layout>
         { () => (
           <div>
             <FeaturedBlogPosts
