@@ -1,0 +1,41 @@
+---
+title: 'Performance and Transaction Billing on EOS: A Cooperative Effort, Not a Competitive One'
+date: "2018-09-14"
+author: "Greymass"
+---
+![](https://steemitimages.com/0x0/https://greymass.com/logo.png)
+
+In collaboration with the great teams and Block Producers [Aloha EOS](https://www.alohaeos.com) and [EOS Titan]( https://eostitan.com/), we recently launched the [EOS Mechanics initiative](https://eosmechanics.com) in an effort to research how transactions affect the performance of EOS and interact with block production hardware. Our goal is to help optimize all block production through empirical research data, and to guide everyone towards a collectively improved EOS network.
+
+However, we would like to stress that *Block Producer relative performance is not a competition.* Comparing Block Producers to each other is not the goal of this project. If such comparisons are taken into account when voting, then the project could harm the very network that it is trying to improve. This post outlines why performance improvements need to be a cooperative effort, and explains some of the issues that could be faced if a competitive route is chosen instead.
+
+# Goodhart’s Law and Voting Metric Paradoxes
+
+Comparing and judging producers on their transaction billing performance is one of many "voting metric paradoxes" that is a fantastic voting metric -- until you start using it. Such paradoxes are also known as Goodhart’s Law: “When a measure becomes a target, it ceases to be a good measure.”
+If you only observe the measurement and never let it influence your voting, there is no reason to game the system. However, as soon as the measurement influences votes, there is an incentive to game the system and fake performance results.
+
+A more common example of a "voting metric paradox" in relation to DPoS is the idea of “one account, one vote” compared to “one token, one vote.” It is well known that DPoS solves the Sybil attack vector -- one user creating many accounts to spoof support -- by using stake weighted voting (i.e. “one token, one vote”). Interestingly enough, because the metric of “how many users vote for a single Block Producer" is *not* a target, it is a fantastic metric. [If you look at Block Producers sorted by number of accounts voting for them](https://www.alohaeos.com/vote?sort=vote_count&sortDir=desc), it correlates extremely well with community support for Block Producers. Since this is not a target we are currently using to rank producers, there is no incentive to game this number -- no one would bother to create Sybil accounts to vote for a producer because there is no incentive to do so (and the associated cost of creating new accounts further discourages this). 
+
+However, we know that it is a bad idea to actually use this as a metric for judging producers -- as soon as we start judging and ranking a producer based on the number of accounts that vote for them, producers become incentivized to create fake accounts to improve their rankings. Hence, the paradox -- the metric is only useful for consideration if we don't consider it.
+
+# Block Producer Performance as a Voting Metric
+
+Judging a producer based on their billing of transactions follows the same pattern. This is because transaction billing is “non-consensus,” and can vary from producer to producer. It is a metric where the producer reports how much they decided to bill a transaction, based on their subjective view. While an honest Block Producer will bill for exactly the amount of time it took, there is no way to verify that a producer is being honest, as they are acting as an oracle.
+
+Therefore, as soon as this subjective declaration influences voting, Block Producers become incentivized to cheat on this metric. The Block Producer can easily change this by adding a multiplier – for example, by “underbilling" transactions by 5% to visually improve their performance by 5%. Unfortunately, because billing is subjective and not consensus, there is no way to determine or validate if a producer is “cheating” -- which leads to a misaligned incentive. If we value this performance, a Block Producer will begin to think "Let’s just fudge our numbers by a few percent... it will make us look a bit better, no harm, right? And no one can prove that we're doing it."
+
+And, unfortunately, we really do care about producers being honest in their billing. These elected producers are necessary oracles for EOS and are representatives for the system. The decentralized nature of DPoS blockchains break down when producers are incentivized to “cheat.” Incentivizing a Block Producer to fudge their numbers might start with a small amount, but can lead to a dangerous "race to the bottom." The end result of this can harm the network with missed blocks, high latencies, totally incorrect and/or volatile transaction billing and results. In the absolute worst case, it can potentially cause loss of funds from Byzantine faults or chain halting due to forks and rollbacks.
+
+# Encouraging Cooperative Improvement of Performance Across EOS
+
+With the above being said, the conclusion is that we should not use a Block Producer’s performance as a voting metric. Keeping this initiative as a cooperative effort rather than a competitive one will encourage everyone to remain honest and focus on the real goal: improving the entire network for all users. The end users (the EOS holders and voters) should not be interested in, or encourage, divisive competition based on Block Producers' performance.
+
+While keeping this in mind, we should still encourage under-performing BP's to upgrade their hardware, but not in the name of the best performance -- only in the name of collective improvement to the network. Block Producers themselves can use the performance tools as a guide to see how far away from average they are, and therefore know when to replace outdated or misconfigured hardware. Finally, Block Producers should truly understand and internalize why they should not cheat or fake their numbers -- not only because it is dishonest to do so, but also because it can endanger the network.
+
+# The Real Goal: Similar, Good Performance Across all Producers
+
+As an outcome of this initiative, conversations have started about how producers should be targeting the same or similar billing times for transactions. The reason for this is as follows: if one producer is 4 times faster than another, a 200ms block for the "good" producer is seen as an 800ms block for the "bad" producer. Given that a single block is targeted to be 200ms, and the time between blocks is 500ms, this type of situation can cause network hiccups, missed blocks, and latency. This is not on purpose -- the Block Producers' hardware simply views the billing time differently. Therefore, to properly target “200ms blocks,” all Block Producers need to have similar performance on both their producer nodes and their seed nodes. Another way to solve this problem would be to overbill towards the lowest common denominator, billing in such a way that each block’s target is actually "200ms for the worst producer."
+
+Having all BPs charge the same amount -- either through similar hardware, or tweaks to billing -- would also remove any strange incentives for choosing when to submit your transaction. When there is a 4 times difference in performance between producers, you could obtain 4 times more usage out of your account if you submit when the “good” producer is producing, compared to a “bad” producer. Such an incentive is large enough to actually matter: 4 times more transactions per account simply based on when you submit your transaction is incredibly perverse, as account recovery of exhausted resources takes 3 days. 
+
+As such, producers should aim for a near consensus of transaction billing. Producers should invest in their Seed and API nodes as well, to provide a similar experience across the entire EOS network. Simply put, no matter when a user submits their transaction, they should expect a similar result. Realistically, this is what truly matters: having a positive, consistent experience for the end user.
