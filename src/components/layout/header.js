@@ -12,10 +12,10 @@ class Header extends Component {
   render() {
     const { data, t } = this.props;
 
-    const activeItem = window.location.pathname.split('/')[1];
+    const activeItem = `/${window.location.pathname.split('/')[1]}`;
 
     const navbarItems = [
-      { as: '/', content: t('home'), key: 'home' },
+      { as: '/', content: t('home'), key: '/' },
       { as: '/about', content: t('about'), key: 'about' },
       { as: '/projects', content: t('projects'), key: 'projects' },
       { as: '/blog', content: t('blog'), key: 'blog' },
