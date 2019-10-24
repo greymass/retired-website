@@ -14,7 +14,7 @@ class Index extends Component {
     return (
       <Layout>
         { () => (
-          <div>
+          <React.Fragment>
             <HomeHeader />
             <HomeProjects />
             <HomeAbout />
@@ -25,7 +25,7 @@ class Index extends Component {
               />
               <HomeNewsletter />
             </div>
-          </div>
+          </React.Fragment>
         )}
       </Layout>
     )
