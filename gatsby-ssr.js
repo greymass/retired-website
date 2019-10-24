@@ -3,7 +3,7 @@ import { Provider } from "react-redux"
 import { renderToString } from "react-dom/server"
 import { ServerStyleSheet, StyleSheetManager } from "styled-components"
 
-const i18n = require('i18next');
+import { i18n } from './src/utils/i18n.js'
 const Backend = require('i18next-sync-fs-backend');
 
 const replaceRenderer = ({
@@ -12,16 +12,6 @@ const replaceRenderer = ({
   setHeadComponents,
 }) => {
   i18n
-    .use(Backend)
-    .init({
-      backend: {
-        loadPath: 'src/locales/{{lng}}/{{ns}}.json',
-      },
-      initImmediate: false,
-      react: {
-        wait: true,
-      },
-    })
     .loadNamespaces(['shared'], () => {
       const sheet = new ServerStyleSheet()
       const store = createStore()
