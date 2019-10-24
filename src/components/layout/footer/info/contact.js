@@ -8,16 +8,16 @@ import contactInfoStyles from './contact.module.css';
 
 class FooterInfoContact extends Component {
   render() {
-    // const { data } = this.props;
+    const { data } = this.props;
     return (
       <div className={contactInfoStyles.container}>
         <p className={contactInfoStyles.text}>
           <a href={`mailto:${data.site.siteMetadata.officialEmail}`}>
-            {/*{t('email', { email: data.site.siteMetadata.officialEmail })}*/}
+            {data.site.siteMetadata.officialEmail}
           </a>
         </p>
         <p className={contactInfoStyles.text}>
-          {/* {t('address', { address: data.site.siteMetadata.officialAddress })} */}
+          {data.site.siteMetadata.officialAddress}
         </p>
         <div className={contactInfoStyles.languageSwitcherContainer}>
           <FooterContactInfoLanguageSwitcher />
