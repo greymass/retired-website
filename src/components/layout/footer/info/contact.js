@@ -12,7 +12,9 @@ class FooterInfoContact extends Component {
     return (
       <div className={contactInfoStyles.container}>
         <p className={contactInfoStyles.text}>
-          {t('email', { email: data.site.siteMetadata.officialEmail })}
+          <a href={`mailto:${data.site.siteMetadata.officialEmail}`}>
+            {t('email', { email: data.site.siteMetadata.officialEmail })}
+          </a>
         </p>
         <p className={contactInfoStyles.text}>
           {t('address', { address: data.site.siteMetadata.officialAddress })}
