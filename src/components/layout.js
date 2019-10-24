@@ -15,6 +15,8 @@ import layoutStyles from './layout.module.css';
 
 import 'semantic-ui-less/semantic.less';
 
+import { Sidebar } from 'semantic-ui-react';
+
 class Layout extends Component {
   render() {
     const {
@@ -34,11 +36,11 @@ class Layout extends Component {
           <title>{data.site.siteMetadata.title}</title>
           <link rel="canonical" href="https://greymass.com" />
         </Helmet>
-        <div className={(layoutStyles[containerClassName])}>
+        <Sidebar.Pushable className={(layoutStyles[containerClassName])}>
           <LayoutHeader />
           {children()}
           <LayoutFooter />
-        </div>
+        </Sidebar.Pushable>
       </I18nextProvider>
     )
   }
@@ -74,6 +76,3 @@ export default props => (
     render={data => <LayoutWrapper data={data} {...props} />}
   />
 );
-
-
-

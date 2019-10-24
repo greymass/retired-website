@@ -23,14 +23,20 @@ class Header extends Component {
 
     return (
       <React.Fragment>
-        <Responsive {...Responsive.onlyMobile}>
+        <Responsive
+          as={React.Fragment}
+          {...Responsive.onlyMobile}
+        >
           <HeaderMobile
             activeItem={activeItem}
             data={data}
             navbarItems={navbarItems}
           />
         </Responsive>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+        <Responsive
+          as={React.Fragment}
+          minWidth={Responsive.onlyTablet.minWidth}
+        >
           <HeaderDesktop
             activeItem={activeItem}
             data={data}
