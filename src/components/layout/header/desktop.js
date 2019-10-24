@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 import { translate } from 'react-i18next';
-import { Menu, Container } from 'semantic-ui-react';
+import { Container, Image, Menu } from 'semantic-ui-react';
 
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
-
+import Logo from '../../../images/greymass-logo-white.png';
 import LayoutHeaderLink from './desktop/link';
 
 import sharedHeaderStyles from './shared.module.css';
@@ -18,18 +17,21 @@ class HeaderDesktop extends Component {
       data,
       navbarItems,
     } = this.props;
-
     return (
       <Container>
         <Menu secondary>
           <Menu.Item>
-            <Link to={`/`}>
-              <div className={sharedHeaderStyles.imageContainer}>
-                <Img
-                  fluid={data.fileName.childImageSharp.fluid}
-                  alt="logo"
-                />
-              </div>
+            <Link
+              className={sharedHeaderStyles.imageContainer}
+              to={`/`}
+            >
+              <Image
+                alt="Greymass Logo"
+                centered
+                className={sharedHeaderStyles.image}
+                src={Logo}
+                verticalAlign="middle"
+              />
             </Link>
           </Menu.Item>
 

@@ -22,7 +22,7 @@ class Header extends Component {
     ];
 
     return (
-      <div>
+      <React.Fragment>
         <Responsive {...Responsive.onlyMobile}>
           <HeaderMobile
             activeItem={activeItem}
@@ -40,7 +40,7 @@ class Header extends Component {
           />
           {children}
         </Responsive>
-      </div>
+      </React.Fragment>
     )
   }
 }
@@ -53,7 +53,7 @@ export default props => (
       query {
         fileName: file(relativePath: { eq: "images/greymassLogo.png" }) {
           childImageSharp {
-            fluid(maxWidth: 288, maxHeight: 240) {
+            fluid(maxWidth: 256, maxHeight: 256) {
               ...GatsbyImageSharpFluid
             }
           }

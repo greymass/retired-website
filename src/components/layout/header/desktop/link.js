@@ -13,33 +13,30 @@ class LayoutHeaderLink extends Component {
     } = this.props;
 
     return (
-      <div
+      <Link
         className={active ?
-          linkStyles.activeContainer :
+        linkStyles.activeContainer :
           linkStyles.inactiveContainer
         }
+        to={to}
       >
-        <Link to={to}>
-          <h3
-            className={
-              `${linkStyles.text} ${
-                active ?
-                  linkStyles.activeText :
-                  linkStyles.inactiveText
-              }`}>
-            {content}
-          </h3>
+        <h3
+          className={
+            `${linkStyles.text} ${
+              active ?
+                linkStyles.activeText :
+                linkStyles.inactiveText
+            }`}>
+          {content}
           {active && (
             <div
               className={linkStyles.activeBottomBar}
             />
           )}
-        </Link>
-      </div>
+        </h3>
+      </Link>
     )
   }
 }
 
 export default LayoutHeaderLink;
-
-

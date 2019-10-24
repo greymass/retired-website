@@ -1,8 +1,9 @@
+.image {
+  padding: 8px;
+}
 .imageContainer {
   background-color: var(--mainBlue);
   border-radius: 5px;
-  width: 60px;
-  height: 54px;
-  padding: 10px;
-  margin-top: 10px;
+  width: 64px;
+  height: 64px;
 }

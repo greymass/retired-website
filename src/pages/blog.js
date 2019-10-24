@@ -18,8 +18,9 @@ class Blog extends Component {
     return (
       <Layout>
         { () => (
-          <div>
+          <React.Fragment>
             <FeaturedBlogPosts
+              paragraph="blog:featured_blog_post_paragraph"
               title="blog:featured_blog_post_title"
               withFullHeader
             />
@@ -34,7 +35,7 @@ class Blog extends Component {
                 </Grid.Column>
               </Grid>
             </div>
-          </div>
+          </React.Fragment>
         )}
       </Layout>
     )

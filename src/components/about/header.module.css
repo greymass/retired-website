@@ -27,7 +27,7 @@
 .blueBar {
   background-color: var(--mainBlue);
   float: right;
-  height: 120px;
+  height: 96px;
   margin-top: 60px;
-  width: 10px;
+  width: 16px;
 }

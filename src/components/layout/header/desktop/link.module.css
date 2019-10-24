@@ -1,12 +1,16 @@
+.activeContainer,
 .inactiveContainer {
-  padding: 20px 10px 6px 10px;
+  line-height: 64px;
+  margin: 0 16px;
+  min-height: 64px;
+  position: relative;
 }
 
 .text {
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 21px;
+  line-height: 64px;
   margin-bottom: 8px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -14,7 +18,6 @@
 
 .activeText {
   font-weight: bold;
-  padding-top: 25px;
 }
 
 .inactiveText {
@@ -24,7 +27,8 @@
 .activeBottomBar {
   background-color: var(--mainBlue);
   border-radius: 2px;
+  position: absolute;
+  bottom: 6px;
   height: 4px;
   width: 100%;
 }
-

@@ -10,15 +10,15 @@ class AboutHeader extends Component {
     const { t } = this.props;
 
     return (
-      <Grid style={{ marginTop: '40px', marginBottom: '50px' }} basic>
+      <Grid className="container">
         <Grid.Column />
         <Grid.Column width={2}>
           <div className={aboutHeaderStyles.blueBar} />
         </Grid.Column>
         <Grid.Column width={7} >
-          <h4 className={aboutHeaderStyles.headerText}>
+          <h3 className={aboutHeaderStyles.headerText}>
             {t('header_title')}
-          </h4>
+          </h3>
           <p className={aboutHeaderStyles.paragraphText}>
             {t('header_paragraph')}
           </p>

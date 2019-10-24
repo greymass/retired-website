@@ -17,6 +17,7 @@ class FeaturedBlogPosts extends Component {
       i18n,
       inverted,
       link,
+      paragraph,
       t,
       textClassName,
       title,
@@ -30,36 +31,40 @@ class FeaturedBlogPosts extends Component {
           .filter(({ node }) => node.fields.slug.includes(`${cleanedUpLocaleName}/`));
 
     return (
-      <div className={
-        `${featuredBlogPostsStyles.container} ${
-          containerClassName ? featuredBlogPostsStyles[containerClassName] : ''
-        }`
-      }>
-        <Container>
+        <Container
+          className={
+            `${featuredBlogPostsStyles.container} ${
+              containerClassName ? featuredBlogPostsStyles[containerClassName] : ''
+            }`
+          }
+        >
           {withFullHeader ? (
-            <Header title={t(title)} />
+            <Header
+              extraRow={(
+                <Grid.Row className={featuredBlogPostsStyles.gridComponent} container stackable centered>
+                  {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
+                    <FeaturedBlogPostsCard
+                      inverted={inverted}
+                      linkTo={featuredBlogPost.node.fields.slug}
+                      text={t(featuredBlogPost.node.frontmatter.title)}
+                    />
+                  ))}
+                </Grid.Row>
+              )}
+              title={t(title)}
+            />
           ) : (
             <h4 className={
-              `${featuredBlogPostsStyles.headerText} ${featuredBlogPostsStyles[textClassName]}`
+            `${featuredBlogPostsStyles.headerText} ${featuredBlogPostsStyles[textClassName]}`
             }>
               {t(title)}
             </h4>
           )}
-
-          <Grid className={featuredBlogPostsStyles.gridComponent} container stackable centered>
-            {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
-              <FeaturedBlogPostsCard
-                inverted={inverted}
-                linkTo={featuredBlogPost.node.fields.slug}
-                text={t(featuredBlogPost.node.frontmatter.title)}
-              />
-            ))}
-          </Grid>
           {link && (
             <div className={featuredBlogPostsStyles.linkContainer}>
               <Link
                 className={
-                  `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
+                `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
                 }
                 to={`blog`}
               >
@@ -69,7 +74,6 @@ class FeaturedBlogPosts extends Component {
             </div>
           )}
         </Container>
-      </div>
     )
   }
 }

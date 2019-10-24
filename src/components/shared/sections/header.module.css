@@ -1,17 +1,17 @@
 .container {
   margin-bottom: 50px !important;
+  min-height: 639px;
 }
 
 .headerText {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 34px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 64px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.02em;
-  line-height: 44px;
+  line-height: 96px;
   margin-bottom: 0;
-  padding-bottom: 15px;
-  padding-top: 60px;
+  padding-top: 200px;
   text-align: left;
   text-transform: uppercase;
 }
@@ -31,13 +31,14 @@
 .blueBar {
   background-color: var(--mainBlue);
   float: right;
-  height: 50px;
-  margin-top: 60px;
-  width: 10px;
+  margin-right: 16px;
+  margin-top: 200px;
+  height: 96px;
+  width: 16px;
 }
 
 .longBlueBar {
-  height: 150px;
+  height: 208px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -55,6 +56,6 @@
   }
 
   .longBlueBar {
-    height: 150px;
+    height: 208px;
   }
 }
