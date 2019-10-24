@@ -29,15 +29,11 @@ class Layout extends Component {
     containerClassName = containerClassName || 'greyBackground';
     return (
       <I18nextProvider i18n={i18n}>
-          <Helmet>
-            <meta charSet="utf-8" />
-            <title>{data.site.siteMetadata.title}</title>
-            <link rel="canonical" href="https://greymass.com" />
-            <link
-              rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Montserrat|Poppins|Roboto&display=swap"
-            />
-          </Helmet>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{data.site.siteMetadata.title}</title>
+          <link rel="canonical" href="https://greymass.com" />
+        </Helmet>
         <div className={(layoutStyles[containerClassName])}>
           <LayoutHeader>
             {children()}
