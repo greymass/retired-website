@@ -1,26 +1,40 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
+import React from "react"
+import { Provider } from "react-redux"
+import { renderToString } from "react-dom/server"
+import { ServerStyleSheet, StyleSheetManager } from "styled-components"
 
-const React = require('react');
-const { renderToString } = require('react-dom/server');
 const i18n = require('i18next');
-
 const Backend = require('i18next-sync-fs-backend');
-exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
+
+const replaceRenderer = ({
+  bodyComponent,
+  replaceBodyHTMLString,
+  setHeadComponents,
+}) => {
   i18n
     .use(Backend)
     .init({
-      initImmediate: false,
       backend: {
-        // when this site renders serverside we want to get the locales from the src folder
         loadPath: 'src/locales/{{lng}}/{{ns}}.json',
       },
+      initImmediate: false,
+      react: {
+        wait: true,
+      },
     })
-    // load the common namespace
     .loadNamespaces(['shared'], () => {
+      const sheet = new ServerStyleSheet()
+      const store = createStore()
+      const app = () => (
+        <Provider store={store}>
+          <StyleSheetManager sheet={sheet.instance}>
+            {bodyComponent}
+          </StyleSheetManager>
+        </Provider>
+      )
       replaceBodyHTMLString(renderToString(bodyComponent))
+      setHeadComponents([sheet.getStyleElement()])
     })
 }
+
+export default replaceRenderer;
