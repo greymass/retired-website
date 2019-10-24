@@ -10,7 +10,7 @@ import HeaderDesktop from './header/desktop';
 
 class Header extends Component {
   render() {
-    const { children, data, t } = this.props;
+    const { data, t } = this.props;
 
     const activeItem = window.location.pathname.split('/')[1];
 

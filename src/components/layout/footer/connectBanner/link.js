@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { Link } from 'gatsby';
 import { Icon } from 'semantic-ui-react';
 
 import linkStyles from './link.module.css';

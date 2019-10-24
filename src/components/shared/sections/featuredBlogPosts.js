@@ -17,7 +17,6 @@ class FeaturedBlogPosts extends Component {
       i18n,
       inverted,
       link,
-      paragraph,
       t,
       textClassName,
       title,

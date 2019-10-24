@@ -14,7 +14,6 @@ class HeaderDesktop extends Component {
   render() {
     const {
       activeItem,
-      data,
       navbarItems,
     } = this.props;
     return (
