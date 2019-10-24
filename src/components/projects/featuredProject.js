@@ -47,7 +47,7 @@ class FeaturedProject extends Component {
             <p className={featuredProjectStyles.paragraphText}>
               {t(`project_${project.projectKey}_description`)}
             </p>
-            <Link className={featuredProjectStyles.linkText} to={`#support-us`}>
+            <Link className={featuredProjectStyles.linkText} to={`/support`}>
               {t('projects_featured_see_on_github')}
               <Icon name="arrow right" style={{ marginLeft: '5px' }} />
             </Link>

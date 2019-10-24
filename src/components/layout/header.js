@@ -15,31 +15,18 @@ class Header extends Component {
     const activeItem = window.location.pathname.split('/')[1];
 
     const navbarItems = [
-      { as: '', content: t('home'), key: 'home' },
-      { as: 'about', content: t('about'), key: 'about' },
-      { as: 'projects', content: t('projects'), key: 'projects' },
-      { as: 'blog', content: t('blog'), key: 'blog' },
+      { as: '/', content: t('home'), key: 'home' },
+      { as: '/about', content: t('about'), key: 'about' },
+      { as: '/projects', content: t('projects'), key: 'projects' },
+      { as: '/blog', content: t('blog'), key: 'blog' },
     ];
 
     return (
-      <React.Fragment>
-        <Responsive {...Responsive.onlyMobile}>
-          <HeaderMobile
-            activeItem={activeItem}
-            data={data}
-            navbarItems={navbarItems}
-          >
-            {children}
-          </HeaderMobile>
-        </Responsive>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <HeaderDesktop
-            activeItem={activeItem}
-            data={data}
-            navbarItems={navbarItems}
-          />
-        </Responsive>
-      </React.Fragment>
+        <HeaderDesktop
+          activeItem={activeItem}
+          data={data}
+          navbarItems={navbarItems}
+        />
     )
   }
 }

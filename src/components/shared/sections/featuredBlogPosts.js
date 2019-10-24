@@ -66,7 +66,7 @@ class FeaturedBlogPosts extends Component {
                 className={
                 `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
                 }
-                to={`blog`}
+                to={`/blog`}
               >
                 {t(link)}
                 <Icon name="arrow right" style={{ marginLeft: '5px'}} />

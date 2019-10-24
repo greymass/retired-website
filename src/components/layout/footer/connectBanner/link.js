@@ -19,7 +19,7 @@ class LayoutHeaderLink extends Component {
     const { active } = this.state;
 
     return (
-      <Link
+      <a
         className={
           `${linkStyles.container} ${
             active ?
@@ -29,7 +29,7 @@ class LayoutHeaderLink extends Component {
         }
         onMouseEnter={() => this.setState({ active: true})}
         onMouseLeave={() => this.setState({ active: false})}
-        to={to}
+        href={to}
       >
         <Icon
           name={type}
@@ -39,11 +39,9 @@ class LayoutHeaderLink extends Component {
             }`
           }
         />
-      </Link>
+      </a>
     )
   }
 }
 
 export default LayoutHeaderLink;
-
-

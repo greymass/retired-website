@@ -10,15 +10,15 @@ class Resources extends Component {
 
     return (
       <div className={footerResourcesStyles.container}>
-        <FooterResourcesLink to={`bp-info`} content={t('bp_info')} />
+        <FooterResourcesLink to="/bp-info" content={t('bp_info')} />
         <span className={footerResourcesStyles.divider}>|</span>
-        <FooterResourcesLink to={`code-of-conduct`} content={t('code_of_conduct')} />
+        <FooterResourcesLink to="/code-of-conduct" content={t('code_of_conduct')} />
         <span className={footerResourcesStyles.divider}>|</span>
-        <FooterResourcesLink to={`ownership`} content={t('ownership')} />
+        <FooterResourcesLink to="/ownership" content={t('ownership')} />
         <div className={footerResourcesStyles.menuSecondLine} >
-          <FooterResourcesLink to={`terms-of-use`} content={t('terms_of_use')} />
+          <FooterResourcesLink to="/terms-of-use" content={t('terms_of_use')} />
           <span className={footerResourcesStyles.divider}>|</span>
-          <FooterResourcesLink to={`privacy-policy`} content={t('privacy_policy')} />
+          <FooterResourcesLink to="/privacy-policy" content={t('privacy_policy')} />
         </div>
         <p className={footerResourcesStyles.copyright}>
           <span className={footerResourcesStyles.copyrightSpan}>&#9400;</span>

@@ -34,7 +34,7 @@ class HomeHeader extends Component {
               <p className={homeAboutStyles.paragraphText}>
                 {t('about_paragraph_two')}
               </p>
-              <Link className={homeAboutStyles.aboutUsLink} to={`#support-us`}>
+              <Link className={homeAboutStyles.aboutUsLink} to={`/support`}>
                 {t('about_link')}
                 {' '}
                 <Icon name="arrow right" className={homeAboutStyles.icon} />

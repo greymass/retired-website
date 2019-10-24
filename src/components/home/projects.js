@@ -64,7 +64,7 @@ class HomeProjects extends Component {
             })}
           </Grid>
           <div className={homeProjectsStyles.portfolioContainer}>
-            <Link className={homeProjectsStyles.supportUsLink} to={`projects`}>
+            <Link className={homeProjectsStyles.supportUsLink} to={`/projects`}>
               {t('home:projects_portfolio_link')}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>

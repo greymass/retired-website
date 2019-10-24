@@ -31,8 +31,8 @@ class HomeHeader extends Component {
           </p>
           <p className={homeHeaderStyles.subheaderText}>
             {t('header_bottom_two')}
-
-            <Link className={homeHeaderStyles.supportUsLink} to={`support`}>
+            
+            <Link className={homeHeaderStyles.supportUsLink} to={`/support`}>
               {t('header_bottom_link')}
             </Link>
           </p>
