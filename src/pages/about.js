@@ -13,16 +13,12 @@ class About extends React.Component {
 
     return (
       <Layout>
-        { () => (
-          <React.Fragment>
-            <SharedHeader
-              title={t('header_title')}
-              paragraph={t('header_paragraph')}
-            />
-            <AboutValues />
-            <AboutTeamMembers />
-          </React.Fragment>
-        )}
+        <SharedHeader
+          title={t('header_title')}
+          paragraph={t('header_paragraph')}
+        />
+        <AboutValues />
+        <AboutTeamMembers />
       </Layout>
     )
   }

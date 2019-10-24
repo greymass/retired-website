@@ -7,12 +7,7 @@ class Index extends Component {
   render() {
     return (
       <Layout>
-        { () => (
-          <div>
-            <SupportCTA
-            />
-          </div>
-        )}
+        <SupportCTA />
       </Layout>
     )
   }

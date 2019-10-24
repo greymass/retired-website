@@ -17,26 +17,22 @@ class Blog extends Component {
   render() {
     return (
       <Layout>
-        { () => (
-          <React.Fragment>
-            <FeaturedBlogPosts
-              paragraph="blog:featured_blog_post_paragraph"
-              title="blog:featured_blog_post_title"
-              withFullHeader
-            />
+        <FeaturedBlogPosts
+          paragraph="blog:featured_blog_post_paragraph"
+          title="blog:featured_blog_post_title"
+          withFullHeader
+        />
 
-            <div className={blogStyles.container}>
-              <Grid stackable container>
-                <Grid.Column mobile={16} tablet={10} computer={10}>
-                  <BlogPostList />
-                </Grid.Column>
-                <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>
-                  <RecentPodcasts />
-                </Grid.Column>
-              </Grid>
-            </div>
-          </React.Fragment>
-        )}
+        <div className={blogStyles.container}>
+          <Grid stackable container>
+            <Grid.Column mobile={16} tablet={10} computer={10}>
+              <BlogPostList />
+            </Grid.Column>
+            <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>
+              <RecentPodcasts />
+            </Grid.Column>
+          </Grid>
+        </div>
       </Layout>
     )
   }

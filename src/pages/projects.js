@@ -16,18 +16,14 @@ class Projects extends Component {
 
     return (
       <Layout>
-        { () => (
-          <div>
-            <SharedHeader
-              title={t('header_title')}
-              paragraph={t('header_paragraph')}
-            />
-            <ProjectList images={data.images} projects={projects} platform="eosio" primary />
-            <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
-            <ProjectList images={data.images} projects={projects} platform="steem" />
-            <ProjectList images={data.images} projects={projects} platform="others" />
-          </div>
-        )}
+        <SharedHeader
+          title={t('header_title')}
+          paragraph={t('header_paragraph')}
+        />
+        <ProjectList images={data.images} projects={projects} platform="eosio" primary />
+        <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
+        <ProjectList images={data.images} projects={projects} platform="steem" />
+        <ProjectList images={data.images} projects={projects} platform="others" />
       </Layout>
     )
   }

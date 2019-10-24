@@ -13,20 +13,16 @@ class Index extends Component {
   render() {
     return (
       <Layout>
-        { () => (
-          <React.Fragment>
-            <HomeHeader />
-            <HomeProjects />
-            <HomeAbout />
-            <div className={homeStyles.bottomContainer}>
-              <FeaturedBlogPosts
-                link="home:blog_posts_link"
-                title="home:blog_posts_title"
-              />
-              <HomeNewsletter />
-            </div>
-          </React.Fragment>
-        )}
+        <HomeHeader />
+        <HomeProjects />
+        <HomeAbout />
+        <div className={homeStyles.bottomContainer}>
+          <FeaturedBlogPosts
+            link="home:blog_posts_link"
+            title="home:blog_posts_title"
+          />
+          <HomeNewsletter />
+        </div>
       </Layout>
     )
   }

@@ -38,7 +38,7 @@ class Layout extends Component {
         </Helmet>
         <Sidebar.Pushable className={(layoutStyles[containerClassName])}>
           <LayoutHeader />
-          {children()}
+          {children}
           <LayoutFooter />
         </Sidebar.Pushable>
       </I18nextProvider>
