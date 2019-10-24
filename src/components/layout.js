@@ -35,9 +35,8 @@ class Layout extends Component {
           <link rel="canonical" href="https://greymass.com" />
         </Helmet>
         <div className={(layoutStyles[containerClassName])}>
-          <LayoutHeader>
-            {children()}
-          </LayoutHeader>
+          <LayoutHeader />
+          {children()}
           <LayoutFooter />
         </div>
       </I18nextProvider>

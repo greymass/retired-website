@@ -38,7 +38,6 @@ class Header extends Component {
             data={data}
             navbarItems={navbarItems}
           />
-          {children}
         </Responsive>
       </React.Fragment>
     )
