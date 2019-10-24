@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { translate } from 'react-i18next';
 import FooterConnectBanner from './footer/connectBanner';
 import FooterInfo from './footer/info';
 
@@ -13,4 +14,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default translate('navbar')(Footer);;
