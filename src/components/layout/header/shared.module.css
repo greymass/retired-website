@@ -7,3 +7,15 @@
   width: 64px;
   height: 64px;
 }
+.container {
+  padding-top: 20px;
+}
+
+.topMenuBar {
+  background-color: var(--mainBlue);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 6px;
+  width: 100%;
+}

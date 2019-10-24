@@ -18,7 +18,10 @@ class HeaderDesktop extends Component {
       navbarItems,
     } = this.props;
     return (
-      <Container>
+      <Container className={sharedHeaderStyles.container}>
+        <div
+          className={sharedHeaderStyles.topMenuBar}
+        />
         <Menu secondary>
           <Menu.Item>
             <Link

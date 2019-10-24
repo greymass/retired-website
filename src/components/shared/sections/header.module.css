@@ -1,6 +1,9 @@
 .container {
-  margin-bottom: 50px !important;
-  min-height: 639px;
+  min-height: 604px;
+}
+
+.container > .row {
+  padding: 0;
 }
 
 .headerText {
@@ -11,7 +14,7 @@
   letter-spacing: 0.02em;
   line-height: 96px;
   margin-bottom: 0;
-  padding-top: 200px;
+  padding-top: 160px;
   text-align: left;
   text-transform: uppercase;
 }
@@ -32,7 +35,7 @@
   background-color: var(--mainBlue);
   float: right;
   margin-right: 16px;
-  margin-top: 200px;
+  margin-top: 160px;
   height: 96px;
   width: 16px;
 }
