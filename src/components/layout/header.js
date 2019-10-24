@@ -22,11 +22,22 @@ class Header extends Component {
     ];
 
     return (
-        <HeaderDesktop
-          activeItem={activeItem}
-          data={data}
-          navbarItems={navbarItems}
-        />
+      <React.Fragment>
+        <Responsive {...Responsive.onlyMobile}>
+          <HeaderMobile
+            activeItem={activeItem}
+            data={data}
+            navbarItems={navbarItems}
+          />
+        </Responsive>
+        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+          <HeaderDesktop
+            activeItem={activeItem}
+            data={data}
+            navbarItems={navbarItems}
+          />
+        </Responsive>
+      </React.Fragment>
     )
   }
 }
