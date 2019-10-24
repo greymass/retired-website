@@ -41,8 +41,8 @@ class Layout extends Component {
         <div className={(layoutStyles[containerClassName])}>
           <LayoutHeader>
             {children()}
+            <LayoutFooter />
           </LayoutHeader>
-          <LayoutFooter />
         </div>
       </I18nextProvider>
     )
