@@ -13,14 +13,14 @@ class HomeHeader extends Component {
     const { data, intl } = this.props;
     return (
       <div className={homeAboutStyles.container}>
-        <div className={homeAboutStyles.imageContainer}>
-          <Img
-            alt='greymass-header-image'
-            fluid={data.fileName.childImageSharp.fluid}
-            className={homeAboutStyles.image}
-          />
-        </div>
         <Container>
+          <div className={homeAboutStyles.imageContainer}>
+            <Img
+              alt='greymass-header-image'
+              fluid={data.fileName.childImageSharp.fluid}
+              className={homeAboutStyles.image}
+            />
+          </div>
           <Grid>
             <Grid.Column mobile={16} tablet={6} computer={6} />
             <Grid.Column mobile={16} tablet={10} computer={8}>
