@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { Header, Grid, Icon } from 'semantic-ui-react';
-import { translate } from 'react-i18next';
+
 import { Link } from 'gatsby';
 
 import Img from 'gatsby-image';
@@ -13,7 +13,6 @@ class FeaturedProject extends Component {
     const {
       images,
       project,
-      t,
     } = this.props;
 
     const image =
@@ -39,16 +38,16 @@ class FeaturedProject extends Component {
               inverted
               size="huge"
             >
-              {t(`project_${project.projectKey}_name`)}
+              {`project_${project.projectKey}_name`}
               <Header.Subheader>
-                {t(`project_${project.projectKey}_subtitle`)}
+                {`project_${project.projectKey}_subtitle`}
               </Header.Subheader>
             </Header>
             <p className={featuredProjectStyles.paragraphText}>
-              {t(`project_${project.projectKey}_description`)}
+              {`project_${project.projectKey}_description`}
             </p>
             <Link className={featuredProjectStyles.linkText} to={`/support`}>
-              {t('projects_featured_see_on_github')}
+              {'projects_featured_see_on_github'}
               <Icon name="arrow right" style={{ marginLeft: '5px' }} />
             </Link>
           </Grid.Column>
@@ -58,4 +57,4 @@ class FeaturedProject extends Component {
   }
 }
 
-export default translate('projects')(FeaturedProject);
+export default FeaturedProject;

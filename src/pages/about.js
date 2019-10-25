@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { translate } from 'react-i18next';
+
 
 import AboutValues from '../components/about/values';
 import AboutTeamMembers from '../components/about/teamMembers';
@@ -9,13 +9,11 @@ import SharedHeader from '../components/shared/sections/header';
 
 class About extends React.Component {
   render() {
-    const { t } = this.props;
-
     return (
       <Layout>
         <SharedHeader
-          title={t('header_title')}
-          paragraph={t('header_paragraph')}
+          title={'header_title'}
+          paragraph={'header_paragraph'}
         />
         <AboutValues />
         <AboutTeamMembers />
@@ -24,4 +22,4 @@ class About extends React.Component {
   }
 }
 
-export default translate('about')(About);
+export default About;

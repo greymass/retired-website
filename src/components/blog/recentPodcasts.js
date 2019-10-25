@@ -4,22 +4,23 @@ import React, { Component } from 'react';
 import { Header, Icon, List } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import { translate } from 'react-i18next';
+
 
 import recentPodcastsStyles from './recentPodcasts.module.css';
 
 class BlogRecentPodcasts extends Component {
   render() {
-    const { data, i18n, t } = this.props;
+    const { data } = this.props;
 
-    const cleanedUpLocaleName = i18n.language.split('-')[0];
+    // const cleanedUpLocaleName = i18n.language.split('-')[0];
+    const cleanedUpLocaleName = 'en';
 
     return (cleanedUpLocaleName === 'en') ? (
       <div className={recentPodcastsStyles.container}>
         <Header
           as="h3"
           className={recentPodcastsStyles.header}
-          content={t('recent_podcasts_header')}
+          content={'recent_podcasts_header'}
         />
         <List>
           {data
@@ -32,7 +33,7 @@ class BlogRecentPodcasts extends Component {
         </List>
 
         <a href="/#podcasts" className={recentPodcastsStyles.link}>
-          {t('recent_podcasts_link')}
+          {'recent_podcasts_link'}
           <Icon name="arrow right" className={recentPodcastsStyles.linkIcon} />
         </a>
       </div>
@@ -40,7 +41,7 @@ class BlogRecentPodcasts extends Component {
   }
 }
 
-const BlogRecentPodcastsWrapper = translate('blog')(BlogRecentPodcasts)
+const BlogRecentPodcastsWrapper = BlogRecentPodcasts
 
 export default props => (
   <StaticQuery

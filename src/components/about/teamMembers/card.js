@@ -2,8 +2,6 @@ import React, { Component } from "react"
 
 import { Grid, Icon } from 'semantic-ui-react';
 
-import { translate} from 'react-i18next';
-
 import Img from 'gatsby-image';
 
 import SocialMediaButton from './card/socialMediaButton';
@@ -21,7 +19,6 @@ class AboutTeamMembersCard extends Component {
       profileImages,
       linkedinLink,
       name,
-      t,
       title,
       twitterLink,
       youtubeLink,
@@ -62,7 +59,7 @@ class AboutTeamMembersCard extends Component {
                   }`}
                   onClick={() => this.setState({ expanded: false })}
                 >
-                  {t('team_member_card_read_less')}
+                  {'team_member_card_read_less'}
                   <Icon style={{ marginLeft: '5px' }} name="arrow up" />
                 </span>
               </div>
@@ -75,7 +72,7 @@ class AboutTeamMembersCard extends Component {
                   className={aboutTeamMembersCardStyles.expandButton}
                   onClick={() => this.setState({ expanded: true })}
                 >
-                  {t('team_member_card_read_more')}
+                  {'team_member_card_read_more'}
                 </span>
               </div>
             )}
@@ -94,4 +91,4 @@ class AboutTeamMembersCard extends Component {
   }
 }
 
-export default translate('about')(AboutTeamMembersCard);
+export default AboutTeamMembersCard;

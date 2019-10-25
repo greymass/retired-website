@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import { Header, List } from "semantic-ui-react"
 import { graphql, StaticQuery } from 'gatsby';
-import { translate } from 'react-i18next';
+
 
 import BlogPostListItem from './blogPostList/item';
 
@@ -11,15 +11,16 @@ import blogPostListStyles from './blogPostList.module.css';
 
 class BlogPostList extends Component {
   render() {
-    const { data, i18n, t } = this.props;
+    const { data } = this.props;
 
-    const cleanedUpLocaleName = i18n.language.split('-')[0];
+    // const cleanedUpLocaleName = i18n.language.split('-')[0];
+    const cleanedUpLocaleName = 'en';
 
     return (
       <div className={blogPostListStyles.container}>
         <Header
           as="h3"
-          content={t('blog_post_list_title')}
+          content={'blog_post_list_title'}
           className={blogPostListStyles.headerText}
         />
         <List className={blogPostListStyles.list}>
@@ -35,7 +36,7 @@ class BlogPostList extends Component {
   }
 }
 
-const BlogPostListWrapper = translate('blog')(BlogPostList);
+const BlogPostListWrapper = BlogPostList;
 
 export default props => (
   <StaticQuery

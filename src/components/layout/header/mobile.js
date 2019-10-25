@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { translate } from 'react-i18next';
+
 
 import HeaderMobileMenu from './mobile/menu';
 import HeaderMobileSidebar from './mobile/sidebar';
@@ -42,4 +42,4 @@ class HeaderMobile extends Component {
   }
 }
 
-export default translate('layout')(HeaderMobile);
+export default HeaderMobile;

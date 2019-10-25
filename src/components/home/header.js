@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { translate } from 'react-i18next';
+
 
 import { Link } from 'gatsby';
 
@@ -9,12 +9,10 @@ import homeHeaderStyles from './header.module.css';
 
 class HomeHeader extends Component {
   render() {
-    const { t } = this.props;
-
     return (
       <div className={homeHeaderStyles.container}>
         <p className={homeHeaderStyles.headerText}>
-          {t('header_one')}
+          {'header_one'}
         </p>
         <img
           alt='greymass-header'
@@ -22,18 +20,18 @@ class HomeHeader extends Component {
           src={greymassHeaderBackground}
         />
         <p className={homeHeaderStyles.headerText}>
-          {t('header_two')}
+          {'header_two'}
         </p>
 
         <div className={homeHeaderStyles.bottomContainer}>
           <p className={homeHeaderStyles.subheaderText}>
-            {t('header_bottom_one')}
+            {'header_bottom_one'}
           </p>
           <p className={homeHeaderStyles.subheaderText}>
-            {t('header_bottom_two')}
-            
+            {'header_bottom_two'}
+
             <Link className={homeHeaderStyles.supportUsLink} to={`/support`}>
-              {t('header_bottom_link')}
+              {'header_bottom_link'}
             </Link>
           </p>
         </div>
@@ -42,4 +40,4 @@ class HomeHeader extends Component {
   }
 }
 
-export default translate('home')(HomeHeader);
+export default HomeHeader;

@@ -2,8 +2,6 @@ import React, { Component } from "react"
 
 import { graphql, Link, StaticQuery } from "gatsby"
 
-import { translate } from 'react-i18next';
-
 import Img from 'gatsby-image';
 import { Header } from 'semantic-ui-react';
 import projectCardStyles from './card.module.css';
@@ -15,7 +13,6 @@ class ProjectCard extends Component {
       images,
       primary,
       project,
-      t,
     } = this.props;
 
     const {
@@ -37,7 +34,7 @@ class ProjectCard extends Component {
             alt={projectKey}
             fluid={
               image ?
-                image.node.childImageSharp.fluid :
+              image.node.childImageSharp.fluid :
                 data.fileName.childImageSharp.fluid
             }
             className={projectCardStyles.image}
@@ -45,13 +42,13 @@ class ProjectCard extends Component {
 
           <div className={projectCardStyles.bottomContainer}>
             <Header
-              content={t(`project_${projectKey}_name`)}
+              content={`project_${projectKey}_name`}
               inverted
               size="large"
               textAlign="center"
             />
             <p className={projectCardStyles.text}>
-              {t(`project_${projectKey}_description`)}
+              {`project_${projectKey}_description`}
             </p>
           </div>
         </Link>
@@ -60,7 +57,7 @@ class ProjectCard extends Component {
   }
 }
 
-const ProjectCardWrapper = translate('projects')(ProjectCard)
+const ProjectCardWrapper = ProjectCard;
 
 export default props => (
   <StaticQuery
