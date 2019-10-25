@@ -30,7 +30,7 @@ class Layout extends Component {
 
     containerClassName = containerClassName || 'greyBackground';
     return (
-      <I18nextProvider i18n={i18n}>
+      <I18nextProvider i18n={i18n.i18n}>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{data.site.siteMetadata.title}</title>
