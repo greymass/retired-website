@@ -12,7 +12,7 @@ exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
         loadPath: 'src/locales/{{lng}}/{{ns}}.json',
       },
     })
-=    .loadNamespaces(['shared'], () => {
+    .loadNamespaces(['shared'], () => {
       replaceBodyHTMLString(renderToString(bodyComponent))
     })
 }
