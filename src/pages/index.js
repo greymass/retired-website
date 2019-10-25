@@ -23,10 +23,10 @@ class Index extends Component {
         <HomeProjects />
         <HomeAbout />
         <div className={homeStyles.bottomContainer}>
-          <FeaturedBlogPosts
+          {/* <FeaturedBlogPosts
             link="home:blog_posts_link"
             title="home:blog_posts_title"
-          />
+          /> */}
           <HomeNewsletter />
         </div>
       </Layout>
