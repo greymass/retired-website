@@ -14,4 +14,4 @@ class Footer extends Component {
   }
 }
 
-export default translate('navbar')(Footer);;
+export default translate('navbar')(Footer);

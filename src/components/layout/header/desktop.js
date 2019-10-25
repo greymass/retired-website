@@ -38,7 +38,7 @@ class HeaderDesktop extends Component {
           </Menu.Item>
 
           {navbarItems.map(navbarItem => (
-            <Menu.Item>
+            <Menu.Item key={navbarItem.as}>
               <LayoutHeaderLink
                 active={activeItem === navbarItem.as}
                 content={navbarItem.content}

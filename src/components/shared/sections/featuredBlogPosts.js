@@ -40,7 +40,7 @@ class FeaturedBlogPosts extends Component {
           {withFullHeader ? (
             <Header
               extraRow={(
-                <Grid.Row className={featuredBlogPostsStyles.gridComponent} container stackable centered>
+                <Grid.Row className={featuredBlogPostsStyles.gridComponent} centered>
                   {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
                     <FeaturedBlogPostsCard
                       inverted={inverted}
