@@ -58,6 +58,7 @@ class ProjectList extends React.Component {
           >
             {platformProjects.map(project => (
               <ProjectListCard
+                key={project.projectKey}
                 images={images}
                 primary={primary}
                 project={project}
