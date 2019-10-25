@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Responsive } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
@@ -10,16 +8,15 @@ import HeaderDesktop from './header/desktop';
 
 class Header extends Component {
   render() {
-    const { data } = this.props;
-
+    const { data, intl } = this.props;
     // const activeItem = `/${window.location.pathname.split('/')[1]}`;
     const activeItem = 'home'
 
     const navbarItems = [
-      { as: '/', content: 'home', key: '/' },
-      { as: '/about', content: 'about', key: 'about' },
-      { as: '/projects', content: 'projects', key: 'projects' },
-      { as: '/blog', content: 'blog', key: 'blog' },
+      { as: `/${intl.locale}`, content: 'home', key: '/' },
+      { as: `/${intl.locale}/about`, content: 'about', key: 'about' },
+      { as: `/${intl.locale}/projects`, content: 'projects', key: 'projects' },
+      { as: `/${intl.locale}/blog`, content: 'blog', key: 'blog' },
     ];
 
     return (
@@ -49,7 +46,7 @@ class Header extends Component {
   }
 }
 
-const HeaderWrapper = Header;
+const HeaderWrapper = injectIntl(Header);
 
 export default props => (
   <StaticQuery

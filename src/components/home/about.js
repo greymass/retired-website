@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-
 import { Grid, Icon, Container } from 'semantic-ui-react';
 
 import { graphql, Link, StaticQuery } from 'gatsby';
+import { injectIntl } from "gatsby-plugin-intl";
 
 import Img from 'gatsby-image';
 
@@ -10,8 +10,7 @@ import homeAboutStyles from './about.module.css';
 
 class HomeHeader extends Component {
   render() {
-    const { data } = this.props;
-
+    const { data, intl } = this.props;
     return (
       <div className={homeAboutStyles.container}>
         <div className={homeAboutStyles.imageContainer}>
@@ -26,16 +25,16 @@ class HomeHeader extends Component {
             <Grid.Column mobile={16} tablet={6} computer={6} />
             <Grid.Column mobile={16} tablet={10} computer={8}>
               <h4 className={homeAboutStyles.titleText}>
-                {'about_title'}
+                {intl.formatMessage({ id: 'home_about_title' })}
               </h4>
               <p className={homeAboutStyles.paragraphText}>
-                {'about_paragraph_one'}
+                {intl.formatMessage({ id: 'home_about_paragraph_one' })}
               </p>
               <p className={homeAboutStyles.paragraphText}>
-                {'about_paragraph_two'}
+                {intl.formatMessage({ id: 'home_about_paragraph_two' })}
               </p>
               <Link className={homeAboutStyles.aboutUsLink} to={`/support`}>
-                {'about_link'}
+                {intl.formatMessage({ id: 'home_about_link' })}
                 {' '}
                 <Icon name="arrow right" className={homeAboutStyles.icon} />
               </Link>
@@ -47,7 +46,7 @@ class HomeHeader extends Component {
   }
 }
 
-const HomeHeaderWrapper = HomeHeader;
+const HomeHeaderWrapper = injectIntl(HomeHeader);
 
 export default props => (
   <StaticQuery

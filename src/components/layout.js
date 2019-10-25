@@ -7,9 +7,8 @@ import { Helmet } from 'react-helmet';
 import LayoutHeader from './layout/header';
 import LayoutFooter from './layout/footer';
 
-import layoutStyles from './layout.module.css';
-
 import 'semantic-ui-less/semantic.less';
+import layoutStyles from './layout.module.css';
 
 import { Sidebar } from 'semantic-ui-react';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Icon, Grid, Responsive } from 'semantic-ui-react';
 
 import { graphql, Link, StaticQuery } from 'gatsby';
@@ -12,7 +12,7 @@ import homeProjectsStyles from './projects.module.css';
 
 class HomeProjects extends Component {
   render() {
-    const { data } = this.props;
+    const { data, intl } = this.props;
 
     const projects = data.allDataJson.edges[0].node.projects;
 
@@ -38,7 +38,7 @@ class HomeProjects extends Component {
 
         <div className={homeProjectsStyles.container}>
           <p className={homeProjectsStyles.headerText}>
-            {'home:projects_title'}
+            {intl.formatMessage({ id: 'home_projects_title' })}
           </p>
 
           <Grid stackable centered padded>
@@ -66,7 +66,7 @@ class HomeProjects extends Component {
           </Grid>
           <div className={homeProjectsStyles.portfolioContainer}>
             <Link className={homeProjectsStyles.supportUsLink} to={`/projects`}>
-              {'home:projects_portfolio_link'}
+              {intl.formatMessage({ id: 'home_projects_portfolio_link' })}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>
           </div>
@@ -76,7 +76,7 @@ class HomeProjects extends Component {
   }
 }
 
-const HomeProjectsWrapper = HomeProjects;
+const HomeProjectsWrapper = injectIntl(HomeProjects);
 
 export default props => (
   <StaticQuery
