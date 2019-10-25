@@ -12,7 +12,8 @@ class Header extends Component {
   render() {
     const { data } = this.props;
 
-    const activeItem = `/${window.location.pathname.split('/')[1]}`;
+    // const activeItem = `/${window.location.pathname.split('/')[1]}`;
+    const activeItem = 'home'
 
     const navbarItems = [
       { as: '/', content: 'home', key: '/' },
