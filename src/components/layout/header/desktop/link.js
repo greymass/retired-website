@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import { Link } from "gatsby";
+import { injectIntl } from "gatsby-plugin-intl"
 
 import linkStyles from './link.module.css'
 
@@ -9,6 +9,7 @@ class LayoutHeaderLink extends Component {
     const {
       active,
       content,
+      intl,
       to,
     } = this.props;
 
@@ -27,7 +28,7 @@ class LayoutHeaderLink extends Component {
                 linkStyles.activeText :
                 linkStyles.inactiveText
             }`}>
-          {content}
+          {intl.formatMessage({ id: content })}
           {active && (
             <div
               className={linkStyles.activeBottomBar}
@@ -39,4 +40,4 @@ class LayoutHeaderLink extends Component {
   }
 }
 
-export default LayoutHeaderLink;
+export default injectIntl(LayoutHeaderLink);
