@@ -11,11 +11,15 @@ class LayoutHeaderLink extends Component {
       to,
     } = this.props;
 
-    return (
+    return (to.includes('http')) ? (
+      <a href={to} className={linkStyles.link}>
+        {content}
+      </a>
+    ) : (
       <Link to={to} className={linkStyles.link}>
         {content}
       </Link>
-    )
+    );
   }
 }
 
