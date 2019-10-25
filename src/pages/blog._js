@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
-import { translate } from 'react-i18next';
+
 import { Grid } from "semantic-ui-react"
 
 import Layout from '../components/layout';
@@ -38,7 +38,7 @@ class Blog extends Component {
   }
 }
 
-export default translate()(Blog);
+export default Blog;
 
 export const query = graphql`
   query {
@@ -51,9 +51,9 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
           }
-          fields {
-            slug
-          }
+          # fields {
+          #   slug
+          # }
           excerpt
         }
       }
