@@ -50,9 +50,9 @@ export default props => (
                 title
                 date
               }
-              fields {
-                slug
-              }
+              # fields {
+              #   slug
+              # }
               excerpt(pruneLength: 280)
             }
           }
