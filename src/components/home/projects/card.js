@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Grid, Icon } from 'semantic-ui-react';
 
 import Img from 'gatsby-image';
 
 import homeProjectCardStyles from './card.module.css';
 
-export default class HomeProjectCard extends Component {
+class HomeProjectCard extends Component {
   state = {
     inverted: false,
   };
@@ -16,6 +16,7 @@ export default class HomeProjectCard extends Component {
       icon,
       imageAlt,
       imageFluid,
+      intl,
       linkTo,
       text,
     } = this.props;
@@ -59,7 +60,11 @@ export default class HomeProjectCard extends Component {
             }
           >
             <p className={homeProjectCardStyles.text}>
-            {text}
+              {intl.formatMessage({
+                id: text,
+                defaultMessage: '[Project Name]',
+                description: 'The name of the project'
+              })}
             </p>
           </div>
         </a>
@@ -67,3 +72,5 @@ export default class HomeProjectCard extends Component {
     )
   }
 }
+
+export default injectIntl(HomeProjectCard)

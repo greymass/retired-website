@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-
-
-
 import { Link } from 'gatsby';
+import { injectIntl } from "gatsby-plugin-intl";
 
 import greymassHeaderBackground from '../../images/greymassHeaderBackground.svg';
 import homeHeaderStyles from './header.module.css';
 
 class HomeHeader extends Component {
   render() {
+    const { intl } = this.props;
     return (
       <div className={homeHeaderStyles.container}>
         <p className={homeHeaderStyles.headerText}>
-          {'header_one'}
+          {intl.formatMessage({ id: 'home_header_one' })}
         </p>
         <img
           alt='greymass-header'
@@ -20,18 +19,18 @@ class HomeHeader extends Component {
           src={greymassHeaderBackground}
         />
         <p className={homeHeaderStyles.headerText}>
-          {'header_two'}
+          {intl.formatMessage({ id: 'home_header_two' })}
         </p>
 
         <div className={homeHeaderStyles.bottomContainer}>
           <p className={homeHeaderStyles.subheaderText}>
-            {'header_bottom_one'}
+            {intl.formatMessage({ id: 'home_header_bottom_one' })}
           </p>
           <p className={homeHeaderStyles.subheaderText}>
-            {'header_bottom_two'}
+            {intl.formatMessage({ id: 'home_header_bottom_two' })}
 
             <Link className={homeHeaderStyles.supportUsLink} to={`/support`}>
-              {'header_bottom_link'}
+              {intl.formatMessage({ id: 'home_header_bottom_link' })}
             </Link>
           </p>
         </div>
@@ -40,4 +39,4 @@ class HomeHeader extends Component {
   }
 }
 
-export default HomeHeader;
+export default injectIntl(HomeHeader);

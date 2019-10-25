@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
     author: 'Greymass',
-    title: `Greymass Site`,
-    description: "test",
-    officialEmail: `info@greymass.com`,
+    title: 'Greymass',
+    description: 'EOSIO Block Producer',
+    officialEmail: 'hello@greymass.com',
     officialAddress: '#1 Vancouver Road, Vancouver, BC',
     links: {
       youtube: '',
@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: 'gatsby-plugin-prefetch-google-fonts',
       options: {
         fonts: [
           {
@@ -87,7 +87,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-intl`,
       options: {
-        path: `${__dirname}/src/intl`,
+        path: `${__dirname}/src/intl/build`,
         languages: [`en`, `fr`],
         defaultLanguage: `en`,
         redirect: true,
@@ -96,6 +96,12 @@ module.exports = {
     },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-less`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

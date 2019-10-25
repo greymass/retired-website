@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
-import ProjectListCard from './projectList/card';
+// import ProjectListCard from './projectList/card';
 import { Icon, Container } from 'semantic-ui-react';
 
 import projectListStyles from './projectList.module.css';
@@ -8,11 +8,10 @@ import projectListStyles from './projectList.module.css';
 class ProjectList extends React.Component {
   render() {
     const {
-      images,
+      // images,
       platform,
       primary,
       projects,
-      t,
     } = this.props;
 
     const platformProjects =
