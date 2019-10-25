@@ -25,3 +25,41 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     }
   });
 };
+
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+  const resourceTemplate = path.resolve("src/templates/resource.js")
+  const result = await graphql(`
+    {
+      resources: allMarkdownRemark(filter: {
+        fileAbsolutePath: {regex: "/(resources)/.*.md$/"}
+      })
+      {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  console.log({result: result.data.resources.edges})
+  // handle errors
+  if (result.errors) {
+    return reporter.panicOnBuild(
+      `Error while running GraphQL query to build resource pages. ${JSON.stringify(result.errors)}`
+    );
+  }
+  const resourcePage = result.data.resources.edges
+  // Create post detail pages
+  resourcePage.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: resourceTemplate,
+    })
+  })
+}
