@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 import ProjectListCard from './projectList/card';
-
 import { Icon, Container } from 'semantic-ui-react';
 
 import projectListStyles from './projectList.module.css';
@@ -13,6 +12,7 @@ class ProjectList extends React.Component {
       platform,
       primary,
       projects,
+      t,
     } = this.props;
 
     const platformProjects =
@@ -56,14 +56,13 @@ class ProjectList extends React.Component {
             }
             {...settings}
           >
-            {platformProjects.map(project => (
+            {/* {platformProjects.map(project => (
               <ProjectListCard
-                key={project.projectKey}
                 images={images}
                 primary={primary}
                 project={project}
               />
-            ))}
+            ))} */}
           </Slider>
         </Container>
 
