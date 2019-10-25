@@ -31,7 +31,7 @@ class FeaturedProject extends Component {
               />
             )}
           </Grid.Column>
-          <Grid.Column mobile={0} tablet={0} computer={2} />
+          <Grid.Column only="computer" computer={2} />
           <Grid.Column mobile={16} tablet={16} computer={6} >
             <Header
               className={featuredProjectStyles.nameText}
