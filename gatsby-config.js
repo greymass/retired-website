@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
+    author: 'Greymass',
     title: `Greymass Site`,
+    description: "test",
     officialEmail: `info@greymass.com`,
     officialAddress: '#1 Vancouver Road, Vancouver, BC',
     links: {
@@ -33,68 +35,82 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        // Add any options here
+        path: `${__dirname}/src/data/`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src/pages/blog`,
+        name: `blog`,
       },
     },
-    `gatsby-transformer-remark`,
+    `gatsby-transformer-json`,
     {
-      resolve: 'gatsby-plugin-i18n',
+      resolve: `gatsby-transformer-remark`,
       options: {
-        langKeyDefault: 'en',
-        useLangKeyLayout: false,
-        markdownRemark: {
-          postPage: 'src/templates/blog-post.js',
-          query: `
-          {
-            allMarkdownRemark {
-              edges {
-                node {
-                  fields {
-                    slug,
-                    langKey
-                  }
+        query: `
+        {
+          allMarkdownRemark {
+            edges {
+              node {
+                fields {
+                  slug,
+                  langKey
                 }
               }
             }
           }
-          `
         }
-      }
+        `,
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+      },
     },
-    `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: [`en`, `fr`],
+        defaultLanguage: `en`,
+        redirect: true,
+        redirectComponent: require.resolve(`./src/components/redirect.js`),
+      },
+    },
+    `gatsby-plugin-remove-serviceworker`,
+    `gatsby-plugin-less`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `GatsbyJS`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#6b37bf`,
-        theme_color: `#6b37bf`,
-        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-        display: `standalone`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-less`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-transformer-json`,
   ],
 }
