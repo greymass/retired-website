@@ -7,7 +7,7 @@ import {
   Sticky,
   Visibility
 } from 'semantic-ui-react';
-import { translate } from 'react-i18next';
+
 
 import SupportUsSticker from './desktop/sticker';
 
@@ -54,5 +54,4 @@ class BlogPostBodyDesktopn extends Component {
   }
 }
 
-export default translate('blog')(BlogPostBodyDesktopn);
-
+export default BlogPostBodyDesktopn;

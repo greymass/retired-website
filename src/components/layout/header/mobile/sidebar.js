@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { translate } from 'react-i18next';
+
 
 import { Sidebar, Menu } from 'semantic-ui-react';
 
@@ -40,4 +40,4 @@ class HeaderMobileSidebar extends Component {
   }
 }
 
-export default translate('layout')(HeaderMobileSidebar);
+export default HeaderMobileSidebar;

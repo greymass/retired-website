@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Icon, Grid, Responsive } from 'semantic-ui-react';
-import { translate } from 'react-i18next';
+
 import { graphql, Link, StaticQuery } from 'gatsby';
 import HomeProjectCard from './projects/card';
 
@@ -12,7 +12,7 @@ import homeProjectsStyles from './projects.module.css';
 
 class HomeProjects extends Component {
   render() {
-    const { data, t } = this.props;
+    const { data } = this.props;
 
     const projects = data.allDataJson.edges[0].node.projects;
 
@@ -38,7 +38,7 @@ class HomeProjects extends Component {
 
         <div className={homeProjectsStyles.container}>
           <p className={homeProjectsStyles.headerText}>
-            {t('home:projects_title')}
+            {'home:projects_title'}
           </p>
 
           <Grid stackable centered padded>
@@ -48,24 +48,25 @@ class HomeProjects extends Component {
                   .childImageSharp
                   .fluid
                   .src
-                  .includes(project.projectKey)
+                .includes(project.projectKey)
               })
               const imageFluid =
                 imageFluidEdge && imageFluidEdge.node.childImageSharp.fluid;
               return (
                 <HomeProjectCard
+                  key={project.projectKey}
                   icon={project.icon}
                   imageAlt={`${project.projectKey}-image`}
                   imageFluid={imageFluid}
                   linkTo={project.githubLink}
-                  text={t(`project_${project.projectKey}_name`)}
+                  text={`project_${project.projectKey}_name`}
                 />
               )
             })}
           </Grid>
           <div className={homeProjectsStyles.portfolioContainer}>
             <Link className={homeProjectsStyles.supportUsLink} to={`/projects`}>
-              {t('home:projects_portfolio_link')}
+              {'home:projects_portfolio_link'}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>
           </div>
@@ -75,7 +76,7 @@ class HomeProjects extends Component {
   }
 }
 
-const HomeProjectsWrapper = translate('projects')(HomeProjects);
+const HomeProjectsWrapper = HomeProjects;
 
 export default props => (
   <StaticQuery

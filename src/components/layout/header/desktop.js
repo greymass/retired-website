@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { translate } from 'react-i18next';
+
 import { Container, Image, Menu } from 'semantic-ui-react';
 
 import { Link } from 'gatsby';
@@ -58,4 +58,4 @@ class HeaderDesktop extends Component {
   }
 }
 
-export default translate('layout')(HeaderDesktop);
+export default HeaderDesktop;

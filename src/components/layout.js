@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
-import { I18nextProvider } from 'react-i18next';
-import i18n from '../utils/i18n';
-
 import { graphql, StaticQuery } from 'gatsby';
 
 import { Helmet } from 'react-helmet';
-import { translate } from 'react-i18next';
 
 import LayoutHeader from './layout/header';
 import LayoutFooter from './layout/footer';
@@ -30,7 +26,7 @@ class Layout extends Component {
 
     containerClassName = containerClassName || 'greyBackground';
     return (
-      <I18nextProvider i18n={i18n}>
+      <div>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{data.site.siteMetadata.title}</title>
@@ -41,12 +37,12 @@ class Layout extends Component {
           {children}
           <LayoutFooter />
         </Sidebar.Pushable>
-      </I18nextProvider>
+      </div>
     )
   }
 }
 
-const LayoutWrapper = translate('layout')(Layout);
+// const LayoutWrapper = translate('layout')(Layout);
 
 export default props => (
   <StaticQuery
@@ -73,6 +69,6 @@ export default props => (
         }
       }
     `}
-    render={data => <LayoutWrapper data={data} {...props} />}
+    render={data => <Layout data={data} {...props} />}
   />
 );

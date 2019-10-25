@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { Grid, Icon, Container } from 'semantic-ui-react';
-import { translate } from 'react-i18next';
+
 import { graphql, Link, StaticQuery } from 'gatsby';
 
 import Img from 'gatsby-image';
@@ -10,7 +10,7 @@ import homeAboutStyles from './about.module.css';
 
 class HomeHeader extends Component {
   render() {
-    const { data, t } = this.props;
+    const { data } = this.props;
 
     return (
       <div className={homeAboutStyles.container}>
@@ -26,16 +26,16 @@ class HomeHeader extends Component {
             <Grid.Column mobile={16} tablet={6} computer={6} />
             <Grid.Column mobile={16} tablet={10} computer={8}>
               <h4 className={homeAboutStyles.titleText}>
-                {t('about_title')}
+                {'about_title'}
               </h4>
               <p className={homeAboutStyles.paragraphText}>
-                {t('about_paragraph_one')}
+                {'about_paragraph_one'}
               </p>
               <p className={homeAboutStyles.paragraphText}>
-                {t('about_paragraph_two')}
+                {'about_paragraph_two'}
               </p>
               <Link className={homeAboutStyles.aboutUsLink} to={`/support`}>
-                {t('about_link')}
+                {'about_link'}
                 {' '}
                 <Icon name="arrow right" className={homeAboutStyles.icon} />
               </Link>
@@ -47,7 +47,7 @@ class HomeHeader extends Component {
   }
 }
 
-const HomeHeaderWrapper = translate('home')(HomeHeader);
+const HomeHeaderWrapper = HomeHeader;
 
 export default props => (
   <StaticQuery

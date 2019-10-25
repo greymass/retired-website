@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { Icon, Grid, Container } from 'semantic-ui-react';
-import { translate } from 'react-i18next';
+
 import { graphql, Link, StaticQuery } from 'gatsby';
 
 import FeaturedBlogPostsCard from './featuredBlogPosts/card';
@@ -14,16 +14,15 @@ class FeaturedBlogPosts extends Component {
     const {
       containerClassName,
       data,
-      i18n,
       inverted,
       link,
-      t,
       textClassName,
       title,
       withFullHeader
     } = this.props;
 
-    const cleanedUpLocaleName = i18n.language.split('-')[0];
+    // const cleanedUpLocaleName = i18n.language.split('-')[0];
+    const cleanedUpLocaleName = 'en';
 
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
@@ -45,18 +44,18 @@ class FeaturedBlogPosts extends Component {
                     <FeaturedBlogPostsCard
                       inverted={inverted}
                       linkTo={featuredBlogPost.node.fields.slug}
-                      text={t(featuredBlogPost.node.frontmatter.title)}
+                      text={featuredBlogPost.node.frontmatter.title}
                     />
                   ))}
                 </Grid.Row>
               )}
-              title={t(title)}
+              title={title}
             />
           ) : (
             <h4 className={
             `${featuredBlogPostsStyles.headerText} ${featuredBlogPostsStyles[textClassName]}`
             }>
-              {t(title)}
+              {title}
             </h4>
           )}
           {link && (
@@ -67,7 +66,7 @@ class FeaturedBlogPosts extends Component {
                 }
                 to={`/blog`}
               >
-                {t(link)}
+                {link}
                 <Icon name="arrow right" style={{ marginLeft: '5px'}} />
               </Link>
             </div>
@@ -77,7 +76,7 @@ class FeaturedBlogPosts extends Component {
   }
 }
 
-const FeaturedBlogPostsWrapper = translate('blog')(FeaturedBlogPosts);
+const FeaturedBlogPostsWrapper = FeaturedBlogPosts;
 
 export default props => (
   <StaticQuery

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { translate } from 'react-i18next';
+
 
 import { Responsive } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
@@ -10,15 +10,15 @@ import HeaderDesktop from './header/desktop';
 
 class Header extends Component {
   render() {
-    const { data, t } = this.props;
+    const { data } = this.props;
 
     const activeItem = `/${window.location.pathname.split('/')[1]}`;
 
     const navbarItems = [
-      { as: '/', content: t('home'), key: '/' },
-      { as: '/about', content: t('about'), key: 'about' },
-      { as: '/projects', content: t('projects'), key: 'projects' },
-      { as: '/blog', content: t('blog'), key: 'blog' },
+      { as: '/', content: 'home', key: '/' },
+      { as: '/about', content: 'about', key: 'about' },
+      { as: '/projects', content: 'projects', key: 'projects' },
+      { as: '/blog', content: 'blog', key: 'blog' },
     ];
 
     return (
@@ -48,7 +48,7 @@ class Header extends Component {
   }
 }
 
-const HeaderWrapper = translate('navbar')(Header);
+const HeaderWrapper = Header;
 
 export default props => (
   <StaticQuery

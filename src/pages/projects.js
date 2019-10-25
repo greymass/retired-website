@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { graphql } from 'gatsby';
-import { translate } from 'react-i18next';
+
 
 import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
@@ -10,15 +10,15 @@ import FeaturedProject from '../components/projects/featuredProject';
 
 class Projects extends Component {
   render() {
-    const { data, t } = this.props;
+    const { data } = this.props;
     const projects = data.allDataJson.edges[0].node.projects;
     const featuredProject = projects.find(project => project.featured === true);
 
     return (
       <Layout>
         <SharedHeader
-          title={t('header_title')}
-          paragraph={t('header_paragraph')}
+          title={'header_title'}
+          paragraph={'header_paragraph'}
         />
         <ProjectList images={data.images} projects={projects} platform="eosio" primary />
         <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
@@ -29,7 +29,7 @@ class Projects extends Component {
   }
 }
 
-export default translate('projects')(Projects);
+export default Projects;
 
 export const query = graphql`
   query {

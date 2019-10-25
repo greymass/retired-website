@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import { Container, Grid } from "semantic-ui-react"
-import { translate } from 'react-i18next';
+
 import { graphql, StaticQuery } from "gatsby"
 
 import AboutTeamMembersCard from './teamMembers/card';
@@ -10,7 +10,7 @@ import aboutTeamMembersStyles from './teamMembers.module.css';
 
 class AboutTeamMembers extends Component {
   render() {
-    const { data, t } = this.props;
+    const { data } = this.props;
 
     const teamMembers = data.allDataJson.edges[0].node.teamMembers;
 
@@ -18,7 +18,7 @@ class AboutTeamMembers extends Component {
       <div className={aboutTeamMembersStyles.container}>
         <Container>
           <h4 className={aboutTeamMembersStyles.headerText}>
-            {t('team_members_title')}
+            {'team_members_title'}
           </h4>
 
           <Grid stackable centered padded>
@@ -40,7 +40,7 @@ class AboutTeamMembers extends Component {
   }
 }
 
-const AboutTeamMembersWrapper = translate('about')(AboutTeamMembers);
+const AboutTeamMembersWrapper = AboutTeamMembers;
 
 export default props => (
   <StaticQuery

@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import ProjectListCard from './projectList/card';
-import { translate } from 'react-i18next';
+
 import { Icon, Container } from 'semantic-ui-react';
 
 import projectListStyles from './projectList.module.css';
@@ -13,7 +13,6 @@ class ProjectList extends React.Component {
       platform,
       primary,
       projects,
-      t,
     } = this.props;
 
     const platformProjects =
@@ -48,11 +47,11 @@ class ProjectList extends React.Component {
     return (
       <div className={projectListStyles.container} >
         <Container>
-          <h3 className={projectListStyles.secondaryHeader}>{t(`platform_${platform}`)}</h3>
+          <h3 className={projectListStyles.secondaryHeader}>{`platform_${platform}`}</h3>
 
           <Slider
             className={primary ?
-              projectListStyles.primaryCarousel :
+            projectListStyles.primaryCarousel :
               projectListStyles.secondaryCarousel
             }
             {...settings}
@@ -98,4 +97,4 @@ const RightArrow = ({className, onClick}) => (
   </div>
 );
 
-export default translate('projects')(ProjectList);
+export default ProjectList;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { translate } from 'react-i18next';
+
 
 import { Icon, Sidebar, Menu } from 'semantic-ui-react';
 
@@ -47,4 +47,4 @@ class HeaderMobileMenu extends Component {
   }
 }
 
-export default translate('layout')(HeaderMobileMenu);
+export default HeaderMobileMenu;
