@@ -12,9 +12,13 @@ class HomeNewsletter extends Component {
         <p className={newsletterStyles.title}>
           {intl.formatMessage({ id: 'home_newsletter_title' })}
         </p>
-        <p className={newsletterStyles.subtitle}>
-          {intl.formatMessage({ id: 'home_newsletter_subtitle' })}
-        </p>
+        <iframe
+          width="100%"
+          height="320"
+          src="https://greymass.substack.com/embed"
+          frameborder="0"
+          scrolling="no"
+        />
       </Container>
     )
   }
