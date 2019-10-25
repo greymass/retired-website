@@ -1,7 +1,6 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { reactI18nextModule } from 'react-i18next'
-import XHR from 'i18next-xhr-backend'
 
 export const options = {
   backend: {
@@ -16,8 +15,15 @@ export const options = {
   }
 }
 
+if (process.env.NODE_ENV === 'development') {
+  const XHR = require('i18next-xhr-backend');
+  i18n.use(XHR);
+} else {
+  const Backend = require('i18next-sync-fs-backend');
+  i18n.use(Backend);
+}
+
 i18n
-  .use(XHR)
   .use(LanguageDetector)
   .use(reactI18nextModule)
   .init(options)
