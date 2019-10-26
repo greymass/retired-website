@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
-import { Responsive } from 'semantic-ui-react';
+// import { Responsive } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import HeaderMobile from './header/mobile';
+// import HeaderMobile from './header/mobile';
 import HeaderDesktop from './header/desktop';
 
 class Header extends Component {
