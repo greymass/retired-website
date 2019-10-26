@@ -18,30 +18,33 @@ class Header extends Component {
       { as: `/${intl.locale}/projects`, content: 'projects', key: 'projects' },
       { as: `/${intl.locale}/blog`, content: 'blog', key: 'blog' },
     ];
-
+    // TODO: Responsive logic needs reworking
+    // <Responsive
+    //   as={React.Fragment}
+    //   {...Responsive.onlyMobile}
+    // >
+    //   <HeaderMobile
+    //     activeItem={activeItem}
+    //     data={data}
+    //     navbarItems={navbarItems}
+    //   />
+    // </Responsive>
+    // <Responsive
+    //   as={React.Fragment}
+    //   minWidth={Responsive.onlyTablet.minWidth}
+    // >
+    //   <HeaderDesktop
+    //     activeItem={activeItem}
+    //     data={data}
+    //     navbarItems={navbarItems}
+    //   />
+    // </Responsive>
     return (
-      <React.Fragment>
-        <Responsive
-          as={React.Fragment}
-          {...Responsive.onlyMobile}
-        >
-          <HeaderMobile
-            activeItem={activeItem}
-            data={data}
-            navbarItems={navbarItems}
-          />
-        </Responsive>
-        <Responsive
-          as={React.Fragment}
-          minWidth={Responsive.onlyTablet.minWidth}
-        >
-          <HeaderDesktop
-            activeItem={activeItem}
-            data={data}
-            navbarItems={navbarItems}
-          />
-        </Responsive>
-      </React.Fragment>
+      <HeaderDesktop
+        activeItem={activeItem}
+        data={data}
+        navbarItems={navbarItems}
+      />
     )
   }
 }
