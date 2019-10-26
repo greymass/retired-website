@@ -13,27 +13,31 @@ import homeProjectsStyles from './projects.module.css';
 class HomeProjects extends Component {
   render() {
     const { data, intl } = this.props;
-
     const projects = data.allDataJson.edges[0].node.projects;
-
+    // TODO: Responsive logic needs reworking
+    // <Responsive {...Responsive.onlyMobile}>
+    //   <img
+    //     alt='projects-page-background-mobile'
+    //     src={projectsBackgroundForMobile}
+    //     className={homeProjectsStyles.image}
+    //   />
+    // </Responsive>
+    // <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+    //   <img
+    //     alt='projects-page-background-desktop'
+    //     src={projectsBackgroundForDesktop}
+    //     className={homeProjectsStyles.image}
+    //   />
+    // </Responsive>
     return (
       <div>
         <div className={homeProjectsStyles.arrowDownContainer}>
           <Icon name="arrow down" className={homeProjectsStyles.arrowDownIcon} />
-          <Responsive {...Responsive.onlyMobile}>
-            <img
-              alt='projects-page-background-mobile'
-              src={projectsBackgroundForMobile}
-              className={homeProjectsStyles.image}
-            />
-          </Responsive>
-          <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-            <img
-              alt='projects-page-background-desktop'
-              src={projectsBackgroundForDesktop}
-              className={homeProjectsStyles.image}
-            />
-          </Responsive>
+          <img
+            alt='projects-page-background-desktop'
+            src={projectsBackgroundForDesktop}
+            className={homeProjectsStyles.image}
+          />
         </div>
 
         <div className={homeProjectsStyles.container}>
