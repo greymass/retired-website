@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
-import { Icon, Grid, Responsive } from 'semantic-ui-react';
+import {
+  Icon,
+  Grid,
+  // Responsive
+} from 'semantic-ui-react';
 
 import { graphql, Link, StaticQuery } from 'gatsby';
 import HomeProjectCard from './projects/card';
 
 import projectsBackgroundForDesktop from '../../images/projectsBackgroundForDesktop.svg';
-import projectsBackgroundForMobile from '../../images/projectsBackgroundForMobile.svg';
+// import projectsBackgroundForMobile from '../../images/projectsBackgroundForMobile.svg';
 
 import homeProjectsStyles from './projects.module.css';
 

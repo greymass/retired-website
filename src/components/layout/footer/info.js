@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Divider, Grid, Responsive } from "semantic-ui-react"
+import {
+  // Divider,
+  Grid,
+  // Responsive
+} from "semantic-ui-react"
 
 import FooterInfoResources from './info/resources';
 import FooterInfoContact from './info/contact';
