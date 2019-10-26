@@ -13,6 +13,7 @@ class HomeNewsletter extends Component {
           {intl.formatMessage({ id: 'home_newsletter_title' })}
         </p>
         <iframe
+          title="newsletter-iframe"
           width="100%"
           height="320"
           src="https://greymass.substack.com/embed"
