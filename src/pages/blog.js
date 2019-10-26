@@ -15,6 +15,8 @@ import blogStyles from './blog.module.css';
 
 class Blog extends Component {
   render() {
+    const { data } = this.props;
+
     return (
       <Layout>
         <FeaturedBlogPosts
@@ -51,9 +53,9 @@ export const query = graphql`
             title
             date(formatString: "DD MMMM, YYYY")
           }
-          # fields {
-          #   slug
-          # }
+          fields {
+            slug
+          }
           excerpt
         }
       }

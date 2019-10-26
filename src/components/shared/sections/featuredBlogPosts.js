@@ -88,9 +88,9 @@ export default props => (
               frontmatter {
                 title
               }
-              # fields {
-              #   slug
-              # }
+              fields {
+                slug
+              }
             }
           }
         }
