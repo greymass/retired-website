@@ -30,11 +30,30 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const partsOfSlug = slug.split('.');
+
+    if (partsOfSlug.length > 2) {
+      return reporter.panicOnBuild(
+        `Following blog post title should not contain any "."s:\n ${node.fields.slug}`
+      );
+    }
+
+    const locale = partsOfSlug[1];
+    const cleanedUpSlug = `/${locale}blog${partsOfSlug[0]}`;
+
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
-    })
+      value: cleanedUpSlug,
+    });
+
+    if (locale) {
+      createNodeField({
+        node,
+        name: `locale`,
+        value: locale,
+      });
+    }
   }
 }
 
@@ -46,13 +65,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 async function createResourcePages(actions, graphql, reporter) {
   const { createPage } = actions
   const resourceTemplate = path.resolve('src/templates/resource.js');
-  const result = await fetchMarkdownPagesByFolder('blog', graphql, reporter);
+  const result = await fetchMarkdownPagesByFolder('resources', graphql, reporter);
 
-  const resourcePage = result.data.resources.edges;
+  const resourcePages = result.data.results.edges;
   // Create post detail pages
-  resourcePage.forEach(({ node }) => {
+  resourcePages.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
+      context: { slug: node.fields.slug },
       component: resourceTemplate,
     })
   })
@@ -62,26 +82,14 @@ async function createBlogPages(actions, graphql, reporter) {
   const { createPage } = actions;
 
   const blogPostTemplate = path.resolve('src/templates/blog-post.js');
-  const result = await fetchMarkdownPagesByFolder('resources', graphql, reporter);
+  const result = await fetchMarkdownPagesByFolder('blog', graphql, reporter);
 
-  const resourcePage = result.data.resources.edges;
+  const blogPages = result.data.results.edges;
   // Create post detail pages
-  resourcePage.forEach(({ node }) => {
-    const partsOfSlug = node.fields.slug.split('.');
-
-    if (partsOfSlug.length > 2) {
-      return reporter.panicOnBuild(
-        `Following blog post title should not contain any "."s:\n ${node.fields.slug}`
-      );
-    }
-
-    const cleanedUpSlug = partsOfSlug[0];
-    const locale = partsOfSlug[1];
-
-    const path = `${locale}/${cleanedUpSlug}`;
-
+  blogPages.forEach(({ node }) => {
     createPage({
-      path,
+      path: node.fields.slug,
+      context: { slug: node.fields.slug },
       component: blogPostTemplate,
     })
   })
@@ -90,7 +98,7 @@ async function createBlogPages(actions, graphql, reporter) {
 async function fetchMarkdownPagesByFolder(folder, graphql, reporter) {
   const result = await graphql(`
     {
-      resources: allMarkdownRemark(filter: {
+      results: allMarkdownRemark(filter: {
         fileAbsolutePath: {regex: "/(${folder})/.*.md$/"}
       })
       {

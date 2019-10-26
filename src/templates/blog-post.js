@@ -18,23 +18,23 @@ class BlogPost extends Component {
     const { data } = this.props;
     const post = data.markdownRemark;
 
+    console.log({data});
+
     return (
       <Layout>
-        { () => (
-          <div>
-            <BlogPostHeader post={post} />
-            <div className={blogPostStyles.bodyContainer}>
-              <BlogPostBody post={post} />
-            </div>
-            <FeaturedBlogPosts
-              containerClassName="lightBlueBackground"
-              inverted
-              link="blog:featured_blog_post_link"
-              textClassName="whiteText"
-              title="blog:featured_blog_post_header"
-            />
+        <div>
+          <BlogPostHeader post={post} />
+          <div className={blogPostStyles.bodyContainer}>
+            <BlogPostBody post={post} />
           </div>
-        )}
+          <FeaturedBlogPosts
+            containerClassName="lightBlueBackground"
+            inverted
+            link="blog:featured_blog_post_link"
+            textClassName="whiteText"
+            title="blog:featured_blog_post_header"
+          />
+        </div>
       </Layout>
     )
   }
@@ -43,8 +43,8 @@ class BlogPost extends Component {
 export default BlogPost;
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($path: String!) {
+    markdownRemark(fields: { slug: { eq: $path } }) {
       html
       frontmatter {
         author
