@@ -24,9 +24,11 @@ class FeaturedBlogPosts extends Component {
     // const cleanedUpLocaleName = i18n.language.split('-')[0];
     const cleanedUpLocaleName = 'en';
 
+    console.log({edges: data.allMarkdownRemark.edges})
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
-          .filter(({ node }) => node.fields.page.slug.includes(`${cleanedUpLocaleName}/`));
+          .filter(({ node }) => node.fields.page.locale === cleanedUpLocaleName);
+    console.log({featuredBlogPosts})
 
     return (
         <Container
@@ -43,7 +45,7 @@ class FeaturedBlogPosts extends Component {
                   {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
                     <FeaturedBlogPostsCard
                       inverted={inverted}
-                      linkTo={featuredBlogPost.node.fields.slug}
+                      linkTo={featuredBlogPost.node.fields.page.path}
                       text={featuredBlogPost.node.frontmatter.title}
                     />
                   ))}
@@ -82,7 +84,11 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(
+          sort: {fields: [frontmatter___date], order: DESC},
+          filter: {fileAbsolutePath: {regex: "/(blog)/"}},
+          limit: 100
+        ) {
           edges {
             node {
               frontmatter {
@@ -90,7 +96,8 @@ export default props => (
               }
               fields {
                 page {
-                  slug
+                  locale
+                  path
                 }
               }
             }

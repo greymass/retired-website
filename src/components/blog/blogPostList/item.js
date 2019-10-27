@@ -11,7 +11,7 @@ class BlogPostListItem extends Component {
     return (
       <div key={blogPost.id} className={blogPostItemStyles.container}>
         <Link
-          to={blogPost.fields.slug}
+          to={blogPost.fields.page.path}
         >
           <h3 className={blogPostItemStyles.headerText}>
             {blogPost.frontmatter.title}

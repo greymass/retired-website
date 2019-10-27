@@ -26,7 +26,7 @@ class BlogPostList extends Component {
         <List className={blogPostListStyles.list}>
           {data
             .allMarkdownRemark.edges
-            .filter( ({ node }) => node.fields.locale === cleanedUpLocaleName)
+            .filter( ({ node }) => node.fields.page.locale === cleanedUpLocaleName)
             .map(({ node }) => (
               <BlogPostListItem blogPost={node} />
             ))}
@@ -52,7 +52,8 @@ export default props => (
               }
               fields {
                 page {
-                  slug
+                  locale
+                  path
                 }
               }
               excerpt(pruneLength: 280)
