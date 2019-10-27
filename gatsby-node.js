@@ -28,37 +28,53 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 };
 
 exports.onCreateNode = ({ node, actions, getNode, getNodes, reporter }) => {
-  const { createNodeField, deleteNode } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const {
-      sluggishTitle,
-      locale,
-      pageType,
-    } = getDataFromNode(node, getNode, getNodes, reporter);
+    const pageData = updateNodeData(node, createNodeField, getNode, getNodes, reporter);
 
-    const pageData = {
-      pageId: node.id,
-      slug: sluggishTitle,
-      path: `/${pageType}/${sluggishTitle}`,
-      locale,
-      versions: []
-    };
-    // if is default language node
-    if (locale === defaultLanguage) {
-      updateNodeWithVersions(pageData, getNode, getNodes, reporter);
-    }
-    console.log({pageData})
-    createNodeField({
-      node,
-      name: 'page',
-      value: pageData,
+    const defaultLanguageNode = getNodes().find(node => {
+      return
+        node.internal.type === `MarkdownRemark` &&
+        node.fileAbsolutePath.includes(pageData.slug) &&
+        node.fields.page.locale === defaultLanguage;
     });
+
+    defaultLanguageNode &&
+      updateNodeData(defaultLanguageNode, createNodeField, getNode, getNodes, reporter);
   }
   return node;
 }
 
-function updateNodeWithVersions(pageData, getNode, getNodes, reporter) {
+function updateNodeData(node, createNodeField, getNode, getNodes, reporter) {
+  const {
+    sluggishTitle,
+    locale,
+    pageType,
+  } = getDataFromNode(node, getNode, getNodes, reporter);
+
+  const pageData = {
+    pageId: node.id,
+    slug: sluggishTitle,
+    path: `/${pageType}/${sluggishTitle}`,
+    locale,
+    versions: []
+  };
+  // if is default language node
+  if (locale === defaultLanguage) {
+    updatePageDataWithVersions(pageData, getNode, getNodes, reporter);
+  }
+
+  createNodeField({
+    node,
+    name: 'page',
+    value: pageData,
+  });
+
+  return pageData;
+}
+
+function updatePageDataWithVersions(pageData, getNode, getNodes, reporter) {
   getNodes().forEach(versionNode => {
     if (versionNode.internal.type !== `MarkdownRemark`) {
       return;
@@ -125,8 +141,8 @@ async function createBlogPages(actions, graphql, reporter) {
   // Create post detail pages
   blogPages.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
-      context: { slug: node.fields.slug },
+      path: node.fields.page.slug,
+      context: { slug: node.fields.page.slug },
       component: blogPostTemplate,
     })
   })
