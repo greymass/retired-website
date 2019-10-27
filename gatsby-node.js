@@ -124,8 +124,8 @@ async function createResourcePages(actions, graphql, reporter) {
   // Create post detail pages
   resourcePages.forEach(({ node }) => {
     createPage({
-      path: node.fields.slug,
-      context: { slug: node.fields.slug },
+      path: node.fields.page.slug,
+      context: { slug: node.fields.page.slug },
       component: resourceTemplate,
     })
   })
@@ -158,7 +158,9 @@ async function fetchMarkdownPagesByFolder(folder, graphql, reporter) {
         edges {
           node {
             fields {
-              slug
+              page {
+                slug
+              }
             }
           }
         }

@@ -26,7 +26,7 @@ class FeaturedBlogPosts extends Component {
 
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
-          .filter(({ node }) => node.fields.slug.includes(`${cleanedUpLocaleName}/`));
+          .filter(({ node }) => node.fields.page.slug.includes(`${cleanedUpLocaleName}/`));
 
     return (
         <Container
@@ -89,7 +89,9 @@ export default props => (
                 title
               }
               fields {
-                slug
+                page {
+                  slug
+                }
               }
             }
           }
