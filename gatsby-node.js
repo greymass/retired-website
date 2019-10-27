@@ -58,12 +58,7 @@ function updateNodeData(node, createNodeField, getNode, getNodes, reporter) {
     slug: sluggishTitle,
     path: `${pageType}/${sluggishTitle}/`,
     locale,
-    versions: []
   };
-  // if is default language node
-  if (locale === defaultLanguage) {
-    updatePageDataWithVersions(pageData, getNode, getNodes, reporter);
-  }
 
   createNodeField({
     node,
@@ -72,29 +67,6 @@ function updateNodeData(node, createNodeField, getNode, getNodes, reporter) {
   });
 
   return pageData;
-}
-
-function updatePageDataWithVersions(pageData, getNode, getNodes, reporter) {
-  getNodes().forEach(versionNode => {
-    if (versionNode.internal.type !== `MarkdownRemark`) {
-      return;
-    }
-
-    const {
-      sluggishTitle: versionSluggishTitle,
-      locale: versionLocale,
-    } = getDataFromNode(versionNode, getNode, reporter);
-
-    if (pageData.slug === versionSluggishTitle) {
-      pageData.versions.push({
-        lang: versionLocale,
-        summary: versionNode.excerpt,
-        title: versionNode.frontmatter.title,
-        date: versionNode.frontmatter.date,
-        markdown: versionNode.rawMarkdownBody,
-      })
-    }
-  })
 }
 
 function getDataFromNode(node, getNode) {
@@ -142,7 +114,7 @@ async function createBlogPages(actions, graphql, reporter) {
   blogPages.forEach(({ node }) => {
     createPage({
       path: node.fields.page.path,
-      context: { slug: node.fields.page.slug },
+      context: { slug: node.fields.page.slug, locale: node.fields.page.locale || defaultLanguage },
       component: blogPostTemplate,
     })
   })

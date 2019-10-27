@@ -6,14 +6,14 @@ import headerStyles from './header.module.css';
 
 class BlogPostHeader extends Component {
   render() {
-    const { versionData } = this.props;
+    const { post } = this.props;
     return(
       <div className={headerStyles.headerContainer}>
         <Container>
           <Header
             as="h1"
             className={headerStyles.headerText}
-            content={versionData.title}
+            content={post.frontmatter.title}
             size="huge"
           />
         </Container>
