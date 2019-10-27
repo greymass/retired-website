@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     author: 'Greymass',
     title: 'Greymass',
+    defaultLanguage: 'en',
     description: 'EOSIO Block Producer',
     officialEmail: 'hello@greymass.com',
     officialAddress: '#1 Vancouver Road, Vancouver, BC',

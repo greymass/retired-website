@@ -1,7 +1,8 @@
 const jsonConcat = require('json-concat');
 const path = require(`path`)
 const fs = require('fs-extra')
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const { siteMetadata: { defaultLanguage } } = require('./gatsby-config');
 
 exports.onPreInit = () => {
   console.log('Combining Localization Files')
@@ -26,35 +27,67 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({ node, actions, getNode, getNodes, reporter }) => {
+  const { createNodeField, deleteNode } = actions
+
   if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    const partsOfSlug = slug.split('.');
+    const {
+      sluggishTitle,
+      locale
+    } = getDataFromNode(node, getNode, getNodes, reporter);
 
-    if (partsOfSlug.length > 2) {
-      return reporter.panicOnBuild(
-        `Following blog post title should not contain any "."s:\n ${node.fields.slug}`
-      );
+    const pageData = {
+      pageId: node.id,
+      slug: sluggishTitle,
+      path,
+      locale,
+      versions: []
+    };
+    // if is default language node
+    if (locale === defaultLanguage) {
+      updateNodeWithVersions(pageData, getNode, getNodes, reporter);
     }
-
-    const locale = partsOfSlug[1];
-    const cleanedUpSlug = `/${locale}blog${partsOfSlug[0]}`;
-
     createNodeField({
       node,
-      name: `slug`,
-      value: cleanedUpSlug,
+      name: 'page',
+      value: pageData,
     });
-
-    if (locale) {
-      createNodeField({
-        node,
-        name: `locale`,
-        value: locale,
-      });
-    }
   }
+}
+
+function updateNodeWithVersions(pageData, getNode, getNodes, reporter) {
+  getNodes().forEach(versionNode => {
+    if (versionNode.internal.type !== `MarkdownRemark`) {
+      return;
+    }
+
+    const {
+      sluggishTitle: versionSluggishTitle,
+      locale: versionLocale,
+    } = getDataFromNode(versionNode, getNode, reporter);
+
+    if (pageData.slug === versionSluggishTitle) {
+      pageData.versions.push({
+        lang: versionLocale,
+        summary: versionNode.excerpt,
+        title: versionNode.frontmatter.title,
+        date: versionNode.frontmatter.date,
+        markdown: versionNode.rawMarkdownBody,
+      })
+    }
+  })
+}
+
+function getDataFromNode(node, getNode, reporter) {
+  const slug = createFilePath({ node, getNode, basePath: `pages` })
+  const partsOfSlug = slug.split('.');
+
+  const locale = partsOfSlug[1].split('/').join('');
+  const sluggishTitle = partsOfSlug[0].split('/').join('');
+
+  const pageType = node.fileAbsolutePath.split('/src/pages/')[1].split('/')[0];
+
+  return { sluggishTitle, pageType, locale };
 }
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
