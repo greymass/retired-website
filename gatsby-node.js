@@ -33,13 +33,14 @@ exports.onCreateNode = ({ node, actions, getNode, getNodes, reporter }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const {
       sluggishTitle,
-      locale
+      locale,
+      pageType,
     } = getDataFromNode(node, getNode, getNodes, reporter);
 
     const pageData = {
       pageId: node.id,
       slug: sluggishTitle,
-      path,
+      path: `/${pageType}/${sluggishTitle}`,
       locale,
       versions: []
     };
@@ -47,12 +48,14 @@ exports.onCreateNode = ({ node, actions, getNode, getNodes, reporter }) => {
     if (locale === defaultLanguage) {
       updateNodeWithVersions(pageData, getNode, getNodes, reporter);
     }
+    console.log({pageData})
     createNodeField({
       node,
       name: 'page',
       value: pageData,
     });
   }
+  return node;
 }
 
 function updateNodeWithVersions(pageData, getNode, getNodes, reporter) {
@@ -78,14 +81,15 @@ function updateNodeWithVersions(pageData, getNode, getNodes, reporter) {
   })
 }
 
-function getDataFromNode(node, getNode, reporter) {
+function getDataFromNode(node, getNode) {
   const slug = createFilePath({ node, getNode, basePath: `pages` })
   const partsOfSlug = slug.split('.');
 
   const locale = partsOfSlug[1].split('/').join('');
   const sluggishTitle = partsOfSlug[0].split('/').join('');
 
-  const pageType = node.fileAbsolutePath.split('/src/pages/')[1].split('/')[0];
+  const pageType =
+    node.fileAbsolutePath.split('/src/pages/')[1].split('/')[0];
 
   return { sluggishTitle, pageType, locale };
 }
