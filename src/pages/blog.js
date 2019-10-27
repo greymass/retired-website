@@ -54,7 +54,9 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY")
           }
           fields {
-            slug
+            page {
+              slug
+            }
           }
           excerpt
         }

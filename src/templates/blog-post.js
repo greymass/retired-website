@@ -44,7 +44,7 @@ export default BlogPost;
 
 export const query = graphql`
   query($path: String!) {
-    markdownRemark(fields: { slug: { eq: $path } }) {
+    markdownRemark(fields: { page: { slug: { eq: $path } } }) {
       html
       frontmatter {
         author

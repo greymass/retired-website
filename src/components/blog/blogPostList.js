@@ -51,7 +51,9 @@ export default props => (
                 date
               }
               fields {
-                slug
+                page {
+                  slug
+                }
               }
               excerpt(pruneLength: 280)
             }
