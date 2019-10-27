@@ -18,14 +18,18 @@ class BlogPost extends Component {
     const { data } = this.props;
     const post = data.markdownRemark;
 
-    console.log({data});
+    const currentLanguage = 'en';
+
+    const versionData = post.fields.page.versions.find(version => {
+      return currentLanguage === version.lang
+    })
 
     return (
       <Layout>
         <div>
-          <BlogPostHeader post={post} />
+          <BlogPostHeader versionData={versionData}  />
           <div className={blogPostStyles.bodyContainer}>
-            <BlogPostBody post={post} />
+            <BlogPostBody post={post} versionData={versionData} />
           </div>
           <FeaturedBlogPosts
             containerClassName="lightBlueBackground"
@@ -43,9 +47,17 @@ class BlogPost extends Component {
 export default BlogPost;
 
 export const query = graphql`
-  query($path: String!) {
-    markdownRemark(fields: { page: { slug: { eq: $path } } }) {
-      html
+  query($slug: String!) {
+    markdownRemark(fields: { page: { slug: { eq: $slug } } }) {
+      fields {
+        page {
+          versions {
+            lang
+            markdown
+            title
+          }
+        }
+      }
       frontmatter {
         author
         date

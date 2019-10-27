@@ -56,7 +56,7 @@ function updateNodeData(node, createNodeField, getNode, getNodes, reporter) {
   const pageData = {
     pageId: node.id,
     slug: sluggishTitle,
-    path: `/${pageType}/${sluggishTitle}`,
+    path: `${pageType}/${sluggishTitle}/`,
     locale,
     versions: []
   };
@@ -102,7 +102,7 @@ function getDataFromNode(node, getNode) {
   const partsOfSlug = slug.split('.');
 
   const locale = partsOfSlug[1].split('/').join('');
-  const sluggishTitle = partsOfSlug[0].split('/').join('');
+  const sluggishTitle = partsOfSlug[0].split('/')[2];
 
   const pageType =
     node.fileAbsolutePath.split('/src/pages/')[1].split('/')[0];
@@ -141,7 +141,7 @@ async function createBlogPages(actions, graphql, reporter) {
   // Create post detail pages
   blogPages.forEach(({ node }) => {
     createPage({
-      path: node.fields.page.slug,
+      path: node.fields.page.path,
       context: { slug: node.fields.page.slug },
       component: blogPostTemplate,
     })
@@ -160,6 +160,7 @@ async function fetchMarkdownPagesByFolder(folder, graphql, reporter) {
             fields {
               page {
                 slug
+                path
               }
             }
           }

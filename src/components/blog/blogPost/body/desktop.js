@@ -30,7 +30,7 @@ class BlogPostBodyDesktopn extends Component {
   }
 
   render() {
-    const { post } = this.props;
+    const { versionData } = this.props;
     const { stickerVisible } = this.state;
 
     return (
@@ -46,7 +46,7 @@ class BlogPostBodyDesktopn extends Component {
         </Grid.Column>
         <Grid.Column width={10}>
           <Visibility onUpdate={this.handleUpdate}>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div dangerouslySetInnerHTML={{ __html: versionData.markdown }} />
           </Visibility>
         </Grid.Column>
       </Grid>

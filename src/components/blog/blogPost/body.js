@@ -9,7 +9,7 @@ import blogPostStyles from './body.module.css';
 
 class BlogPostBody extends Component {
   render() {
-    const { post } = this.props;
+    const { post, versionData } = this.props;
     // TODO: Responsive logic needs reworking
     // <Responsive maxWidth={Responsive.onlyTablet.maxWidth}>
     //   <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -20,7 +20,7 @@ class BlogPostBody extends Component {
     return (
       <Container className={blogPostStyles.markdownContainer}>
         <BlogPostDate post={post} />
-        <BlogPostDesktop post={post} />
+        <BlogPostDesktop versionData={versionData} />
       </Container>
     )
   }
