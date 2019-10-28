@@ -42,7 +42,11 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC },
+          filter: {fileAbsolutePath: {regex: "/(blog)/"}},
+          limit: 100
+        ) {
           edges {
             node {
               id
