@@ -43,7 +43,7 @@ class FeaturedBlogPosts extends Component {
                   {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
                     <FeaturedBlogPostsCard
                       inverted={inverted}
-                      linkTo={featuredBlogPost.node.fields.page.path}
+                      linkTo={`/${featuredBlogPost.node.fields.page.locale}/${featuredBlogPost.node.fields.page.path}`}
                       text={featuredBlogPost.node.frontmatter.title}
                     />
                   ))}
