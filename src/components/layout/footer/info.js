@@ -33,18 +33,19 @@ class FooterInfo extends Component {
     //   </Grid>
     // </Responsive>
     return (
-      <Grid container>
-        <Grid.Column
-          className={footerInfoStyles.contactInfoContainer}
-          width={10}
-        >
-          <FooterInfoResources />
-        </Grid.Column>
+      <div className={footerInfoStyles.container}>
+        <Grid container className={footerInfoStyles.container}>
+          <Grid.Column
+            width={10}
+          >
+            <FooterInfoResources />
+          </Grid.Column>
 
-        <Grid.Column tablet={6} computer={5} floated="right">
-          <FooterInfoContact />
-        </Grid.Column>
-      </Grid>
+          <Grid.Column tablet={6} computer={5} floated="right">
+            <FooterInfoContact />
+          </Grid.Column>
+        </Grid>
+      </div>
     )
   }
 }
