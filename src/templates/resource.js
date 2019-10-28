@@ -11,29 +11,28 @@ import resourceStyles from './resource.module.css';
 class Resource extends Component {
   render() {
     const { data } = this.props;
-    const post = data.markdownRemark;
+    const resource = data.markdownRemark;
+    console.log({resource})
 
     return (
       <Layout>
-        { () => (
-          <div>
-            <div className={resourceStyles.headerContainer}>
-              <Container>
-                <Header
-                  as="h1"
-                  className={resourceStyles.headerText}
-                  content={post.frontmatter.title}
-                  size="huge"
-                />
-              </Container>
-            </div>
-            <div className={resourceStyles.bodyContainer}>
-              <Container>
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
-              </Container>
-            </div>
+        <div>
+          <div className={resourceStyles.headerContainer}>
+            <Container>
+              <Header
+                as="h1"
+                className={resourceStyles.headerText}
+                content={resource.frontmatter.title}
+                size="huge"
+              />
+            </Container>
           </div>
-        )}
+          <div className={resourceStyles.bodyContainer}>
+            <Container>
+              <div dangerouslySetInnerHTML={{ __html: resource.html }} />
+            </Container>
+          </div>
+        </div>
       </Layout>
     )
   }
@@ -42,8 +41,8 @@ class Resource extends Component {
 export default Resource;
 
 export const query = graphql`
-  query($path: String!) {
-    markdownRemark(fields: { page: { slug: { eq: $path } } }) {
+  query($slug: String!, $locale: String!) {
+    markdownRemark(fields: { page: { slug: { eq: $slug }, locale: { eq: $locale } } }) {
       html
       frontmatter {
         title
