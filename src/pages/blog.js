@@ -15,8 +15,6 @@ import blogStyles from './blog.module.css';
 
 class Blog extends Component {
   render() {
-    const { data } = this.props;
-
     return (
       <Layout>
         <FeaturedBlogPosts

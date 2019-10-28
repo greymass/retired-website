@@ -12,7 +12,6 @@ class Resource extends Component {
   render() {
     const { data } = this.props;
     const resource = data.markdownRemark;
-    console.log({resource})
 
     return (
       <Layout>

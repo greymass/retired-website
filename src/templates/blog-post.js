@@ -18,8 +18,6 @@ class BlogPost extends Component {
     const { data } = this.props;
     const post = data.markdownRemark;
 
-    console.log({post})
-
     return (
       <Layout>
         <div>

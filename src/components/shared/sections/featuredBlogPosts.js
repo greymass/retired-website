@@ -24,11 +24,9 @@ class FeaturedBlogPosts extends Component {
     // const cleanedUpLocaleName = i18n.language.split('-')[0];
     const cleanedUpLocaleName = 'en';
 
-    console.log({edges: data.allMarkdownRemark.edges})
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
           .filter(({ node }) => node.fields.page.locale === cleanedUpLocaleName);
-    console.log({featuredBlogPosts})
 
     return (
         <Container
