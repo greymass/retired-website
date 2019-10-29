@@ -41,7 +41,6 @@ class Header extends Component {
           handlePusher={this.handlePusher}
           handleToggle={this.handleToggle}
           navbarItems={navbarItems}
-          sidebarVisible={sidebarVisible}
         />
       </React.Fragment>
     )

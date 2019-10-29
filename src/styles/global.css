@@ -12,3 +12,16 @@ body {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
+@media screen and (max-width: 767px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
