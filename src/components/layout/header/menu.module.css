@@ -7,3 +7,25 @@
   padding: 28px !important;
   width: 70px;
 }
+
+.image {
+  padding: 8px;
+}
+.imageContainer {
+  background-color: var(--mainBlue);
+  border-radius: 5px;
+  width: 64px;
+  height: 64px;
+}
+.container {
+  padding: 20px 0;
+}
+
+.topMenuBar {
+  background-color: var(--mainBlue);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 6px;
+  width: 100%;
+}

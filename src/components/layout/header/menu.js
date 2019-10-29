@@ -1,46 +1,39 @@
 import React, { Component } from 'react';
 
-
-
 import { Icon, Sidebar, Menu, Image, Container } from "semantic-ui-react"
 
-import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
-import mobileHeaderMenuStyles from './menu.module.css';
-import sharedHeaderStyles from './shared.module.css';
 import Logo from "../../../images/greymass-logo-white.png"
 import LayoutHeaderMenuLink from './menu/link';
 import SupportUsButton from '../../shared/buttons/supportUs';
+
+import menuStyles from './menu.module.css';
 
 class HeaderMobileMenu extends Component {
   render() {
     const {
       activeItem,
+      handleToggle,
       navbarItems,
-      sidebarVisible,
     } = this.props;
 
     return (
       <Sidebar.Pusher
-        dimmed={sidebarVisible}
         onClick={this.props.handlePusher}
-        className={mobileHeaderMenuStyles.sidebarPusher}
+        className={menuStyles.sidebarPusher}
       >
-        <Container className={sharedHeaderStyles.container}>
-          <div
-            className={sharedHeaderStyles.topMenuBar}
-          />
+        <Container className={menuStyles.container}>
           <Menu secondary>
             <Menu.Item>
               <Link
-                className={sharedHeaderStyles.imageContainer}
+                className={menuStyles.imageContainer}
                 to={`/`}
               >
                 <Image
                   alt="Greymass Logo"
                   centered
-                  className={sharedHeaderStyles.image}
+                  className={menuStyles.image}
                   src={Logo}
                   verticalAlign="middle"
                 />
@@ -48,7 +41,7 @@ class HeaderMobileMenu extends Component {
             </Menu.Item>
 
             {navbarItems.map(navbarItem => (
-              <Menu.Item key={navbarItem.as}>
+              <Menu.Item className="mobile-hidden" key={navbarItem.as}>
                 <LayoutHeaderMenuLink
                   active={activeItem === navbarItem.as}
                   content={navbarItem.content}
@@ -58,8 +51,15 @@ class HeaderMobileMenu extends Component {
             ), this)}
 
             <Menu.Menu position='right'>
-              <Menu.Item>
+              <Menu.Item className="mobile-hidden">
                 <SupportUsButton />
+              </Menu.Item>
+
+              <Menu.Item
+                className={`mobile-only ${menuStyles.sidebarButton}`}
+                onClick={handleToggle}
+              >
+                <Icon name="sidebar" />
               </Menu.Item>
             </Menu.Menu>
           </Menu>
