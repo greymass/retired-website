@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { graphql } from 'gatsby';
 
 
@@ -10,15 +10,15 @@ import FeaturedProject from '../components/projects/featuredProject';
 
 class Projects extends Component {
   render() {
-    const { data } = this.props;
+    const { data, intl } = this.props;
     const projects = data.allDataJson.edges[0].node.projects;
     const featuredProject = projects.find(project => project.featured === true);
 
     return (
       <Layout>
         <SharedHeader
-          title={'header_title'}
-          paragraph={'header_paragraph'}
+          title={intl.formatMessage({ id: 'header_title' })}
+          paragraph={intl.formatMessage({ id: 'header_paragraph' })}
         />
         <ProjectList images={data.images} projects={projects} platform="eosio" primary />
         <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
@@ -29,7 +29,7 @@ class Projects extends Component {
   }
 }
 
-export default Projects;
+export default injectIntl(Projects);
 
 export const query = graphql`
   query {
