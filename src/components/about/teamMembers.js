@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Container, Grid } from "semantic-ui-react"
 
 import { graphql, StaticQuery } from "gatsby"
@@ -10,7 +10,7 @@ import aboutTeamMembersStyles from './teamMembers.module.css';
 
 class AboutTeamMembers extends Component {
   render() {
-    const { data } = this.props;
+    const { data, intl } = this.props;
 
     const teamMembers = data.allDataJson.edges[0].node.teamMembers;
 
@@ -18,7 +18,7 @@ class AboutTeamMembers extends Component {
       <div className={aboutTeamMembersStyles.container}>
         <Container>
           <h4 className={aboutTeamMembersStyles.headerText}>
-            {'team_members_title'}
+            {intl.formatMessage({ id: 'about_team_members_title' })}
           </h4>
 
           <Grid stackable centered padded>
@@ -40,7 +40,7 @@ class AboutTeamMembers extends Component {
   }
 }
 
-const AboutTeamMembersWrapper = AboutTeamMembers;
+const AboutTeamMembersWrapper = injectIntl(AboutTeamMembers);
 
 export default props => (
   <StaticQuery

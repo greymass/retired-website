@@ -1,6 +1,5 @@
 import React from 'react';
-
-
+import { injectIntl } from "gatsby-plugin-intl";
 
 import AboutValues from '../components/about/values';
 import AboutTeamMembers from '../components/about/teamMembers';
@@ -9,11 +8,12 @@ import SharedHeader from '../components/shared/sections/header';
 
 class About extends React.Component {
   render() {
+    const { intl } = this.props;
     return (
       <Layout>
         <SharedHeader
-          title={'header_title'}
-          paragraph={'header_paragraph'}
+          title={intl.formatMessage({ id: 'about_header_title' })}
+          paragraph={intl.formatMessage({ id: 'about_header_paragraph' })}
         />
         <AboutValues />
         <AboutTeamMembers />
@@ -22,4 +22,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default injectIntl(About);

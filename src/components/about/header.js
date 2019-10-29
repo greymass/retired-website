@@ -1,10 +1,12 @@
 import React, { Component } from "react"
 import { Grid } from 'semantic-ui-react';
+import { injectIntl } from "gatsby-plugin-intl";
 
 import aboutHeaderStyles from './header.module.css';
 
 class AboutHeader extends Component {
   render() {
+    const { intl } = this.props;
     return (
       <Grid className="container">
         <Grid.Column />
@@ -13,10 +15,10 @@ class AboutHeader extends Component {
         </Grid.Column>
         <Grid.Column width={7} >
           <h3 className={aboutHeaderStyles.headerText}>
-            {'header_title'}
+            {intl.formatMessage({ id: 'about_header_title' })}
           </h3>
           <p className={aboutHeaderStyles.paragraphText}>
-            {'header_paragraph'}
+            {intl.formatMessage({ id: 'about_header_paragraph' })}
           </p>
         </Grid.Column>
       </Grid>
@@ -24,4 +26,4 @@ class AboutHeader extends Component {
   }
 }
 
-export default AboutHeader;
+export default injectIntl(AboutHeader);

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Container, Grid } from "semantic-ui-react"
 
 
@@ -9,36 +9,37 @@ import aboutValuesStyle from './values.module.css';
 
 class AboutValues extends Component {
   render() {
+    const { intl } = this.props;
     return (
       <div className={aboutValuesStyle.container}>
         <Container>
           <h4 className={aboutValuesStyle.headerText}>
-            {'values_title'}
+            {intl.formatMessage({ id: 'about_values_title' })}
           </h4>
 
           <p className={aboutValuesStyle.paragraphText}>
-            {'values_description_one'}
+            {intl.formatMessage({ id: 'about_values_description_one' })}
           </p>
 
           <p className={aboutValuesStyle.paragraphText}>
-            {'values_description_two'}
+            {intl.formatMessage({ id: 'about_values_description_two' })}
           </p>
 
           <Grid className={aboutValuesStyle.grid} stackable centered padded>
             <AboutValuesCard
-              description={'values_reliability_description'}
+              description={intl.formatMessage({ id: 'about_values_reliability_description' })}
               iconName="thumbs up"
-              title={'values_reliability_title'}
+              title={intl.formatMessage({ id: 'about_values_reliability_title' })}
             />
             <AboutValuesCard
-              description={'values_engagement_description'}
+              description={intl.formatMessage({ id: 'about_values_engagement_description' })}
               iconName="comments"
-              title={'values_engagement_title'}
+              title={intl.formatMessage({ id: 'about_values_engagement_title' })}
             />
             <AboutValuesCard
-              description={'values_trust_description'}
+              description={intl.formatMessage({ id: 'about_values_trust_description' })}
               iconName="handshake"
-              title={'values_trust_title'}
+              title={intl.formatMessage({ id: 'about_values_trust_title' })}
             />
           </Grid>
         </Container>
@@ -47,4 +48,4 @@ class AboutValues extends Component {
   }
 }
 
-export default AboutValues;
+export default injectIntl(AboutValues);
