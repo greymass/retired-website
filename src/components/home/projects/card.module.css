@@ -18,6 +18,10 @@
   height: 200px;
 }
 
+.ui.card > .content > .header {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .text {
   color: white;
   font-family: 'Roboto', sans-serif;

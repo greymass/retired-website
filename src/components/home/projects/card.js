@@ -1,75 +1,68 @@
 import React, { Component } from "react"
 import { injectIntl } from "gatsby-plugin-intl";
-import { Grid, Icon } from 'semantic-ui-react';
+import { Card, Header, Grid, Icon, Image } from 'semantic-ui-react';
 
 import Img from 'gatsby-image';
 
-import homeProjectCardStyles from './card.module.css';
+import styles from './card.module.css';
 
 class HomeProjectCard extends Component {
-  state = {
-    inverted: false,
-  };
-
   render() {
     const {
-      icon,
-      imageAlt,
-      imageFluid,
+      image,
       intl,
-      linkTo,
-      text,
+      project,
     } = this.props;
 
-    const { inverted } = this.state;
+    const {
+      projectKey
+    } = project;
+
+    const linkTo = project.link || project.githubLink;
 
     return (
-      <Grid.Column
-        className={homeProjectCardStyles.container}
-        computer={3}
-        mobile={16}
-        tablet={8}
+      <Card
+        as="a"
+        href={linkTo}
       >
-        <a
-          href={linkTo}
-          onMouseEnter={() => this.setState({ inverted: true})}
-          onMouseLeave={() => this.setState({ inverted: false})}
-        >
-          {imageFluid && (
-            <div className={homeProjectCardStyles.imageContainer}>
-              <div className={
-                `${homeProjectCardStyles.iconContainer} ${
-                  inverted ? homeProjectCardStyles.primaryIconContainer : ''
-                }`
-              }>
-                <Icon name={icon} className={homeProjectCardStyles.icon} />
-              </div>
-              <Img
-                alt={imageAlt}
-                fluid={imageFluid}
-                className={homeProjectCardStyles.image}
-              />
-            </div>
-          )}
-
-          <div
-            className={
-              `${homeProjectCardStyles.bottomContainer} ${
-                inverted ? homeProjectCardStyles.primaryBottomContainer : ''
-              }`
-            }
-          >
-            <p className={homeProjectCardStyles.text}>
-              {intl.formatMessage({
-                id: text,
-                defaultMessage: '[Project Name]',
-                description: 'The name of the project'
-              })}
-            </p>
-          </div>
-        </a>
-      </Grid.Column>
-    )
+        {(image)
+          ? (
+            <Image src={image} wrapped ui={false} />
+          )
+          : false
+        }
+        <Card.Content>
+          <Card.Header>
+            {intl.formatMessage({
+              id: `project_${project.projectKey}_name`,
+              defaultMessage: '[Project Name]',
+              description: 'The name of the project'
+            })}
+          </Card.Header>
+          <Card.Meta>
+            {intl.formatMessage({
+              id: `project_${project.projectKey}_date`,
+              defaultMessage: '[Launch Date]',
+              description: 'The date the project launched'
+            })}
+          </Card.Meta>
+          <Card.Description>
+            {intl.formatMessage({
+              id: `project_${project.projectKey}_description`,
+              defaultMessage: '[Project Description]',
+              description: 'The date the project launched'
+            })}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          {intl.formatMessage({
+              id: `project_${project.projectKey}_extra`,
+              defaultMessage: '[Project Extras]',
+              description: 'Extra details of the project'
+          })}
+        </Card.Content>
+      </Card>
+    );
   }
 }
 
