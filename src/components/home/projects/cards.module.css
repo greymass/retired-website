@@ -1,0 +1,3 @@
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] > [class="header"] {
+  font-family: 'Montserrat', sans-serif;
+}
