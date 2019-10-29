@@ -7,13 +7,13 @@ import { Sidebar, Menu } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
 import mobileHeaderSidebarStyles from './sidebar.module.css';
-import SupportUsButton from'../../../shared/buttons/supportUs';
+import SupportUsButton from '../../shared/buttons/supportUs';
 
 class HeaderMobileSidebar extends Component {
   render() {
     const {
       navbarItems,
-      visible,
+      sidebarVisible,
     } = this.props;
 
     return (
@@ -23,7 +23,7 @@ class HeaderMobileSidebar extends Component {
         icon="labeled"
         items={navbarItems}
         vertical
-        visible={visible}
+        visible={sidebarVisible}
       >
         {navbarItems.map(navbarItem => (
           <Menu.Item>

@@ -13,9 +13,10 @@ import homeStyles from './index.module.css';
 
 class Index extends Component {
   render() {
-    const { intl } = this.props;
+    const { intl, location } = this.props;
+
     return (
-      <Layout>
+      <Layout location={location} >
         <SEO
           lang={intl.locale}
           keywords={[`gatsby`, `application`, `react`]}

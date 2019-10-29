@@ -10,12 +10,12 @@ import FeaturedProject from '../components/projects/featuredProject';
 
 class Projects extends Component {
   render() {
-    const { data, intl } = this.props;
+    const { data, intl, location } = this.props;
     const projects = data.allDataJson.edges[0].node.projects;
     const featuredProject = projects.find(project => project.featured === true);
 
     return (
-      <Layout>
+      <Layout location={location}>
         <SharedHeader
           title={intl.formatMessage({ id: 'header_title' })}
           paragraph={intl.formatMessage({ id: 'header_paragraph' })}
