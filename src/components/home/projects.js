@@ -8,8 +8,8 @@ import {
   // Responsive
 } from 'semantic-ui-react';
 
-import { graphql, Link, StaticQuery } from 'gatsby';
-import HomeProjectCard from './projects/card';
+import { Link } from 'gatsby';
+import HomeProjectsCards from './projects/cards';
 
 import projectsBackgroundForDesktop from '../../images/projectsBackgroundForDesktop.svg';
 // import projectsBackgroundForMobile from '../../images/projectsBackgroundForMobile.svg';
@@ -18,8 +18,7 @@ import homeProjectsStyles from './projects.module.css';
 
 class HomeProjects extends Component {
   render() {
-    const { data, intl } = this.props;
-    const projects = data.allDataJson.edges[0].node.projects;
+    const { intl } = this.props;
     // TODO: Responsive logic needs reworking
     // <Responsive {...Responsive.onlyMobile}>
     //   <img
@@ -36,7 +35,7 @@ class HomeProjects extends Component {
     //   />
     // </Responsive>
     return (
-      <div>
+      <React.Fragment>
         <div className={homeProjectsStyles.arrowDownContainer}>
           <Icon name="arrow down" className={homeProjectsStyles.arrowDownIcon} />
           <img
@@ -45,32 +44,13 @@ class HomeProjects extends Component {
             className={homeProjectsStyles.image}
           />
         </div>
-
         <div className={homeProjectsStyles.container}>
           <p className={homeProjectsStyles.headerText}>
             {intl.formatMessage({ id: 'home_projects_title' })}
           </p>
-
-          <Container className={homeProjectsStyles.container} fluid>
-            <Card.Group className={homeProjectsStyles.cardContainer} centered>
-              {projects.slice(0, 4).map(project => {
-                const imageFluidEdge = data.images.edges.find(edge => {
-                  return edge.node
-                  .childImageSharp
-                  .fluid
-                  .src
-                  .includes(project.projectKey)
-                })
-                const imageFluid = imageFluidEdge && imageFluidEdge.node.childImageSharp.fluid;
-                return (
-                  <HomeProjectCard
-                    image={(imageFluid) ? imageFluid.src : false}
-                    project={project}
-                  />
-                )
-              })}
-            </Card.Group>
-          </Container>
+          <HomeProjectsCards
+            cards={4}
+          />
           <div className={homeProjectsStyles.portfolioContainer}>
             <Link className={homeProjectsStyles.supportUsLink} to={`/projects`}>
               {intl.formatMessage({ id: 'home_projects_portfolio_link' })}
@@ -78,43 +58,9 @@ class HomeProjects extends Component {
             </Link>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }
 
-const HomeProjectsWrapper = injectIntl(HomeProjects);
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allDataJson(filter: {projects: {elemMatch: {projectKey: {ne: null}}}}) {
-          edges {
-            node {
-              projects {
-                featured
-                githubLink
-                icon
-                platform
-                projectKey
-              }
-            }
-          }
-        }
-        images: allFile(filter: {relativeDirectory: {regex: "/projects/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
-          edges {
-            node {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={data => <HomeProjectsWrapper data={data} {...props} />}
-  />
-);
+export default injectIntl(HomeProjects);
