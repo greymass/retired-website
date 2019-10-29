@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 import {
+  Card,
+  Container,
   Icon,
   Grid,
   // Responsive
@@ -49,29 +51,26 @@ class HomeProjects extends Component {
             {intl.formatMessage({ id: 'home_projects_title' })}
           </p>
 
-          <Grid stackable centered padded>
-            {projects.slice(0, 4).map(project => {
-              const imageFluidEdge = data.images.edges.find(edge => {
-                return edge.node
+          <Container className={homeProjectsStyles.container} fluid>
+            <Card.Group centered>
+              {projects.slice(0, 4).map(project => {
+                const imageFluidEdge = data.images.edges.find(edge => {
+                  return edge.node
                   .childImageSharp
                   .fluid
                   .src
-                .includes(project.projectKey)
-              })
-              const imageFluid =
-                imageFluidEdge && imageFluidEdge.node.childImageSharp.fluid;
-              return (
-                <HomeProjectCard
-                  key={project.projectKey}
-                  icon={project.icon}
-                  imageAlt={`${project.projectKey}-image`}
-                  imageFluid={imageFluid}
-                  linkTo={project.githubLink}
-                  text={`project_${project.projectKey}_name`}
-                />
-              )
-            })}
-          </Grid>
+                  .includes(project.projectKey)
+                })
+                const imageFluid = imageFluidEdge && imageFluidEdge.node.childImageSharp.fluid;
+                return (
+                  <HomeProjectCard
+                    image={(imageFluid) ? imageFluid.src : false}
+                    project={project}
+                  />
+                )
+              })}
+            </Card.Group>
+          </Container>
           <div className={homeProjectsStyles.portfolioContainer}>
             <Link className={homeProjectsStyles.supportUsLink} to={`/projects`}>
               {intl.formatMessage({ id: 'home_projects_portfolio_link' })}
