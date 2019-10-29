@@ -18,7 +18,7 @@ class HomeProjectCard extends Component {
 
     const linkTo = project.link || project.githubLink;
 
-    image = image || data.placeholderImage.childImageSharp.src
+    image = image || data.placeholderImage.childImageSharp.fluid.src;
 
     return (
       <Card
