@@ -8,9 +8,10 @@ import SharedHeader from '../components/shared/sections/header';
 
 class About extends React.Component {
   render() {
-    const { intl } = this.props;
+    const { intl, location } = this.props;
+
     return (
-      <Layout>
+      <Layout location={location}>
         <SharedHeader
           title={intl.formatMessage({ id: 'about_header_title' })}
           paragraph={intl.formatMessage({ id: 'about_header_paragraph' })}

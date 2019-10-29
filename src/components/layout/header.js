@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
-// import { Responsive } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
-// import HeaderMobile from './header/mobile';
-import HeaderDesktop from './header/desktop';
+import HeaderSidebar from './header/sidebar';
+import HeaderMenu from './header/menu';
 
 class Header extends Component {
+  state = { sidebarVisible: false };
+  handlePusher = () => {
+    const { sidebarVisible } = this.state;
+
+    if (sidebarVisible) this.setState({ sidebarVisible: false });
+  };
+
+  handleToggle = () => this.setState({ sidebarVisible: !this.state.sidebarVisible });
+
   render() {
-    const { data, intl } = this.props;
-    const pathName = window.location.pathname.split('/')[2] || ''
-    const activeItem = `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
+    const { data, intl, location } = this.props;
+    const { sidebarVisible } = this.state;
+
+    const activeItem = location && location.pathname;
+
     const navbarItems = [
       { as: `/${intl.locale}`, content: 'home', key: '/' },
       { as: `/${intl.locale}/about`, content: 'about', key: 'about' },
@@ -18,33 +28,22 @@ class Header extends Component {
       { as: `/${intl.locale}/blog`, content: 'blog', key: 'blog' },
     ];
 
-    // TODO: Responsive logic needs reworking
-    // <Responsive
-    //   as={React.Fragment}
-    //   {...Responsive.onlyMobile}
-    // >
-    //   <HeaderMobile
-    //     activeItem={activeItem}
-    //     data={data}
-    //     navbarItems={navbarItems}
-    //   />
-    // </Responsive>
-    // <Responsive
-    //   as={React.Fragment}
-    //   minWidth={Responsive.onlyTablet.minWidth}
-    // >
-    //   <HeaderDesktop
-    //     activeItem={activeItem}
-    //     data={data}
-    //     navbarItems={navbarItems}
-    //   />
-    // </Responsive>
     return (
-      <HeaderDesktop
-        activeItem={activeItem}
-        data={data}
-        navbarItems={navbarItems}
-      />
+      <React.Fragment>
+        <HeaderSidebar
+          handleToggle={this.handleToggle}
+          navbarItems={navbarItems}
+          sidebarVisible={sidebarVisible}
+        />
+        <HeaderMenu
+          activeItem={activeItem}
+          data={data}
+          handlePusher={this.handlePusher}
+          handleToggle={this.handleToggle}
+          navbarItems={navbarItems}
+          sidebarVisible={sidebarVisible}
+        />
+      </React.Fragment>
     )
   }
 }

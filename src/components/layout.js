@@ -16,6 +16,7 @@ class Layout extends Component {
     const {
       children,
       data,
+      location,
     } = this.props;
 
     let {
@@ -31,7 +32,7 @@ class Layout extends Component {
           <link rel="canonical" href="https://greymass.com" />
         </Helmet>
         <Sidebar.Pushable className={(layoutStyles[containerClassName])}>
-          <LayoutHeader />
+          <LayoutHeader location={location} />
           {children}
           <LayoutFooter />
         </Sidebar.Pushable>

@@ -15,10 +15,10 @@ import blogStyles from './blog.module.css';
 
 class Blog extends Component {
   render() {
-    const { data } = this.props;
+    const { data, location } = this.props;
 
     return (
-      <Layout>
+      <Layout location={location}>
         <FeaturedBlogPosts
           paragraph="blog:featured_blog_post_paragraph"
           title="blog:featured_blog_post_title"
