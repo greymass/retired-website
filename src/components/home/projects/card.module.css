@@ -18,8 +18,8 @@
   height: 200px;
 }
 
-.ui.card > .content > .header {
-  font-family: 'Montserrat', sans-serif;
+.card > div[class="content"] > div[class="header"] {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 .text {
