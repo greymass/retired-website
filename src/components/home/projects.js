@@ -52,7 +52,7 @@ class HomeProjects extends Component {
           </p>
 
           <Container className={homeProjectsStyles.container} fluid>
-            <Card.Group centered>
+            <Card.Group className={homeProjectsStyles.cardContainer} centered>
               {projects.slice(0, 4).map(project => {
                 const imageFluidEdge = data.images.edges.find(edge => {
                   return edge.node
