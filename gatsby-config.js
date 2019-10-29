@@ -7,12 +7,12 @@ module.exports = {
     officialEmail: 'hello@greymass.com',
     officialAddress: '#1 Vancouver Road, Vancouver, BC',
     links: {
-      youtube: '',
-      telegram: '',
-      twitter: '',
-      reddit: '',
-      github: '',
-      steem: '',
+      github: 'https://github.com/greymass/',
+      twitter: 'https://twitter.com/greymass',
+      telegram: 'https://t.me/greymass',
+      steem: 'https://steemit.com/@greymass',
+      reddit: 'https://www.reddit.com/user/greymass',
+      youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
   },
   plugins: [
