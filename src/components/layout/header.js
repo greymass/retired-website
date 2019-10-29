@@ -9,9 +9,8 @@ import HeaderDesktop from './header/desktop';
 class Header extends Component {
   render() {
     const { data, intl } = this.props;
-    // const activeItem = `/${window.location.pathname.split('/')[1]}`;
-    const activeItem = 'home'
-
+    const pathName = window.location.pathname.split('/')[2] || ''
+    const activeItem = `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
     const navbarItems = [
       { as: `/${intl.locale}`, content: 'home', key: '/' },
       { as: `/${intl.locale}/about`, content: 'about', key: 'about' },
