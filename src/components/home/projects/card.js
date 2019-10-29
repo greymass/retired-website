@@ -24,7 +24,6 @@ class HomeProjectCard extends Component {
       <Card
         as="a"
         href={linkTo}
-        className={styles.card}
       >
         {(image)
           ? (
