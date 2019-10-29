@@ -1,36 +1,31 @@
 import React, { Component } from "react"
 import { injectIntl } from "gatsby-plugin-intl";
-import { Card, Header, Grid, Icon, Image } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
-import Img from 'gatsby-image';
-
-import styles from './card.module.css';
+import { graphql, StaticQuery } from "gatsby"
 
 class HomeProjectCard extends Component {
   render() {
     const {
-      image,
+      data,
       intl,
       project,
     } = this.props;
 
-    const {
-      projectKey
-    } = project;
+    let {
+      image
+    } = this.props;
 
     const linkTo = project.link || project.githubLink;
+
+    image = image || data.placeholderImage.childImageSharp.src
 
     return (
       <Card
         as="a"
         href={linkTo}
       >
-        {(image)
-          ? (
-            <Image src={image} wrapped ui={false} />
-          )
-          : false
-        }
+        <Image src={image} wrapped ui={false} />
         <Card.Content>
           <Card.Header>
             {intl.formatMessage({
@@ -64,6 +59,23 @@ class HomeProjectCard extends Component {
       </Card>
     );
   }
-}
+};
 
-export default injectIntl(HomeProjectCard)
+const HomeProjectCardWrapper = injectIntl(HomeProjectCard)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        placeholderImage: file(name: {eq: "projectPlaceholder"}) {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => <HomeProjectCardWrapper data={data} {...props} />}
+  />
+);

@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 
-import { graphql, Link, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from 'gatsby';
 
 import Img from 'gatsby-image';
 import { Header } from 'semantic-ui-react';
@@ -35,7 +35,7 @@ class ProjectCard extends Component {
             fluid={
               image ?
               image.node.childImageSharp.fluid :
-                data.fileName.childImageSharp.fluid
+                data.placeholderImage.childImageSharp.fluid
             }
             className={projectCardStyles.image}
           />
@@ -63,9 +63,9 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        fileName: file(relativePath: { eq: "images/projectPlaceholder.png" }) {
+        placeholderImage: file(name: {eq: "projectPlaceholder"}) {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 400) {
               ...GatsbyImageSharpFluid
             }
           }
