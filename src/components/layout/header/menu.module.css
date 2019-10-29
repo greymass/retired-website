@@ -2,9 +2,9 @@
   min-height: 100vh;
 }
 
-.sidebarButton {
+.container div[class="ui secondary menu"] div[class="right menu"] .sidebarButton {
   font-size: 20px;
-  padding: 28px !important;
+  padding: 28px;
   width: 70px;
 }
 
