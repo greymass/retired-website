@@ -17,6 +17,7 @@ class Header extends Component {
       { as: `/${intl.locale}/projects`, content: 'projects', key: 'projects' },
       { as: `/${intl.locale}/blog`, content: 'blog', key: 'blog' },
     ];
+
     // TODO: Responsive logic needs reworking
     // <Responsive
     //   as={React.Fragment}

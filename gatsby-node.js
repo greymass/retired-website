@@ -82,6 +82,19 @@ function getDataFromNode(node, getNode) {
   return { sluggishTitle, pageType, locale };
 }
 
+exports.onCreatePage = ({ page, actions: { createPage, deletePage } }) => {
+  const pageLanguage = page.context.intl && page.context.intl.language;
+
+  deletePage(page);
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      language: pageLanguage || defaultLanguage
+    },
+  });
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   await createResourcePages(actions, graphql, reporter);
   await createBlogPages(actions, graphql, reporter);

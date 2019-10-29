@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 
-import { Header, List } from "semantic-ui-react"
-import { graphql, StaticQuery } from 'gatsby';
+import { Header, List } from 'semantic-ui-react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
 
 import BlogPostListItem from './blogPostList/item';
 
@@ -12,9 +12,6 @@ import blogPostListStyles from './blogPostList.module.css';
 class BlogPostList extends Component {
   render() {
     const { data } = this.props;
-
-    // const cleanedUpLocaleName = i18n.language.split('-')[0];
-    const cleanedUpLocaleName = 'en';
 
     return (
       <div className={blogPostListStyles.container}>
@@ -26,7 +23,6 @@ class BlogPostList extends Component {
         <List className={blogPostListStyles.list}>
           {data
             .allMarkdownRemark.edges
-            .filter( ({ node }) => node.fields.page.locale === cleanedUpLocaleName)
             .map(({ node }) => (
               <BlogPostListItem blogPost={node} />
             ))}
@@ -36,36 +32,4 @@ class BlogPostList extends Component {
   }
 }
 
-const BlogPostListWrapper = BlogPostList;
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC },
-          filter: {fileAbsolutePath: {regex: "/(blog)/"}},
-          limit: 100
-        ) {
-          edges {
-            node {
-              id
-              frontmatter {
-                title
-                date
-              }
-              fields {
-                page {
-                  locale
-                  path
-                }
-              }
-              excerpt(pruneLength: 280)
-            }
-          }
-        }
-      }
-    `}
-    render={data => <BlogPostListWrapper data={data} {...props} />}
-  />
-);
+export default injectIntl(BlogPostList);
