@@ -19,7 +19,8 @@ class Header extends Component {
     const { data, intl, location } = this.props;
     const { sidebarVisible } = this.state;
 
-    const activeItem = location && location.pathname;
+    const pathName = location && location.pathname.split('/')[2] || ''
+    const activeItem = `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
 
     const navbarItems = [
       { as: `/${intl.locale}`, content: 'home', key: '/' },
