@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Icon } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
 import blogPostItemStyles from './item.module.css';
@@ -20,6 +20,7 @@ class BlogPostListItem extends Component {
             {blogPost.excerpt}
           </p>
           <h5 className={blogPostItemStyles.dateText}>
+            <Icon name="calendar alternate outline" />
             {(new Date(blogPost.frontmatter.date)).toLocaleDateString()}
           </h5>
         </Link>

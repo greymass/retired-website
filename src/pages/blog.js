@@ -1,13 +1,10 @@
-
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
-
-
 import { Grid } from "semantic-ui-react"
+import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from '../components/layout';
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
-
 import BlogPostList from '../components/blog/blogPostList';
 import RecentPodcasts from '../components/blog/recentPodcasts';
 
@@ -15,16 +12,15 @@ import blogStyles from './blog.module.css';
 
 class Blog extends Component {
   render() {
-    const { data, location } = this.props;
-
+    const { data, intl, location } = this.props;
+    console.log(intl.messages.featured_blog_post_paragraph)
     return (
       <Layout location={location}>
         <FeaturedBlogPosts
-          paragraph="blog:featured_blog_post_paragraph"
-          title="blog:featured_blog_post_title"
+          paragraph={intl.formatMessage({ id: 'featured_blog_post_paragraph' })}
+          title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
           withFullHeader
         />
-
         <div className={blogStyles.container}>
           <Grid stackable container>
             <Grid.Column mobile={16} tablet={10} computer={10}>
@@ -40,7 +36,7 @@ class Blog extends Component {
   }
 }
 
-export default Blog;
+export default injectIntl(Blog);
 
 export const query = graphql`
   query($language: String!) {

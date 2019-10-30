@@ -1,7 +1,3 @@
-.gridComponent {
-  margin: auto !important;
-}
-
 .container {
   border-bottom: 2px solid var(--mainBlue);
   text-align: center;

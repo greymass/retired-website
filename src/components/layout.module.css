@@ -5,6 +5,7 @@
 .greyBackground {
   width: 100%;
   background-image: url(../images/paper-bg.jpg);
+  background-repeat: repeat;
 }
 
 @media only screen and (max-width: 933px) {

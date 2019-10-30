@@ -1,26 +1,25 @@
-
 import React, { Component } from 'react';
-
-import { Header, Icon, List } from 'semantic-ui-react';
+import { Header, Icon, Image, List } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
+import { injectIntl } from 'gatsby-plugin-intl';
 
-
-
+import podcastLogo from '../../images/podcast.jpg'
 import recentPodcastsStyles from './recentPodcasts.module.css';
 
 class BlogRecentPodcasts extends Component {
   render() {
-    const { data } = this.props;
+    const { data, intl } = this.props;
 
     // const cleanedUpLocaleName = i18n.language.split('-')[0];
     const cleanedUpLocaleName = 'en';
 
     return (cleanedUpLocaleName === 'en') ? (
       <div className={recentPodcastsStyles.container}>
+        <Image rounded src={podcastLogo} />
         <Header
           as="h3"
           className={recentPodcastsStyles.header}
-          content={'recent_podcasts_header'}
+          content={intl.formatMessage({ id: 'blog_recent_podcasts_header' })}
         />
         <List>
           {data
@@ -31,9 +30,8 @@ class BlogRecentPodcasts extends Component {
               )
             })}
         </List>
-
         <a href="/#podcasts" className={recentPodcastsStyles.link}>
-          {'recent_podcasts_link'}
+          {intl.formatMessage({ id: 'blog_recent_podcasts_link' })}
           <Icon name="arrow right" className={recentPodcastsStyles.linkIcon} />
         </a>
       </div>
@@ -41,7 +39,7 @@ class BlogRecentPodcasts extends Component {
   }
 }
 
-const BlogRecentPodcastsWrapper = BlogRecentPodcasts
+const BlogRecentPodcastsWrapper = injectIntl(BlogRecentPodcasts)
 
 export default props => (
   <StaticQuery

@@ -2,15 +2,16 @@
   padding: 80px 6%;
 }
 
-.headerText {
+.container h3.headerText {
   color: var(--mainBlack);
-  font-family: 'Poppins', sans-serif;
-  font-size: 64px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 44px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+  text-transform: uppercase;
 }
 
 .list {
