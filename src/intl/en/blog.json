@@ -1,12 +1,12 @@
 {
-  "blog_post_entry_written_by": "Written By: {{author}}",
-  "blog_post_list_title": "Recent Articles",
-  "featured_blog_post_header": "Recent Articles",
-  "featured_blog_post_link": "See Blog",
-  "featured_blog_post_title": "Stay Up To Date",
-  "posts": "Posts",
-  "recent_podcasts_header": "Recent Podcasts",
-  "recent_podcasts_link": "See All Podcasts",
-  "sticky_banner_paragraph": "We appreciate your support!",
-  "sticky_banner_title": "Greymass"
+  "blog_blog_post_entry_written_by": "Written By: {{author}}",
+  "blog_blog_post_list_title": "Recent Articles",
+  "blog_featured_blog_post_header": "Recent Articles",
+  "blog_featured_blog_post_link": "See Blog",
+  "blog_featured_blog_post_title": "Stay Up To Date",
+  "blog_posts": "Posts",
+  "blog_recent_podcasts_header": "Recent Podcasts",
+  "blog_recent_podcasts_link": "See All Podcasts",
+  "blog_sticky_banner_paragraph": "We appreciate your support!",
+  "blog_sticky_banner_title": "Greymass"
 }

@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 import HomeHeader from '../components/home/header';
 import HomeProjects from '../components/home/projects';
 import HomeAbout from '../components/home/about';
-// import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
+import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 import HomeNewsletter from '../components/home/newsletter';
 import SEO from "../components/shared/seo";
 
@@ -25,10 +25,10 @@ class Index extends Component {
         <HomeProjects />
         <HomeAbout />
         <div className={homeStyles.bottomContainer}>
-          {/* <FeaturedBlogPosts
-            link="home:blog_posts_link"
-            title="home:blog_posts_title"
-          /> */}
+          <FeaturedBlogPosts
+            link={intl.formatMessage({ id: 'blog_featured_blog_post_link' })}
+            title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
+          />
           <HomeNewsletter />
         </div>
       </Layout>

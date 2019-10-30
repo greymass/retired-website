@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Icon, Grid, Container } from 'semantic-ui-react';
 
 import { graphql, Link, StaticQuery } from 'gatsby';
@@ -14,6 +14,7 @@ class FeaturedBlogPosts extends Component {
     const {
       containerClassName,
       data,
+      intl,
       inverted,
       link,
       textClassName,
@@ -21,12 +22,9 @@ class FeaturedBlogPosts extends Component {
       withFullHeader
     } = this.props;
 
-    // const cleanedUpLocaleName = i18n.language.split('-')[0];
-    const cleanedUpLocaleName = 'en';
-
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
-          .filter(({ node }) => node.fields.page.locale === cleanedUpLocaleName);
+          .filter(({ node }) => node.fields.page.locale === intl.locale);
 
     return (
         <Container
@@ -64,7 +62,7 @@ class FeaturedBlogPosts extends Component {
                 className={
                 `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
                 }
-                to={`/blog`}
+                to={`${intl.locale}/blog`}
               >
                 {link}
                 <Icon name="arrow right" style={{ marginLeft: '5px'}} />
@@ -76,7 +74,7 @@ class FeaturedBlogPosts extends Component {
   }
 }
 
-const FeaturedBlogPostsWrapper = FeaturedBlogPosts;
+const FeaturedBlogPostsWrapper = injectIntl(FeaturedBlogPosts);
 
 export default props => (
   <StaticQuery
