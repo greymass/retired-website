@@ -10,10 +10,12 @@ exports.onPreInit = () => {
   const dirs = fs.readdirSync(p).filter((f) =>
     fs.statSync(`${p}/${f}`).isDirectory());
   dirs.forEach((dir) => {
-    jsonConcat({
-      src: `${p}/${dir}/`,
-      dest: `${p}/build/${dir}.json`
-    }, (e) => console.log(e));
+    if (dir !== 'build') {
+      jsonConcat({
+        src: `${p}/${dir}/`,
+        dest: `${p}/build/${dir}.json`
+      }, (e) => console.log(e));
+    }
   })
 }
 
