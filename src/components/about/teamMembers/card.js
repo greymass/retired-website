@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import { injectIntl } from "gatsby-plugin-intl";
 import { Grid, Icon } from 'semantic-ui-react';
 
 import Img from 'gatsby-image';
@@ -16,6 +16,7 @@ class AboutTeamMembersCard extends Component {
       description,
       facebookLink,
       githubLink,
+      intl,
       profileImages,
       linkedinLink,
       name,
@@ -59,7 +60,7 @@ class AboutTeamMembersCard extends Component {
                   }`}
                   onClick={() => this.setState({ expanded: false })}
                 >
-                  {'team_member_card_read_less'}
+                  {intl.formatMessage({ id: 'team_member_card_read_less' })}
                   <Icon style={{ marginLeft: '5px' }} name="arrow up" />
                 </span>
               </div>
@@ -72,7 +73,7 @@ class AboutTeamMembersCard extends Component {
                   className={aboutTeamMembersCardStyles.expandButton}
                   onClick={() => this.setState({ expanded: true })}
                 >
-                  {'team_member_card_read_more'}
+                  {intl.formatMessage({ id: 'team_member_card_read_more' })}
                 </span>
               </div>
             )}
@@ -91,4 +92,4 @@ class AboutTeamMembersCard extends Component {
   }
 }
 
-export default AboutTeamMembersCard;
+export default injectIntl(AboutTeamMembersCard);
