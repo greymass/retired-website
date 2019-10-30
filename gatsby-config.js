@@ -22,10 +22,12 @@ module.exports = {
         fonts: [
           {
             family: `Montserrat`,
+            variants: [`600`]
             // subsets: [`latin`],
           },
           {
             family: `Roboto`,
+            variants: [`400`, `700`],
             // subsets: [`latin`],
           },
           {
