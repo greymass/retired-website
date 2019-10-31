@@ -30,10 +30,10 @@ class HomeProjects extends Component {
             className={`${homeProjectsStyles.image} mobile-hidden`}
           />
           <img
-              alt='projects-page-background-mobile'
-              src={projectsBackgroundForMobile}
-              className={`${homeProjectsStyles.image} mobile-only`}
-            />
+            alt='projects-page-background-mobile'
+            src={projectsBackgroundForMobile}
+            className={`${homeProjectsStyles.image} mobile-only`}
+          />
         </div>
         <div className={homeProjectsStyles.container}>
           <p className={homeProjectsStyles.headerText}>
@@ -43,7 +43,7 @@ class HomeProjects extends Component {
             cards={4}
           />
           <div className={homeProjectsStyles.portfolioContainer}>
-            <Link className={homeProjectsStyles.supportUsLink} to={`/projects`}>
+            <Link className={homeProjectsStyles.supportUsLink} to={`/${intl.locale}/projects`}>
               {intl.formatMessage({ id: 'home_projects_portfolio_link' })}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>

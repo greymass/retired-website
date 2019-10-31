@@ -1,3 +1,30 @@
 .container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] > [class="header"] {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] > [class="header"] {
+  font-size: 21px !important;
+}
+
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"],
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] [class="header"],
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] [class="meta"],
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] [class="description"],
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="extra content"] {
+  color: white;
+}
+
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"] [class="description"] {
+
+}
+
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="content"],
+.container div[class="ui centered cards"] > a[class="ui card"] > [class="extra content"] {
+  background-color: var(--mainGrey);
+}
+
+.container div[class="ui centered cards"] > a[class="ui card"]:hover > [class="content"],
+.container div[class="ui centered cards"] > a[class="ui card"]:hover > [class="extra content"] {
+  color: white;
+  background-color: var(--mainBlue);
 }

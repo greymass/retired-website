@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 import { graphql } from 'gatsby';
 
-
 import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
 import ProjectList from '../components/projects/projectList';

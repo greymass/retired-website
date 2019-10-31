@@ -36,9 +36,9 @@ class HomeProjectCard extends Component {
           </Card.Header>
           <Card.Meta>
             {intl.formatMessage({
-              id: `project_${project.projectKey}_date`,
-              defaultMessage: '[Launch Date]',
-              description: 'The date the project launched'
+              id: `project_${project.projectKey}_extra`,
+              defaultMessage: '[Project Extras]',
+              description: 'Extra details of the project'
             })}
           </Card.Meta>
           <Card.Description>
@@ -48,13 +48,6 @@ class HomeProjectCard extends Component {
               description: 'The date the project launched'
             })}
           </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          {intl.formatMessage({
-              id: `project_${project.projectKey}_extra`,
-              defaultMessage: '[Project Extras]',
-              description: 'Extra details of the project'
-          })}
         </Card.Content>
       </Card>
     );

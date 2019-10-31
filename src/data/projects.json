@@ -16,6 +16,13 @@
       "projectKey": "light_history_node"
     },
     {
+      "githubLink": "https://podcast.greymass.com",
+      "homepage": true,
+      "icon": "podcast",
+      "platform": "eosio",
+      "projectKey": "cog"
+    },
+    {
       "githubLink": "https://github.com/greymass/revoter",
       "homepage": false,
       "icon": "github",
@@ -38,7 +45,7 @@
     },
     {
       "githubLink": "https://github.com/greymass/eosio-api-ext",
-      "homepage": true,
+      "homepage": false,
       "icon": "github",
       "platform": "eosio",
       "projectKey": "eosio_api_ext"
