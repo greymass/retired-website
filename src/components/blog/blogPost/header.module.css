@@ -3,7 +3,7 @@
   text-align: center;
 }
 
-.headerText {
+.headerContainer .headerText {
   color: var(--mainBlack);
   font-family: 'Poppins', sans-serif;
   font-size: 44px;
@@ -15,8 +15,9 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .headerText {
-    font-size: 24px;
+  .headerContainer div[class="ui container"] .headerText {
+    font-size: 22px;
+    line-height: 44px;
   }
 
   .headerContainer {
