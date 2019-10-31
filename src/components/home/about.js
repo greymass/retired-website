@@ -23,7 +23,7 @@ class HomeHeader extends Component {
           </div>
           <Grid>
             <Grid.Column mobile={16} tablet={6} computer={6} />
-            <Grid.Column mobile={16} tablet={10} computer={8}>
+            <Grid.Column mobile={16} tablet={10} computer={9}>
               <h4 className={homeAboutStyles.titleText}>
                 {intl.formatMessage({ id: 'home_about_title' })}
               </h4>
