@@ -1,12 +1,14 @@
-.divider {
-  color: white;
-  font-size: 20px;
-  float: right;
-}
 
 .container {
   padding-top: 0;
   text-align: right;
+  float: right;
+}
+
+.divider {
+  color: white;
+  font-size: 20px;
+  float: right;
 }
 
 .text {
