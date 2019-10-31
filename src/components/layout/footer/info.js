@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
-  // Divider,
+  Divider,
   Grid,
-  // Responsive
 } from "semantic-ui-react"
 
 import FooterInfoResources from './info/resources';
@@ -35,13 +34,13 @@ class FooterInfo extends Component {
     return (
       <div className={footerInfoStyles.container}>
         <Grid container className={footerInfoStyles.container}>
-          <Grid.Column
-            width={10}
-          >
+          <Grid.Column mobile={16} tablet={10} computer={10}>
             <FooterInfoResources />
           </Grid.Column>
-
-          <Grid.Column tablet={6} computer={5} floated="right">
+          <Grid.Column width={16} only='mobile'>
+            <Divider />
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={6} computer={5} floated="right">
             <FooterInfoContact />
           </Grid.Column>
         </Grid>

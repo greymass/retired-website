@@ -1,5 +1,11 @@
 .container {
   background-color: var(--mainBlack);
-  padding: 50px 30px !important;
+  padding: 50px 30px;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 50px 0;
+  }
 }
