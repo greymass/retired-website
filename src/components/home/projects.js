@@ -12,28 +12,14 @@ import { Link } from 'gatsby';
 import HomeProjectsCards from './projects/cards';
 
 import projectsBackgroundForDesktop from '../../images/projectsBackgroundForDesktop.svg';
-// import projectsBackgroundForMobile from '../../images/projectsBackgroundForMobile.svg';
+import projectsBackgroundForMobile from '../../images/projectsBackgroundForMobile.svg';
 
 import homeProjectsStyles from './projects.module.css';
 
 class HomeProjects extends Component {
   render() {
     const { intl } = this.props;
-    // TODO: Responsive logic needs reworking
-    // <Responsive {...Responsive.onlyMobile}>
-    //   <img
-    //     alt='projects-page-background-mobile'
-    //     src={projectsBackgroundForMobile}
-    //     className={homeProjectsStyles.image}
-    //   />
-    // </Responsive>
-    // <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-    //   <img
-    //     alt='projects-page-background-desktop'
-    //     src={projectsBackgroundForDesktop}
-    //     className={homeProjectsStyles.image}
-    //   />
-    // </Responsive>
+
     return (
       <React.Fragment>
         <div className={homeProjectsStyles.arrowDownContainer}>
@@ -41,8 +27,13 @@ class HomeProjects extends Component {
           <img
             alt='projects-page-background-desktop'
             src={projectsBackgroundForDesktop}
-            className={homeProjectsStyles.image}
+            className={`${homeProjectsStyles.image} mobile-hidden`}
           />
+          <img
+              alt='projects-page-background-mobile'
+              src={projectsBackgroundForMobile}
+              className={`${homeProjectsStyles.image} mobile-only`}
+            />
         </div>
         <div className={homeProjectsStyles.container}>
           <p className={homeProjectsStyles.headerText}>
