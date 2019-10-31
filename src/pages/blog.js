@@ -13,11 +13,10 @@ import blogStyles from './blog.module.css';
 class Blog extends Component {
   render() {
     const { data, intl, location } = this.props;
-    console.log(intl.messages.featured_blog_post_paragraph)
+
     return (
       <Layout location={location}>
         <FeaturedBlogPosts
-          paragraph={intl.formatMessage({ id: 'featured_blog_post_paragraph' })}
           title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
           withFullHeader
         />
