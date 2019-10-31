@@ -20,6 +20,11 @@
 
 @media only screen and (max-width: 767px) {
   .container {
-    padding-bottom: 0px;
+    padding: 30px 6% 0 6%;
+  }
+
+  .container h3.headerText {
+    font-size: 26px;
+    margin-bottom: 30px;
   }
 }
