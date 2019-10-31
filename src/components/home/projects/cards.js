@@ -56,10 +56,12 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allDataJson(filter: {projects: {elemMatch: {projectKey: {ne: null}}}}) {
+        allDataJson(filter: {projects: {elemMatch: {homepage: {eq: true}}}})
+        {
           edges {
             node {
               projects {
+                homepage
                 featured
                 githubLink
                 icon
