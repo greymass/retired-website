@@ -1,11 +1,11 @@
 .divider {
   color: white;
   font-size: 20px;
-  padding: 5px;
+  float: right;
 }
 
 .container {
-  padding-top: 10px;
+  padding-top: 0;
   text-align: right;
 }
 
@@ -14,12 +14,11 @@
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 25px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: white;
-  max-width: 300px;
-  float: right;
+  width: 300px;
+  padding-right: 0px;
 }
 
 .text a {
