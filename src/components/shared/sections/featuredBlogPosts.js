@@ -17,7 +17,6 @@ class FeaturedBlogPosts extends Component {
       intl,
       inverted,
       link,
-      paragraph,
       textClassName,
       title,
       withFullHeader
@@ -26,42 +25,51 @@ class FeaturedBlogPosts extends Component {
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
           .filter(({ node }) => node.fields.page.locale === intl.locale);
+    console.log({featuredBlogPosts})
+
+    const featuredBlogPostCards = featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
+      <FeaturedBlogPostsCard
+        inverted={inverted}
+        linkTo={`/${featuredBlogPost.node.fields.page.locale}/${featuredBlogPost.node.fields.page.path}`}
+        text={featuredBlogPost.node.frontmatter.title}
+      />
+    ))
 
     return (
+      <div className={featuredBlogPostsStyles.topContainer}>
         <Container
           className={
             `${featuredBlogPostsStyles.container} ${
               containerClassName ? featuredBlogPostsStyles[containerClassName] : ''
-            }`
+              }`
           }
         >
           {withFullHeader ? (
             <Header
               extraRow={(
                 <Grid.Row className={featuredBlogPostsStyles.gridComponent} centered>
-                  {featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
-                    <FeaturedBlogPostsCard
-                      inverted={inverted}
-                      linkTo={`/${featuredBlogPost.node.fields.page.locale}/${featuredBlogPost.node.fields.page.path}`}
-                      text={featuredBlogPost.node.frontmatter.title}
-                    />
-                  ))}
+                  {featuredBlogPostCards}
                 </Grid.Row>
               )}
               title={title}
             />
           ) : (
-            <h4 className={
-            `${featuredBlogPostsStyles.headerText} ${featuredBlogPostsStyles[textClassName]}`
-            }>
-              {title}
-            </h4>
+            <React.Fragment>
+              <h4 className={
+                `${featuredBlogPostsStyles.headerText} ${featuredBlogPostsStyles[textClassName]}`
+              }>
+                {title}
+              </h4>
+              <Grid centered>
+                {featuredBlogPostCards}
+              </Grid>
+            </React.Fragment>
           )}
           {link && (
             <div className={featuredBlogPostsStyles.linkContainer}>
               <Link
                 className={
-                `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
+                  `${featuredBlogPostsStyles.supportUsLink} ${featuredBlogPostsStyles[textClassName]}`
                 }
                 to={`${intl.locale}/blog`}
               >
@@ -71,6 +79,7 @@ class FeaturedBlogPosts extends Component {
             </div>
           )}
         </Container>
+      </div>
     )
   }
 }
