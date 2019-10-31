@@ -1,3 +1,7 @@
 .bodyContainer {
   background-color: white;
 }
+
+.featuredBlogPostContainer {
+  background: var(--lightBlueGradient);
+}
