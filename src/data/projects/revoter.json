@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/revoter",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "revoter"
+}

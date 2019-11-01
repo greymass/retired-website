@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/eosio-abi2ts",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "eosio_abi2ts"
+}
