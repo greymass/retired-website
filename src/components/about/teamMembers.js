@@ -12,7 +12,7 @@ class AboutTeamMembers extends Component {
   render() {
     const { data, intl } = this.props;
 
-    const teamMembers = data.allDataJson.edges[0].node.teamMembers;
+    const teamMembers = data.teamMembers.edges;
 
     return (
       <div className={aboutTeamMembersStyles.container}>
@@ -22,7 +22,7 @@ class AboutTeamMembers extends Component {
           </h4>
 
           <Grid stackable centered padded>
-            {teamMembers.map((teamMember) => (
+            {teamMembers.map(({ node: teamMember }) => (
               <Grid.Column computer={5} tablet={16} mobile={16}>
                 <AboutTeamMembersCard
                   description={teamMember.description}
@@ -46,35 +46,33 @@ export default props => (
   <StaticQuery
     query={graphql`
        query {
-          allDataJson(filter: {teamMembers: {elemMatch: {name: {ne: null}}}}) {
-            edges {
-              node {
-                teamMembers {
-                  description
-                  name
-                  title
-                  socialMedia {
-                    facebookLink
-                    githubLink
-                    linkedinLink
-                    twitterLink
-                    youtubeLink
-                  }
-                }
-              }
-            }
-          }
-          profileImages: allFile(filter: {relativeDirectory: {regex: "/teamMembers/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
-            edges {
-              node {
-                childImageSharp {
-                  fluid(maxWidth: 600) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
+         teamMembers: allTeamMembersJson {
+           edges {
+             node {
+               description
+               name
+               title
+               socialMedia {
+                 facebookLink
+                 githubLink
+                 linkedinLink
+                 twitterLink
+                 youtubeLink
+               }
+             }
+           }
+         }
+         profileImages: allFile(filter: {relativeDirectory: {regex: "/teamMembers/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
+           edges {
+             node {
+               childImageSharp {
+                 fluid(maxWidth: 600) {
+                   ...GatsbyImageSharpFluid
+                 }
+               }
+             }
+           }
+         }
        }
     `}
     render={data => <AboutTeamMembersWrapper data={data} {...props} />}
