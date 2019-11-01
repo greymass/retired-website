@@ -2,6 +2,7 @@
 title: 'Announcing Greymass for EOS Block Production'
 date: "2018-05-15"
 author: "Greymass"
+featured: true
 ---
 ![https://greymass.com/logo.png](https://greymass.com/logo.png)
 

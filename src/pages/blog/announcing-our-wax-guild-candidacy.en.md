@@ -2,6 +2,7 @@
 title: 'Announcing our WAX Guild Candidacy'
 date: "2019-07-15"
 author: "Greymass"
+featured: true
 ---
 ![Wax x Greymass.png](https://cdn.steemitimages.com/DQmPjHszxq7LRvAJf4fNatwBH3F9tEc3X5sPw5ZhWRARWTC/Wax%20x%20Greymass.png)
 

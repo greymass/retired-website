@@ -46,7 +46,7 @@ export default props => (
   <StaticQuery
     query={graphql`
        query {
-         teamMembers: allTeamMembersJson {
+         teamMembers: allTeamMembersJson(sort: {fields: joined}) {
            edges {
              node {
                description

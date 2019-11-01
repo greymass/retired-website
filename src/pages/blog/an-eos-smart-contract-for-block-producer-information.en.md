@@ -2,6 +2,7 @@
 title: 'An EOS Smart Contract for Block Producer Information'
 date: "2018-07-20"
 author: "Greymass"
+featured: true
 ---
 There is a long road ahead of us on EOS with both developing and enforcing Block Producer standards. However, one improvement that many of us can agree on right now, is that it's time we all started putting our information on-chain, rather than only on our websites.
 
