@@ -3,7 +3,7 @@ import { Header, Icon, Image, List } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import podcastLogo from '../../images/podcast.jpg'
+import podcastLogo from '../../images/podcast.jpeg'
 import recentPodcastsStyles from './recentPodcasts.module.css';
 
 class BlogRecentPodcasts extends Component {
