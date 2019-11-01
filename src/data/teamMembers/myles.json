@@ -2,5 +2,8 @@
   "name": "Myles Snider",
   "title": "Business Development Partner",
   "description": "Myles Snider is the newest addition to the team, recently joining Greymass as a partner. Myles has been involved in the EOS ecosystem since long before mainnet launch. He previously lead research at Multicoin Capital, where he published a number of EOS-focused investment reports. He also created The Stablecoin Index, a tool to track and compare various stablecoin projects.Later, he founded a mainnet block producer called Aurora EOS before eventually joining Greymass. \nMyles has written extensively about EOS economics and governance, and he’ll continue to do so in his new role here. He’ll also focus on interfacing with the community and helping bring more awareness to Greymass’s core product offerings. Myles also hosts an EOS-focused podcast called EOS Voter and writes a bi-weekly newsletter about the EOSIO ecosystem.",
-  "socialMedia": {}
+  "joined": 5,
+  "socialMedia": {
+    "twitterLink": "https://twitter.com/myles_snider"
+  }
 }

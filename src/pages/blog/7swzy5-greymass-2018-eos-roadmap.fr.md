@@ -2,6 +2,7 @@
 title: 'Greymass 2018 EOS Chemin'
 date: "2018-05-29"
 author: "Greymass"
+featured: true
 ---
 ![https://greymass.com/logo.png](https://greymass.com/logo.png)
 

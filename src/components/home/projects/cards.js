@@ -60,7 +60,6 @@ export default props => (
           edges {
             node {
               homepage
-              featured
               githubLink
               icon
               platform

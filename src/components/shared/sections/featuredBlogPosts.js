@@ -92,8 +92,11 @@ export default props => (
       query {
         allMarkdownRemark(
           sort: {fields: [frontmatter___date], order: DESC},
-          filter: {fileAbsolutePath: {regex: "/(blog)/"}},
-          limit: 100
+          filter: {
+            fileAbsolutePath: {regex: "/(blog)/"},
+            frontmatter: {featured: {eq: true}}
+          },
+          limit: 5
         ) {
           edges {
             node {

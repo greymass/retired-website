@@ -2,6 +2,7 @@
 title: 'A simple system to support blockchain "Workers" in DPoS'
 date: "2019-05-09"
 author: "Greymass"
+featured: true
 ---
 Within EOSIO chains today, and even across the greater DPoS spectrum, it is common practice for the system to dedicate a portion of its economic rewards to a fund earmarked for improvements. This is typically done through either fees during on-chain actions, or directly with token inflation. 
 

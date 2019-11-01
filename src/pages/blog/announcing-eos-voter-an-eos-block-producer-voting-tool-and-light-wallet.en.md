@@ -2,6 +2,7 @@
 title: 'Announcing EOS-Voter, an EOS Block Producer Voting Tool & Light Wallet'
 date: "2018-06-02"
 author: "Greymass"
+featured: true
 ---
 ![](https://greymass.com/logo.png)
 

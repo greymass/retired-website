@@ -35,7 +35,6 @@ export const query = graphql`
     projects: allProjectsJson(limit: 100) {
       edges {
         node {
-          featured
           githubLink
           platform
           projectKey
