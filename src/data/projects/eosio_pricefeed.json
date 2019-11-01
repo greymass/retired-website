@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/pricefeed",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "eosio_pricefeed"
+}

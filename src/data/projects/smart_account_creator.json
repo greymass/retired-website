@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/smart_account_creator",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "smart_account_creator"
+}

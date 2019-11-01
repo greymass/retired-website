@@ -14,9 +14,11 @@ class HomeProjectsCards extends Component {
     const {
       cards,
       data,
-      intl
-      } = this.props;
+    } = this.props;
     const projects = data.allDataJson.edges[0].node.projects;
+
+    console.log({projects});
+    console.log({count: projects.length});
     return (
       <Container
         className={styles.container}
@@ -71,7 +73,10 @@ export default props => (
             }
           }
         }
-        images: allFile(filter: {relativeDirectory: {regex: "/projects/"}, extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
+        images: allFile(
+          filter: {relativeDirectory: {regex: "/projects/"},
+          extension: {regex: "/(jpg)|(jpeg)|(png)/"}}
+        ) {
           edges {
             node {
               childImageSharp {
