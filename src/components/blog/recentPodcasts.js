@@ -3,17 +3,14 @@ import { Header, Icon, Image, List } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import podcastLogo from '../../images/podcast.jpeg'
+import podcastLogo from '../../images/podcast.jpg'
 import recentPodcastsStyles from './recentPodcasts.module.css';
 
 class BlogRecentPodcasts extends Component {
   render() {
     const { data, intl } = this.props;
 
-    // const cleanedUpLocaleName = i18n.language.split('-')[0];
-    const cleanedUpLocaleName = 'en';
-
-    return (cleanedUpLocaleName === 'en') ? (
+    return (intl.locale === 'en') ? (
       <div className={recentPodcastsStyles.container}>
         <Image rounded src={podcastLogo} />
         <Header
@@ -23,8 +20,8 @@ class BlogRecentPodcasts extends Component {
         />
         <List>
           {data
-            .allDataJson.edges[0].node.podcasts
-            .map((podcast) => {
+            .podcasts.edges
+            .map(({ node: podcast }) => {
               return (
                 <Podcast podcast={podcast} />
               )
@@ -45,15 +42,13 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allDataJson(filter: {podcasts: {elemMatch: {title: {ne: null}}}}) {
+        podcasts: allPodcastsJson(limit: 20) {
           edges {
             node {
-              podcasts {
-                title
-                description
-                date
-                link
-              }
+              title
+              description
+              date
+              link
             }
           }
         }

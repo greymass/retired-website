@@ -10,8 +10,8 @@ import FeaturedProject from '../components/projects/featuredProject';
 class Projects extends Component {
   render() {
     const { data, intl, location } = this.props;
-    const projects = data.allDataJson.edges[0].node.projects;
-    const featuredProject = projects.find(project => project.featured === true);
+    const projects = data.projects.edges.map(({ node }) => node);
+    const featuredProject = projects.find(project => project.projectKey === 'anchor');
 
     return (
       <Layout location={location}>
@@ -32,15 +32,13 @@ export default injectIntl(Projects);
 
 export const query = graphql`
   query {
-    allDataJson(filter: {projects: {elemMatch: {projectKey: {ne: null}}}}) {
+    projects: allProjectsJson(limit: 100) {
       edges {
         node {
-          projects {
-            featured
-            githubLink
-            platform
-            projectKey
-          }
+          featured
+          githubLink
+          platform
+          projectKey
         }
       }
     }

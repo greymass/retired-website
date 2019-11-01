@@ -15,10 +15,8 @@ class HomeProjectsCards extends Component {
       cards,
       data,
     } = this.props;
-    const projects = data.allDataJson.edges[0].node.projects;
+    const projects = data.projects.edges;
 
-    console.log({projects});
-    console.log({count: projects.length});
     return (
       <Container
         className={styles.container}
@@ -26,7 +24,7 @@ class HomeProjectsCards extends Component {
         textAlign="center"
       >
         <Card.Group className={styles.cardContainer} centered>
-          {projects.slice(0, cards).map(project => {
+          {projects.slice(0, cards).map(({ node: project }) => {
             const imageFluidEdge = data.images.edges.find(edge => {
               return edge.node
               .childImageSharp
@@ -49,7 +47,7 @@ class HomeProjectsCards extends Component {
 }
 
 HomeProjectsCards.defaultProps = {
-    cards: 4,
+  cards: 4,
 }
 
 const HomeProjectsCardsWrapper = injectIntl(HomeProjectsCards);
@@ -58,18 +56,15 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        allDataJson(filter: {projects: {elemMatch: {homepage: {eq: true}}}})
-        {
+        projects: allProjectsJson(filter: { homepage: { eq: true } }) {
           edges {
             node {
-              projects {
-                homepage
-                featured
-                githubLink
-                icon
-                platform
-                projectKey
-              }
+              homepage
+              featured
+              githubLink
+              icon
+              platform
+              projectKey
             }
           }
         }
