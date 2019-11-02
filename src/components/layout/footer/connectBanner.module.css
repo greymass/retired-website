@@ -3,10 +3,10 @@
   padding: 40px 0 60px 0;
   width: 100%;
 }
-.grid {
+.container .grid {
   margin: auto;
 }
-.text {
+.container .grid .text {
   color: white;
   font-family: 'Poppins', sans-serif;
   font-size: 36px;
@@ -17,20 +17,20 @@
   text-align: right;
   text-transform: uppercase;
   margin-right: 10px;
-  margin-top: 10px !important;
+  margin-top: 10px;
 }
 
-.arrowIcon {
-  margin-left: 6% !important;
+.container .grid .text .arrowIcon {
+  margin-left: 6%;
 }
 
-.connectBannerLinksContainer {
-  padding-top: 40px !important;
+.container .grid .gridColumn.connectBannerLinksContainer {
+  padding-top: 40px;
 }
 
 @media only screen and (max-width: 767px) {
-  .connectBannerLinksContainer {
-    padding-top: 10px !important;
+  .container .grid .gridColumn.connectBannerLinksContainer {
+    padding-top: 10px;
   }
 
   .connectBannerLinksInnerContainer {
@@ -46,8 +46,8 @@
 }
 
 @media only screen and (max-width: 991px) {
-  .connectBannerLinksContainer {
-    padding-top: 10px !important;
+  .container .grid .gridColumn.connectBannerLinksContainer {
+    padding-top: 10px;
   }
 
   .connectBannerLinksInnerContainer {

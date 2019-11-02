@@ -5,8 +5,8 @@
   border-bottom: 2px solid var(--mainBlue);
 }
 
-.grid {
-  padding: 80px 0 !important;
+.container .grid {
+  padding: 80px 0;
 }
 
 .headerText {

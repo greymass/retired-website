@@ -26,7 +26,11 @@ class FooterConnectBanner extends Component {
             computer={8}
             tablet={10}
             mobile={15}
-            className={footerConnectBannerStyles.connectBannerLinksContainer}
+            className={`${
+              footerConnectBannerStyles.connectBannerLinksContainer
+            } ${
+              footerConnectBannerStyles.gridColumn
+            }`}
           >
             <div className={footerConnectBannerStyles.connectBannerLinksInnerContainer}>
               <ConnectBannerLink

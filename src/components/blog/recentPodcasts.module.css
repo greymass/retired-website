@@ -25,8 +25,8 @@
   text-transform: uppercase;
 }
 
-.linkIcon {
-  margin-left: 10px !important;
+.link .linkIcon {
+  margin-left: 10px;
 }
 
 .podcastContainer {

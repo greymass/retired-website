@@ -9,14 +9,14 @@
   width: 100%;
 }
 
-.arrowDownIcon {
+.arrowDownContainer .arrowDownIcon {
   color: var(--mainBlack);
   left: 0;
-  margin: 0 auto 0 auto !important;
+  margin: 0 auto 0 auto;
   position: absolute;
   right: 0;
   top: 17px;
-  font-size: 18px !important;
+  font-size: 18px;
 }
 
 .container {
