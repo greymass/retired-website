@@ -18,33 +18,32 @@
   width: 200px;
 }
 
-.mainIcon {
-  font-size: 90px !important;
+.mainIconContainer > .mainIcon {
+  font-size: 90px;
   color: white;
 }
 
-.popupIcon {
+.title > .popupIcon {
   color: var(--mainBlue);
   cursor: pointer;
-  margin-left: 12px !important;
+  margin-left: 12px;
 }
 
-.popup {
+div.popup.popupVisible.popupUI {
   opacity: 0.9;
-  background-color: var(--mainBlue) !important;
-  margin: 10px;
+  background-color: var(--mainBlue);
 }
 
-.popup::before {
-  background-color: var(--mainBlue) !important;
+div.popup.popupVisible.popupUI::before {
+  background-color: var(--mainBlue);
 }
 
-.popupContainer {
+div.popup .popupContainer {
   padding: 20px;
-  width: 400px !important;
+  width: 400px;
 }
 
-.popupTitle {
+div.popup .popupTitle {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -56,7 +55,7 @@
   text-align: left;
 }
 
-.popupDescription {
+div.popup .popupDescription {
   color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
