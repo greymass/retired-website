@@ -38,7 +38,7 @@
     margin: auto;
   }
 
-  .text {
+  .container .grid .text {
     font-size: 22px;
     margin: 0;
     text-align: center;
@@ -47,16 +47,16 @@
 
 @media only screen and (max-width: 991px) {
   .container .grid .gridColumn.connectBannerLinksContainer {
-    padding-top: 10px;
+    padding-top: 40px;
   }
 
   .connectBannerLinksInnerContainer {
     margin: 30px auto 0 auto;
   }
 
-  .text {
+  .container .grid .text {
     font-size: 22px;
-    margin: 0;
+    margin: 40px 0;
     text-align: center;
   }
 }

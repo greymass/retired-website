@@ -35,11 +35,19 @@
   .container {
     text-align: center;
     float: none;
+    margin-top: 10px;
   }
 
   .text {
     font-size: 15px;
     margin: 10px auto;
     float: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    text-align: center;
+    margin-top: 0;
   }
 }
