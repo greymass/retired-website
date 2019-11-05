@@ -25,7 +25,6 @@ class FeaturedBlogPosts extends Component {
     const featuredBlogPosts =
       data.allMarkdownRemark.edges
           .filter(({ node }) => node.fields.page.locale === intl.locale);
-    console.log({featuredBlogPosts})
 
     const featuredBlogPostCards = featuredBlogPosts.slice(0, 5).map(featuredBlogPost => (
       <FeaturedBlogPostsCard
