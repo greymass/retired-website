@@ -47,7 +47,7 @@
     margin: 0 20px;
   }
 
-  .grid {
-    padding: 40px 0 !important;
+  .container .grid {
+    padding: 40px 0;
   }
 }

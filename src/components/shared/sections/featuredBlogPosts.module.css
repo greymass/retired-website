@@ -12,8 +12,8 @@
   background: var(--lightBlueGradient);
 }
 
-.whiteText {
-  color: white !important;
+.container .whiteText {
+  color: white;
 }
 
 .headerText {
@@ -39,6 +39,10 @@
   line-height: 25px;
   padding-bottom: 40px;
   text-transform: uppercase;
+}
+
+.supportUsLink > .icon {
+  margin-left: 5px;
 }
 
 .linkContainer {

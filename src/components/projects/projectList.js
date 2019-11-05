@@ -48,7 +48,7 @@ class ProjectList extends React.Component {
     };
 
     return (
-      <div className={projectListStyles.container} >
+      <div className={`${projectListStyles.container} ${projectListStyles.projectList}`} >
         <Container>
           <h3 className={projectListStyles.secondaryHeader}>
             {intl.formatMessage({ id: `platform_${platform}` })}
@@ -83,12 +83,10 @@ const LeftArrow = ({className, onClick}) => (
   <div
     onClick={onClick}
     className={
-      `${className} ${projectListStyles.arrow} ${
-        projectListStyles.arrow
-      } ${projectListStyles.arrowLeft}`
+      `${className} ${projectListStyles.arrow} ${projectListStyles.arrowLeft}`
     }
   >
-    <Icon  name="arrow left" className={projectListStyles.arrowIcon} />
+    <Icon name="arrow left" className={projectListStyles.arrowIcon} />
   </div>
 );
 
@@ -96,9 +94,7 @@ const RightArrow = ({className, onClick}) => (
   <div
     onClick={onClick}
     className={
-      `${className} ${projectListStyles.arrow} ${
-        projectListStyles.arrow
-        } ${projectListStyles.arrowRight}`
+      `${className} ${projectListStyles.arrow} ${projectListStyles.arrowRight}`
     }
   >
     <Icon name="arrow right" className={projectListStyles.arrowIcon} />
