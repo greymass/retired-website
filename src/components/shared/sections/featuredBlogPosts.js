@@ -74,7 +74,7 @@ class FeaturedBlogPosts extends Component {
                 to={`${intl.locale}/blog`}
               >
                 {link}
-                <Icon name="arrow right" style={{ marginLeft: '5px'}} />
+                <Icon name="arrow right" className={featuredBlogPostsStyles.icon} />
               </Link>
             </div>
           )}

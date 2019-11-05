@@ -14,7 +14,7 @@
   background: white;
 }
 
-.linkIcon {
+.container .linkIcon {
   font-size: 27px !important;
 }
 
@@ -39,7 +39,7 @@
     padding: 15px 6px 10px 9px;
   }
 
-  .linkIcon {
+  .container .linkIcon {
     font-size: 18px !important;
   }
 

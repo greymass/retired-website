@@ -7,13 +7,13 @@
   height: 70px;
 }
 
-.arrowIcon {
+.container .arrow .arrowIcon {
   color: var(--mainBlack);
   cursor: pointer;
   font-size: 30px !important;
 }
 
-.arrow::before {
+.container .arrow::before {
   opacity: 0 !important;
 }
 
@@ -87,7 +87,7 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .container {
+  .container.projectList {
     min-width: 260px !important;
   }
 
@@ -107,15 +107,15 @@
     height: 40px;
   }
 
-  .arrowIcon {
+  .container .arrow .arrowIcon {
     font-size: 15px !important;
   }
 
-  .arrowRight {
+  .container .arrow.arrowRight {
     right: 0;
   }
 
-  .arrowLeft {
+  .container .arrow.arrowLeft {
     left: 0;
   }
 
