@@ -24,19 +24,20 @@ class Layout extends Component {
     } = this.props;
 
     containerClassName = containerClassName || 'greyBackground';
+
     return (
-      <div>
+      <React.Fragment>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{data.site.siteMetadata.title}</title>
           <link rel="canonical" href="https://greymass.com" />
         </Helmet>
-        <Sidebar.Pushable className={(layoutStyles[containerClassName])}>
+        <div className={layoutStyles[containerClassName]}>
           <LayoutHeader location={location} />
           {children}
           <LayoutFooter />
-        </Sidebar.Pushable>
-      </div>
+        </div>
+      </React.Fragment>
     )
   }
 }

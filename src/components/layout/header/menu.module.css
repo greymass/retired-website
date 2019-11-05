@@ -1,7 +1,3 @@
-.sidebarPusher {
-  min-height: 100vh;
-}
-
 .container div[class="ui secondary menu"] div[class="right menu"] .sidebarButton {
   font-size: 20px;
   padding: 28px;
