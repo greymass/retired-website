@@ -12,8 +12,6 @@ import BlogPostBody from '../components/blog/blogPost/body';
 import blogPostStyles from './blog-post.module.css'
 
 class BlogPost extends Component {
-  contextRef = createRef();
-
   render() {
     const { data } = this.props;
     const post = data.markdownRemark;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from "react"
 
 import {
   Grid,
@@ -12,6 +12,7 @@ import {
 import SupportUsSticker from './desktop/sticker';
 
 class BlogPostBodyDesktopn extends Component {
+  contextRef = createRef();
   state = { stickerVisible: false };
 
   handleUpdate = (e, { calculations }) => {

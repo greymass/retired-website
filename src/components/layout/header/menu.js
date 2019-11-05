@@ -21,7 +21,6 @@ class HeaderMobileMenu extends Component {
     return (
       <Sidebar.Pusher
         onClick={this.props.handlePusher}
-        className={menuStyles.sidebarPusher}
       >
         <Container className={menuStyles.container}>
           <Menu secondary>
