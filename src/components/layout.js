@@ -9,8 +9,6 @@ import LayoutFooter from './layout/footer';
 
 import layoutStyles from './layout.module.css';
 
-import { Sidebar } from 'semantic-ui-react';
-
 class Layout extends Component {
   render() {
     const {

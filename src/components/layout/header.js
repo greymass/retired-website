@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { injectIntl } from "gatsby-plugin-intl";
+import { injectIntl } from 'gatsby-plugin-intl';
 import { graphql, StaticQuery } from 'gatsby';
 
 import HeaderSidebar from './header/sidebar';
