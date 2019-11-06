@@ -3,5 +3,9 @@
   "title": "Visual Designer",
   "description": "Nicholas Hamer is a Sr Designer at Blizzard. With a diverse background in Graphic Design and a Bachelor of Fine Arts in Illustration from the Ringling College of Art and Design, he has a strong sense of composition with the ability to be versatile and think creatively. Having worked on music videos, web sites, video games advertising campaigns, feature films, and television shows, he has gained extensive experience successfully working with applied design, UX, compositing, and motion graphics through the use of programs such as Adobe Photoshop, Illustrator, After Effects, InDesign, Maya, Nuke, and Cinema 4d; A combination of skills that assist him in his ‘out of the box’ thinking and helps to provide a fresh creative perspective to any of his project.",
   "joined": 6,
-  "socialMedia": {}
+  "socialMedia": {
+    "facebookLink": "https://www.facebook.com/nickhamer",
+    "linkedinLink": "https://www.linkedin.com/in/nhamer/",
+    "twitterLink": "https://twitter.com/nh4mer"
+  }
 }
