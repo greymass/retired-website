@@ -28,6 +28,12 @@
   color: var(--mainBlue);
 }
 
+@media only screen and (max-width: 1200px) {
+  .container {
+    min-height: 230px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .container {
     min-height: 120px;
