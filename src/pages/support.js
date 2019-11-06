@@ -5,8 +5,10 @@ import SupportCTA from '../components/support/cta';
 
 class Index extends Component {
   render() {
+    const { location } = this.props;
+
     return (
-      <Layout>
+      <Layout location={location}>
         <SupportCTA />
       </Layout>
     )
