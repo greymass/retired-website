@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 import {
-  Card,
-  Container,
   Icon,
-  Grid,
-  // Responsive
 } from 'semantic-ui-react';
 
 import { Link } from 'gatsby';

@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 
 import { graphql } from 'gatsby';
 
@@ -9,7 +9,7 @@ import Layout from '../components/layout';
 import BlogPostHeader from '../components/blog/blogPost/header';
 import BlogPostBody from '../components/blog/blogPost/body';
 
-import blogPostStyles from './blog-post.module.css'
+import blogPostStyles from './blog-post.module.css';
 
 class BlogPost extends Component {
   render() {
