@@ -34,6 +34,7 @@
 @media only screen and (max-width: 933px) {
   .container {
     text-align: center;
+    float: none;
   }
 
   .text {
