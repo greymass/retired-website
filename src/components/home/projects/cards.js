@@ -6,8 +6,7 @@ import {
 } from 'semantic-ui-react';
 import { graphql, StaticQuery } from 'gatsby';
 
-import HomeProjectCard from './card';
-import styles from './cards.module.css';
+import HomeProjectCard from '../../shared/cards/project';
 
 class HomeProjectsCards extends Component {
   render() {
@@ -19,11 +18,10 @@ class HomeProjectsCards extends Component {
 
     return (
       <Container
-        className={styles.container}
         fluid
         textAlign="center"
       >
-        <Card.Group className={styles.cardContainer} centered>
+        <Card.Group centered>
           {projects.slice(0, cards).map(({ node: project }) => {
             const imageFluidEdge = data.images.edges.find(edge => {
               return edge.node
