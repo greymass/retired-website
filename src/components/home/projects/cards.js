@@ -35,7 +35,7 @@ class HomeProjectsCards extends Component {
             const imageFluid = imageFluidEdge && imageFluidEdge.node.childImageSharp.fluid;
             return (
               <HomeProjectCard
-                image={(imageFluid) ? imageFluid.src : false}
+                image={(imageFluid) ? imageFluid : false}
                 project={project}
               />
             )
