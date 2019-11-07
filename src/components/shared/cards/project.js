@@ -5,6 +5,8 @@ import { Card, Image } from 'semantic-ui-react';
 import { graphql, StaticQuery } from "gatsby"
 import Img from 'gatsby-image';
 
+import cardStyles from './project.module.css';
+
 class HomeProjectCard extends Component {
   render() {
     const {
@@ -25,6 +27,12 @@ class HomeProjectCard extends Component {
       <Card
         as="a"
         href={linkTo}
+        className={
+          `${
+            cardStyles.top} ${cardStyles.container
+          } ${
+            cardStyles.project} ${cardStyles.card
+          }`}
       >
         <Img
           alt='greymass-header-image'

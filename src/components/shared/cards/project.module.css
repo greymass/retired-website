@@ -1,0 +1,26 @@
+.top.container.project.card > [class="content"] > [class="header"] {
+  font-family: 'Roboto', sans-serif;
+}
+
+.top.container.project.card> [class="content"] > [class="header"] {
+  font-size: 21px;
+}
+
+.top.container.project.card > [class="content"],
+.top.container.project.card > [class="content"] [class="header"],
+.top.container.project.card > [class="content"] [class="meta"],
+.top.container.project.card > [class="content"] [class="description"],
+.top.container.project.card > [class="extra content"] {
+  color: white;
+}
+
+.top.container.project.card > [class="content"],
+.top.container.project.card > [class="extra content"] {
+  background-color: var(--mainGrey);
+}
+
+.top.container.project.card:hover > [class="content"],
+.top.container.project.card:hover > [class="extra content"] {
+  color: white;
+  background-color: var(--mainBlue);
+}
