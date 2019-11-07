@@ -11,10 +11,19 @@ exports.onPreInit = () => {
     fs.statSync(`${p}/${f}`).isDirectory());
   dirs.forEach((dir) => {
     if (dir !== 'build') {
+      const sourceDirectory = `${p}/${dir}/`;
+      const destinationFile = `${p}/build/${dir}.json`;
+
+      validateLocaleDir(sourceDirectory);
+
       jsonConcat({
-        src: `${p}/${dir}/`,
-        dest: `${p}/build/${dir}.json`
-      }, (e) => console.log(e));
+        src: sourceDirectory,
+        dest: destinationFile
+      }, (e) => {
+        if (e) {
+          throw(`Invalid locale JSON. Error: ${JSON.stringify(e)}`);
+        }
+      });
     }
   })
 }
@@ -163,4 +172,21 @@ async function fetchMarkdownPagesByFolder(folder, graphql, reporter) {
   }
 
   return result;
+}
+
+function validateLocaleDir(dir) {
+  fs.readdir(dir, (err, fileNames) => {
+    fileNames.forEach(fileName => {
+      const filePath = `${dir}${fileName}`;
+
+      try {
+        require(filePath);
+      } catch (e) {
+        if (e) {
+          throw(`Invalid locale JSON at "${filePath}". Error: ${e.message}`);
+        }
+      }
+    });
+  });
+
 }
