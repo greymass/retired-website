@@ -3,6 +3,7 @@ import { injectIntl } from "gatsby-plugin-intl";
 import { Card, Image } from 'semantic-ui-react';
 
 import { graphql, StaticQuery } from "gatsby"
+import Img from 'gatsby-image';
 
 class HomeProjectCard extends Component {
   render() {
@@ -18,14 +19,17 @@ class HomeProjectCard extends Component {
 
     const linkTo = project.link || project.githubLink;
 
-    image = image || data.placeholderImage.childImageSharp.fluid.src;
+    image = image || data.placeholderImage.childImageSharp.fluid;
 
     return (
       <Card
         as="a"
         href={linkTo}
       >
-        <Image src={image} wrapped ui={false} />
+        <Img
+          alt='greymass-header-image'
+          fluid={image}
+        />
         <Card.Content>
           <Card.Header>
             {intl.formatMessage({
