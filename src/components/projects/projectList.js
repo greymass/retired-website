@@ -1,7 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-import ProjectListCard from './projectList/card';
 import { Icon, Container } from 'semantic-ui-react';
+
+import ProjectListCard from '../shared/cards/project';
+//import ProjectListCard from './ProjectList/Card';
 
 import projectListStyles from './projectList.module.css';
 
@@ -58,7 +60,10 @@ class ProjectList extends React.Component {
             {platformProjects.map(project => (
               <ProjectListCard
                 images={images}
-                primary={primary}
+                extraClassName={primary ?
+                  'primaryContainer' :
+                  'secondaryContainer'
+                }
                 project={project}
               />
             ))}

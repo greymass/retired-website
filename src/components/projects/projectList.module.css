@@ -28,12 +28,13 @@
 .container {
   background-color: white;
   padding: 40px 0 60px 0;
-  min-width: 1000px;
+  min-width: 800px;
 }
 
 .primaryCarousel {
   margin: auto;
   max-width: 800px;
+  padding-top: 20px;
 }
 
 .secondaryCarousel {
@@ -61,6 +62,10 @@
   line-height: 44px;
   margin: 30px 0 30px 60px;
   text-transform: uppercase;
+}
+
+.container div[class='slick-list'] {
+  padding-top: 20px;
 }
 
 @media only screen and (max-width: 1200px) {

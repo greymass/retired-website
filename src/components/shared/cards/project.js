@@ -11,6 +11,7 @@ class HomeProjectCard extends Component {
   render() {
     const {
       data,
+      extraClassName,
       intl,
       project,
     } = this.props;
@@ -29,6 +30,8 @@ class HomeProjectCard extends Component {
         href={linkTo}
         className={
           `${
+            cardStyles[extraClassName]
+          } ${
             cardStyles.top} ${cardStyles.container
           } ${
             cardStyles.project} ${cardStyles.card
