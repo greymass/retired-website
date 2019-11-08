@@ -1,14 +1,15 @@
 import React, { Component } from "react"
 import { injectIntl } from "gatsby-plugin-intl";
-import { Grid, Icon } from 'semantic-ui-react';
+import { Card, Grid, Icon } from 'semantic-ui-react';
 
+import { graphql, StaticQuery } from "gatsby"
 import Img from 'gatsby-image';
 
 import SocialMediaButton from './card/socialMediaButton';
 
 import aboutTeamMembersCardStyles from './card.module.css';
 
-class AboutTeamMembersCard extends Component {
+class HomeProjectCard extends Component {
   state = { expanded: false };
 
   render() {
@@ -17,9 +18,9 @@ class AboutTeamMembersCard extends Component {
       facebookLink,
       githubLink,
       intl,
-      profileImages,
       linkedinLink,
       name,
+      profileImages,
       title,
       twitterLink,
       youtubeLink,
@@ -29,28 +30,35 @@ class AboutTeamMembersCard extends Component {
 
     const firstName = name.split(' ')[0];
     const profileImage =
-      profileImages.edges.find(edge => edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase()));
+      profileImages.edges.find(edge => {
+        return edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase())
+      });
 
     return (
-      <div className={aboutTeamMembersCardStyles.container}>
+      <Card
+        className={
+          `${
+            aboutTeamMembersCardStyles.top} ${aboutTeamMembersCardStyles.container
+          } ${
+            aboutTeamMembersCardStyles.teamMember} ${aboutTeamMembersCardStyles.card
+          }`}
+      >
         {profileImage && (
           <Img
             alt={`${name} profile image`}
             fluid={profileImage.node.childImageSharp.fluid}
-            style={{ height: '250px' }}
           />
         )}
-
-        <div className={aboutTeamMembersCardStyles.bottomContainer}>
-          <h2 className={aboutTeamMembersCardStyles.name}>
+        <Card.Content>
+          <Card.Header>
             {name}
-          </h2>
-          <h3 className={aboutTeamMembersCardStyles.title}>
+          </Card.Header>
+          <Card.Meta>
             {title}
-          </h3>
-          <h4 className={aboutTeamMembersCardStyles.description}>
+          </Card.Meta>
+          <Card.Description>
             {expanded ? (
-              <div>
+              <p>
                 {description}
                 <span
                   className={`${
@@ -60,12 +68,12 @@ class AboutTeamMembersCard extends Component {
                   }`}
                   onClick={() => this.setState({ expanded: false })}
                 >
-                  {intl.formatMessage({ id: 'team_member_card_read_less' })}
-                  <Icon style={{ marginLeft: '5px' }} name="arrow up" />
+                  {intl.formatMessage({ id: 'about_team_member_card_read_less' })}
+                  <Icon className={aboutTeamMembersCardStyles.icon} name="arrow up" />
                 </span>
-              </div>
+              </p>
             ) : (
-              <div>
+              <p>
                 {`${description.substr(0,270)}...`}
                 <br />
                 <br />
@@ -73,12 +81,11 @@ class AboutTeamMembersCard extends Component {
                   className={aboutTeamMembersCardStyles.expandButton}
                   onClick={() => this.setState({ expanded: true })}
                 >
-                  {intl.formatMessage({ id: 'team_member_card_read_more' })}
+                  {intl.formatMessage({ id: 'about_team_member_card_read_more' })}
                 </span>
-              </div>
+              </p>
             )}
-          </h4>
-
+          </Card.Description>
           <Grid className={aboutTeamMembersCardStyles.grid}>
             <SocialMediaButton name="facebook f" link={facebookLink} />
             <SocialMediaButton name="twitter" link={twitterLink} />
@@ -86,10 +93,29 @@ class AboutTeamMembersCard extends Component {
             <SocialMediaButton name="github" link={githubLink} />
             <SocialMediaButton name="youtube" link={youtubeLink} />
           </Grid>
-        </div>
-      </div>
-    )
-  }
-}
+        </Card.Content>
 
-export default injectIntl(AboutTeamMembersCard);
+      </Card>
+    );
+  }
+};
+
+const HomeProjectCardWrapper = injectIntl(HomeProjectCard)
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        placeholderImage: file(name: {eq: "projectPlaceholder"}) {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => <HomeProjectCardWrapper data={data} {...props} />}
+  />
+);
+

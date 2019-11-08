@@ -1,15 +1,15 @@
-.container {
+.top.container.teamMember.card {
   max-width: 400px;
   margin: auto;
 }
 
-.bottomContainer {
+.top.container.teamMember.card div[class='content'] {
   background-color: var(--mainGrey);
-  padding: 50px 30px;
-  min-height: 530px;
+  padding: 50px 30px 100px 30px;
+  min-height: 580px;
 }
 
-.name {
+.top.container.teamMember.card div[class='content'] div[class='header'] {
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 26px;
@@ -19,7 +19,7 @@
   line-height: 44px;
 }
 
-.title {
+.top.container.teamMember.card div[class='content'] div[class='meta'] {
   color: var(--darkGrey);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -30,7 +30,7 @@
   text-align: left;
 }
 
-.description {
+.top.container.teamMember.card div[class='content'] div[class='description'] {
   color: var(--darkGrey);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -41,7 +41,7 @@
   text-align: left;
 }
 
-.expandButton {
+.top.container.teamMember.card div[class='content'] div[class='description'] .expandButton {
   color: var(--mainBlue);
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
@@ -52,24 +52,30 @@
   line-height: 21px;
 }
 
-.expandedButton {
+.top.container.teamMember.card div[class='content'] div[class='description'] .expandedButton {
   display: block;
   text-align: center;
   margin-top: 30px;
   color: var(--mainBlue);
 }
 
-.grid {
-  margin-top: 30px !important;
+.top.container.teamMember.card div[class='content'] .grid {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  width: 95%;
+}
+
+.top.container.teamMember.card div[class='content'] div[class='description'] .icon {
+  margin-left: 5px;
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1370px) {
-  .bottomContainer {
+  .top.container.teamMember.card div[class='content'] {
     min-height: 700px;
   }
 
-  .grid {
-    margin-right: 0 !important;
+  .top.container.teamMember.card div[class='content'] div[class='description'] .grid {
+    margin-right: 0;
   }
-
 }

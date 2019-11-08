@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { injectIntl } from "gatsby-plugin-intl";
-import { Card, Image } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react';
 
 import { graphql, StaticQuery } from "gatsby"
 import Img from 'gatsby-image';
