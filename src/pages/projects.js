@@ -16,8 +16,8 @@ class Projects extends Component {
     return (
       <Layout location={location}>
         <SharedHeader
-          title={intl.formatMessage({ id: 'header_title' })}
-          paragraph={intl.formatMessage({ id: 'header_paragraph' })}
+          title={intl.formatMessage({ id: 'platform_header_title' })}
+          paragraph={intl.formatMessage({ id: 'platform_header_paragraph' })}
         />
         <ProjectList images={data.images} projects={projects} platform="eosio" primary />
         <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />

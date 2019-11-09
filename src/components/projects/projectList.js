@@ -2,8 +2,9 @@ import React from 'react';
 import Slider from 'react-slick';
 import { Icon, Container } from 'semantic-ui-react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import ProjectListCard from '../shared/cards/project';
-//import ProjectListCard from './ProjectList/Card';
 
 import projectListStyles from './projectList.module.css';
 
@@ -11,6 +12,7 @@ class ProjectList extends React.Component {
   render() {
     const {
       images,
+      intl,
       platform,
       primary,
       projects,
@@ -48,7 +50,9 @@ class ProjectList extends React.Component {
     return (
       <div className={projectListStyles.container} >
         <Container>
-          <h3 className={projectListStyles.secondaryHeader}>{`platform_${platform}`}</h3>
+          <h3 className={projectListStyles.secondaryHeader}>
+            {intl.formatMessage({ id: `platform_${platform}` })}
+          </h3>
 
           <Slider
             className={primary ?
@@ -101,4 +105,4 @@ const RightArrow = ({className, onClick}) => (
   </div>
 );
 
-export default ProjectList;
+export default injectIntl(ProjectList);

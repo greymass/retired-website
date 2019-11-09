@@ -4,6 +4,8 @@ import { Header, Grid, Icon } from 'semantic-ui-react';
 
 import { Link } from 'gatsby';
 
+import { injectIntl } from "gatsby-plugin-intl";
+
 import Img from 'gatsby-image';
 
 import featuredProjectStyles from './featuredProject.module.css';
@@ -12,6 +14,7 @@ class FeaturedProject extends Component {
   render() {
     const {
       images,
+      intl,
       project,
     } = this.props;
 
@@ -38,16 +41,16 @@ class FeaturedProject extends Component {
               inverted
               size="huge"
             >
-              {`project_${project.projectKey}_name`}
+              {intl.formatMessage({ id: `project_${project.projectKey}_name` })}
               <Header.Subheader>
-                {`project_${project.projectKey}_subtitle`}
+                {intl.formatMessage({ id: `project_${project.projectKey}_extra` })}
               </Header.Subheader>
             </Header>
             <p className={featuredProjectStyles.paragraphText}>
-              {`project_${project.projectKey}_description`}
+              {intl.formatMessage({ id: `project_${project.projectKey}_description` })}
             </p>
             <Link className={featuredProjectStyles.linkText} to={`/support`}>
-              {'projects_featured_see_on_github'}
+              {intl.formatMessage({ id: 'projects_featured_see_on_github' })}
               <Icon name="arrow right" style={{ marginLeft: '5px' }} />
             </Link>
           </Grid.Column>
@@ -57,4 +60,4 @@ class FeaturedProject extends Component {
   }
 }
 
-export default FeaturedProject;
+export default injectIntl(FeaturedProject);
