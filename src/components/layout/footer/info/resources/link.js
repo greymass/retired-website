@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import { Link } from 'gatsby';
 
 import linkStyles from './link.module.css';
@@ -8,6 +10,7 @@ class LayoutHeaderLink extends Component {
   render() {
     const {
       content,
+      intl,
       to,
     } = this.props;
 
@@ -16,13 +19,13 @@ class LayoutHeaderLink extends Component {
         {content}
       </a>
     ) : (
-      <Link to={to} className={linkStyles.link}>
+      <Link to={`/${intl.locale}/${to}`} className={linkStyles.link}>
         {content}
       </Link>
     );
   }
 }
 
-export default LayoutHeaderLink;
+export default injectIntl(LayoutHeaderLink);
 
 

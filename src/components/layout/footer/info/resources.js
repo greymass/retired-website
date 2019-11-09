@@ -38,7 +38,7 @@ class Resources extends Component {
         </div>
         <p className={footerResourcesStyles.copyright}>
           <span className={footerResourcesStyles.copyrightSpan}>&#9400;</span>
-          {'copyright_text'}
+          {intl.formatMessage({ id: 'copyright_text' })}
         </p>
       </div>
     )
