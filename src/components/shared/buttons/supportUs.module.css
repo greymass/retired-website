@@ -8,6 +8,10 @@
   background-color: var(--mainBlue);
 }
 
+.supportUsButton:hover h3 {
+  color: white;
+}
+
 .supportUsText {
   color: var(--mainBlue);
   font-family: 'Roboto', sans-serif;
@@ -17,8 +21,4 @@
   letter-spacing: 0.02em;
   line-height: 25px;
   text-transform: uppercase;
-}
-
-.supportUsText:hover {
-  color: white;
 }
