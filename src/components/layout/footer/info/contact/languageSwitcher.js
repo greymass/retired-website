@@ -30,8 +30,8 @@ class FooterInfoLanguageSwitcher extends Component {
     const cleanedUpLocaleName = 'en';
 
     const languageOptions = [
-      { key: "en", text: 'shared:english', value: "en" },
-      { key: "fr", text: 'shared:french', value: "fr" },
+      { key: "en", text: 'english', value: "en" },
+      { key: "fr", text: 'français', value: "fr" },
     ]
 
     return (
