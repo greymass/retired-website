@@ -1,6 +1,6 @@
-.segment {
+.sticker.banner.segment {
   width: 180px;
-  padding: 20px;
+  margin: 20px 20px 300px 20px;
 }
 
 .title {
