@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { injectIntl } from "gatsby-plugin-intl";
 
 import { Segment, Transition } from 'semantic-ui-react';
 
@@ -11,16 +12,25 @@ class Sticker extends Component {
   state = { visible: true };
 
   render() {
-    const { visible } = this.props;
+    const { intl, visible } = this.props;
 
     return(
       <Transition visible={visible} animation='scale' duration={300}>
-        <Segment className={supportUsStickerStyles.segment} basic>
+        <Segment
+          className={
+            `${
+              supportUsStickerStyles.sticker} ${supportUsStickerStyles.banner
+            } ${
+              supportUsStickerStyles.segment
+            }`
+          }
+          basic
+        >
           <h2 className={supportUsStickerStyles.title}>
-            {'sticky_banner_title'}
+            {intl.formatMessage({ id: 'blog_sticky_banner_title' })}
           </h2>
           <p className={supportUsStickerStyles.paragraph}>
-            {'sticky_banner_paragraph'}
+            {intl.formatMessage({ id: 'blog_sticky_banner_paragraph'})}
           </p>
           <SupportUsButton />
         </Segment>
@@ -29,4 +39,4 @@ class Sticker extends Component {
   }
 }
 
-export default Sticker;
+export default injectIntl(Sticker);
