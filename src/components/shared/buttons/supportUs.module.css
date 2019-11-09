@@ -4,12 +4,21 @@
   max-width: 140px;
 }
 
-.supportUsTextStyle {
+.supportUsButton:hover {
+  background-color: var(--mainBlue);
+}
+
+.supportUsText {
+  color: var(--mainBlue);
   font-family: 'Roboto', sans-serif;
+  font-size: 15px;
   font-style: normal;
   font-weight: bold;
-  font-size: 15px;
-  line-height: 25px;
   letter-spacing: 0.02em;
+  line-height: 25px;
   text-transform: uppercase;
+}
+
+.supportUsText:hover {
+  color: white;
 }
