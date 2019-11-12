@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.16",
+    "await-exec": "^0.1.2",
     "babel-plugin-styled-components": "^1.10.6",
     "eosio-signing-transport": "0.0.5",
     "eosjs": "^20.0.0",
