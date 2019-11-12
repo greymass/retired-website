@@ -69,3 +69,6 @@ yarn-error.log
 .yarn-integrity
 # .idea folder
 .idea/
+
+# Temporary folder
+tmp

@@ -4,7 +4,11 @@ const fs = require('fs-extra')
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { siteMetadata: { defaultLanguage } } = require('./gatsby-config');
 
-exports.onPreInit = () => {
+const exec = require('await-exec');
+
+const BP_JSON_REPO = 'https://github.com/greymass/bp.json';
+
+exports.onPreInit = async () => {
   console.log('Combining Localization Files')
   const p = `${__dirname}/src/intl`;
   const dirs = fs.readdirSync(p).filter((f) =>
@@ -26,6 +30,14 @@ exports.onPreInit = () => {
       });
     }
   })
+
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`Downloading the latest bp json files from "${BP_JSON_REPO}".`);
+
+    await exec(`git clone ${BP_JSON_REPO} tmp/bp.json`);
+    await exec(`cp -r ./tmp/bp.json/* ./static`);
+    await exec(`rm -rf tmp/bp.json`);
+  }
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {

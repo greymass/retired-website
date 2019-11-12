@@ -1,0 +1,96 @@
+{
+  "producer_account_name": "teamgreymass",
+  "org": {
+    "candidate_name": "Greymass",
+    "website": "https://greymass.com",
+    "ownership_disclosure": "https://greymass.com/ownership_disclosure",
+    "code_of_conduct": "https://greymass.com/code_of_conduct",
+    "email":"hello@greymass.com",
+    "branding":{
+      "logo_256":"https://greymass.com/greymass_logo_256X256.png",
+      "logo_1024":"https://greymass.com/greymass_logo_1024X1024.png",
+      "logo_svg":"https://greymass.com/greymass_logo.svg"
+    },
+    "location": {
+      "name": "Vancouver",
+      "country": "CA",
+      "latitude": 49.2827,
+      "longitude": -123.1207
+    },
+    "social": {
+      "steemit": "greymass",
+      "twitter": "greymass",
+      "youtube": "",
+      "facebook": "",
+      "github":"greymass",
+      "reddit": "greymass",
+      "keybase": "team/greymass",
+      "telegram": "teamgreymass",
+      "wechat":""
+    }
+  },
+  "nodes": [
+    {
+      "location": {
+        "name": "YUL",
+        "country": "CA",
+        "latitude": 45.3168,
+        "longitude": -73.8659
+      },
+      "api_endpoint": "http://wax.greymass.com",
+      "ssl_endpoint": "https://wax.greymass.com",
+      "node_type" : "full"
+    },
+    {
+      "location": {
+        "name": "FRA",
+        "country": "DE",
+        "latitude": 50.1109,
+        "longitude": -8.6821
+      },
+      "api_endpoint": "http://wax.greymass.com",
+      "ssl_endpoint": "https://wax.greymass.com",
+      "node_type" : "full"
+    },
+    {
+      "location": {
+        "name": "MCI",
+        "country": "US",
+        "latitude": 39.0997,
+        "longitude": -94.5786
+      },
+      "api_endpoint": "http://",
+      "ssl_endpoint": "https://wax.greymass.com",
+      "node_type" : "full"
+    },
+        {
+      "location": {
+        "name": "FRA",
+        "country": "DE",
+        "latitude": 50.1109,
+        "longitude": -8.6821
+      },
+      "p2p_endpoint": "wax.greymass.com:9876",
+      "node_type" : "seed"
+    },
+    {
+      "location": {
+        "name": "MCI",
+        "country": "US",
+        "latitude": 39.0997,
+        "longitude": -94.5786
+      },
+      "p2p_endpoint": "wax.greymass.com:9876",
+      "node_type" : "seed"
+    },
+    {
+      "location": {
+        "name": "YVR",
+        "country": "CA",
+        "latitude": 49.2827,
+        "longitude": -123.1207
+      },
+      "node_type" : "producer"
+    }
+  ]
+}
