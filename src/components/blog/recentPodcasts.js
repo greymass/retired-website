@@ -10,23 +10,25 @@ class BlogRecentPodcasts extends Component {
   render() {
     const { data, intl } = this.props;
 
-    const podcasts =
-      data.podcasts.edges
-          .filter(({ node: podcast }) => podcast.language === intl.locale);
-
-    return (podcasts.length > 0) ? (
+    return (
       <div className={recentPodcastsStyles.container}>
+
         <Image rounded src={podcastLogo} />
         <Header
           as="h3"
           className={recentPodcastsStyles.header}
-          content={intl.formatMessage({ id: 'blog_recent_podcasts_header' })}
+          content={intl.formatMessage({ id: 'about_team_member_daniel_name' })}
         />
+        {intl.formatMessage({ id: 'about_team_member_daniel_name' })}
         <List>
-          {podcasts.map(({ node: podcast }) => {
-              return (
-                <Podcast podcast={podcast} />
-              )
+          {data.podcasts.edges.map(({ node: podcast }) => {
+            return (
+              <Podcast
+                title={intl.formatMessage({ id: 'blog_test' })}
+                date={new Date(podcast.date).toLocaleDateString()}
+                link={podcast.link}
+              />
+            )
             })}
         </List>
         <a href="/#podcasts" className={recentPodcastsStyles.link}>
@@ -34,7 +36,7 @@ class BlogRecentPodcasts extends Component {
           <Icon name="arrow right" className={recentPodcastsStyles.linkIcon} />
         </a>
       </div>
-    ) : '';
+    );
   }
 }
 
@@ -47,8 +49,7 @@ export default props => (
         podcasts: allPodcastsJson(limit: 20) {
           edges {
             node {
-              title
-              description
+              key
               date
               link
               language
@@ -61,16 +62,16 @@ export default props => (
   />
 );
 
-const Podcast = ({ podcast }) => {
+const Podcast = ({ title, date, link }) => {
   return (
-    <a href={podcast.link}>
+    <a href={link}>
       <div className={recentPodcastsStyles.podcastContainer}>
         <h3 className={recentPodcastsStyles.podcastHeader}>
-          {podcast.title}
+          {title}
         </h3>
         <h4 className={recentPodcastsStyles.podcastDate}>
           <Icon name="calendar alternate outline" />
-          {(new Date(podcast.date).toLocaleDateString())}
+          {date}
         </h4>
       </div>
     </a>
