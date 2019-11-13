@@ -14,8 +14,6 @@ class AboutTeamMembers extends Component {
 
     const teamMembers = data.teamMembers.edges;
 
-    console.log({teamMembers})
-
     return (
       <div className={aboutTeamMembersStyles.container}>
         <Container>
@@ -25,7 +23,6 @@ class AboutTeamMembers extends Component {
 
           <Grid stackable centered padded>
             {teamMembers.map(({ node: teamMember }) => {
-              console.log({teamMember})
               return (
                 <Grid.Column computer={5} tablet={16} mobile={16}>
                   <AboutTeamMembersCard
