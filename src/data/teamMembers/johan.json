@@ -1,7 +1,5 @@
 {
-  "name": "Johan Nordberg",
-  "title": "Software Engineer",
-  "description": "Johan is a prolific developer with a broad range of experience and a passion for open-source — he has released a multitude of open-source projects, many of which are widely used. He founded his first company at age 23 after releasing one of the first iPhone apps in the AppStore. Besides iOS development, his specialties are security research, systems design and web development. \nJohan is a strong advocate for the Open Web and believes that blockchain technology has the potential to fundamentally change the world for the better. At Greymass he will be focusing on building our upcoming dApps-platform.",
+  "key": "johan",
   "joined": 4,
   "socialMedia": {
     "githubLink": "https://github.com/jnordberg",

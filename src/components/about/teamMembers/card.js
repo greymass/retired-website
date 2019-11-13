@@ -9,29 +9,26 @@ import SocialMediaButton from './card/socialMediaButton';
 
 import aboutTeamMembersCardStyles from './card.module.css';
 
-class HomeProjectCard extends Component {
+class TeamMemberProjectCard extends Component {
   state = { expanded: false };
 
   render() {
     const {
-      description,
       facebookLink,
       githubLink,
       intl,
+      teamMemberKey,
       linkedinLink,
-      name,
       profileImages,
-      title,
       twitterLink,
       youtubeLink,
     } = this.props;
 
     const { expanded } = this.state;
 
-    const firstName = name.split(' ')[0];
     const profileImage =
       profileImages.edges.find(edge => {
-        return edge.node.childImageSharp.fluid.src.includes(firstName.toLowerCase())
+        return edge.node.childImageSharp.fluid.src.includes(teamMemberKey)
       });
 
     return (
@@ -45,21 +42,21 @@ class HomeProjectCard extends Component {
       >
         {profileImage && (
           <Img
-            alt={`${name} profile image`}
+            alt={`${teamMemberKey} profile image`}
             fluid={profileImage.node.childImageSharp.fluid}
           />
         )}
         <Card.Content>
           <Card.Header>
-            {name}
+            {intl.formatMessage({ id: `about_team_member_${teamMemberKey}_name` })}
           </Card.Header>
           <Card.Meta>
-            {title}
+            {intl.formatMessage({ id: `about_team_member_${teamMemberKey}_title` })}
           </Card.Meta>
           <Card.Description>
             {expanded ? (
               <p>
-                {description}
+                {intl.formatMessage({ id: `about_team_member_${teamMemberKey}_description` })}
                 <span
                   className={`${
                     aboutTeamMembersCardStyles.expandButton
@@ -74,7 +71,11 @@ class HomeProjectCard extends Component {
               </p>
             ) : (
               <p>
-                {`${description.substr(0,270)}...`}
+                {
+                  `${intl
+                      .formatMessage({ id:  `about_team_member_${teamMemberKey}_description` })
+                      .substr(0,270)}...`
+                }
                 <br />
                 <br />
                 <span
@@ -100,7 +101,7 @@ class HomeProjectCard extends Component {
   }
 };
 
-const HomeProjectCardWrapper = injectIntl(HomeProjectCard)
+const TeamMemberProjectCardWrapper = injectIntl(TeamMemberProjectCard)
 
 export default props => (
   <StaticQuery
@@ -115,7 +116,7 @@ export default props => (
         }
       }
     `}
-    render={data => <HomeProjectCardWrapper data={data} {...props} />}
+    render={data => <TeamMemberProjectCardWrapper data={data} {...props} />}
   />
 );
 

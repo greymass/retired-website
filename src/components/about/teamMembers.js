@@ -14,6 +14,8 @@ class AboutTeamMembers extends Component {
 
     const teamMembers = data.teamMembers.edges;
 
+    console.log({teamMembers})
+
     return (
       <div className={aboutTeamMembersStyles.container}>
         <Container>
@@ -22,17 +24,19 @@ class AboutTeamMembers extends Component {
           </h4>
 
           <Grid stackable centered padded>
-            {teamMembers.map(({ node: teamMember }) => (
-              <Grid.Column computer={5} tablet={16} mobile={16}>
-                <AboutTeamMembersCard
-                  description={teamMember.description}
-                  name={teamMember.name}
-                  profileImages={data.profileImages}
-                  title={teamMember.title}
-                  {...teamMember.socialMedia}
-                />
-              </Grid.Column>
-            ))}
+            {teamMembers.map(({ node: teamMember }) => {
+              console.log({teamMember})
+              return (
+                <Grid.Column computer={5} tablet={16} mobile={16}>
+                  <AboutTeamMembersCard
+                    key={teamMember.key}
+                    teamMemberKey={teamMember.key}
+                    profileImages={data.profileImages}
+                    {...teamMember.socialMedia}
+                  />
+                </Grid.Column>
+              )
+            })}
           </Grid>
         </Container>
       </div>
@@ -49,9 +53,7 @@ export default props => (
          teamMembers: allTeamMembersJson(sort: {fields: joined}) {
            edges {
              node {
-               description
-               name
-               title
+               key
                socialMedia {
                  facebookLink
                  githubLink
