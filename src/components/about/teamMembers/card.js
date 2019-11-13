@@ -1,8 +1,8 @@
-import React, { Component } from "react"
-import { injectIntl } from "gatsby-plugin-intl";
+import React, { Component } from 'react';
+import { injectIntl } from 'gatsby-plugin-intl';
 import { Card, Grid, Icon } from 'semantic-ui-react';
 
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import SocialMediaButton from './card/socialMediaButton';
