@@ -1,4 +1,6 @@
 {
+  "test": "testing",
+  "blog_test": "testings",
   "blog_blog_post_entry_written_by": "Written By: {{author}}",
   "blog_blog_post_list_title": "Recent Articles",
   "blog_featured_blog_post_header": "Recent Articles",
@@ -8,5 +10,13 @@
   "blog_recent_podcasts_header": "Recent Episodes",
   "blog_recent_podcasts_link": "See All Podcasts",
   "blog_sticky_banner_paragraph": "We appreciate your support!",
-  "blog_sticky_banner_title": "Greymass"
+  "blog_sticky_banner_title": "Greymass",
+  "podcast_decentium_description": "An interview with Johan Nordberg about Decentium.",
+  "podcast_decentium_title": "Johan Nordberg of Decentium",
+  "podcast_driving_crypto_adoption_description": "We speak to Aaron Cox about his recent article 'Driving Crypto Adoption.'",
+  "podcast_driving_crypto_adoption_title": "Driving Crypto Adoption - A Chat with Aaron Cox",
+  "podcast_scatter_interview_description": "We sit down with the Scatter team to discuss their latest projects and initiatives, as well as the EOSIO ecosystem as a whole.",
+  "podcast_scatter_interview_title": "The Scatter Interview",
+  "podcast_team_update_description": "Aaron, Scott, Johan, and Myles from the Greymass team discuss the latest projects that Greymass has been working on.",
+  "podcast_team_update_title": "Greymass Team Update"
 }
