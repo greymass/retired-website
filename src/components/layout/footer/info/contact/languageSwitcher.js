@@ -1,33 +1,22 @@
-import React, { Component } from 'react'
-import { Dropdown, Menu } from "semantic-ui-react"
-// import { navigate } from 'gatsby'
+import React, { Component } from 'react';
+
+import { injectIntl } from 'gatsby-plugin-intl';
+
+import { Dropdown, Menu } from 'semantic-ui-react';
+
+import { navigate } from 'gatsby';
 
 class FooterInfoLanguageSwitcher extends Component {
-  // constructor(props) {
-  //   super(props)
-  //
-  //   const { i18n } = this.props;
-  //
-  //   this.state = { language: i18n.language }
-  // }
-
   handleLanguageChange = (e, data) => {
-    // const { i18n } = this.props;
-    // const path = window.location.href;
-    // const newLanguage = data.value;
-    //
-    // i18n.changeLanguage(newLanguage)
-    //
-    // // Handle switching between blog posts
-    // if (path.includes('blog')) {
-    //   const blogSlug = path.split('blog/')[1]
-    //   navigate(`${newLanguage}/blog/${blogSlug}`);
-    // }
+    const { intl } = this.props;
+    const path = window.location.pathname + window.location.search;
+    const newLanguage = data.value;
+    
+    navigate(path.replace(`/${intl.locale}/`, `/${newLanguage}/`));
   }
 
   render() {
-    // const cleanedUpLocaleName = i18n.language.split('-')[0];
-    const cleanedUpLocaleName = 'en';
+    const { intl } = this.props;
 
     const languageOptions = [
       { key: "en", text: 'english', value: "en" },
@@ -41,11 +30,11 @@ class FooterInfoLanguageSwitcher extends Component {
           onChange={this.handleLanguageChange}
           options={languageOptions}
           simple
-          value={cleanedUpLocaleName}
+          value={intl.locale}
         />
       </Menu>
     )
   }
 }
 
-export default FooterInfoLanguageSwitcher;
+export default injectIntl(FooterInfoLanguageSwitcher);
