@@ -10,7 +10,11 @@ class BlogRecentPodcasts extends Component {
   render() {
     const { data, intl } = this.props;
 
-    return (intl.locale === 'en') ? (
+    const podcasts =
+      data.podcasts.edges
+          .filter(({ node: podcast }) => podcast.language === intl.locale);
+
+    return (podcasts.length > 0) ? (
       <div className={recentPodcastsStyles.container}>
         <Image rounded src={podcastLogo} />
         <Header
@@ -19,9 +23,7 @@ class BlogRecentPodcasts extends Component {
           content={intl.formatMessage({ id: 'blog_recent_podcasts_header' })}
         />
         <List>
-          {data
-            .podcasts.edges
-            .map(({ node: podcast }) => {
+          {podcasts.map(({ node: podcast }) => {
               return (
                 <Podcast podcast={podcast} />
               )
@@ -49,6 +51,7 @@ export default props => (
               description
               date
               link
+              language
             }
           }
         }
