@@ -1,6 +1,4 @@
 {
-  "test": "testing",
-  "blog_test": "testings",
   "blog_blog_post_entry_written_by": "Written By: {{author}}",
   "blog_blog_post_list_title": "Recent Articles",
   "blog_featured_blog_post_header": "Recent Articles",

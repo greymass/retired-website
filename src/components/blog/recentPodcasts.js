@@ -17,14 +17,13 @@ class BlogRecentPodcasts extends Component {
         <Header
           as="h3"
           className={recentPodcastsStyles.header}
-          content={intl.formatMessage({ id: 'about_team_member_daniel_name' })}
+          content={intl.formatMessage({ id: 'blog_recent_podcasts_header' })}
         />
-        {intl.formatMessage({ id: 'about_team_member_daniel_name' })}
         <List>
           {data.podcasts.edges.map(({ node: podcast }) => {
             return (
               <Podcast
-                title={intl.formatMessage({ id: 'blog_test' })}
+                title={intl.formatMessage({ id: `podcast_${podcast.key}_title` })}
                 date={new Date(podcast.date).toLocaleDateString()}
                 link={podcast.link}
               />
