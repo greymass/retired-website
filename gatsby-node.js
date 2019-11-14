@@ -212,5 +212,4 @@ function validateLocaleDir(dir) {
       }
     });
   });
-
 }
