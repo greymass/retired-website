@@ -1,0 +1,7 @@
+.container {
+  padding: 50px 0;
+}
+
+.container > h2[class="ui header"] {
+  margin-bottom: 20px;
+}

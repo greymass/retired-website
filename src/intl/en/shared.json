@@ -1,5 +1,8 @@
 {
   "shared_english": "EN-US",
   "shared_french": "FR",
-  "shared_support_us": "Support Us"
+  "shared_support_us": "Support Us",
+  "shared_apis_table_header_name": "Chain",
+  "shared_apis_table_header_status": "Status",
+  "shared_apis_table_header_response_time": "Response Time"
 }
