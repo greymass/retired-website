@@ -1,0 +1,7 @@
+.container table[class="ui celled collapsing table"] div[class="content"] div[class="ui teal mini label"] {
+  margin: 5px 0;
+}
+
+.container table[class="ui celled collapsing table"] tbody tr td:nth-of-type(2) {
+  text-align: center;
+}
