@@ -1,7 +1,11 @@
 .container {
+  background-color: white;
+}
+
+.container > div[class="ui container"] {
   padding: 50px 0;
 }
 
-.container > h2[class="ui header"] {
+.container > div[class="ui container"] > h2[class="ui header"] {
   margin-bottom: 20px;
 }
