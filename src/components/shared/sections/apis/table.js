@@ -9,41 +9,41 @@ import EosApi from 'eosjs-api';
 import eosLogo from '../../../../images/blockchain-eos-logo.svg';
 import instarLogo from '../../../../images/blockchain-insights-logo.svg';
 import jungleLogo from '../../../../images/blockchain-eos-logo.svg'; // change for real logo
-import lynxLogo from '../../../../images/blockchain-eos-logo.svg'; // change for real logo
+import lynxLogo from '../../../../images/blockchain-lynx-logo.svg'; // change for real logo
 import telosLogo from '../../../../images/blockchain-telos-logo.svg';
-import waxLogo from '../../../../images/blockchain-eos-logo.svg';
+import waxLogo from '../../../../images/blockchain-wax-logo.svg';
 
 import apisTableStyles from './table.module.css';
 
 const nodes = [
   {
-    url: 'eos.greymass.com',
+    url: 'https://eos.greymass.com',
     name: 'eos',
     logo: eosLogo,
     v1: true
   },
   {
-    url: 'telos.greymass.com',
+    url: 'https://telos.greymass.com',
     name: 'telos',
     logo: telosLogo,
   },
   {
-    url: 'jungle.greymass.com',
+    url: 'https://jungle.greymass.com',
     name: 'jungle',
     logo: jungleLogo,
   },
   {
-    url: 'wax.greymass.com',
+    url: 'https://wax.greymass.com',
     name: 'wax',
     logo: waxLogo,
   },
   {
-    url: 'instar.greymass.com',
+    url: 'https://instar.greymass.com',
     name: 'instar',
     logo: instarLogo,
   },
   {
-    url: 'lynx.greymass.com',
+    url: 'https://lynx.greymass.com',
     name: 'lynx',
     logo: lynxLogo,
   },
@@ -54,23 +54,32 @@ class Apis extends React.Component {
 
   handleUpdate = () => {
     const { triggeredUpdate } = this.state;
-    console.log('update')
 
     if (triggeredUpdate) {
       return;
     }
 
-    this.setState({ triggeredUpdate: true })
+    this.setState({ triggeredUpdate: true });
 
-    this.click();
+    setInterval(() => this.tick(), 30000);
+
+    this.tick();
   }
 
-  click = () => {
-    const newResponseTimes = Promise.all(nodes.map(node => {
-      return checkResponseTime(node);
+  tick = async () => {
+    const newResponseTimes = {};
+
+    await Promise.all(nodes.map(node => {
+      return new Promise(resolve => {
+        checkResponseTime(node).then(responseTime => {
+          newResponseTimes[node.name] = responseTime;
+
+          resolve();
+        })
+      })
     }))
 
-    this.setState({ responseTimes: newResponseTimes })
+    this.setState({ responseTimes: newResponseTimes });
   }
 
   render() {
@@ -91,7 +100,7 @@ class Apis extends React.Component {
 
           <Table.Body>
             {nodes.map(node =>  (
-              <Table.Row>
+              <Table.Row key={node.name}>
                 <Table.Cell>
                   <Header as='h4' image>
                     <Image src={node.logo} rounded size='mini'/>
@@ -110,7 +119,10 @@ class Apis extends React.Component {
                   )}
                 </Table.Cell>
                 <Table.Cell>
-                  {responseTimes[node.name]}
+                  {responseTimes[node.name] ?
+                    `${responseTimes[node.name]} ms` :
+                    '----'
+                  }
                 </Table.Cell>
               </Table.Row>
             ))}
@@ -124,9 +136,14 @@ class Apis extends React.Component {
 export default injectIntl(Apis);
 
 async function checkResponseTime(node) {
-  const eos = EosApi(node.url);
+  const eos = EosApi({ httpEndpoint:  node.url });
   const timeBefore = Date.now();
-  await eos.getInfo();
 
-  return Date.now() - timeBefore;
+  const fetchedInfo = await new Promise(resolve => {
+    eos.getInfo((error) => {
+      resolve(!error);
+    });
+  });
+
+  return fetchedInfo && Date.now() - timeBefore;
 }
