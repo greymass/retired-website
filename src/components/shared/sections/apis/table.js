@@ -89,7 +89,7 @@ class Apis extends React.Component {
 
     return (
       <Visibility className={apisTableStyles.container} onUpdate={this.handleUpdate}>
-        <Table celled collapsing>
+        <Table unstackable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>{intl.formatMessage({ id: 'shared_apis_table_header_name' })}</Table.HeaderCell>
