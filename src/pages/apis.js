@@ -2,11 +2,13 @@ import React from 'react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import { Header, Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 
 import ApisTable from '../components/shared/sections/apis/table';
+
+import SharedHeader from '../components/shared/sections/header';
 
 import apisStyle from './apis.module.css';
 
@@ -16,16 +18,15 @@ class Apis extends React.Component {
 
     return (
       <Layout>
-        <Container className={apisStyle.container}>
-          <Header as="h2">
-            {intl.formatMessage({ id: 'apis_header' })}
-            <Header.Subheader as="u1">
-              {intl.formatMessage({ id: 'apis_subheader' })}
-            </Header.Subheader>
-          </Header>
-
-          <ApisTable />
-        </Container>
+        <SharedHeader
+          title={intl.formatMessage({ id: 'apis_header' })}
+          paragraph={intl.formatMessage({ id: 'apis_subheader' })}
+        />
+        <div className={apisStyle.container}>
+          <Container>
+            <ApisTable />
+          </Container>
+        </div>
       </Layout>
     )
   }
