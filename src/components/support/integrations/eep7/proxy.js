@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Header, Segment } from 'semantic-ui-react';
 
-const { SigningRequest } = require("eosio-signing-transport");
+const { SigningRequest } = require("eosio-signing-request");
 
 const { Api, JsonRpc } = require('eosjs')
 const rpc = new JsonRpc('https://eos.greymass.com');
