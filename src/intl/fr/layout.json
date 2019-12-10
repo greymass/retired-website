@@ -1,6 +1,9 @@
 {
-  "about": "Apprenez a nous connaitre",
+  "about": "À Propos",
+  "apis": "API",
+  "projects": "Projets",
   "contact": "Contactez-nous",
+  "blog": "Blog",
   "heading": "Bienvenue sur le site de Greymass!",
   "home": "Accueil"
 }

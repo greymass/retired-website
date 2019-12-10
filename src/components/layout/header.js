@@ -26,6 +26,7 @@ class Header extends Component {
       { as: `/${intl.locale}`, content: 'home', key: '/' },
       { as: `/${intl.locale}/about`, content: 'about', key: 'about' },
       { as: `/${intl.locale}/projects`, content: 'projects', key: 'projects' },
+      { as: `/${intl.locale}/apis`, content: 'apis', key: 'apis' },
       { as: `/${intl.locale}/blog`, content: 'blog', key: 'blog' },
     ];
 

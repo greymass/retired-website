@@ -1,11 +1,25 @@
-.container table[class="ui celled collapsing table"] div[class="content"] div[class="ui teal mini label"] {
+.container table[class="ui unstackable table"] {
+  max-width: 600px;
+}
+
+.container table[class="ui unstackable table"] div[class="content"] div[class="ui teal mini label"] {
   margin: 5px 0;
 }
 
-.container table[class="ui celled collapsing table"] tbody tr td:nth-of-type(2) {
+.container table[class="ui unstackable table"] tbody tr td:nth-of-type(2) {
   text-align: center;
 }
 
-.container table[class="ui celled collapsing table"] tbody tr td:nth-of-type(3) {
+.container table[class="ui unstackable table"] tbody tr td:nth-of-type(3) {
   text-align: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .container table[class="ui unstackable table"] div[class="content"] {
+    width: 80%;
+  }
+
+  .container table[class="ui unstackable table"] div[class="content"] div[class="sub header"] {
+    font-size: 0.7rem;
+  }
 }
