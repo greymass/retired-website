@@ -20,32 +20,37 @@ const nodes = [
     url: 'https://eos.greymass.com',
     name: 'eos',
     logo: eosLogo,
-    v1: true
+    v1: true,
   },
   {
     url: 'https://telos.greymass.com',
     name: 'telos',
     logo: telosLogo,
+    v1: true,
   },
   {
     url: 'https://jungle.greymass.com',
     name: 'jungle',
     logo: jungleLogo,
+    v1: true,
   },
   {
     url: 'https://wax.greymass.com',
     name: 'wax',
     logo: waxLogo,
+    v1: true,
   },
   {
     url: 'https://instar.greymass.com',
     name: 'instar',
     logo: instarLogo,
+    v1: true,
   },
   {
     url: 'https://lynx.greymass.com',
     name: 'lynx',
     logo: lynxLogo,
+    v1: true,
   },
 ]
 
