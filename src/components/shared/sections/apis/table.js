@@ -2,7 +2,7 @@ import React from 'react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import { Table, Header, Image, Label, Icon, Visibility } from "semantic-ui-react"
+import { Table, Header, Image, Label, Icon } from "semantic-ui-react"
 
 import EosApi from 'eosjs-api';
 
@@ -52,14 +52,12 @@ const nodes = [
 class Apis extends React.Component {
   state = { responseTimes: {}, triggeredUpdate: false };
 
-  handleUpdate = () => {
-    const { triggeredUpdate } = this.state;
+  componentDidMount() {
+    const isSSR = typeof window === 'undefined';
 
-    if (triggeredUpdate) {
+    if (isSSR) {
       return;
     }
-
-    this.setState({ triggeredUpdate: true });
 
     setInterval(() => this.tick(), 30000);
 
@@ -88,7 +86,7 @@ class Apis extends React.Component {
     const { responseTimes } = this.state;
 
     return (
-      <Visibility className={apisTableStyles.container} onUpdate={this.handleUpdate}>
+      <div className={apisTableStyles.container}>
         <Table unstackable>
           <Table.Header>
             <Table.Row>
@@ -128,7 +126,7 @@ class Apis extends React.Component {
             ))}
           </Table.Body>
         </Table>
-      </Visibility>
+      </div>
     )
   }
 }
