@@ -2,6 +2,8 @@
   "shared_english": "EN-US",
   "shared_french": "FR",
   "shared_support_us": "Support Us",
+  "shared_apis_table_header_height": "Blocks",
+  "shared_apis_table_header_features": "Features",
   "shared_apis_table_header_name": "Chain",
   "shared_apis_table_header_status": "Status",
   "shared_apis_table_header_response_time": "Response Time"
