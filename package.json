@@ -18,7 +18,6 @@
     "babel-plugin-styled-components": "^1.10.6",
     "eosio-signing-request": "0.0.6",
     "eosjs": "^20.0.0",
-    "eosjs-api": "^7.0.4",
     "eslint-plugin-flowtype": "^4.3.0",
     "gatsby": "^2.13.67",
     "gatsby-image": "^2.0.22",
