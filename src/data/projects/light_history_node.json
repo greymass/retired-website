@@ -1,6 +1,6 @@
 {
   "githubLink": "https://github.com/greymass/eos/tree/hapi-limited",
-  "homepage": true,
+  "homepage": false,
   "icon": "github",
   "platform": "eosio",
   "projectKey": "light_history_node"
