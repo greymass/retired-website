@@ -20,22 +20,55 @@ import FuelTransaction from '../components/fuel/transaction';
 const chainId = 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906';
 const apiNode = 'https://eos.greymass.com';
 
-const link = new Link({
-  chainId,
-  rpc: apiNode,
-  service: 'https://link.dirty.fish',
-});
-
 class Fuel extends React.Component {
   constructor(props) {
     super(props);
     ScatterJS.plugins(new ScatterEOS());
     this.initScatter();
+    this.initAnchor();
     this.state = {
       account: false,
       signer: false,
       tx: false,
     };
+  }
+  initAnchor = () => {
+    const t = this;
+    const WebLinkTransport = {
+      onRequest: function(request, cancel) {
+        console.log(request.encode())
+        window.location = request.encode();
+        console.log(request, cancel)
+      },
+      onSuccess: function(request, result) {
+        const reqType = request.data.req[0];
+        switch (reqType) {
+          case 'identity': {
+            t.setState({
+              account: {
+                name: result.signer.actor,
+                authority: result.signer.permission,
+                blockchain: 'eos',
+                chainId,
+              }
+            })
+            break;
+          }
+          default: {
+            console.log(request, result)
+          }
+        }
+      },
+      onFailure: function(request, error) {
+        console.log(request, error)
+      },
+    }
+    this.link = new Link({
+      chainId,
+      rpc: apiNode,
+      service: 'https://link.dirty.fish',
+      transport: WebLinkTransport,
+    });
   }
   initScatter = () => {
     const rpc = new JsonRpc(apiNode)
@@ -64,22 +97,14 @@ class Fuel extends React.Component {
           break;
         }
         case "anchor": {
-          const identityRequest = await link.createRequest({
+          const identityRequest = await this.link.createRequest({
             identity: {permission: undefined},
             info: undefined,
           })
           this.setState({
             identityRequest
           })
-          const identity = await link.sendRequest(identityRequest)
-          this.setState({
-            account: {
-              name: identity.signer.actor,
-              authority: identity.signer.permission,
-              blockchain: 'eos',
-              chainId,
-            }
-          })
+          const identity = await this.link.sendRequest(identityRequest)
           break;
         }
         default: {
@@ -95,19 +120,17 @@ class Fuel extends React.Component {
     let eos;
     switch(signer) {
       case "scatter": {
-        eos = this.scatter;
-        break;
+        return await this.scatter.transact(transaction, config);
       }
       case "anchor": {
-        break;
+        return await this.link.transact(transaction);
       }
       default: {
 
       }
     }
-    return await eos.transact(transaction, config);
   }
-  deposit = async (amount) => {
+  purchase = async (pkg) => {
     const { account } = this.state;
     const result = await this.transact({
       actions: [{
@@ -120,13 +143,13 @@ class Fuel extends React.Component {
         data: {
           from: account.name,
           to: 'fuelcontrols',
-          quantity: '0.0001 EOS',
+          quantity: `${(pkg.price / 10000).toFixed(4)} EOS`,
           memo: account.name,
         },
       }]
     }, {
       blocksBehind: 3,
-      expireSeconds: 30,
+      expireSeconds: 120,
     });
     this.setState({
       tx: result
@@ -195,8 +218,8 @@ class Fuel extends React.Component {
               ? (
                 <FuelControls
                   account={account}
-                  deposit={this.deposit}
                   logout={this.logout}
+                  purchase={this.purchase}
                   signer={signer}
                 />
               )

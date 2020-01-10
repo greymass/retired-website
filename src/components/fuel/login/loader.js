@@ -16,7 +16,6 @@ class FuelLoginLoader extends Component {
         this.setState({
           uri
         }, () => {
-          window.location = this.state.uri;
           QRCode.toCanvas(canvas, this.state.uri, {
             scale: 6
           }, function (error) {

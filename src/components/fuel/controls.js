@@ -81,8 +81,8 @@ class FuelControls extends Component {
     if (!this.state) return false
     const {
       account,
-      deposit,
       logout,
+      purchase,
       signer,
     } = this.props;
     const {
@@ -93,13 +93,13 @@ class FuelControls extends Component {
     return (
       <React.Fragment>
         <Grid.Row centered>
-          <Grid.Column width={10}>
+          <Grid.Column width={12}>
             <Segment stacked>
               <Grid>
                 <Grid.Row>
                   <Grid.Column width={6}>
                     <Segment basic>
-                      <Header>
+                      <Header textAlign="center">
                         {account.name}@{account.authority}
                       </Header>
                       <Button
@@ -122,7 +122,7 @@ class FuelControls extends Component {
                           account={account}
                           client={client}
                           cosigner={cosigner}
-                          deposit={deposit}
+                          purchase={purchase}
                         />
                       )
                       : false

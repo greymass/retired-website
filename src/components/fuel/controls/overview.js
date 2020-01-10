@@ -9,7 +9,7 @@ const apiUrl = 'https://eos.greymass.com/v1/fuel'
 const packages = [
   {
     name: 'basic',
-    price: 5000,
+    price: 1,
   },
   {
     name: 'pro',
@@ -22,17 +22,12 @@ const msPerVote = 1.5;
 const msPerStake = 1.25;
 
 class FuelControlsOverview extends Component {
-  onDeposit = () => {
-    const {
-      deposit,
-    } = this.props;
-    deposit("0.0001")
-  }
   render() {
     const {
       account,
       client,
       cosigner,
+      purchase,
     } = this.props;
     if (!client || !cosigner) return false;
     return (
@@ -108,6 +103,7 @@ class FuelControlsOverview extends Component {
                             <Button
                               content="Purchase"
                               primary
+                              onClick={() => purchase(pkg)}
                             />
                           </Card.Content>
                         </Card>
