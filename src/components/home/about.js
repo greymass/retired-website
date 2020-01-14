@@ -1,23 +1,23 @@
 import React, { Component } from "react"
-import { Grid, Icon, Container } from 'semantic-ui-react';
+import { Grid, Icon, Container, Image } from 'semantic-ui-react';
 
-import { graphql, Link, StaticQuery } from 'gatsby';
-import { injectIntl } from "gatsby-plugin-intl";
+import { Link } from 'gatsby';
+import { injectIntl } from 'gatsby-plugin-intl';
 
-import Img from 'gatsby-image';
+import brainBackground from '../../images/Brain-Large.svg';
 
 import homeAboutStyles from './about.module.css';
 
 class HomeHeader extends Component {
   render() {
-    const { data, intl } = this.props;
+    const { intl } = this.props;
     return (
       <div className={homeAboutStyles.container}>
         <Container>
           <div className={homeAboutStyles.imageContainer}>
-            <Img
+            <Image
               alt='greymass-header-image'
-              fluid={data.fileName.childImageSharp.fluid}
+              src={brainBackground}
               className={homeAboutStyles.image}
             />
           </div>
@@ -46,21 +46,4 @@ class HomeHeader extends Component {
   }
 }
 
-const HomeHeaderWrapper = injectIntl(HomeHeader);
-
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        fileName: file(relativePath: { eq: "greymassBackground.png" }) {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `}
-    render={data => <HomeHeaderWrapper data={data} {...props} />}
-  />
-);
+export default injectIntl(HomeHeader);
