@@ -2,24 +2,52 @@ import React from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 
 import { Link } from 'anchor-link';
-import ScatterJS from '@scatterjs/core';
-import ScatterEOS from '@scatterjs/eosjs2';
+
+import { initAccessContext } from 'eos-transit';
+import scatter from 'eos-transit-scatter-provider';
+
 import { Api, JsonRpc } from 'eosjs';
 
 const chainId = 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906';
 const apiNode = 'https://eos.greymass.com';
 
 class TransitWrapper extends React.Component {
-  constructor(props) {
+  async constructor(props) {
     super(props);
-    ScatterJS.plugins(new ScatterEOS());
-    this.initScatter();
+
+    await this.initTransit();
     this.initAnchor();
     this.state = {
       account: false,
       signer: false,
       tx: false,
     };
+  }
+  initTransit = async () => {
+    const accessContext = initAccessContext({
+      appName: 'my_first_dapp',
+      network: {
+        host: apiNode,
+        port: 443,
+        protocol: 'https',
+        chainId
+      },
+      walletProviders: [
+        scatter()
+      ]
+    });
+
+    const walletProviders = accessContext.getWalletProviders();
+
+    const selectedProvider = walletProviders[0];
+
+    const wallet = accessContext.initWallet(selectedProvider);
+
+    await wallet.connect();
+
+    console.log({discoveryData});
+
+    this.setState({wallet} );
   }
   initAnchor = () => {
     const t = this;
@@ -59,30 +87,18 @@ class TransitWrapper extends React.Component {
       transport: WebLinkTransport,
     });
   }
-  initScatter = () => {
-    const rpc = new JsonRpc(apiNode)
-    this.scatterNetwork = ScatterJS.Network.fromJson({
-      blockchain: 'eos',
-      chainId,
-    });
-    this.scatter = ScatterJS.eos(this.scatterNetwork, Api, {
-      rpc
-    });
-  }
   setSigner = (signer) => {
-    const { anchor, scatter, scatterNetwork } = this;
+    const { wallet } = this.state;
     this.setState({ signer }, async () => {
       switch(signer) {
         case "scatter": {
-          this.detect = setInterval(() => {
-            if (ScatterJS.identity) {
-              this.setState({ account: ScatterJS.account('eos') })
-              clearInterval(this.detect)
-            }
-          }, 100)
-          const connected = await ScatterJS.connect('greymass.com', { scatterNetwork })
-          if(!connected) return false;
-          await ScatterJS.login({ accounts: [scatterNetwork] })
+          const discoveryData = await wallet.discover();
+
+          if (discoveryData.keyToAccountMap.length > 0) {
+            await wallet.login(accountName, authorization)
+          } else {
+            await wallet.login();
+          }
           break;
         }
         case "anchor": {
@@ -105,11 +121,11 @@ class TransitWrapper extends React.Component {
   }
   clearTx = () => this.setState({ tx: false })
   transact = async (transaction, config) => {
-    const { signer } = this.state;
-    let eos;
+    const { signer, wallet } = this.state;
+
     switch(signer) {
       case "scatter": {
-        return await this.scatter.transact(transaction, config);
+        return await wallet.eosApi.transact(transaction, config);
       }
       case "anchor": {
         return await this.link.transact(transaction);
@@ -120,11 +136,10 @@ class TransitWrapper extends React.Component {
     }
   }
   logout = () => {
-    const { signer } = this.state;
+    const { signer, wallet } = this.state;
     switch(signer) {
       case "scatter": {
-        ScatterJS.logout();
-        this.initScatter();
+        wallet.logout();
         break;
       }
       case "anchor": {
