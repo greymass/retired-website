@@ -20,6 +20,8 @@
     "await-exec": "^0.1.2",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
+    "eos-transit": "^4.0.2",
+    "eos-transit-scatter-provider": "^4.0.2",
     "eosio-signing-request": "0.0.6",
     "eosjs": "^20.0.0",
     "eslint-plugin-flowtype": "^4.3.0",
