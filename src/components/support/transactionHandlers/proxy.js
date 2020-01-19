@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Button, Header, Segment } from 'semantic-ui-react';
 
-const { SigningRequest } = require("eosio-signing-request");
+import { SigningRequest } from 'eosio-signing-request';
+import { Api, JsonRpc } from 'eosjs';
 
-const { Api, JsonRpc } = require('eosjs')
+import TransitWrapper from '../../shared/wrappers/transit';
+
 const rpc = new JsonRpc('https://eos.greymass.com');
 const api = new Api({ rpc });
 
@@ -22,12 +24,12 @@ const opts = {
   }
 }
 
-class SupportIntegationsEEP7Proxy extends Component {
+class SupportIntegationsEEP7Proxy extends TransitWrapper {
   state = {
     processing: false,
     response: false,
   }
-  vote = () => {
+  voteWithAnchor = () => {
     this.setState({
       error: false,
       processing: true,
@@ -81,8 +83,56 @@ class SupportIntegationsEEP7Proxy extends Component {
       this.listen = listen;
     });
   }
+  voteWithScatter = async () => {
+    console.log('yep')
+    this.setState({
+      processing: true,
+    })
+    await this.setSigner('scatter');
+
+    console.log('set')
+
+    const {
+      account,
+    } = this.state;
+
+    await this.transact({
+      actions: [
+        {
+          authorization: [{
+            actor: 'greymassfuel',
+            permission: 'cosign',
+          }],
+          account: 'greymassnoop',
+          name: 'noop',
+          data: {}
+        },
+        {
+          account: "eosio",
+          name: "voteproducer",
+          authorization: [{
+            actor: account.name,
+            permission: account.authority,
+          }],
+          data: {
+            producers: [],
+            proxy: "greymassvote",
+            voter: account.name,
+          }
+        }
+      ],
+    }, {
+      blocksBehind: 3,
+      expireSeconds: 120,
+    });
+
+    this.setState({
+      processing: false,
+    })
+  }
   render() {
     const {
+      account,
       error,
       processing,
       response,
@@ -93,8 +143,14 @@ class SupportIntegationsEEP7Proxy extends Component {
          loading={processing}
        >
          <Button
-           content="Proxy Vote"
-           onClick={this.vote}
+           content="Proxy Vote with Anchor"
+           onClick={this.voteWithAnchor}
+           primary
+           size="huge"
+         />
+         <Button
+           content="Proxy Vote with Scatter"
+           onClick={this.voteWithScatter}
            primary
            size="huge"
          />
@@ -110,7 +166,7 @@ class SupportIntegationsEEP7Proxy extends Component {
            ? (
              <Segment secondary size="large">
                <Header size="large">
-                 Thank you, {response.a.split("@")[0]}!
+                 Thank you, {account ? account.name : response.a.split("@")[0]}!
                  <Header.Subheader>
                    We truly appreciate your support.
                  </Header.Subheader>
