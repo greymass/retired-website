@@ -9,7 +9,7 @@ const apiUrl = 'https://eos.greymass.com/v1/fuel'
 const packages = [
   {
     name: 'basic',
-    price: 1,
+    price: 100,
   },
   {
     name: 'pro',
