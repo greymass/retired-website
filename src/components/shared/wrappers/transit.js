@@ -95,7 +95,7 @@ class TransitWrapper extends React.Component {
         const response = await wallet.login();
         console.log({response})
         const { account_name, permissions } = response;
-        this.setState({
+        await this.setState({
           account: {
             name: account_name,
             authority: permissions[0] && permissions[0].perm_name
