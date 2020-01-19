@@ -14,10 +14,10 @@ import apisStyle from './apis.module.css';
 
 class Apis extends React.Component {
   render() {
-    const { intl } = this.props;
+    const { intl, location } = this.props;
 
     return (
-      <Layout>
+      <Layout location={location}>
         <SharedHeader
           title={intl.formatMessage({ id: 'apis_header' })}
           paragraph={intl.formatMessage({ id: 'apis_subheader' })}
