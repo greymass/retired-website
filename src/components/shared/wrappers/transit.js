@@ -22,6 +22,7 @@ class TransitWrapper extends React.Component {
 
   async componentDidMount() {
     await this.initTransit();
+
     this.initAnchor();
   }
 
@@ -44,8 +45,11 @@ class TransitWrapper extends React.Component {
 
     const wallet = accessContext.initWallet(selectedProvider);
 
-    this.setState({ wallet } );
+    modifyGetRequiredKeys(wallet);
+
+    this.setState({ wallet });
   }
+
   initAnchor = () => {
     const t = this;
     const WebLinkTransport = {
@@ -131,9 +135,6 @@ class TransitWrapper extends React.Component {
       case "anchor": {
         return await this.link.transact(transaction);
       }
-      default: {
-
-      }
     }
   }
   logout = () => {
@@ -158,3 +159,29 @@ class TransitWrapper extends React.Component {
 }
 
 export default TransitWrapper;
+
+function modifyGetRequiredKeys(wallet) {
+  const api = wallet.eosApi;
+  // swizzle out authority provider to ignore the fuel permission
+  const getRequiredKeys = api.authorityProvider.getRequiredKeys.bind(api.authorityProvider)
+  api.authorityProvider.getRequiredKeys = async (args) => {
+    const actions = args.transaction.actions.map((action) => {
+      const authorization = action.authorization.filter(
+        ({ actor, permission }) =>
+          !(actor === 'greymassfuel' && permission === 'cosign'),
+      )
+      return {
+        ...action,
+        authorization,
+      }
+    })
+    const transaction = {
+      ...args.transaction,
+      actions,
+    }
+    return getRequiredKeys({
+      ...args,
+      transaction,
+    })
+  }
+}
