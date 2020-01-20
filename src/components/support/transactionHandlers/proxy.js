@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { Button, Header, Segment } from 'semantic-ui-react';
 
 import { SigningRequest } from 'eosio-signing-request';
@@ -24,7 +24,7 @@ const opts = {
   }
 }
 
-class SupportIntegationsEEP7Proxy extends TransitWrapper {
+class SupportTransactionHandlersProxy extends TransitWrapper {
   state = {
     processing: false,
     response: false,
@@ -162,7 +162,7 @@ class SupportIntegationsEEP7Proxy extends TransitWrapper {
            )
            : false
          }
-         {(response)
+         {(account || response)
            ? (
              <Segment secondary size="large">
                <Header size="large">
@@ -182,4 +182,4 @@ class SupportIntegationsEEP7Proxy extends TransitWrapper {
   }
 }
 
-export default SupportIntegationsEEP7Proxy;
+export default SupportTransactionHandlersProxy;
