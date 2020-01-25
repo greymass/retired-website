@@ -84,13 +84,15 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                />
              </Grid.Column>
              <Grid.Column>
-               <Dropdown
-                 options={account.voter_info.producers}
-                 placeholder="Remove one of your votes"
-                 onChange={
-                   (value) => this.setState({ voteToRemove: value })
-                 }
-               />
+               {(account.voter_info.producers.length === 30) && (
+                 <Dropdown
+                   options={account.voter_info.producers}
+                   placeholder="Remove one of your votes"
+                   onChange={
+                     (value) => this.setState({ voteToRemove: value })
+                   }
+                 />
+               )}
                <Button
                  content="Proxy your Vote"
                  onClick={this.vote}
