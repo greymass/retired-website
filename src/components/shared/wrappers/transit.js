@@ -95,12 +95,26 @@ class TransitWrapper extends React.Component {
 
     switch(signer) {
       case "scatter": {
-        await wallet.connect();
-        const response = await wallet.login();
-        console.log({response})
+        let response;
+
+        try {
+          await wallet.connect();
+          response = await wallet.login();
+        } catch(error) {
+          console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
+
+          this.setState({ processing: false });
+
+          return alert(
+            `Cannot connect to ${
+              signer
+            }. Please make sure that the wallet app is opened and try again.`
+          );
+        }
         const { account_name, permissions } = response;
         await this.setState({
           account: {
+            ...response,
             name: account_name,
             authority: permissions[0] && permissions[0].perm_name
           }
@@ -130,7 +144,12 @@ class TransitWrapper extends React.Component {
 
     switch(signer) {
       case "scatter": {
-        return await wallet.eosApi.transact(transaction, config);
+        try {
+          return await wallet.eosApi.transact(transaction, config);
+        } catch(error) {
+          console.log({error});
+          alert(`Transaction Error: ${JSON.stringify(error)}`);
+        }
       }
       case "anchor": {
         return await this.link.transact(transaction);
