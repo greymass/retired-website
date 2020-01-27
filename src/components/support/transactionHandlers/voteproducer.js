@@ -13,6 +13,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
       processing: true,
     })
     await this.setSigner(walletName);
+    this.setState({ processing: false });
   }
 
   vote = async () => {
@@ -26,12 +27,16 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   voteproducerAction = async (type) => {
     const { account, voteToRemove } = this.state;
 
+    this.setState({ processing: true })
+
     const producers =
       type === 'vote' &&
-      account.vote_info.producers.filter(vote => vote !== voteToRemove);
+      account.voter_info.producers.filter(vote => vote !== voteToRemove) ||
+      [];
+
     producers.push('teamgreymass');
 
-    await this.transact({
+    const transactionData = {
       actions: [
         {
           authorization: [{
@@ -50,16 +55,20 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
             permission: account.authority,
           }],
           data: {
-            producers: producers || [],
-            proxy: type === 'proxy' && 'greymassvote',
+            producers: type === 'proxy' ? [] : producers,
+            proxy: type === 'proxy' ? 'greymassvote' : '',
             voter: account.name,
           }
         }
       ],
-    }, {
+    }
+
+    const transaction = await this.transact(transactionData, {
       blocksBehind: 3,
       expireSeconds: 120,
     });
+
+    this.setState({ transaction, processing: false });
   }
 
   render() {
@@ -67,40 +76,49 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
       account,
       error,
       processing,
+      transaction,
     } = this.state;
+
     return (
      <React.Fragment>
        <Segment
          loading={processing}
        >
          {account ? (
-           <Grid>
-             <Grid.Column>
-               <Button
-                 content="Proxy your Vote"
-                 onClick={this.proxyVotes}
-                 primary
-                 size="huge"
-               />
-             </Grid.Column>
-             <Grid.Column>
-               {(account.voter_info.producers.length === 30) && (
-                 <Dropdown
-                   options={account.voter_info.producers}
-                   placeholder="Remove one of your votes"
-                   onChange={
-                     (value) => this.setState({ voteToRemove: value })
-                   }
+           <React.Fragment>
+             <Header
+               textAlign="center"
+               content={`Signed in as ${account.name}.`}
+             />
+             <br />
+             <Grid>
+               <Grid.Column width={8} textAlign="center">
+                 <Button
+                   content="Proxy your Vote"
+                   onClick={this.proxyVotes}
+                   primary
+                   size="huge"
                  />
-               )}
-               <Button
-                 content="Proxy your Vote"
-                 onClick={this.vote}
-                 primary
-                 size="huge"
-               />
-             </Grid.Column>
-           </Grid>
+               </Grid.Column>
+               <Grid.Column width={8}>
+                 {(account.voter_info.producers.length === 30) && (
+                   <Dropdown
+                     options={account.voter_info.producers}
+                     placeholder="Remove one of your votes"
+                     onChange={
+                       (value) => this.setState({ voteToRemove: value })
+                     }
+                   />
+                 )}
+                 <Button
+                   content="Vote for Greymass"
+                   onClick={this.vote}
+                   primary
+                   size="huge"
+                 />
+               </Grid.Column>
+             </Grid>
+           </React.Fragment>
          ) : (
            <React.Fragment>
              <Button
@@ -126,7 +144,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
            )
            : false
          }
-         {(account)
+         {(transaction)
            ? (
              <Segment secondary size="large">
                <Header size="large">
