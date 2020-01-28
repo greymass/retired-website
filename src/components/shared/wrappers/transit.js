@@ -175,6 +175,10 @@ class TransitWrapper extends React.Component {
     switch(signer) {
       case "scatter": {
         wallet.logout();
+        
+        window.transitWallet = null;
+        window.transitSigner = null;
+
         break;
       }
       case "anchor": {
