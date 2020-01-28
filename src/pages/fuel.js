@@ -49,6 +49,7 @@ class Fuel extends TransitWrapper {
       signer,
       tx
     } = this.state;
+
     return (
       <Layout location={location}>
         <Container style={{ minHeight: '600px' }}>

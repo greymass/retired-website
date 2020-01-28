@@ -88,7 +88,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
            <React.Fragment>
              <Header
                textAlign="center"
-               content={`Signed in as ${account.name}.`}
+               content={`Signed in as "${account.name}".`}
              />
              <br />
              <Grid>

@@ -21,7 +21,15 @@ class TransitWrapper extends React.Component {
   }
 
   async componentDidMount() {
-    await this.initTransit();
+    if (!window.transitWallet) {
+      await this.initTransit();
+    }
+
+    this.setState({
+      wallet: window.transitWallet,
+      account: window.transitAccount,
+      signer: window.transitSigner,
+    })
 
     this.initAnchor();
   }
@@ -46,6 +54,8 @@ class TransitWrapper extends React.Component {
     const wallet = accessContext.initWallet(selectedProvider);
 
     modifyGetRequiredKeys(wallet);
+
+    window.transitWallet = wallet;
 
     this.setState({ wallet });
   }
@@ -112,13 +122,17 @@ class TransitWrapper extends React.Component {
           );
         }
         const { account_name, permissions } = response;
-        await this.setState({
-          account: {
-            ...response,
-            name: account_name,
-            authority: permissions[0] && permissions[0].perm_name
-          }
-        });
+
+        const account = {
+          ...response,
+          name: account_name,
+          authority: permissions[0] && permissions[0].perm_name
+        };
+
+        await this.setState({ account });
+
+        window.transitAccount = account;
+        window.transitSigner = signer;
 
         break;
       }
