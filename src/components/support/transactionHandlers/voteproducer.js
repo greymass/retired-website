@@ -27,7 +27,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   voteproducerAction = async (type) => {
     const { account, voteToRemove } = this.state;
 
-    this.setState({ processing: true })
+    this.setState({ processing: true });
 
     const producers =
       type === 'vote' &&
@@ -68,6 +68,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
       expireSeconds: 120,
     });
 
+    console.log({transaction});
+
     this.setState({ transaction, processing: false });
   }
 
@@ -88,8 +90,16 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
            <React.Fragment>
              <Header
                textAlign="center"
-               content={`Signed in as "${account.name}".`}
-             />
+             >
+               Signed in as "{account.name}".
+               &nbsp;
+               &nbsp;
+               <Button
+                 content="Logout"
+                 onClick={this.logout}
+                 size="mini"
+               />
+             </Header>
              <br />
              <Grid>
                <Grid.Column width={8} textAlign="center">

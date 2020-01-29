@@ -163,6 +163,8 @@ class TransitWrapper extends React.Component {
         } catch(error) {
           console.log({error});
           alert(`Transaction Error: ${JSON.stringify(error)}`);
+
+          return;
         }
       }
       case "anchor": {
@@ -175,7 +177,7 @@ class TransitWrapper extends React.Component {
     switch(signer) {
       case "scatter": {
         wallet.logout();
-        
+
         window.transitWallet = null;
         window.transitSigner = null;
 
