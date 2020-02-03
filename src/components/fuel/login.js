@@ -18,7 +18,7 @@ class FuelLogin extends Component {
               <Button
                 content="Login with Anchor"
                 primary
-                onClick={() => setSigner('anchor')}
+                onClick={() => setSigner('anchor-link')}
               />
               <Button
                 content="Login with Scatter"

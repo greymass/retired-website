@@ -29,29 +29,12 @@ class FuelLoginLoader extends Component {
     const {
       signer
     } = this.props;
-    const {
-      uri
-    } = this.state;
-    console.log(uri)
+
     return (
       <React.Fragment>
         <Grid.Row centered>
           <Grid.Column width={10} textAlign="center">
             <Segment padded stacked textAlign="center">
-              {(signer === 'anchor')
-                ? (
-                  <div>
-                    <canvas
-                      ref="canvas"
-                      style={{
-                          height: 200,
-                          width: 200,
-                      }}
-                    />
-                  </div>
-                )
-                : false
-              }
               <Header icon>
                 <Icon color="grey" name="circle notched" loading/>
                 <Header.Content>

@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Link } from 'anchor-link';
-
 import { initAccessContext } from 'eos-transit';
+
 import scatter from 'eos-transit-scatter-provider';
 import anchorLink from 'eos-transit-anchorlink-provider';
 
@@ -45,7 +44,13 @@ class TransitWrapper extends React.Component {
 
     const walletProviders = accessContext.getWalletProviders();
 
-    const selectedProvider = walletProviders[0];
+    console.log({signer})
+
+    const selectedProvider = walletProviders.filter((provider) => {
+      return provider.id === signer;
+    })[0];
+
+    selectedProvider.sessionId = signer;
 
     const wallet = accessContext.initWallet(selectedProvider);
 
@@ -63,20 +68,22 @@ class TransitWrapper extends React.Component {
 
     let response;
 
-    try {
+    console.log({wallet})
+
+    // try {
       await wallet.connect();
       response = await wallet.login();
-    } catch(error) {
-      console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
-
-      this.setState({ processing: false });
-
-      return alert(
-        `Cannot connect to ${
-          signer
-        }. Please make sure that the wallet app is opened and try again.`
-      );
-    }
+    // } catch(error) {
+    //   console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
+    //
+    //   this.setState({ processing: false });
+    //
+    //   return alert(
+    //     `Cannot connect to ${
+    //       signer
+    //     }. Please make sure that the wallet app is opened and try again.`
+    //   );
+    // }
     const { account_name, permissions } = response;
 
     const account = {
@@ -104,7 +111,7 @@ class TransitWrapper extends React.Component {
   }
   logout = () => {
     const { wallet } = this.state;
-    
+
     wallet.logout();
 
     window.transitWallet = null;
