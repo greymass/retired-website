@@ -4,6 +4,7 @@ import { Link } from 'anchor-link';
 
 import { initAccessContext } from 'eos-transit';
 import scatter from 'eos-transit-scatter-provider';
+import anchorLink from 'eos-transit-anchorlink-provider';
 
 const chainId = 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906';
 const apiNode = 'eos.greymass.com';
@@ -21,20 +22,14 @@ class TransitWrapper extends React.Component {
   }
 
   async componentDidMount() {
-    if (!window.transitWallet) {
-      await this.initTransit();
-    }
-
     this.setState({
       wallet: window.transitWallet,
       account: window.transitAccount,
       signer: window.transitSigner,
     })
-
-    this.initAnchor();
   }
 
-  initTransit = async () => {
+  initTransit = async (signer) => {
     const accessContext = initAccessContext({
       appName: 'greymass.com',
       network: {
@@ -43,7 +38,8 @@ class TransitWrapper extends React.Component {
         chainId
       },
       walletProviders: [
-        scatter()
+        scatter(),
+        anchorLink(),
       ]
     });
 
@@ -57,139 +53,63 @@ class TransitWrapper extends React.Component {
 
     window.transitWallet = wallet;
 
-    this.setState({ wallet });
+    this.setState({ signer, wallet });
+
+    return wallet;
   }
 
-  initAnchor = () => {
-    const t = this;
-    const WebLinkTransport = {
-      onRequest: function(request, cancel) {
-        console.log(request.encode())
-        window.location = request.encode();
-        console.log(request, cancel)
-      },
-      onSuccess: function(request, result) {
-        const reqType = request.data.req[0];
-        switch (reqType) {
-          case 'identity': {
-            t.setState({
-              account: {
-                name: result.signer.actor,
-                authority: result.signer.permission,
-                blockchain: 'eos',
-                chainId,
-              }
-            })
-            break;
-          }
-          default: {
-            console.log(request, result)
-          }
-        }
-      },
-      onFailure: function(request, error) {
-        console.log(request, error)
-      },
-    }
-    this.link = new Link({
-      chainId,
-      rpc: apiNode,
-      service: 'https://link.dirty.fish',
-      transport: WebLinkTransport,
-    });
-  }
   setSigner = async (signer) => {
-    const { wallet } = this.state;
+    const wallet = await this.initTransit(signer);
 
-    this.setState({ signer });
+    let response;
 
-    switch(signer) {
-      case "scatter": {
-        let response;
+    try {
+      await wallet.connect();
+      response = await wallet.login();
+    } catch(error) {
+      console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
 
-        try {
-          await wallet.connect();
-          response = await wallet.login();
-        } catch(error) {
-          console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
+      this.setState({ processing: false });
 
-          this.setState({ processing: false });
-
-          return alert(
-            `Cannot connect to ${
-              signer
-            }. Please make sure that the wallet app is opened and try again.`
-          );
-        }
-        const { account_name, permissions } = response;
-
-        const account = {
-          ...response,
-          name: account_name,
-          authority: permissions[0] && permissions[0].perm_name
-        };
-
-        await this.setState({ account });
-
-        window.transitAccount = account;
-        window.transitSigner = signer;
-
-        break;
-      }
-      case "anchor": {
-        const identityRequest = await this.link.createRequest({
-          identity: {permission: undefined},
-          info: undefined,
-        })
-        this.setState({
-          identityRequest
-        })
-        await this.link.sendRequest(identityRequest)
-        break;
-      }
-      default: {
-        break;
-      }
+      return alert(
+        `Cannot connect to ${
+          signer
+        }. Please make sure that the wallet app is opened and try again.`
+      );
     }
+    const { account_name, permissions } = response;
+
+    const account = {
+      ...response,
+      name: account_name,
+      authority: permissions[0] && permissions[0].perm_name
+    };
+
+    await this.setState({ account });
+
+    window.transitAccount = account;
+    window.transitSigner = signer;
   }
   clearTx = () => this.setState({ tx: false })
   transact = async (transaction, config) => {
-    const { signer, wallet } = this.state;
+    const { wallet } = this.state;
 
-    switch(signer) {
-      case "scatter": {
-        try {
-          return await wallet.eosApi.transact(transaction, config);
-        } catch(error) {
-          console.log({error});
-          alert(`Transaction Error: ${JSON.stringify(error)}`);
+    try {
+      return await wallet.eosApi.transact(transaction, config);
+    } catch(error) {
+      console.log({error});
 
-          return;
-        }
-      }
-      case "anchor": {
-        return await this.link.transact(transaction);
-      }
+      alert(`Transaction Error: ${JSON.stringify(error)}`);
     }
   }
   logout = () => {
-    const { signer, wallet } = this.state;
-    switch(signer) {
-      case "scatter": {
-        wallet.logout();
+    const { wallet } = this.state;
+    
+    wallet.logout();
 
-        window.transitWallet = null;
-        window.transitSigner = null;
+    window.transitWallet = null;
+    window.transitSigner = null;
 
-        break;
-      }
-      case "anchor": {
-        break;
-      }
-      default: {
-
-      }
-    }
     this.setState({
       account: false,
       signer: false,
