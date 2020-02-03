@@ -139,7 +139,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
              />
              <Button
                content="Proxy Vote with Anchor"
-               onClick={() => this.transitLogin('anchor')}
+               onClick={() => this.transitLogin('anchor-link')}
                primary
                size="huge"
              />
