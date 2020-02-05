@@ -34,7 +34,8 @@ class TransitWrapper extends React.Component {
       network: {
         host: apiNode,
         protocol: 'https',
-        chainId
+        chainId,
+        port: 443
       },
       walletProviders: [
         scatter(),
