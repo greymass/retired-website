@@ -66,9 +66,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
     const transaction = await this.transact(transactionData, {
       blocksBehind: 3,
       expireSeconds: 120,
+      broadcast: true,
     });
-
-    console.log({transaction});
 
     this.setState({ transaction, processing: false });
   }
@@ -138,7 +137,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                size="huge"
              />
              <Button
-               content="Proxy Vote with Anchor"
+               content="Login with Anchor"
                onClick={() => this.transitLogin('anchor-link')}
                primary
                size="huge"
