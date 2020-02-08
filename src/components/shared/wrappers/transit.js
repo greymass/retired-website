@@ -65,11 +65,11 @@ class TransitWrapper extends React.Component {
   }
 
   setSigner = async (signer) => {
+    this.setState({ signer });
+
     const wallet = await this.initTransit(signer);
 
     let response;
-
-    console.log({wallet})
 
     try {
       await wallet.connect();
