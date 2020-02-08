@@ -71,20 +71,20 @@ class TransitWrapper extends React.Component {
 
     console.log({wallet})
 
-    // try {
+    try {
       await wallet.connect();
       response = await wallet.login();
-    // } catch(error) {
-    //   console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
-    //
-    //   this.setState({ processing: false });
-    //
-    //   return alert(
-    //     `Cannot connect to ${
-    //       signer
-    //     }. Please make sure that the wallet app is opened and try again.`
-    //   );
-    // }
+    } catch(error) {
+      console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
+
+      this.setState({ processing: false });
+
+      return alert(
+        `Cannot connect to ${
+          signer
+        }. Please make sure that the wallet app is opened and try again.`
+      );
+    }
     const { account_name, permissions } = response;
 
     const account = {
@@ -107,7 +107,11 @@ class TransitWrapper extends React.Component {
     } catch(error) {
       console.log({error});
 
-      alert(`Transaction Error: ${JSON.stringify(error)}`);
+      const cancelledRequest = JSON.stringify(error).includes('CANCEL');
+
+      if (!cancelledRequest) {
+        alert(`Transaction Error: ${JSON.stringify(error)}`);
+      }
     }
   }
   logout = () => {
