@@ -22,6 +22,8 @@ const msPerVote = 1.5;
 const msPerStake = 1.25;
 
 class FuelControlsOverview extends Component {
+  state = { openedModal: false };
+
   render() {
     const {
       account,
@@ -29,6 +31,9 @@ class FuelControlsOverview extends Component {
       cosigner,
       purchase,
     } = this.props;
+    const {
+      openedModal
+    } = this.state;
     if (!client || !cosigner) return false;
     return (
       <React.Fragment>
@@ -141,6 +146,7 @@ class FuelControlsOverview extends Component {
                 <Grid.Row>
                   <Grid.Column textAlign="center" width={16}>
                     <Button
+                      onClick={() => this.setState({ openedModal: false })}
                       content="Cancel"
                     />
                   </Grid.Column>
@@ -151,8 +157,11 @@ class FuelControlsOverview extends Component {
           closeIcon
           dimmer="inverted"
           header="Purchase Fuel"
+          open={openedModal}
+          onClose={() => this.setState({ openedModal: false }) }
           trigger={(
             <Button
+              onClick={() => this.setState({ openedModal: true })}
               content="Purchase Fuel"
               primary
             />
