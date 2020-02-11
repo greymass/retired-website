@@ -3,7 +3,7 @@ import React from 'react';
 import { initAccessContext } from 'eos-transit';
 
 import scatter from 'eos-transit-scatter-provider';
-import anchorLink from 'eos-transit-anchorlink-provider';
+import anchorLink from 'temp-anchorlink-provider';
 
 const chainId = 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906';
 const apiNode = 'eos.greymass.com';
