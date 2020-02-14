@@ -1,6 +1,8 @@
 import React  from 'react';
 import { Button, Header, Segment, Grid, Dropdown } from 'semantic-ui-react';
 
+import { debounce } from 'lodash';
+
 import TransitWrapper from '../../shared/wrappers/transit';
 
 class SupportTransactionHandlersVoteproducer extends TransitWrapper {
@@ -9,20 +11,22 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   }
 
   transitLogin = async (walletName) => {
+    const { blockchain } = this.state;
+
     this.setState({
       processing: true,
     })
-    await this.setSigner(walletName);
+    await this.setSigner(walletName, blockchain);
     this.setState({ processing: false });
   }
 
-  vote = async () => {
+  vote = debounce(async () => {
     await this.voteproducerAction('vote')
-  }
+  }, 500);
 
-  proxyVotes = async () => {
+  proxyVotes = debounce(async () => {
     await this.voteproducerAction('proxy')
-  }
+  }, 500);
 
   voteproducerAction = async (type) => {
     const { account, voteToRemove } = this.state;
@@ -84,7 +88,48 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
        <Segment
          loading={processing}
        >
-         {account ? (
+         {blockchain ? (
+           <React.Fragment>
+             <Button
+               content="Support us on EOS"
+               onClick={() => this.setState({ blockchain: 'eos' })}
+               primary
+               size="huge"
+             />
+             <Button
+               content="Support us on WAX"
+               onClick={() => this.setState({ blockchain: 'wax'})}
+               primary
+               size="huge"
+             />
+             <Button
+               content="Support us on TELOS"
+               onClick={() => this.setState({ blockchain: 'telos' })}
+               primary
+               size="huge"
+             />
+             <Button
+               content="Support us on LYNX"
+               onClick={() => this.setState({ blockchain: 'lynx' })}
+               primary
+               size="huge"
+             />
+             <Button
+               content="Support us on INSTAR"
+               onClick={() => this.setState({ blockchain: 'instar' })}
+               primary
+               size="huge"
+             />
+           </React.Fragment>
+         ) : (
+           <Button
+             content="< Back"
+             onClick={() => this.setState({ blockchain: null })}
+             primary
+             size="huge"
+           />
+         )}
+         {(account && (
            <React.Fragment>
              <Header
                textAlign="center"
@@ -130,7 +175,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                </Grid.Column>
              </Grid>
            </React.Fragment>
-         ) : (
+         )}
+         {(!account && blockchain) (
            <React.Fragment>
              <Button
                content="Login with Scatter"

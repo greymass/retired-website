@@ -77,8 +77,6 @@ class TransitWrapper extends React.Component {
     } catch(error) {
       console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
 
-      this.setState({ processing: false });
-
       return alert(
         `Cannot connect to ${
           signer
