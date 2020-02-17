@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/eosio-failover",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "eosio_failover"
+}

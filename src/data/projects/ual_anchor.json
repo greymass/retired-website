@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/ual-anchor",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "ual_anchor"
+}

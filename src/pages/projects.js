@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 import { graphql } from 'gatsby';
+import { Container, Header, Table } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
@@ -23,6 +24,43 @@ class Projects extends Component {
         <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
         <ProjectList images={data.images} projects={projects} platform="steem" />
         <ProjectList images={data.images} projects={projects} platform="others" />
+        {/* <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" /> */}
+        <Container style={{ padding: '2em 0' }}>
+          <Table size="large">
+            {projects.map((project) => (
+              <Table.Row>
+                <Table.Cell width={4}>
+                  <Header
+                    as="a"
+                    href={project.link || project.githubLink}
+                    style={{ color: '#0091E2' }}
+                  >
+                    {intl.formatMessage({
+                      id: `project_${project.projectKey}_name`,
+                      defaultMessage: '[Project Name]',
+                      description: 'The name of the project'
+                    })}
+                    <Header.Subheader>
+                      {intl.formatMessage({
+                        id: `project_${project.projectKey}_extra`,
+                        defaultMessage: '[Project Extras]',
+                        description: 'Extra details of the project'
+                      })}
+                    </Header.Subheader>
+                  </Header>
+
+                </Table.Cell>
+                <Table.Cell>
+                  {intl.formatMessage({
+                    id: `project_${project.projectKey}_description`,
+                    defaultMessage: '[Project Description]',
+                    description: 'The date the project launched'
+                  })}
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          </Table>
+        </Container>
       </Layout>
     )
   }

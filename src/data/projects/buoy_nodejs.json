@@ -1,0 +1,7 @@
+{
+  "homepage": true,
+  "githubLink": "https://github.com/greymass/buoy-nodejs",
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "buoy_nodejs"
+}

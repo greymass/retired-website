@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/greymass/eosio-http-proxy",
+  "homepage": false,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "eosio_http_proxy"
+}

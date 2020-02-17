@@ -1,0 +1,7 @@
+{
+  "homepage": true,
+  "githubLink": "https://github.com/greymass/buoy-golang",
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "buoy_golang"
+}

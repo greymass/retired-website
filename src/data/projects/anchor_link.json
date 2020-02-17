@@ -1,0 +1,7 @@
+{
+  "homepage": true,
+  "githubLink": "https://github.com/greymass/anchor-link",
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "anchor_link"
+}
