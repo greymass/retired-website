@@ -33,10 +33,10 @@ class FooterConnectBanner extends Component {
             }`}
           >
             <div className={footerConnectBannerStyles.connectBannerLinksInnerContainer}>
-              <ConnectBannerLink
+              {/* <ConnectBannerLink
                 to={data.site.siteMetadata.links.youtube}
                 type={`youtube`}
-              />
+              /> */}
               <ConnectBannerLink
                 to={data.site.siteMetadata.links.telegram}
                 type={`telegram plane`}
@@ -45,10 +45,10 @@ class FooterConnectBanner extends Component {
                 to={data.site.siteMetadata.links.twitter}
                 type={`twitter`}
               />
-              <ConnectBannerLink
+              {/* <ConnectBannerLink
                 to={data.site.siteMetadata.links.reddit}
                 type={`reddit alien`}
-              />
+              /> */}
               <ConnectBannerLink
                 to={data.site.siteMetadata.links.github}
                 type={`github alternate`}
