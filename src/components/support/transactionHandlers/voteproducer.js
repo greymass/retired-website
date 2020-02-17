@@ -29,10 +29,9 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
 
     this.setState({ processing: true });
 
-    const producers =
-      type === 'vote' &&
-      account.voter_info.producers.filter(vote => vote !== voteToRemove) ||
-      [];
+    const producers = (type === 'vote')
+      ? account.voter_info.producers.filter(vote => vote !== voteToRemove)
+      : [];
 
     producers.push('teamgreymass');
 
@@ -110,15 +109,18 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                  />
                </Grid.Column>
                <Grid.Column width={8}>
-                 {(account.voter_info.producers.length === 30) && (
-                   <Dropdown
-                     options={account.voter_info.producers}
-                     placeholder="Remove one of your votes"
-                     onChange={
-                       (value) => this.setState({ voteToRemove: value })
-                     }
-                   />
-                 )}
+                 {(account.voter_info.producers.length === 30)
+                   ? (
+                     <Dropdown
+                       options={account.voter_info.producers}
+                       placeholder="Remove one of your votes"
+                       onChange={
+                         (value) => this.setState({ voteToRemove: value })
+                       }
+                     />
+                   )
+                   : false
+                 }
                  <Button
                    content="Vote for Greymass"
                    onClick={this.vote}
