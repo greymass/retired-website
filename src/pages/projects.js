@@ -20,11 +20,10 @@ class Projects extends Component {
           title={intl.formatMessage({ id: 'platform_header_title' })}
           paragraph={intl.formatMessage({ id: 'platform_header_paragraph' })}
         />
-        <ProjectList images={data.images} projects={projects} platform="eosio" primary />
+        {/* <ProjectList images={data.images} projects={projects} platform="eosio" primary />
         <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
         <ProjectList images={data.images} projects={projects} platform="steem" />
-        <ProjectList images={data.images} projects={projects} platform="others" />
-        {/* <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" /> */}
+        <ProjectList images={data.images} projects={projects} platform="others" /> */}
         <Container style={{ padding: '2em 0' }}>
           <Table size="large">
             {projects.map((project) => (
