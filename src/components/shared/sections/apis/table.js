@@ -7,6 +7,7 @@ import { Table, Header, Image, Label, Icon, Responsive } from "semantic-ui-react
 import { JsonRpc } from 'eosjs';
 
 import eosLogo from '../../../../images/blockchain-eos-logo.svg';
+import fioLogo from '../../../../images/blockchain-fio-logo.svg';
 import instarLogo from '../../../../images/blockchain-insights-logo.svg';
 import jungleLogo from '../../../../images/blockchain-eos-logo.svg'; // change for real logo
 import lynxLogo from '../../../../images/blockchain-lynx-logo.svg'; // change for real logo
@@ -47,9 +48,27 @@ const nodes = [
     v1: true,
   },
   {
+    url: 'https://fiotestnet.greymass.com',
+    name: 'FIO (Testnet)',
+    logo: fioLogo,
+    v1: true,
+  },
+  {
     url: 'https://jungle.greymass.com',
     name: 'Jungle (Testnet)',
     logo: jungleLogo,
+    v1: true,
+  },
+  {
+    url: 'https://lynxtestnet.greymass.com',
+    name: 'Lynx (Testnet)',
+    logo: lynxLogo,
+    v1: true,
+  },
+  {
+    url: 'https://waxtestnet.greymass.com',
+    name: 'WAX (Testnet)',
+    logo: waxLogo,
     v1: true,
   },
 ]
