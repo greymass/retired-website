@@ -1,17 +1,17 @@
 {
   "home_about_link": "about us",
-  "home_about_paragraph_one": "Greymass is an organization built to perform research and subsequently create open open-source software for the new and emerging markets around distributed ledger technologies.",
-  "home_about_paragraph_two": "We are funded by the growth of these new ecosystems as an elected block producer, which is reinvested back into those economies by offering our products and platforms free of charge.",
+  "home_about_paragraph_one": "Greymass is an organization built to perform research around distributed ledger technologies, share our knowledge, and use our experiences to improve the system for all its users.",
+  "home_about_paragraph_two": "It is able to do this through funding mechanisms built into the blockchains, as the stakeholders of each project elect candidates like Greymass to serve as what's know as a block producer.",
   "home_about_title": "What is Greymass?",
   "home_blog_posts_link": "See Blog",
   "home_blog_posts_title": "Our recent publications...",
-  "home_header_bottom_link": "supporting us.",
-  "home_header_bottom_one": "If you are a token holder,",
-  "home_header_bottom_two": "please consider",
+  "home_header_bottom_link": "support us with your vote.",
+  "home_header_bottom_one": "We'd humbly ask EOSIO token",
+  "home_header_bottom_two": "holders to",
   "home_header_one": "We are",
-  "home_header_two": "Specializing in Distributed Ledger Technologies, Governance, Research, and Development.",
+  "home_header_two": "An EOSIO Block Producer specializing in Research, Development, and Governance",
   "home_newsletter_subtitle": "Signup for the newsletter",
   "home_newsletter_title": "Stay up to date",
   "home_projects_portfolio_link": "See all our projects",
-  "home_projects_title": "Recent Initiatives"
+  "home_projects_title": "Our recent projects include"
 }
