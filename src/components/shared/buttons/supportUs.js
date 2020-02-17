@@ -6,9 +6,14 @@ import supportUsStyles from './supportUs.module.css';
 
 class SupportUsButton extends Component {
   render() {
-    const { intl } = this.props;
+    const {
+      centered,
+      intl,
+    } = this.props;
     return (
-      <Link to={`/${intl.locale}/support`}>
+      <Link to={`/${intl.locale}/support`} style={{
+        textAlign: (centered) ? 'center' : '',
+      }}>
         <div className={supportUsStyles.supportUsButton}>
           <h3 className={supportUsStyles.supportUsText}>
             {intl.formatMessage({ id: 'shared_support_us' })}
