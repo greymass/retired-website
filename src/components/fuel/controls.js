@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Container, Dimmer, Header, Grid, Image, Loader, Menu, Message, Segment, Table } from 'semantic-ui-react';
+import { Button, Header, Grid, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 
 import FuelControlsMenu from './controls/menu';
@@ -83,7 +83,6 @@ class FuelControls extends Component {
       account,
       logout,
       purchase,
-      signer,
     } = this.props;
     const {
       client,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Container, Dimmer, Header, Grid, Image, Input, Loader, Message, Segment } from 'semantic-ui-react';
+import { Button, Container, Header, Grid, Message, Segment } from 'semantic-ui-react';
 
 class FuelTransaction extends Component {
   render() {

@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Button, Card, Container, Dimmer, Divider, Form, Header, Grid, Icon, Image, List, Loader, Menu, Message, Modal, Segment, Table } from 'semantic-ui-react';
-import axios from 'axios';
+import { Button, Card, Container, Divider, Form, Header, Grid, Image, List, Message, Modal, Table } from 'semantic-ui-react';
 
 import FuelNumber from '../number';
 import eosLogo from '../../../images/blockchain-eos-logo.svg';
 
-const apiUrl = 'https://eos.greymass.com/v1/fuel'
 const packages = [
   {
     name: 'basic',
@@ -18,15 +16,12 @@ const packages = [
 ]
 
 const msPerTransfer = 1;
-const msPerVote = 1.5;
-const msPerStake = 1.25;
 
 class FuelControlsOverview extends Component {
   state = { openedModal: false };
 
   render() {
     const {
-      account,
       client,
       cosigner,
       purchase,
@@ -131,8 +126,11 @@ class FuelControlsOverview extends Component {
                     </Header>
                     <Form>
                       <Form.Field>
-                        <label>Amount of EOS to spend</label>
-                        <Form.Input type="text" />
+                        <label htmlFor="amount">
+                          Amount of EOS to spend
+                          <Form.Input name="amount" type="text" />
+                        </label>
+
                       </Form.Field>
                       <Container textAlign="center">
                         <Button

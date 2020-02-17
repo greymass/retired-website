@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Container, Header, Grid, Icon, Image, Segment } from 'semantic-ui-react';
+import { Button, Header, Grid, Icon, Segment } from 'semantic-ui-react';
 import QRCode from 'qrcode';
 
 class FuelLoginLoader extends Component {

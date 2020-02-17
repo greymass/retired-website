@@ -21,14 +21,12 @@ class HomeHeader extends Component {
         <p className={homeHeaderStyles.headerText}>
           {intl.formatMessage({ id: 'home_header_two' })}
         </p>
-
         <div className={homeHeaderStyles.bottomContainer}>
           <p className={homeHeaderStyles.subheaderText}>
             {intl.formatMessage({ id: 'home_header_bottom_one' })}
           </p>
           <p className={homeHeaderStyles.subheaderText}>
             {intl.formatMessage({ id: 'home_header_bottom_two' })}
-
             <Link className={homeHeaderStyles.supportUsLink} to={`/support`}>
               {intl.formatMessage({ id: 'home_header_bottom_link' })}
             </Link>
