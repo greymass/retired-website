@@ -6,8 +6,8 @@
 }
 
 .imageContainer {
-  top: 0;
-  left: 0;
+  top: 5%;
+  left: -10%;
   position: absolute;
   width: 100%;
   z-index: 10;
