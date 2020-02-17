@@ -2,7 +2,7 @@ import React from 'react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import { Container } from 'semantic-ui-react';
+import { Container, Header } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 
@@ -24,6 +24,7 @@ class Apis extends React.Component {
         />
         <div className={apisStyle.container}>
           <Container>
+            <Header size="large" textAlign="center">API Endpoints</Header>
             <ApisTable />
           </Container>
         </div>
