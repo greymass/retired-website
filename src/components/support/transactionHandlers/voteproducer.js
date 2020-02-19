@@ -78,6 +78,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   render() {
     const {
       account,
+      blockchain,
       error,
       processing,
       transaction,
@@ -89,6 +90,13 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
          loading={processing}
        >
          {blockchain ? (
+           <Button
+             content="< Back"
+             onClick={() => this.setState({ blockchain: null })}
+             primary
+             size="huge"
+           />
+         ) : (
            <React.Fragment>
              <Button
                content="Support us on EOS"
@@ -121,15 +129,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                size="huge"
              />
            </React.Fragment>
-         ) : (
-           <Button
-             content="< Back"
-             onClick={() => this.setState({ blockchain: null })}
-             primary
-             size="huge"
-           />
          )}
-         {(account && (
+         {account && (
            <React.Fragment>
              <Header
                textAlign="center"
@@ -176,7 +177,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
              </Grid>
            </React.Fragment>
          )}
-         {(!account && blockchain) (
+         {(!account && blockchain) && (
            <React.Fragment>
              <Button
                content="Login with Scatter"
