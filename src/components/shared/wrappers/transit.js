@@ -21,11 +21,32 @@ class TransitWrapper extends React.Component {
   }
 
   async componentDidMount() {
-    this.setState({
-      wallet: window.transitWallet,
-      account: window.transitAccount,
-      signer: window.transitSigner,
-    })
+    const localStorage = window.localStorage;
+    const transitSessions = localStorage.getItem('transitSessions');
+
+    const validTransitSessions = [];
+
+    await Promise.all(
+      transitSessions.map(async transitSession => {
+        return new Promise(async resolve => {
+          if (transitSession.expires_at < Date.now()) {
+            const wallet = await this.setSigner(transitSession.signer);
+
+            validTransitSessions.push({
+              wallet,
+              ...transitSession,
+            });
+
+            resolve();
+          }
+        });
+      })
+    );
+    this.setState({ transitSessions: validTransitSessions });
+    localStorage.setItem(validTransitSessions.map(session => ({
+      signer: session.signer,
+      account: session.account,
+    })));
   }
 
   initTransit = async (signer) => {
@@ -45,8 +66,6 @@ class TransitWrapper extends React.Component {
 
     const walletProviders = accessContext.getWalletProviders();
 
-    console.log({signer})
-
     const selectedProvider = walletProviders.filter((provider) => {
       return provider.id === signer;
     })[0];
@@ -65,8 +84,6 @@ class TransitWrapper extends React.Component {
   }
 
   setSigner = async (signer) => {
-    this.setState({ signer });
-
     const wallet = await this.initTransit(signer);
 
     let response;
@@ -88,20 +105,35 @@ class TransitWrapper extends React.Component {
     const account = {
       ...response,
       name: account_name,
-      authority: permissions[0] && permissions[0].perm_name
+      authority: permissions[0] && permissions[0].perm_name,
     };
 
-    await this.setState({ account });
+    await this.setState({
+      transitSessions: this.state.transitSessions.concat({
+        account,
+        signer,
+        wallet,
+      })
+    });
 
-    window.transitAccount = account;
-    window.transitSigner = signer;
+    localStorage.setItem(
+      'transitSessions',
+      this.state.transitSessions.map(session => ({
+        signer: session.signer,
+        account: session.account,
+      }))
+    );
   }
   clearTx = () => this.setState({ tx: false })
-  transact = async (transaction, config) => {
-    const { wallet } = this.state;
+  transact = async (signer, accountName, transaction, config) => {
+    const { transitSessions } = this.state;
+
+    const transitSession = transitSessions.find(session => {
+      return session.signer === signer && session.account.name === accountName;
+    });
 
     try {
-      return await wallet.eosApi.transact(transaction, config);
+      return await transitSession.wallet.eosApi.transact(transaction, config);
     } catch(error) {
       console.log({error});
 
