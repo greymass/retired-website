@@ -89,6 +89,9 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
        <Segment
          loading={processing}
        >
+         <Header
+           content="Please login on the Blockchain where you wish to support us."
+         />
          {blockchain ? (
            <Button
              content="< Back"
