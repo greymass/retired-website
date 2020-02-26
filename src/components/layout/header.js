@@ -1,12 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { injectIntl } from 'gatsby-plugin-intl';
 import { graphql, StaticQuery } from 'gatsby';
 
 import HeaderSidebar from './header/sidebar';
 import HeaderMenu from './header/menu';
 
-class Header extends Component {
-  state = { sidebarVisible: false };
+import TransitWrapper from '../shared/wrappers/transit';
+
+class Header extends TransitWrapper {
+  state = {
+    transitSessions: [],
+    sidebarVisible: false
+  };
+
+  componentDidMount() {
+    window.onstorage = () => {
+      console.log({ storage: window.localStorage });
+
+      this.loadSessions();
+    };
+
+    this.loadSessions();
+  }
+
+  loadSessions = () => {
+    this.setState({ transitSessions: window.localStorage.getItem('transitSessions') })
+  }
+
   handlePusher = () => {
     const { sidebarVisible } = this.state;
 
@@ -17,7 +37,7 @@ class Header extends Component {
 
   render() {
     const { data, intl, location } = this.props;
-    const { sidebarVisible } = this.state;
+    const { sidebarVisible, transitSessions } = this.state;
 
     const pathName = (location && location.pathname.split('/')[2]) || '';
     const activeItem = location && `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
@@ -36,6 +56,7 @@ class Header extends Component {
           handleToggle={this.handleToggle}
           navbarItems={navbarItems}
           sidebarVisible={sidebarVisible}
+          transitSessions={transitSessions}
         />
         <HeaderMenu
           activeItem={activeItem}
@@ -43,6 +64,7 @@ class Header extends Component {
           handlePusher={this.handlePusher}
           handleToggle={this.handleToggle}
           navbarItems={navbarItems}
+          transitSessions={transitSessions}
         />
       </React.Fragment>
     )

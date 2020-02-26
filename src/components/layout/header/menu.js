@@ -16,6 +16,7 @@ class HeaderMobileMenu extends Component {
       activeItem,
       handleToggle,
       navbarItems,
+      transitSessions,
     } = this.props;
 
     return (
@@ -53,6 +54,10 @@ class HeaderMobileMenu extends Component {
               <Menu.Item className="mobile-hidden">
                 <SupportUsButton />
               </Menu.Item>
+              <Menu.Item className="mobile-hidden">
+                <SharedTransitSessionsDropdown />
+              </Menu.Item>
+
 
               <Menu.Item
                 className={`mobile-only ${menuStyles.sidebarButton}`}
