@@ -4,20 +4,11 @@ import { Button, Header, Segment, Grid, Dropdown } from 'semantic-ui-react';
 import { debounce } from 'lodash';
 
 import TransitWrapper from '../../shared/wrappers/transit';
+import TransitLogin from '../../shared/sections/transit/login';
 
 class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   state = {
     processing: false,
-  }
-
-  transitLogin = async (walletName) => {
-    const { blockchain } = this.state;
-
-    this.setState({
-      processing: true,
-    })
-    await this.setSigner(walletName, blockchain);
-    this.setState({ processing: false });
   }
 
   vote = debounce(async () => {
@@ -92,14 +83,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
          <Header
            content="Please login on the Blockchain where you wish to support us."
          />
-         {blockchain ? (
-           <Button
-             content="< Back"
-             onClick={() => this.setState({ blockchain: null })}
-             primary
-             size="huge"
-           />
-         ) : (
+         {blockchain && (
            <React.Fragment>
              <Button
                content="Support us on EOS"
@@ -132,6 +116,15 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                size="huge"
              />
            </React.Fragment>
+         )}
+         {(blockchain && !account) && (
+           <TransitLogin
+              blockchain={blockchain}
+              setSigner={(walletName, blockchain) => new Promise(async resolve => {
+                const account = await this.setSigner(walletName, blockchain)
+                this.setState({ account });
+              })}
+           />
          )}
          {account && (
            <React.Fragment>
@@ -178,22 +171,6 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                  />
                </Grid.Column>
              </Grid>
-           </React.Fragment>
-         )}
-         {(!account && blockchain) && (
-           <React.Fragment>
-             <Button
-               content="Login with Scatter"
-               onClick={() => this.transitLogin('scatter')}
-               primary
-               size="huge"
-             />
-             <Button
-               content="Login with Anchor"
-               onClick={() => this.transitLogin('anchor-link')}
-               primary
-               size="huge"
-             />
            </React.Fragment>
          )}
 
