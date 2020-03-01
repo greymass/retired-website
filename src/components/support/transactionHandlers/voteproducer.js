@@ -4,7 +4,7 @@ import { Button, Header, Segment, Grid, Dropdown } from 'semantic-ui-react';
 import { debounce } from 'lodash';
 
 import TransitWrapper from '../../shared/wrappers/transit';
-import TransitLogin from '../../shared/sections/transit/login';
+import TransitLogin from '../../shared/modals/transit/login';
 
 class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   state = {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Header, Grid, Segment } from 'semantic-ui-react';
-import TransitLogin from '../shared/sections/transit/login';
+import TransitLogin from '../shared/modals/transit/login';
 
 class FuelLogin extends Component {
   render() {
