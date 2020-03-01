@@ -58,7 +58,6 @@ class HeaderMobileMenu extends Component {
                 <SharedTransitSessionsDropdown />
               </Menu.Item>
 
-
               <Menu.Item
                 className={`mobile-only ${menuStyles.sidebarButton}`}
                 onClick={handleToggle}
