@@ -25,6 +25,10 @@ class TransitWrapper extends React.Component {
     });
 
     this.setTransitSessionsFromStorage();
+
+    if (!window.transitWallet) {
+      this.login()
+    }
   }
 
   setTransitSessionsFromStorage = () => {
@@ -35,10 +39,27 @@ class TransitWrapper extends React.Component {
     this.setState({ currentTransitSession, transitSessions });
   }
 
-  login = async (signer, chainName) => {
+  switchAccount = (signer, chainName) => {
     const { transitSession } = this.state;
 
-    const wallet = await this.initWallet(signer, chainName);
+    const newTransitSession = transitSession.find(transitSession => {
+      transitSession.signer === signer && transitSession.chainName === chainName;
+    });
+
+    window.localStorage.setItem(
+      'currentTransitSession',
+      newTransitSession,
+    )
+  }
+
+
+  login = async (signer, chainName) => {
+    const { transitSession, currentTransitSession } = this.state;
+
+    const wallet = await this.initWallet(
+      signer || currentTransitSession.signer,
+      chainName || currentTransitSession.chainName
+    );
 
     let response;
 
