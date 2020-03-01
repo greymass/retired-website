@@ -5,8 +5,7 @@ import { initAccessContext } from 'eos-transit';
 import scatter from 'eos-transit-scatter-provider';
 import anchorLink from 'temp-anchorlink-provider';
 
-const chainId = 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906';
-const apiNode = 'eos.greymass.com';
+import chains from './chains';
 
 class TransitWrapper extends React.Component {
   constructor(props) {
@@ -21,39 +20,83 @@ class TransitWrapper extends React.Component {
   }
 
   async componentDidMount() {
-    const localStorage = window.localStorage;
-    const transitSessions = localStorage.getItem('transitSessions');
+    window.addEventListener('storage', () => {
+      this.setTransitSessionsFromStorage();
+    });
 
-    const validTransitSessions = [];
-
-    await Promise.all(
-      transitSessions.map(async transitSession => {
-        return new Promise(async resolve => {
-          if (transitSession.expires_at < Date.now()) {
-            const wallet = await this.setSigner(transitSession.signer);
-
-            validTransitSessions.push({
-              wallet,
-              ...transitSession,
-            });
-
-            resolve();
-          }
-        });
-      })
-    );
-    this.setState({ transitSessions: validTransitSessions });
-    localStorage.setItem(validTransitSessions.map(session => ({
-      signer: session.signer,
-      account: session.account,
-    })));
+    this.setTransitSessionsFromStorage();
   }
 
-  initTransit = async (signer) => {
+  setTransitSessionsFromStorage = () => {
+    const localStorage = window.localStorage;
+    const currentTransitSession = localStorage.getItem('currentTransitSession');
+    const transitSessions = localStorage.getItem('transitSessions');
+
+    this.setState({ currentTransitSession, transitSessions });
+  }
+
+  login = async (signer, chainName) => {
+    const { transitSession } = this.state;
+
+    const wallet = await this.initWallet(signer, chainName);
+
+    let response;
+
+    try {
+      await wallet.connect();
+      response = await wallet.login();
+    } catch(error) {
+      console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
+
+      return alert(
+        `Cannot connect to ${
+          signer
+        }. Please make sure that the wallet app is opened and try again.`
+      );
+    }
+    const { account_name, permissions } = response;
+
+    const account = {
+      ...response,
+      name: account_name,
+      authority: permissions[0] && permissions[0].perm_name,
+    };
+
+    const otherTransitSessions = transitSession.filter(transitSession => {
+      transitSession.signer !== signer || transitSession.chainName !== chainName;
+    });
+
+    const localStorage = window.localStorage;
+
+    localStorage.setItem(
+      'transitSessions',
+      otherTransitSessions.concat({
+        account,
+        signer,
+        chainName,
+      })
+    );
+
+    localStorage.setItem(
+      'currentTransitSession',
+      {
+        account,
+        signer,
+        chainName,
+        loggedInAt: new Time.toString(),
+      }
+    );
+  }
+
+  initWallet = async (signer, chainName) => {
+    if (!chains[chainName]) {
+      throw `Chain ${chainName} is not supported!`;
+    }
+
     const accessContext = initAccessContext({
       appName: 'greymass.com',
       network: {
-        host: apiNode,
+        host: chains[chainName],
         protocol: 'https',
         chainId,
         port: 443
@@ -78,52 +121,9 @@ class TransitWrapper extends React.Component {
 
     window.transitWallet = wallet;
 
-    this.setState({ signer, wallet });
-
     return wallet;
   }
 
-  setSigner = async (signer) => {
-    const wallet = await this.initTransit(signer);
-
-    let response;
-
-    try {
-      await wallet.connect();
-      response = await wallet.login();
-    } catch(error) {
-      console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
-
-      return alert(
-        `Cannot connect to ${
-          signer
-        }. Please make sure that the wallet app is opened and try again.`
-      );
-    }
-    const { account_name, permissions } = response;
-
-    const account = {
-      ...response,
-      name: account_name,
-      authority: permissions[0] && permissions[0].perm_name,
-    };
-
-    await this.setState({
-      transitSessions: this.state.transitSessions.concat({
-        account,
-        signer,
-        wallet,
-      })
-    });
-
-    localStorage.setItem(
-      'transitSessions',
-      this.state.transitSessions.map(session => ({
-        signer: session.signer,
-        account: session.account,
-      }))
-    );
-  }
   clearTx = () => this.setState({ tx: false })
   transact = async (signer, accountName, transaction, config) => {
     const { transitSessions } = this.state;
@@ -152,10 +152,10 @@ class TransitWrapper extends React.Component {
     window.transitWallet = null;
     window.transitSigner = null;
 
-    this.setState({
-      account: false,
-      signer: false,
-    })
+    const localStorage = window.localStorage;
+
+    localStorage.setItem('currentTransitSession', null);
+    localStorage.setItem('transitSessions', null);
   }
 }
 
