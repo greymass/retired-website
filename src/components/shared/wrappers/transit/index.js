@@ -12,10 +12,8 @@ class TransitWrapper extends React.Component {
     super(props);
 
     this.state = {
-      account: false,
-      signer: false,
-      tx: false,
-      wallet: false,
+      transitSessions: [],
+      currentTransitSession: {},
     };
   }
 
@@ -33,8 +31,8 @@ class TransitWrapper extends React.Component {
 
   setTransitSessionsFromStorage = () => {
     const localStorage = window.localStorage;
-    const currentTransitSession = localStorage.getItem('currentTransitSession');
-    const transitSessions = localStorage.getItem('transitSessions');
+    const currentTransitSession = localStorage.getItem('currentTransitSession') || {};
+    const transitSessions = localStorage.getItem('transitSessions') || [];
 
     this.setState({ currentTransitSession, transitSessions });
   }
@@ -55,6 +53,8 @@ class TransitWrapper extends React.Component {
 
   login = async (signer, chainName) => {
     const { transitSession, currentTransitSession } = this.state;
+
+    console.log({currentTransitSession})
 
     const wallet = await this.initWallet(
       signer || currentTransitSession.signer,
