@@ -2,15 +2,12 @@ import React  from 'react';
 import { Button, Header, Segment, Grid, Dropdown, Modal, Divider, Container } from "semantic-ui-react"
 
 import TransitWrapper from '../../../shared/wrappers/transit';
-import { Card } from "semantic-ui-react/dist/commonjs/views/Card"
-import { List } from "semantic-ui-react/dist/commonjs/elements/List"
-import { Form } from "semantic-ui-react/dist/commonjs/collections/Form"
+
+import chains from '../../../../constants/chains';
+
+import loginStyles from './login.module.css';
 
 class SharedModalsTransitLogin extends TransitWrapper {
-  state = {
-    processing: false,
-  };
-
   componentDidMount() {
     const { blockchain } = this.props;
 
@@ -18,13 +15,13 @@ class SharedModalsTransitLogin extends TransitWrapper {
   }
 
   transitLogin = async (walletName) => {
-    const { setSigner } = this.props;
     const { blockchain } = this.state;
 
     this.setState({
       processing: true,
-    })
-    await setSigner(walletName, blockchain);
+    });
+
+    await this.login(walletName, blockchain);
     this.setState({ processing: false });
   }
 
@@ -41,54 +38,39 @@ class SharedModalsTransitLogin extends TransitWrapper {
     return (
       <Modal
         centered={false}
+        className={loginStyles.modal}
         content={(
           <Modal.Content>
             <Segment
               loading={processing}
+              basic
             >
               {blockchain ? (
-                <Button
-                  content="< Back"
-                  onClick={() => this.setState({ blockchain: null })}
-                  primary
-                  size="huge"
-                />
+                <>
+                  <Button
+                    content="< Back"
+                    onClick={() => this.setState({ blockchain: null })}
+                    size="mini"
+                  />
+                  <hr />
+                </>
               ) : (
-                <React.Fragment>
-                  <Button
-                    content="Login on EOS"
-                    onClick={() => this.setState({ blockchain: 'eos' })}
-                    primary
-                    size="huge"
-                  />
-                  <Button
-                    content="Login on WAX"
-                    onClick={() => this.setState({ blockchain: 'wax'})}
-                    primary
-                    size="huge"
-                  />
-                  <Button
-                    content="Login on TELOS"
-                    onClick={() => this.setState({ blockchain: 'telos' })}
-                    primary
-                    size="huge"
-                  />
-                  <Button
-                    content="Login on LYNX"
-                    onClick={() => this.setState({ blockchain: 'lynx' })}
-                    primary
-                    size="huge"
-                  />
-                  <Button
-                    content="Login on INSTAR"
-                    onClick={() => this.setState({ blockchain: 'instar' })}
-                    primary
-                    size="huge"
-                  />
-                </React.Fragment>
+                <>
+                  <Header>
+                    Select a blockchain to connect to
+                  </Header>
+                  {Object.values(chains).map(chain => (
+                    <Button
+                      content={`Login on ${chain.name.toUpperCase()}`}
+                      onClick={() => this.setState({ blockchain: chain.name })}
+                      primary
+                      size="huge"
+                    />
+                  ))}
+                </>
               )}
               {account && (
-                <React.Fragment>
+                <>
                   <Header
                     textAlign="center"
                   >
@@ -103,7 +85,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
                   </Header>
                   <br />
                   <Grid>
-                    <Grid.Column width={8} textAlign="center">
+                    <Grid.Column width={4} textAlign="center">
                       <Button
                         content="Proxy your Vote"
                         onClick={this.proxyVotes}
@@ -129,10 +111,13 @@ class SharedModalsTransitLogin extends TransitWrapper {
                       />
                     </Grid.Column>
                   </Grid>
-                </React.Fragment>
+                </>
               )}
               {(!account && blockchain) && (
-                <React.Fragment>
+                <Segment
+                  basic
+                  textAlign="center"
+                >
                   <Button
                     content="Login with Scatter"
                     onClick={() => this.transitLogin('scatter')}
@@ -145,14 +130,14 @@ class SharedModalsTransitLogin extends TransitWrapper {
                     primary
                     size="huge"
                   />
-                </React.Fragment>
+                </Segment>
               )}
             </Segment>
           </Modal.Content>
         )}
         closeIcon
         dimmer="inverted"
-        header="Purchase Fuel"
+        header="Login"
         open
         onClose={onClose}
       />

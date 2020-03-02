@@ -5,7 +5,7 @@ import { initAccessContext } from 'eos-transit';
 import scatter from 'eos-transit-scatter-provider';
 import anchorLink from 'temp-anchorlink-provider';
 
-import chains from './chains';
+import chains from '../../../../constants/chains';
 
 class TransitWrapper extends React.Component {
   constructor(props) {
@@ -18,7 +18,8 @@ class TransitWrapper extends React.Component {
   }
 
   async componentDidMount() {
-    window.addEventListener('storage', () => {
+    window.addEventListener('localStorage', () => {
+      console.log('triggered!!!!')
       this.setTransitSessionsFromStorage();
     });
 
@@ -50,9 +51,8 @@ class TransitWrapper extends React.Component {
     )
   }
 
-
   login = async (signer, chainName) => {
-    const { transitSession, currentTransitSession } = this.state;
+    const { transitSessions, currentTransitSession } = this.state;
 
     console.log({currentTransitSession})
 
@@ -61,11 +61,14 @@ class TransitWrapper extends React.Component {
       chainName || currentTransitSession.chainName
     );
 
+    console.log({wallet})
+
     let response;
 
     try {
       await wallet.connect();
       response = await wallet.login();
+      console.log({response})
     } catch(error) {
       console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
 
@@ -83,33 +86,36 @@ class TransitWrapper extends React.Component {
       authority: permissions[0] && permissions[0].perm_name,
     };
 
-    const otherTransitSessions = transitSession.filter(transitSession => {
+    const otherTransitSessions = transitSessions.filter(transitSession => {
       return transitSession.signer !== signer || transitSession.chainName !== chainName;
     });
+
+    console.log({otherTransitSessions})
 
     const localStorage = window.localStorage;
 
     localStorage.setItem(
       'transitSessions',
-      otherTransitSessions.concat({
+      JSON.stringify(otherTransitSessions.concat({
         account,
         signer,
         chainName,
-      })
+      }))
     );
 
     localStorage.setItem(
       'currentTransitSession',
-      {
+      JSON.stringify({
         account,
         signer,
         chainName,
         loggedInAt: (new Date()).toString(),
-      }
+      })
     );
   }
 
   initWallet = async (signer, chainName) => {
+    console.log({signer})
     if (!chains[chainName]) {
       throw `Chain ${chainName} is not supported!`;
     }
