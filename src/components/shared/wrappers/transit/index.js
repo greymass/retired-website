@@ -18,7 +18,7 @@ class TransitWrapper extends React.Component {
   }
 
   async componentDidMount() {
-    window.addEventListener('localStorage', () => {
+    window.addEventListener('storage', () => {
       console.log('triggered!!!!')
       this.setTransitSessionsFromStorage();
     });
@@ -48,7 +48,8 @@ class TransitWrapper extends React.Component {
     window.localStorage.setItem(
       'currentTransitSession',
       newTransitSession,
-    )
+    );
+    window.dispatchEvent(new CustomEvent("storage"));
   }
 
   login = async (signer, chainName) => {
@@ -112,6 +113,8 @@ class TransitWrapper extends React.Component {
         loggedInAt: (new Date()).toString(),
       })
     );
+
+    window.dispatchEvent(new CustomEvent("storage"));
   }
 
   initWallet = async (signer, chainName) => {
@@ -183,6 +186,8 @@ class TransitWrapper extends React.Component {
 
     localStorage.setItem('currentTransitSession', null);
     localStorage.setItem('transitSessions', null);
+
+    window.dispatchEvent(new CustomEvent("storage"));
   }
 }
 
