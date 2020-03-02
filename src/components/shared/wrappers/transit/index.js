@@ -43,7 +43,7 @@ class TransitWrapper extends React.Component {
     const { transitSession } = this.state;
 
     const newTransitSession = transitSession.find(transitSession => {
-      transitSession.signer === signer && transitSession.chainName === chainName;
+      return transitSession.signer === signer && transitSession.chainName === chainName;
     });
 
     window.localStorage.setItem(
@@ -84,7 +84,7 @@ class TransitWrapper extends React.Component {
     };
 
     const otherTransitSessions = transitSession.filter(transitSession => {
-      transitSession.signer !== signer || transitSession.chainName !== chainName;
+      return transitSession.signer !== signer || transitSession.chainName !== chainName;
     });
 
     const localStorage = window.localStorage;
@@ -104,7 +104,7 @@ class TransitWrapper extends React.Component {
         account,
         signer,
         chainName,
-        loggedInAt: new Time.toString(),
+        loggedInAt: (new Date()).toString(),
       }
     );
   }
@@ -117,9 +117,9 @@ class TransitWrapper extends React.Component {
     const accessContext = initAccessContext({
       appName: 'greymass.com',
       network: {
-        host: chains[chainName],
+        host: chains[chainName].apiNode,
         protocol: 'https',
-        chainId,
+        chainId: chains[chainName].chainId,
         port: 443
       },
       walletProviders: [
