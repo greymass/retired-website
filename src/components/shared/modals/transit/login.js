@@ -1,9 +1,7 @@
 import React  from 'react';
 import { Button, Header, Segment, Grid, Dropdown, Modal, Divider, Container } from "semantic-ui-react"
 
-import { debounce } from 'lodash';
-
-import TransitWrapper from '../../shared/wrappers/transit';
+import TransitWrapper from '../../../shared/wrappers/transit';
 import { Card } from "semantic-ui-react/dist/commonjs/views/Card"
 import { List } from "semantic-ui-react/dist/commonjs/elements/List"
 import { Form } from "semantic-ui-react/dist/commonjs/collections/Form"

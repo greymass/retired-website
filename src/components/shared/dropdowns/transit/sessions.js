@@ -3,7 +3,7 @@ import { Dropdown } from 'semantic-ui-react';
 
 import TransitWrapper from '../../../shared/wrappers/transit';
 
-import SharedModalsTransitLogin from '../../../shared/modals/transit';
+import SharedModalsTransitLogin from '../../../shared/modals/transit/login';
 
 import { Card } from "semantic-ui-react/dist/commonjs/views/Card"
 import { List } from "semantic-ui-react/dist/commonjs/elements/List"

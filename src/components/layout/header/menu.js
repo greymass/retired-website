@@ -8,6 +8,8 @@ import Logo from "../../../images/greymass-logo-white.png"
 import LayoutHeaderMenuLink from './menu/link';
 import SupportUsButton from '../../shared/buttons/supportUs';
 
+import SharedDropdownsTransitSessions from '../../shared/dropdowns/transit/sessions';
+
 import menuStyles from './menu.module.css';
 
 class HeaderMobileMenu extends Component {
@@ -55,7 +57,7 @@ class HeaderMobileMenu extends Component {
                 <SupportUsButton />
               </Menu.Item>
               <Menu.Item className="mobile-hidden">
-                <SharedTransitSessionsDropdown />
+                <SharedDropdownsTransitSessions />
               </Menu.Item>
 
               <Menu.Item

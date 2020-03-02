@@ -9,6 +9,8 @@ import { Link } from 'gatsby';
 import mobileHeaderSidebarStyles from './sidebar.module.css';
 import SupportUsButton from '../../shared/buttons/supportUs';
 
+import SharedDropdownsTransitSessions from '../../shared/dropdowns/transit/sessions';
+
 class HeaderMobileSidebar extends Component {
   render() {
     const {
@@ -37,7 +39,7 @@ class HeaderMobileSidebar extends Component {
         </Menu.Item>
         <hr />
 
-        <SharedTransitSessionsDropdown  />
+        <SharedDropdownsTransitSessions />
 
       </Sidebar>
     );
