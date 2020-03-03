@@ -15,8 +15,6 @@ class Header extends TransitWrapper {
 
   componentDidMount() {
     window.onstorage = () => {
-      console.log({ storage: window.localStorage });
-
       this.loadSessions();
     };
 

@@ -8,14 +8,10 @@ import anchorLink from 'temp-anchorlink-provider';
 import chains from '../../../../constants/chains';
 
 class TransitWrapper extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      transitSessions: [],
-      currentTransitSession: {},
-    };
-  }
+  state = {
+    transitSessions: [],
+    currentTransitSession: {},
+  };
 
   async componentDidMount() {
     window.addEventListener('storage', () => {
@@ -23,10 +19,10 @@ class TransitWrapper extends React.Component {
       this.setTransitSessionsFromStorage();
     });
 
-    this.setTransitSessionsFromStorage();
+    const currentTransitSession = this.setTransitSessionsFromStorage();
 
     if (!window.transitWallet) {
-      this.login()
+      this.login(currentTransitSession.signer, currentTransitSession.chainName);
     }
   }
 
@@ -39,12 +35,14 @@ class TransitWrapper extends React.Component {
       currentTransitSession: JSON.parse(currentTransitSessionString),
       transitSessions: JSON.parse(transitSessionsString),
     });
+
+    return JSON.parse(currentTransitSessionString);
   }
 
   switchAccount = (signer, chainName) => {
-    const { transitSession } = this.state;
+    const { transitSessions } = this.state;
 
-    const newTransitSession = transitSession.find(transitSession => {
+    const newTransitSession = transitSessions.find(transitSession => {
       return transitSession.signer === signer && transitSession.chainName === chainName;
     });
 
@@ -58,21 +56,20 @@ class TransitWrapper extends React.Component {
   login = async (signer, chainName) => {
     const { transitSessions, currentTransitSession } = this.state;
 
-    console.log({currentTransitSession})
+    console.log({state: this.state})
 
     const wallet = await this.initWallet(
       signer || currentTransitSession.signer,
       chainName || currentTransitSession.chainName
     );
 
-    console.log({wallet})
-
     let response;
+
+    console.log('logging in')
 
     try {
       await wallet.connect();
       response = await wallet.login();
-      console.log({response})
     } catch(error) {
       console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
 
@@ -90,21 +87,27 @@ class TransitWrapper extends React.Component {
       authority: permissions[0] && permissions[0].perm_name,
     };
 
-    const otherTransitSessions = transitSessions.filter(transitSession => {
+    console.log({transitSessionsInLogin: transitSessions})
+
+    const newTransitSessions = transitSessions.filter(transitSession => {
       return transitSession.signer !== signer || transitSession.chainName !== chainName;
     });
 
-    console.log({otherTransitSessions})
+    console.log({first: newTransitSessions});
+
+    newTransitSessions.push({
+      account,
+      signer,
+      chainName,
+    });
+
+    console.log({second: newTransitSessions})
 
     const localStorage = window.localStorage;
 
     localStorage.setItem(
       'transitSessions',
-      JSON.stringify(otherTransitSessions.concat({
-        account,
-        signer,
-        chainName,
-      }))
+      JSON.stringify(newTransitSessions)
     );
 
     localStorage.setItem(
@@ -121,13 +124,13 @@ class TransitWrapper extends React.Component {
   }
 
   initWallet = async (signer, chainName) => {
-    console.log({signer})
+    console.log('initWallet')
     if (!chains[chainName]) {
       throw `Chain ${chainName} is not supported!`;
     }
 
     const accessContext = initAccessContext({
-      appName: 'greymass.com',
+      appName: `greymass.com - ${chainName}`,
       network: {
         host: chains[chainName].apiNode,
         protocol: 'https',
@@ -146,7 +149,7 @@ class TransitWrapper extends React.Component {
       return provider.id === signer;
     })[0];
 
-    selectedProvider.sessionId = signer;
+    selectedProvider.sessionId = `${signer} - ${chainName}`;
 
     const wallet = accessContext.initWallet(selectedProvider);
 
@@ -168,8 +171,6 @@ class TransitWrapper extends React.Component {
     try {
       return await transitSession.wallet.eosApi.transact(transaction, config);
     } catch(error) {
-      console.log({error});
-
       const cancelledRequest = JSON.stringify(error).includes('CANCEL');
 
       if (!cancelledRequest) {
