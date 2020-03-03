@@ -15,6 +15,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
   }
 
   transitLogin = async (walletName) => {
+    const { onClose } = this.props;
     const { blockchain } = this.state;
 
     this.setState({
@@ -23,6 +24,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
 
     await this.login(walletName, blockchain);
     this.setState({ processing: false });
+    onClose();
   }
 
   render() {
