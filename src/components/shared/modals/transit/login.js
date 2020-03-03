@@ -8,11 +8,13 @@ import chains from '../../../../constants/chains';
 import loginStyles from './login.module.css';
 
 class SharedModalsTransitLogin extends TransitWrapper {
-  componentDidMount() {
-    const { blockchain } = this.props;
-
-    this.setState({ blockchain });
-  }
+  // componentDidMount() {
+  //   const { blockchain } = this.props;
+  //
+  //   this.setState({ blockchain });
+  //
+  //   super();
+  // }
 
   transitLogin = async (walletName) => {
     const { onClose } = this.props;
@@ -21,6 +23,8 @@ class SharedModalsTransitLogin extends TransitWrapper {
     this.setState({
       processing: true,
     });
+
+    console.log({walletName})
 
     await this.login(walletName, blockchain);
     this.setState({ processing: false });

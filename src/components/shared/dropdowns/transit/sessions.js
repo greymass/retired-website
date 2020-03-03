@@ -17,7 +17,7 @@ class SharedDropdownsTransitLogin extends TransitWrapper {
       account
     } = currentTransitSession;
 
-    console.log({currentTransitSession})
+    console.log({transitSessionsInSession: transitSessions})
 
     return (
       <>
