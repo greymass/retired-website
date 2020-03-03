@@ -17,27 +17,30 @@ class SharedDropdownsTransitLogin extends TransitWrapper {
       account
     } = currentTransitSession;
 
+    console.log({currentTransitSession})
+
     return (
       <>
         {account ? (
-          <Dropdown text={account ? `Logged in as ${account}` : 'Login'} pointing className='link item'>
+          <Dropdown text={account ? account.name : 'Login'} pointing className='link item'>
             <Dropdown.Menu>
-              <Dropdown.Header>Switch Accounts</Dropdown.Header>
+              {transitSessions.length > 1 && (
+                <Dropdown.Item>
+                  <Dropdown text='Switch Account'>
+                    <Dropdown.Menu>
+                      <Dropdown.Header>Select Account</Dropdown.Header>
+                      {transitSessions.map(transitSession => (
+                        <Dropdown.Item>{transitSession.name}</Dropdown.Item>
+                      ))}
+                      <Dropdown.Divider />
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Dropdown.Item>
+              )}
               <Dropdown.Item>
-                <Dropdown text='Switch Account'>
-                  <Dropdown.Menu>
-                    <Dropdown.Header>Select Account</Dropdown.Header>
-                    {transitSessions.map(transitSession => (
-                      <Dropdown.Item>{transitSession.name}</Dropdown.Item>
-                    ))}
-                    <Dropdown.Divider />
-                    <Dropdown.Header>
-                      <a onClick={() => this.setState({ loggingIn: true })}>
-                        + Add account
-                      </a>
-                    </Dropdown.Header>
-                  </Dropdown.Menu>
-                </Dropdown>
+                <a onClick={() => this.setState({ loggingIn: true })}>
+                  + Add account
+                </a>
               </Dropdown.Item>
               <Dropdown.Item>
                 <a onClick={this.logout}>
@@ -52,7 +55,9 @@ class SharedDropdownsTransitLogin extends TransitWrapper {
           </a>
         )}
         {loggingIn && (
-          <SharedModalsTransitLogin />
+          <SharedModalsTransitLogin
+            onClose={() => this.setState({ loggingIn: false })}
+          />
         )}
       </>
     );

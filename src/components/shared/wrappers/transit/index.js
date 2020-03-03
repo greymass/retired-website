@@ -32,10 +32,13 @@ class TransitWrapper extends React.Component {
 
   setTransitSessionsFromStorage = () => {
     const localStorage = window.localStorage;
-    const currentTransitSession = localStorage.getItem('currentTransitSession') || {};
-    const transitSessions = localStorage.getItem('transitSessions') || [];
+    const currentTransitSessionString = localStorage.getItem('currentTransitSession') || '{}';
+    const transitSessionsString = localStorage.getItem('transitSessions') || '[]';
 
-    this.setState({ currentTransitSession, transitSessions });
+    this.setState({
+      currentTransitSession: JSON.parse(currentTransitSessionString),
+      transitSessions: JSON.parse(transitSessionsString),
+    });
   }
 
   switchAccount = (signer, chainName) => {
