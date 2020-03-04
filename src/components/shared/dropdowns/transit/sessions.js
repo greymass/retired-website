@@ -20,9 +20,10 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
     } = currentTransitSession;
 
     const otherTransitSessions = transitSessions.filter(transitSession => {
-      return transitSession.account.name !== currentTransitSession.account.name ||
+      return !currentTransitSession.account ||
+        transitSession.account.name !== currentTransitSession.account.name ||
         transitSession.chainName !== currentTransitSession.chainName;
-    })
+    });
 
     return (
       <>
@@ -37,11 +38,15 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
                 <>
                   <Dropdown.Header>Switch Account</Dropdown.Header>
                   {otherTransitSessions.map(transitSession => (
-                    <Dropdown.Item>{transitSession.account.name}</Dropdown.Item>
+                    <Dropdown.Item>
+                      <a onClick={() => this.switchAccount(transitSession)}>
+                        {transitSession.account.name}
+                      </a>
+                    </Dropdown.Item>
                   ))}
+                  <Dropdown.Divider />
                 </>
               )}
-              <Dropdown.Divider />
               <Dropdown.Item>
                 <a onClick={() => this.setState({ loggingIn: true })}>
                   + Add account
