@@ -18,7 +18,6 @@ class HeaderMobileMenu extends Component {
       activeItem,
       handleToggle,
       navbarItems,
-      transitSessions,
     } = this.props;
 
     return (

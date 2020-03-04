@@ -24,8 +24,6 @@ class SharedModalsTransitLogin extends TransitWrapper {
       processing: true,
     });
 
-    console.log({walletName})
-
     await this.login(walletName, blockchain);
     this.setState({ processing: false });
     onClose();

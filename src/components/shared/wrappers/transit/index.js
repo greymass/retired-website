@@ -20,7 +20,11 @@ class TransitWrapper extends React.Component {
 
     await this.setTransitSessionsFromStorage();
 
-    if (!window.transitWallet) {
+    const {
+      currentTransitSession
+    } = this.state;
+
+    if (currentTransitSession.account && !window.transitWallet) {
       this.login();
     }
   }
@@ -158,19 +162,32 @@ class TransitWrapper extends React.Component {
       }
     }
   }
-  logout = () => {
-    const { wallet } = this.state;
+  logout = async () => {
+    const {
+      currentTransitSession,
+      transitSessions
+    } = this.state;
 
-    wallet.logout();
+    await window.transitWallet.logout();
 
     window.transitWallet = null;
 
     const localStorage = window.localStorage;
 
-    localStorage.setItem('currentTransitSession', null);
-    localStorage.setItem('transitSessions', null);
+    const newTransitSessions = transitSessions.filter(transitSession => {
+      return transitSession.chainName !== currentTransitSession.chainName ||
+             transitSession.account.name !== currentTransitSession.account.name;
+    });
 
-    window.dispatchEvent(new CustomEvent("storage"));
+    localStorage.setItem('transitSessions', JSON.stringify(newTransitSessions));
+
+    if (newTransitSessions.length > 0) {
+      this.switchAccount(newTransitSessions[0])
+    } else {
+      localStorage.setItem('currentTransitSession', '{}');
+    }
+
+    window.dispatchEvent(new CustomEvent('storage'));
   }
 }
 
