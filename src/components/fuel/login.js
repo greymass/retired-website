@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import { Header, Grid, Segment } from 'semantic-ui-react';
+import { Header, Grid, Segment, Button } from 'semantic-ui-react';
 import TransitLogin from '../shared/modals/transit/login';
 
 class FuelLogin extends Component {
+  state = {};
+
   render() {
     const { setSigner } = this.props;
+    const { loggingIn } = this.state;
+
     return (
       <React.Fragment>
         <Grid.Row centered>
@@ -13,12 +17,22 @@ class FuelLogin extends Component {
               <Header size="large">
                 EOSIO Network Resources On-Demand
                 <Header.Subheader>
-                  Select a Blockchain to get started!
+                  Login to get started!
                 </Header.Subheader>
               </Header>
-              <TransitLogin
-                setSigner={setSigner}
-              />
+              <Button
+                onClick={() => this.setState({ loggingIn: true })}
+              >
+                Login
+              </Button>
+
+              {loggingIn && (
+                <TransitLogin
+                  setSigner={setSigner}
+                  onClose={() => this.setState({ loggingIn: false })}
+                />
+              )}
+
             </Segment>
           </Grid.Column>
         </Grid.Row>

@@ -43,12 +43,16 @@ class Fuel extends TransitWrapper {
     const {
       location
     } = this.props;
+
+    const {
+      currentTransitSession,
+      tx,
+    } = this.state;
+
     const {
       account,
-      identityRequest,
-      signer,
-      tx
-    } = this.state;
+      signer
+    } = currentTransitSession;
 
     return (
       <Layout location={location}>
@@ -63,14 +67,13 @@ class Fuel extends TransitWrapper {
                 />
               </Grid.Column>
             </Grid.Row>
-            {(!signer)
+            {(!account)
               ? <FuelLogin setSigner={this.setSigner} />
               : false
             }
             {(signer && !account)
               ? (
                 <FuelLoginLoader
-                  identityRequest={identityRequest}
                   setSigner={this.setSigner}
                   signer={signer}
                 />
