@@ -5,7 +5,9 @@ import TransitWrapper from '../../../shared/wrappers/transit';
 
 import SharedModalsTransitLogin from '../../../shared/modals/transit/login';
 
-class SharedDropdownsTransitLogin extends TransitWrapper {
+import sessionsDropdownStyles from './sessions.module.css';
+
+class SharedDropdownsTransitSessions extends TransitWrapper {
   render() {
     const {
       loggingIn,
@@ -17,26 +19,29 @@ class SharedDropdownsTransitLogin extends TransitWrapper {
       account
     } = currentTransitSession;
 
-    console.log({transitSessionsInSession: transitSessions})
+    const otherTransitSessions = transitSessions.filter(transitSession => {
+      return transitSession.account.name !== currentTransitSession.account.name ||
+        transitSession.chainName !== currentTransitSession.chainName;
+    })
 
     return (
       <>
         {account ? (
-          <Dropdown text={account ? account.name : 'Login'} pointing className='link item'>
+          <Dropdown
+            className={sessionsDropdownStyles.dropdown}
+            text={account ? account.name : 'Login'}
+            pointing
+          >
             <Dropdown.Menu>
               {transitSessions.length > 1 && (
-                <Dropdown.Item>
-                  <Dropdown text='Switch Account'>
-                    <Dropdown.Menu>
-                      <Dropdown.Header>Select Account</Dropdown.Header>
-                      {transitSessions.map(transitSession => (
-                        <Dropdown.Item>{transitSession.name}</Dropdown.Item>
-                      ))}
-                      <Dropdown.Divider />
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </Dropdown.Item>
+                <>
+                  <Dropdown.Header>Switch Account</Dropdown.Header>
+                  {otherTransitSessions.map(transitSession => (
+                    <Dropdown.Item>{transitSession.account.name}</Dropdown.Item>
+                  ))}
+                </>
               )}
+              <Dropdown.Divider />
               <Dropdown.Item>
                 <a onClick={() => this.setState({ loggingIn: true })}>
                   + Add account
@@ -64,4 +69,4 @@ class SharedDropdownsTransitLogin extends TransitWrapper {
   }
 }
 
-export default SharedDropdownsTransitLogin;
+export default SharedDropdownsTransitSessions;
