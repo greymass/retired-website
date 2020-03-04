@@ -42,6 +42,8 @@ class TransitWrapper extends React.Component {
       JSON.stringify(transitSession),
     );
     window.dispatchEvent(new CustomEvent('storage'));
+
+    this.login(transitSession.signer, transitSession.chainName);
   }
 
   login = async (signerArg, chainNameArg) => {
