@@ -15,7 +15,6 @@ class TransitWrapper extends React.Component {
 
   async componentDidMount() {
     window.addEventListener('storage', () => {
-      console.log('triggered!!!!')
       this.setTransitSessionsFromStorage();
     });
 
@@ -35,7 +34,6 @@ class TransitWrapper extends React.Component {
       currentTransitSession: JSON.parse(currentTransitSessionString),
       transitSessions: JSON.parse(transitSessionsString),
     });
-    console.log({state: this.state})
   }
 
   switchAccount = (transitSession) => {
@@ -43,7 +41,6 @@ class TransitWrapper extends React.Component {
       'currentTransitSession',
       JSON.stringify(transitSession),
     );
-    console.log({transitSession})
     window.dispatchEvent(new CustomEvent('storage'));
   }
 
@@ -53,11 +50,12 @@ class TransitWrapper extends React.Component {
     const signer = signerArg || currentTransitSession.signer;
     const chainName = chainNameArg || currentTransitSession.chainName;
 
+    console.log({currentTransitSession})
+    console.log({transitSessions})
+
     const wallet = await this.initWallet(signer, chainName);
 
     let response;
-
-    console.log('logging in')
 
     try {
       await wallet.connect();
@@ -79,21 +77,15 @@ class TransitWrapper extends React.Component {
       authority: permissions[0] && permissions[0].perm_name,
     };
 
-    console.log({transitSessionsInLogin: transitSessions})
-
     const newTransitSessions = transitSessions.filter(transitSession => {
       return transitSession.signer !== signer || transitSession.chainName !== chainName;
     });
-
-    console.log({first: newTransitSessions});
 
     newTransitSessions.push({
       account,
       signer,
       chainName,
     });
-
-    console.log({second: newTransitSessions})
 
     const localStorage = window.localStorage;
 
@@ -116,7 +108,6 @@ class TransitWrapper extends React.Component {
   }
 
   initWallet = async (signer, chainName) => {
-    console.log('initWallet')
     if (!chains[chainName]) {
       throw `Chain ${chainName} is not supported!`;
     }
@@ -146,6 +137,7 @@ class TransitWrapper extends React.Component {
     const wallet = accessContext.initWallet(selectedProvider);
 
     modifyGetRequiredKeys(wallet);
+    console.log({wallet})
 
     window.transitWallet = wallet;
 
@@ -153,15 +145,9 @@ class TransitWrapper extends React.Component {
   }
 
   clearTx = () => this.setState({ tx: false })
-  transact = async (signer, accountName, transaction, config) => {
-    const { transitSessions } = this.state;
-
-    const transitSession = transitSessions.find(session => {
-      return session.signer === signer && session.account.name === accountName;
-    });
-
+  transact = async (transaction, config) => {
     try {
-      return await transitSession.wallet.eosApi.transact(transaction, config);
+      return await window.transitWallet.eosApi.transact(transaction, config);
     } catch(error) {
       const cancelledRequest = JSON.stringify(error).includes('CANCEL');
 
@@ -176,7 +162,6 @@ class TransitWrapper extends React.Component {
     wallet.logout();
 
     window.transitWallet = null;
-    window.transitSigner = null;
 
     const localStorage = window.localStorage;
 

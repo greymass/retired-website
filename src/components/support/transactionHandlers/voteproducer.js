@@ -7,10 +7,6 @@ import TransitWrapper from '../../shared/wrappers/transit';
 import TransitLogin from '../../shared/modals/transit/login';
 
 class SupportTransactionHandlersVoteproducer extends TransitWrapper {
-  state = {
-    processing: false,
-  }
-
   vote = debounce(async () => {
     await this.voteproducerAction('vote')
   }, 500);
@@ -20,7 +16,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   }, 500);
 
   voteproducerAction = async (type) => {
-    const { account, voteToRemove } = this.state;
+    const { currentTransitSession, voteToRemove } = this.state;
+    const { account } = currentTransitSession;
 
     this.setState({ processing: true });
 
@@ -57,6 +54,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
       ],
     }
 
+    console.log({transactionData})
+
     const transaction = await this.transact(transactionData, {
       blocksBehind: 3,
       expireSeconds: 120,
@@ -68,23 +67,28 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
 
   render() {
     const {
-      account,
       blockchain,
+      currentTransitSession,
       error,
       processing,
       transaction,
     } = this.state;
+
+    const {
+      account
+    } = currentTransitSession;
 
     return (
      <React.Fragment>
        <Segment
          loading={processing}
        >
-         <Header
-           content="Please login on the Blockchain where you wish to support us."
-         />
          {blockchain && (
            <React.Fragment>
+             <Header
+               textAlign='center'
+               content="Please login on the Blockchain where you wish to support us."
+             />
              <Button
                content="Support us on EOS"
                onClick={() => this.setState({ blockchain: 'eos' })}
@@ -118,6 +122,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
            </React.Fragment>
          )}
          {(blockchain && !account) && (
+
            <TransitLogin
               blockchain={blockchain}
               setSigner={(walletName, blockchain) => new Promise(async resolve => {
@@ -141,8 +146,8 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                />
              </Header>
              <br />
-             <Grid>
-               <Grid.Column width={8} textAlign="center">
+             <Grid centered>
+               <Grid.Column width={4} textAlign="center">
                  <Button
                    content="Proxy your Vote"
                    onClick={this.proxyVotes}
@@ -150,19 +155,16 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                    size="huge"
                  />
                </Grid.Column>
-               <Grid.Column width={8}>
-                 {(account.voter_info.producers.length === 30)
-                   ? (
-                     <Dropdown
-                       options={account.voter_info.producers}
-                       placeholder="Remove one of your votes"
-                       onChange={
-                         (value) => this.setState({ voteToRemove: value })
-                       }
-                     />
-                   )
-                   : false
-                 }
+               <Grid.Column width={4} textAlign="center">
+                 {(account.voter_info.producers.length === 30) && (
+                   <Dropdown
+                     options={account.voter_info.producers}
+                     placeholder="Remove one of your votes"
+                     onChange={
+                       (value) => this.setState({ voteToRemove: value })
+                     }
+                   />
+                 )}
                  <Button
                    content="Vote for Greymass"
                    onClick={this.vote}
