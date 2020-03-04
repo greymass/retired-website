@@ -38,29 +38,22 @@ class TransitWrapper extends React.Component {
     console.log({state: this.state})
   }
 
-  switchAccount = (signer, chainName) => {
-    const { transitSessions } = this.state;
-
-    const newTransitSession = transitSessions.find(transitSession => {
-      return transitSession.signer === signer && transitSession.chainName === chainName;
-    });
-
+  switchAccount = (transitSession) => {
     window.localStorage.setItem(
       'currentTransitSession',
-      newTransitSession,
+      JSON.stringify(transitSession),
     );
-    window.dispatchEvent(new CustomEvent("storage"));
+    console.log({transitSession})
+    window.dispatchEvent(new CustomEvent('storage'));
   }
 
-  login = async (signer, chainName) => {
+  login = async (signerArg, chainNameArg) => {
     const { transitSessions, currentTransitSession } = this.state;
 
-    console.log({state: this.state})
+    const signer = signerArg || currentTransitSession.signer;
+    const chainName = chainNameArg || currentTransitSession.chainName;
 
-    const wallet = await this.initWallet(
-      signer || currentTransitSession.signer,
-      chainName || currentTransitSession.chainName
-    );
+    const wallet = await this.initWallet(signer, chainName);
 
     let response;
 
