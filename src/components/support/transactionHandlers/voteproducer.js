@@ -54,8 +54,6 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
       ],
     }
 
-    console.log({transactionData})
-
     const transaction = await this.transact(transactionData, {
       blocksBehind: 3,
       expireSeconds: 120,
