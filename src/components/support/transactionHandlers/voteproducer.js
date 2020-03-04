@@ -154,7 +154,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                  />
                </Grid.Column>
                <Grid.Column width={4} textAlign="center">
-                 {(account.voter_info.producers.length === 30) && (
+                 {(account.voter_info && account.voter_info.producers.length === 30) && (
                    <Dropdown
                      options={account.voter_info.producers}
                      placeholder="Remove one of your votes"
