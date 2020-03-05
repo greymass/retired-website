@@ -143,7 +143,6 @@ class TransitWrapper extends React.Component {
     const wallet = accessContext.initWallet(selectedProvider);
 
     modifyGetRequiredKeys(wallet);
-    console.log({wallet})
 
     window.transitWallet = wallet;
 
@@ -180,6 +179,8 @@ class TransitWrapper extends React.Component {
       return transitSession.chainName !== currentTransitSession.chainName ||
              transitSession.account.name !== currentTransitSession.account.name;
     });
+
+    console.log({newTransitSessions})
 
     localStorage.setItem('transitSessions', JSON.stringify(newTransitSessions));
 

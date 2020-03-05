@@ -126,6 +126,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
                 const account = await this.setSigner(walletName, blockchain)
                 this.setState({ account });
               })}
+              onClose={() => this.setState({ blockchain: null })}
            />
          )}
          {account && (
