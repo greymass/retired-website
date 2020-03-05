@@ -24,7 +24,7 @@ class Projects extends Component {
         <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
         <ProjectList images={data.images} projects={projects} platform="steem" />
         <ProjectList images={data.images} projects={projects} platform="others" /> */}
-        <Container style={{ padding: '2em 0' }}>
+        <Container style={{ padding: '0 0 6em 0' }}>
           <Table size="large">
             {projects.map((project) => (
               <Table.Row>
@@ -47,7 +47,6 @@ class Projects extends Component {
                       })}
                     </Header.Subheader>
                   </Header>
-
                 </Table.Cell>
                 <Table.Cell>
                   {intl.formatMessage({
