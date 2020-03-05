@@ -1,5 +1,5 @@
 {
-  "homepage": true,
+  "homepage": false,
   "githubLink": "https://github.com/greymass/anchor-link",
   "icon": "github",
   "platform": "eosio",

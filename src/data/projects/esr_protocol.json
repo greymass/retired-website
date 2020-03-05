@@ -1,0 +1,7 @@
+{
+  "githubLink": "https://github.com/eosio-eps/EEPs/blob/master/EEPS/eep-7.md",
+  "homepage": true,
+  "icon": "github",
+  "platform": "eosio",
+  "projectKey": "esr_protocol"
+}

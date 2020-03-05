@@ -1,6 +1,6 @@
 {
   "githubLink": "https://github.com/greymass/eosio-signing-request",
-  "homepage": true,
+  "homepage": false,
   "icon": "github",
   "platform": "eosio",
   "projectKey": "eosio_signing_request"

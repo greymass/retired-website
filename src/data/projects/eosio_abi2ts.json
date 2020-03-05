@@ -1,5 +1,5 @@
 {
-  "homepage": true,
+  "homepage": false,
   "githubLink": "https://github.com/greymass/eosio-abi2ts",
   "icon": "github",
   "platform": "eosio",

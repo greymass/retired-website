@@ -1,7 +1,7 @@
 {
   "homepage": true,
   "githubLink": "https://greymass.com/fuel",
-  "icon": "github",
+  "icon": "fuel",
   "platform": "eosio",
   "projectKey": "fuel"
 }
