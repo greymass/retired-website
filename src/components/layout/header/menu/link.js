@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import { injectIntl } from "gatsby-plugin-intl"
-
+import { Popup } from "semantic-ui-react"
 import linkStyles from './link.module.css'
 
 class LayoutHeaderLink extends Component {
@@ -9,11 +9,27 @@ class LayoutHeaderLink extends Component {
     const {
       active,
       content,
+      dropdown,
       intl,
       to,
     } = this.props;
-
-    return (
+    const element = (
+      <h3
+        className={
+          `${linkStyles.text} ${
+            active ?
+              linkStyles.activeText :
+              linkStyles.inactiveText
+          }`}>
+        {intl.formatMessage({ id: content })}
+        {active && (
+          <div
+            className={linkStyles.activeBottomBar}
+          />
+        )}
+      </h3>
+    )
+    const link = (
       <Link
         className={active ?
         linkStyles.activeContainer :
@@ -21,22 +37,21 @@ class LayoutHeaderLink extends Component {
         }
         to={to}
       >
-        <h3
-          className={
-            `${linkStyles.text} ${
-              active ?
-                linkStyles.activeText :
-                linkStyles.inactiveText
-            }`}>
-          {intl.formatMessage({ id: content })}
-          {active && (
-            <div
-              className={linkStyles.activeBottomBar}
-            />
-          )}
-        </h3>
+        {element}
       </Link>
     )
+    if (dropdown) {
+      return (
+        <Popup
+          content={dropdown}
+          hoverable
+          position="bottom center"
+          positionFixed
+          trigger={link}
+        />
+      )
+    }
+    return link
   }
 }
 

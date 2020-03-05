@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Icon, Sidebar, Menu, Image, Container } from "semantic-ui-react"
+import { injectIntl } from 'gatsby-plugin-intl';
 
 import { Link } from 'gatsby';
 
@@ -17,6 +18,7 @@ class HeaderMobileMenu extends Component {
     const {
       activeItem,
       handleToggle,
+      intl,
       navbarItems,
     } = this.props;
 
@@ -29,7 +31,7 @@ class HeaderMobileMenu extends Component {
             <Menu.Item>
               <Link
                 className={menuStyles.imageContainer}
-                to={`/`}
+                to={`/${intl.locale}`}
               >
                 <Image
                   alt="Greymass Logo"
@@ -46,6 +48,7 @@ class HeaderMobileMenu extends Component {
                 <LayoutHeaderMenuLink
                   active={activeItem === navbarItem.as}
                   content={navbarItem.content}
+                  dropdown={navbarItem.dropdown}
                   to={navbarItem.as}
                 />
               </Menu.Item>
@@ -53,10 +56,10 @@ class HeaderMobileMenu extends Component {
 
             <Menu.Menu position='right'>
               <Menu.Item className="mobile-hidden">
-                <SupportUsButton />
+                <SharedDropdownsTransitSessions />
               </Menu.Item>
               <Menu.Item className="mobile-hidden">
-                <SharedDropdownsTransitSessions />
+                <SupportUsButton />
               </Menu.Item>
 
               <Menu.Item
@@ -73,4 +76,4 @@ class HeaderMobileMenu extends Component {
   }
 }
 
-export default HeaderMobileMenu;
+export default injectIntl(HeaderMobileMenu);
