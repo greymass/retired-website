@@ -10,23 +10,30 @@ class HomeHeader extends Component {
     const { intl } = this.props;
     return (
       <div className={homeHeaderStyles.container}>
-        <p className={homeHeaderStyles.headerText}>
+        <p
+          className={homeHeaderStyles.headerText}
+          style={{
+            marginBottom: '60px'
+          }}
+        >
           {intl.formatMessage({ id: 'home_header_one' })}
         </p>
         <img
           alt='greymass-header'
           className={homeHeaderStyles.image}
           src={greymassHeaderBackground}
+          style={{
+            // marginBottom: '60px'
+          }}
         />
         <p className={homeHeaderStyles.headerText}>
           {intl.formatMessage({ id: 'home_header_two' })}
         </p>
+        <p className={homeHeaderStyles.subheaderText}>
+          {intl.formatMessage({ id: 'home_header_three' })}
+        </p>
         <div className={homeHeaderStyles.bottomContainer}>
           <p className={homeHeaderStyles.subheaderText}>
-            {intl.formatMessage({ id: 'home_header_bottom_one' })}
-          </p>
-          <p className={homeHeaderStyles.subheaderText}>
-            {intl.formatMessage({ id: 'home_header_bottom_two' })}
             <Link className={homeHeaderStyles.supportUsLink} to={`/support`}>
               {intl.formatMessage({ id: 'home_header_bottom_link' })}
             </Link>
