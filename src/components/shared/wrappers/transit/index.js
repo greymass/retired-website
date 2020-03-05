@@ -168,9 +168,11 @@ class TransitWrapper extends React.Component {
       transitSessions
     } = this.state;
 
-    await window.transitWallet.logout();
+    if (window.transitWallet) {
+      await window.transitWallet.logout();
 
-    window.transitWallet = null;
+      window.transitWallet = null;
+    }
 
     const localStorage = window.localStorage;
 
