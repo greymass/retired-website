@@ -81,7 +81,7 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
        <Segment
          loading={processing}
        >
-         {blockchain && (
+         {!blockchain && (
            <React.Fragment>
              <Header
                textAlign='center'
@@ -120,10 +120,9 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
            </React.Fragment>
          )}
          {(blockchain && !account) && (
-
            <TransitLogin
               blockchain={blockchain}
-              setSigner={(walletName, blockchain) => new Promise(async resolve => {
+              setSigner={(walletName, blockchain) => new Promise(async () => {
                 const account = await this.setSigner(walletName, blockchain)
                 this.setState({ account });
               })}
