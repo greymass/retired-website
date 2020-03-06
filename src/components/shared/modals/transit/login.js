@@ -1,11 +1,35 @@
 import React  from 'react';
-import { Button, Header, Segment, Grid, Dropdown, Modal, Divider, Container } from "semantic-ui-react"
+import {
+  Button,
+  Container,
+  Divider,
+  Dropdown,
+  Form,
+  Grid,
+  Header,
+  Image,
+  Modal,
+  Radio,
+  Segment,
+} from "semantic-ui-react"
 
 import TransitWrapper from '../../../shared/wrappers/transit';
 
 import chains from '../../../../constants/chains';
 
+import eosLogo from '../../../../images/blockchains/eos.png';
+import jungleLogo from '../../../../images/blockchains/jungle.png';
+import telosLogo from '../../../../images/blockchains/telos.jpg';
+import waxLogo from '../../../../images/blockchains/wax.png';
+
 import loginStyles from './login.module.css';
+
+const logos = {
+  'eos': eosLogo,
+  'jungle': jungleLogo,
+  'telos': telosLogo,
+  'wax': waxLogo,
+}
 
 class SharedModalsTransitLogin extends TransitWrapper {
   componentDidMount() {
@@ -46,33 +70,63 @@ class SharedModalsTransitLogin extends TransitWrapper {
         content={(
           <Modal.Content>
             <Segment
-              loading={processing}
               basic
+              loading={processing}
             >
-              {blockchain ? (
-                <>
-                  <Button
-                    content="< Back"
-                    onClick={() => this.setState({ blockchain: null })}
-                    size="mini"
-                  />
-                  <hr />
-                </>
-              ) : (
-                <>
-                  <Header>
-                    Select a blockchain to connect to
-                  </Header>
+              <Header textAlign="center">
+                Which blockchain would you like to authenticate with?
+              </Header>
+              <Form>
+                <Segment.Group horizontal>
                   {Object.values(chains).map(chain => (
-                    <Button
-                      content={`Login on ${chain.name.toUpperCase()}`}
-                      onClick={() => this.setState({ blockchain: chain.name })}
-                      primary
-                      size="huge"
-                    />
+                    <Segment
+                      basic
+                      onClick={() => this.setState({ blockchain: chain.name})}
+                      secondary
+                      textAlign="center"
+                    >
+                      <Image
+                        centered
+                        src={logos[chain.name]}
+                        size="small"
+                      />
+                      <Header
+                        style={{ marginTop: 0 }}
+                      >
+                        {chain.name.toUpperCase()}
+                      </Header>
+                      <Form.Radio
+                        name='blockchain'
+                        checked={chain.name === blockchain}
+                      />
+                    </Segment>
                   ))}
-                </>
-              )}
+                </Segment.Group>
+              </Form>
+              {(blockchain)
+                ? (
+                  <Segment basic textAlign="center">
+                    <Header>
+                      Login to the {blockchain} blockchain using one of the following wallets:
+                    </Header>
+                    <Button
+                      content="Anchor"
+                      disabled={!blockchain}
+                      onClick={() => this.transitLogin('anchor-link')}
+                      primary
+                      size="large"
+                    />
+                    <Button
+                      content="Scatter"
+                      disabled={!blockchain}
+                      onClick={() => this.transitLogin('scatter')}
+                      primary
+                      size="large"
+                    />
+                  </Segment>
+                )
+                : false
+              }
               {account && (
                 <>
                   <Header
@@ -117,31 +171,11 @@ class SharedModalsTransitLogin extends TransitWrapper {
                   </Grid>
                 </>
               )}
-              {(!account && blockchain) && (
-                <Segment
-                  basic
-                  textAlign="center"
-                >
-                  <Button
-                    content="Login with Scatter"
-                    onClick={() => this.transitLogin('scatter')}
-                    primary
-                    size="huge"
-                  />
-                  <Button
-                    content="Login with Anchor"
-                    onClick={() => this.transitLogin('anchor-link')}
-                    primary
-                    size="huge"
-                  />
-                </Segment>
-              )}
             </Segment>
           </Modal.Content>
         )}
         closeIcon
         dimmer="inverted"
-        header="Login"
         open
         onClose={onClose}
       />
