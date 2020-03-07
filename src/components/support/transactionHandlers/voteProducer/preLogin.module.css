@@ -1,0 +1,13 @@
+.root {
+  margin: 20px 50px;
+}
+
+.root div[class="ui center aligned header"] {
+  margin-bottom: 40px;
+}
+
+.root button[class="ui large primary button"] {
+  min-width: 220px;
+  display: block;
+  margin: auto;
+}

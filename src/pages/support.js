@@ -4,7 +4,7 @@ import { injectIntl } from 'gatsby-plugin-intl';
 import { Container } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
-import TransactionHandlersVoteproducer from '../components/support/transactionHandlers/voteproducer';
+import TransactionHandlersVoteproducer from '../components/support/transactionHandlers/voteProducer';
 import SharedHeader from '../components/shared/sections/header';
 
 import supportStyles from './support.module.css';
