@@ -9,6 +9,10 @@ class VoteProducerPreLogin extends Component {
   render() {
     const { onClick } = this.props;
 
+    const productionChains = Object.values(chains).filter(chain => {
+      return process.env.NODE_ENV === 'development' || chain.name !== 'jungle';
+    });
+
     return (
       <div className={preLoginStyles.root}>
         <Header
@@ -16,7 +20,7 @@ class VoteProducerPreLogin extends Component {
           content="To vote for Greymass or to delegate to our proxy, first please login on one of those chains."
         />
         <Grid centered stackable>
-          {Object.values(chains).map(chain => (
+          {Object.values(productionChains).map(chain => (
             <Grid.Column tablet={16} computer={5}>
               <Button
                 content={`Support us on ${chain.name.toUpperCase()}`}

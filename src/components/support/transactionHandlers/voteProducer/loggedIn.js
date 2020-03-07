@@ -16,9 +16,13 @@ class VoteProducerLoggedIn extends Component {
       account,
       logout,
       proxyVotes,
-      setState,
       transaction,
+      setVoteToRemove,
+      vote,
     } = this.props;
+
+    console.log({account})
+    console.log({t: account.voter_info.producers})
 
     return (
       <div className={loggedInStyles.root}>
@@ -37,13 +41,13 @@ class VoteProducerLoggedIn extends Component {
             />
           </Header>
           <Header
-            content="You can choose to delegate to our proxy or simply add Greymass to one of your voted bps."
+            content="You can choose to delegate to our proxy or simply add Greymass to your list of voted bps."
             textAlign="center"
           />
           <br />
           <Segment basic>
             <Grid centered>
-              <Grid.Column width={4} textAlign="center">
+              <Grid.Column width={6} textAlign="center">
                 <Button
                   content="Proxy your Vote"
                   onClick={proxyVotes}
@@ -51,17 +55,25 @@ class VoteProducerLoggedIn extends Component {
                   size="huge"
                 />
               </Grid.Column>
-              <Grid.Column width={4} textAlign="center">
+              <Grid.Column width={6} textAlign="center">
                 {(account.voter_info && account.voter_info.producers.length === 0) && (
                   <Dropdown
-                    options={account.voter_info.producers}
+                    fluid
+                    onChange={(event, data) => setVoteToRemove(data.text)}
+                    options={
+                      ['text'].map(producer => ({
+                        key: producer,
+                        text: producer,
+                        value: producer,
+                      }))
+                    }
                     placeholder="Remove one of your votes"
-                    onChange={(value) => setState({ voteToRemove: value })}
+                    selection
                   />
                 )}
                 <Button
                   content="Vote for Greymass"
-                  onClick={this.vote}
+                  onClick={vote}
                   primary
                   size="huge"
                 />

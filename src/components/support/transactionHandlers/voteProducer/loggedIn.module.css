@@ -1,2 +1,10 @@
-.root {
+.root button[class="ui huge primary button"] {
+  display: block;
+  margin: 20px auto;
+}
+
+.root div[class="center aligned six wide column"] div[class="ui fluid selection dropdown"] {
+  display: block;
+  margin: auto;
+  width: 230px;
 }
