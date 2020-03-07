@@ -77,3 +77,6 @@ tmp
 static/bp.json
 static/chains.json
 static/bp/
+
+# Ignore decentium injected posts
+*.decentium.en.md
