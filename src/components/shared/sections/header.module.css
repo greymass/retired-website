@@ -41,10 +41,10 @@
 }
 
 .longBlueBar {
-  height: 208px;
+  height: 240px;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 769px) {
   .container {
     min-height: 400px;
   }
@@ -65,5 +65,15 @@
 
   .longBlueBar {
     height: 268px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .headerText {
+    font-size: 22px;
+  }
+
+  .container {
+    min-height: 300px;
   }
 }
