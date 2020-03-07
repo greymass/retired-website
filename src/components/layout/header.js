@@ -39,7 +39,7 @@ class Header extends TransitWrapper {
     const { data, intl } = this.props;
     const { sidebarVisible, transitSessions } = this.state;
 
-    const location = this.props.location || (window && window.location)
+    const location = this.props.location || (typeof window !== 'undefined' && window.location)
     const pathName = (location && location.pathname.split('/')[2]) || '';
     const activeItem = location && `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
 
