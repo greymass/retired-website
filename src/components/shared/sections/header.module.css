@@ -1,5 +1,5 @@
 .container {
-  min-height: 604px;
+  min-height: 520px;
 }
 
 .container > .row {
@@ -14,7 +14,7 @@
   letter-spacing: 0.02em;
   line-height: 96px;
   margin-bottom: 0;
-  padding-top: 160px;
+  padding-top: 120px;
   text-align: left;
   text-transform: uppercase;
 }
@@ -35,7 +35,7 @@
   background-color: var(--mainBlue);
   float: right;
   margin-right: 16px;
-  margin-top: 160px;
+  margin-top: 120px;
   height: 96px;
   width: 16px;
 }

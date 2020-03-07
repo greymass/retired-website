@@ -1,17 +1,42 @@
 
 .markdownContainer {
-  padding: 30px;
+  padding: 50px 0;
 }
 
-.markdownContainer a, p, h1, h2, h3, h4, h5, h6, li {
+.markdownContainer {
   color: var(--darkGrey);
   font-family: Roboto, sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-weight: normal;
-  letter-spacing: 0.02em;
-  line-height: 24px;
+  letter-spacing: 0.03em;
+  line-height: 32px;
 }
 
 .markdownContainer a {
   color: var(--mainBlue);
+}
+
+.markdownContainer img {
+  height: auto;
+  width: 100%;
+}
+
+.markdownContainer pre > code {
+}
+
+.markdownContainer pre {
+  background-color: #2d2d2d;
+  border-radius: 6px;
+  color: #ccc;
+  margin: 1em 0;
+  overflow: auto;
+  padding: 1em;
+}
+
+.markdownContainer figcaption {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
 }

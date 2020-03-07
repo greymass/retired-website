@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 import BlogPostList from '../components/blog/blogPostList';
 import RecentPodcasts from '../components/blog/recentPodcasts';
+import SharedHeader from '../components/shared/sections/header';
 
 import blogStyles from './blog.module.css';
 
@@ -16,13 +17,13 @@ class Blog extends Component {
 
     return (
       <Layout location={location}>
-        <FeaturedBlogPosts
+        <SharedHeader
           title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
-          withFullHeader
+          paragraph={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
         />
         <div className={blogStyles.container}>
           <Grid stackable container>
-            <Grid.Column mobile={16} tablet={10} computer={10}>
+            <Grid.Column mobile={16} tablet={11} computer={11}>
               <BlogPostList data={data} />
             </Grid.Column>
             <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>

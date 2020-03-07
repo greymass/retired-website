@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-
-
 import { Icon } from 'semantic-ui-react';
+import { injectIntl } from "gatsby-plugin-intl"
 
 import datetStyles from './date.module.css'
 
 class BlogPostBodyDate extends Component {
   render() {
-    const { post } = this.props;
+    const {
+      intl,
+      post,
+    } = this.props;
 
     return (
       <h5 className={datetStyles.dateText}>
@@ -18,7 +20,7 @@ class BlogPostBodyDate extends Component {
           <React.Fragment>
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <span className={datetStyles.writtenBySpan}>
-              {/* {t('blog_post_entry_written_by', { author: post.frontmatter.author })} */}
+              Written by {post.frontmatter.author}
             </span>
           </React.Fragment>
         )}
@@ -27,4 +29,4 @@ class BlogPostBodyDate extends Component {
   }
 }
 
-export default BlogPostBodyDate;
+export default injectIntl(BlogPostBodyDate);
