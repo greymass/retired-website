@@ -6,6 +6,10 @@ import { debounce } from 'lodash';
 import TransitWrapper from '../../shared/wrappers/transit';
 import TransitLogin from '../../shared/modals/transit/login';
 
+import chains from '../../../constants/chains';
+
+import voteProducerStyles from './voteProducer.module.css';
+
 class SupportTransactionHandlersVoteproducer extends TransitWrapper {
   vote = debounce(async () => {
     await this.voteproducerAction('vote')
@@ -77,127 +81,108 @@ class SupportTransactionHandlersVoteproducer extends TransitWrapper {
     } = currentTransitSession;
 
     return (
-     <React.Fragment>
-       <Segment
-         loading={processing}
-       >
-         {!blockchain && (
-           <React.Fragment>
-             <Header
-               textAlign='center'
-               content="Please login on the Blockchain where you wish to support us."
-             />
-             <Button
-               content="Support us on EOS"
-               onClick={() => this.setState({ blockchain: 'eos' })}
-               primary
-               size="huge"
-             />
-             <Button
-               content="Support us on WAX"
-               onClick={() => this.setState({ blockchain: 'wax'})}
-               primary
-               size="huge"
-             />
-             <Button
-               content="Support us on TELOS"
-               onClick={() => this.setState({ blockchain: 'telos' })}
-               primary
-               size="huge"
-             />
-             <Button
-               content="Support us on LYNX"
-               onClick={() => this.setState({ blockchain: 'lynx' })}
-               primary
-               size="huge"
-             />
-             <Button
-               content="Support us on INSTAR"
-               onClick={() => this.setState({ blockchain: 'instar' })}
-               primary
-               size="huge"
-             />
-           </React.Fragment>
-         )}
-         {(blockchain && !account) && (
-           <TransitLogin
-              blockchain={blockchain}
-              setSigner={(walletName, blockchain) => new Promise(async () => {
-                const account = await this.setSigner(walletName, blockchain)
-                this.setState({ account });
-              })}
-              onClose={() => this.setState({ blockchain: null })}
+     <Segment
+       loading={processing}
+       basic
+     >
+       {!blockchain && (
+         <div className={voteProducerStyles.preLoginContainer}>
+           <Header
+             textAlign='center'
+             content="To vote for Greymass or to delegate to our proxy, first please login on one of those chains."
            />
-         )}
-         {account && (
-           <React.Fragment>
-             <Header
-               textAlign="center"
-             >
-               Signed in as "{account.name}".
-               &nbsp;
-               &nbsp;
+           <Grid centered stackable>
+             {Object.values(chains).map(chain => (
+               <Grid.Column tablet={16} computer={5}>
+                 <Button
+                   content={`Support us on ${chain.name.toUpperCase()}`}
+                   onClick={() => this.setState({ blockchain: chain.name })}
+                   primary
+                   size="large"
+                 />
+               </Grid.Column>
+             ))}
+           </Grid>
+         </div>
+       )}
+       {(blockchain && !account) && (
+         <TransitLogin
+            blockchain={blockchain}
+            setSigner={(walletName, blockchain) => new Promise(async () => {
+              const account = await this.setSigner(walletName, blockchain)
+              this.setState({ account });
+            })}
+            onClose={() => this.setState({ blockchain: null })}
+         />
+       )}
+       {account && (
+         <React.Fragment>
+           <Header
+             textAlign="center"
+           >
+             Signed in as "{account.name}".
+             &nbsp;
+             &nbsp;
+             <Button
+               content="Logout"
+               onClick={this.logout}
+               size="mini"
+             />
+           </Header>
+           <br />
+           <Grid centered>
+             <Grid.Column width={4} textAlign="center">
                <Button
-                 content="Logout"
-                 onClick={this.logout}
-                 size="mini"
+                 content="Proxy your Vote"
+                 onClick={this.proxyVotes}
+                 primary
+                 size="huge"
                />
-             </Header>
-             <br />
-             <Grid centered>
-               <Grid.Column width={4} textAlign="center">
-                 <Button
-                   content="Proxy your Vote"
-                   onClick={this.proxyVotes}
-                   primary
-                   size="huge"
+             </Grid.Column>
+             <Grid.Column width={4} textAlign="center">
+               {(account.voter_info && account.voter_info.producers.length === 30) && (
+                 <Dropdown
+                   options={account.voter_info.producers}
+                   placeholder="Remove one of your votes"
+                   onChange={
+                     (value) => this.setState({ voteToRemove: value })
+                   }
                  />
-               </Grid.Column>
-               <Grid.Column width={4} textAlign="center">
-                 {(account.voter_info && account.voter_info.producers.length === 30) && (
-                   <Dropdown
-                     options={account.voter_info.producers}
-                     placeholder="Remove one of your votes"
-                     onChange={
-                       (value) => this.setState({ voteToRemove: value })
-                     }
-                   />
-                 )}
-                 <Button
-                   content="Vote for Greymass"
-                   onClick={this.vote}
-                   primary
-                   size="huge"
-                 />
-               </Grid.Column>
-             </Grid>
-           </React.Fragment>
-         )}
+               )}
+               <Button
+                 content="Vote for Greymass"
+                 onClick={this.vote}
+                 primary
+                 size="huge"
+               />
+             </Grid.Column>
+           </Grid>
+         </React.Fragment>
+       )}
 
-         {(error)
-           ? (
-             <Segment color="red">
-               An error occurred while processing your vote.
-             </Segment>
-           )
-           : false
-         }
-         {(transaction)
-           ? (
-             <Segment secondary size="large">
-               <Header size="large">
-                 Thank you, {account.name}!
-                 <Header.Subheader>
-                   We truly appreciate your support.
-                 </Header.Subheader>
-               </Header>
-               <p>If you'd like to vote again with a different account, simply click the button again and change accounts.</p>
-             </Segment>
-           )
-           : false
-         }
-       </Segment>
-     </React.Fragment>
+       {(error)
+         ? (
+           <Segment color="red">
+             An error occurred while processing your vote.
+           </Segment>
+         )
+         : false
+       }
+       {(transaction)
+         ? (
+           <Segment secondary size="large">
+             <Header size="large">
+               Thank you, {account.name}!
+               <Header.Subheader>
+                 We truly appreciate your support.
+               </Header.Subheader>
+             </Header>
+             <p>If you'd like to vote again with a different account, simply click the button again and change accounts.</p>
+           </Segment>
+         )
+         : false
+       }
+     </Segment>
     )
   }
 }

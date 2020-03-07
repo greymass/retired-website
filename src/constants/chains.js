@@ -4,15 +4,15 @@ const chains = {
     chainId: 'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906',
     apiNode: 'eos.greymass.com',
   },
-  telos: {
-    name: 'telos',
-    chainid: '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11',
-    apiNode: 'telos.greymass.com',
-  },
   wax: {
     name: 'wax',
     chainId: '1064487b3cd1a897ce03ae5b6a865651747e2e152090f99c1d19d44e01aea5a4',
     apiNode: 'wax.greymass.com'
+  },
+  telos: {
+    name: 'telos',
+    chainid: '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11',
+    apiNode: 'telos.greymass.com',
   },
   jungle: {
     name: 'jungle',
