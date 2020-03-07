@@ -104,7 +104,7 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
            proxyVotes={this.proxyVotes}
            vote={this.vote}
            logout={this.logout}
-           setState={this.setState}
+           setVoteToRemove={voteToRemove => this.setState({ voteToRemove })}
            transaction={transaction}
          />
        )}
