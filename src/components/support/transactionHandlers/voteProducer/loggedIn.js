@@ -45,7 +45,7 @@ class VoteProducerLoggedIn extends Component {
           />
           <br />
           <Segment basic>
-            <Grid centered>
+            <Grid centered stackable>
               <Grid.Column width={6} textAlign="center">
                 <Button
                   content="Proxy your Vote"
@@ -54,13 +54,14 @@ class VoteProducerLoggedIn extends Component {
                   size="huge"
                 />
               </Grid.Column>
+              <span className="mobile-only">OR</span>
               <Grid.Column width={6} textAlign="center">
-                {(account.voter_info && account.voter_info.producers.length === 0) && (
+                {(account.voter_info && account.voter_info.producers.length === 30) && (
                   <Dropdown
                     fluid
                     onChange={(event, data) => setVoteToRemove(data.text)}
                     options={
-                      ['text'].map(producer => ({
+                      account.voter_info.producers.map(producer => ({
                         key: producer,
                         text: producer,
                         value: producer,
@@ -78,7 +79,7 @@ class VoteProducerLoggedIn extends Component {
                 />
               </Grid.Column>
             </Grid>
-            <Divider vertical>OR</Divider>
+            <Divider className="mobile-hidden" vertical>OR</Divider>
           </Segment>
         </Segment>
         {(transaction) && (
