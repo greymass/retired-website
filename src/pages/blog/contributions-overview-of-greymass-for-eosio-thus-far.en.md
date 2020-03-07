@@ -23,7 +23,7 @@ _The remainder of this post will be the Greymass information, in the format requ
 
 - North America
     - Michigan (United States)
-        - Full server rack of Greymass-owned infrastructure 
+        - Full server rack of Greymass-owned infrastructure
             - ~$80,000 USD invested in high-end hardware
     - Beauharnois (Canada)
         - Dedicated Server Rentals
@@ -37,11 +37,11 @@ _The remainder of this post will be the Greymass information, in the format requ
 
 **Your achievements in blockchain education, social impact and community development (Please specify events/examples and indicate the size of community)**
 
-- [Greymass Newsletter](https://greymass.substack.com/) - a bi-weekly newsletter covering the EOSIO ecosystem. 600 subscribers. 
+- [Greymass Newsletter](https://greymass.substack.com/) - a bi-weekly newsletter covering the EOSIO ecosystem. 600 subscribers.
 - Telegram Communities we operate:
-    - [eos-voter](https://t.me/eoswalletgreymass) (Greymass Wallet) channel of 1100 members 
+    - [eos-voter](https://t.me/eoswalletgreymass) (Greymass Wallet) channel of 1100 members
     - [TeamGreymass](https://t.me/teamgreymass) community chat of 210 members
-- Regular participation (as attendants and speakers) at international EOSIO community events. 
+- Regular participation (as attendants and speakers) at international EOSIO community events.
     - Participated as a Judge in EOSIO Hackathon (20+ participants, 100s in attendance)
     - Participated in 2019 EOS Governance Panel at the 2019 BP Summit.
 
@@ -55,7 +55,7 @@ _The remainder of this post will be the Greymass information, in the format requ
     - [Proposing alternatives to the current RAM implementation](https://blog.greymass.com/eos/@greymass/leasing-eos-ram-without-forceful-memory-frees)
     - [Studying the centralizing forces caused by Inflation](https://blog.greymass.com/eos/@greymass/inflation-centralization-and-dpos)
     - [Considering the effects of competition within resource billing on EOS](https://blog.greymass.com/eos/@greymass/performance-and-transaction-billing-on-eos-a-cooperative-effort-not-a-competitive-one)
-- Greymass has specialized DPoS systems administrators that operate one of the most used [publicly available EOS API clusters](https://blog.greymass.com/eosio/@greymass/the-value-of-public-apis-and-a-look-inside-one-of-the-largest-greymass) in the ecosystem (via [https://eos.greymass.com](https://eos.greymass.com)), serving between 200-350 million API requests per day and powering many popular dApps. 
+- Greymass has specialized DPoS systems administrators that operate one of the most used [publicly available EOS API clusters](https://blog.greymass.com/eosio/@greymass/the-value-of-public-apis-and-a-look-inside-one-of-the-largest-greymass) in the ecosystem (via [https://eos.greymass.com](https://eos.greymass.com)), serving between 200-350 million API requests per day and powering many popular dApps.
     - Single HTTPS endpoint with intelligent routing based on geography and request  type, which forwards individual requests to specialized/optimized hardware suited for each task.
     - Geographically load balanced servers spread across North America, Europe, and soon in south-east Asia.
     - Support for all EOSIO v1 API methods, including the native full history API and additional calls via [eosio-api-ext](https://github.com/greymass/eosio-api-ext).
@@ -76,12 +76,12 @@ _The remainder of this post will be the Greymass information, in the format requ
     - The referendum system was integrated into eos-voter as of [0.5.3](https://github.com/greymass/eos-voter/releases/tag/v0.5.3).
 - Built additional EOSIO API endpoints via [eosio-api-ext](https://github.com/greymass/eosio-api-ext) to add additional functionality to optimize API calls.
 - Established the [Producer JSON Smart Contract](https://github.com/greymass/producerjson) for on-chain BP.json information.
-- Deployed an [Account Setup Smart Contract](https://github.com/greymass/smart_account_creator) to allow for easy account creation. 
+- Deployed an [Account Setup Smart Contract](https://github.com/greymass/smart_account_creator) to allow for easy account creation.
 
 **Examples of how you foster the diversity of EOS and blockchains (e.g. diversity of your company)**
 
-- Greymass consists of a diverse set of members from all over the globe. While we are headquartered in one area for legal purposes, we think of ourselves as a team without borders or boundaries. 
-- Every initiative Greymass takes on is built to run on any EOSIO-based blockchain, as we try not to specifically develop software/tools/prototypes for any individual blockchain. 
+- Greymass consists of a diverse set of members from all over the globe. While we are headquartered in one area for legal purposes, we think of ourselves as a team without borders or boundaries.
+- Every initiative Greymass takes on is built to run on any EOSIO-based blockchain, as we try not to specifically develop software/tools/prototypes for any individual blockchain.
 - Each end user product we tackle has support for multiple languages to further extend the reach of EOSIO products. An example of this is that eos-voter currently offers crowd-sourced support for multiple languages to help on-board users which speak all languages.
 - Greymass seeks to provide global access to all EOSIO blockchains we participate in through geographically diverse offerings of P2P, API, and other data services.
 
@@ -99,4 +99,4 @@ Our expectations of OKEx are that they take on the responsibilities we believe a
 
 Beyond that is all value-add, in which we hope OKEx uses their specialities to help foster growth and innovation within the EOSIO space.
 
-<center>![https://greymass-cdn.s3.amazonaws.com/greymass-500x500.png](https://greymass-cdn.s3.amazonaws.com/greymass-500x500.png)</center>
+![https://greymass-cdn.s3.amazonaws.com/greymass-500x500.png](https://greymass-cdn.s3.amazonaws.com/greymass-500x500.png)
