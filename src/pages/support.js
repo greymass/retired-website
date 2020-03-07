@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
-import { Container } from 'semantic-ui-react';
+import { Container, Segment } from "semantic-ui-react"
 
 import Layout from '../components/layout';
 import TransactionHandlersVoteproducer from '../components/support/transactionHandlers/voteProducer';
@@ -19,7 +19,8 @@ class Index extends Component {
           title={intl.formatMessage({ id: 'support_header' })}
           paragraph={intl.formatMessage({ id: 'support_paragraph' })}
         />
-        <Container className={supportStyles.container} >
+        <Container className={supportStyles.container}>
+          <hr />
           <TransactionHandlersVoteproducer />
         </Container>
       </Layout>

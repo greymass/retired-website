@@ -27,7 +27,6 @@ class VoteProducerLoggedIn extends Component {
     return (
       <div className={loggedInStyles.root}>
         <Segment basic>
-          <hr />
           <Header
             textAlign="center"
           >
