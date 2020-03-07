@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import { Container, Header } from 'semantic-ui-react';
 
+import BlogPostDate from './body/date';
 import headerStyles from './header.module.css';
 
 class BlogPostHeader extends Component {
@@ -16,6 +17,7 @@ class BlogPostHeader extends Component {
             content={post.frontmatter.title}
             size="huge"
           />
+          <BlogPostDate post={post} />
         </Container>
       </div>
     );
