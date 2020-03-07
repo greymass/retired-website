@@ -36,11 +36,12 @@ class Header extends TransitWrapper {
   handleToggle = () => this.setState({ sidebarVisible: !this.state.sidebarVisible });
 
   render() {
-    const { data, intl, location } = this.props;
+    const { data, intl } = this.props;
     const { sidebarVisible, transitSessions } = this.state;
 
-    const pathName = (window.location && window.location.pathname.split('/')[2]) || '';
-    const activeItem = window.location && `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
+    const location = this.props.location || (window && window.location)
+    const pathName = (location && location.pathname.split('/')[2]) || '';
+    const activeItem = location && `/${intl.locale}${(pathName) ? '/' : ''}${pathName}`;
 
     const navbarItems = [
       {
