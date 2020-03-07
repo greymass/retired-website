@@ -6,6 +6,14 @@ const fs = require('fs-extra')
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { siteMetadata: { defaultLanguage } } = require('./gatsby-config');
 
+const {ApiClient, EosjsDataProvider, render} = require('decentium')
+const {JsonRpc} = require('eosjs')
+const fetch = require('node-fetch')
+const rpc = new JsonRpc('http://eos.greymass.com', { fetch })
+const dataProvider = new EosjsDataProvider(rpc)
+const client = new ApiClient({dataProvider})
+const slugify = require('slugify')
+
 const exec = require('await-exec');
 
 const BP_JSON_REPO = 'https://github.com/greymass/bp.json';
@@ -30,6 +38,31 @@ exports.onPreInit = async () => {
           throw(`Invalid locale JSON. Error: ${JSON.stringify(e)}`);
         }
       });
+    }
+  })
+
+  console.log('Syncing Decentium Blog Posts')
+  const response = await client.getPosts('teamgreymass')
+  response.posts.forEach((post) => {
+    try {
+      client.resolvePost(post)
+        .then((resolvedPost) => {
+          const html = render(resolvedPost.doc)
+          const frontmatter = `---
+title: ${resolvedPost.title}
+date: ${post.timestamp.split("T")[0]}
+author: ${(resolvedPost.author === 'teamgreymass') ? 'Greymass Team' : resolvedPost.author}
+featured: true
+---
+`
+          fs.writeFile(`src/pages/blog/${slugify(resolvedPost.title, { strict: true }).toLowerCase()}.decentium.en.md`, frontmatter + html)
+        })
+        .catch((e) => {
+          console.log(post)
+          console.log("decentium post render error", e)
+        })
+    } catch (e) {
+      console.log("decentium post resolve error", e)
     }
   })
 
@@ -156,7 +189,6 @@ async function createBlogPages(actions, graphql, reporter) {
 
   const blogPostTemplate = path.resolve('src/templates/blog-post.js');
   const result = await fetchMarkdownPagesByFolder('blog', graphql, reporter);
-
   const blogPages = result.data.results.edges;
   // Create post detail pages
   blogPages.forEach(({ node }) => {
