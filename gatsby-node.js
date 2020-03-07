@@ -14,6 +14,11 @@ const dataProvider = new EosjsDataProvider(rpc)
 const client = new ApiClient({dataProvider})
 const slugify = require('slugify')
 
+const showdown  = require('showdown')
+const converter = new showdown.Converter()
+const jsdom = require('jsdom');
+const dom = new jsdom.JSDOM();
+
 const exec = require('await-exec');
 
 const BP_JSON_REPO = 'https://github.com/greymass/bp.json';
@@ -55,7 +60,8 @@ author: ${(resolvedPost.author === 'teamgreymass') ? 'Greymass Team' : resolvedP
 featured: true
 ---
 `
-          fs.writeFile(`src/pages/blog/${slugify(resolvedPost.title, { strict: true }).toLowerCase()}.decentium.en.md`, frontmatter + html)
+          const content = frontmatter + converter.makeMd(html, dom.window.document)
+          fs.writeFile(`src/pages/blog/${slugify(resolvedPost.title, { strict: true }).toLowerCase()}.en.md`, content)
         })
         .catch((e) => {
           console.log(post)
