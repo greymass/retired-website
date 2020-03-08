@@ -127,50 +127,6 @@ class SharedModalsTransitLogin extends TransitWrapper {
                 )
                 : false
               }
-              {account && (
-                <>
-                  <Header
-                    textAlign="center"
-                  >
-                    Signed in as "{account.name}".
-                    &nbsp;
-                    &nbsp;
-                    <Button
-                      content="Logout"
-                      onClick={this.logout}
-                      size="mini"
-                    />
-                  </Header>
-                  <br />
-                  <Grid>
-                    <Grid.Column width={4} textAlign="center">
-                      <Button
-                        content="Proxy your Vote"
-                        onClick={this.proxyVotes}
-                        primary
-                        size="huge"
-                      />
-                    </Grid.Column>
-                    <Grid.Column width={8}>
-                      {(account.voter_info.producers.length === 30) && (
-                        <Dropdown
-                          options={account.voter_info.producers}
-                          placeholder="Remove one of your votes"
-                          onChange={
-                            (value) => this.setState({ voteToRemove: value })
-                          }
-                        />
-                      )}
-                      <Button
-                        content="Vote for Greymass"
-                        onClick={this.vote}
-                        primary
-                        size="huge"
-                      />
-                    </Grid.Column>
-                  </Grid>
-                </>
-              )}
             </Segment>
           </Modal.Content>
         )}
