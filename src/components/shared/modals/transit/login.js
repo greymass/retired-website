@@ -1,15 +1,10 @@
 import React  from 'react';
 import {
   Button,
-  Container,
-  Divider,
-  Dropdown,
   Form,
-  Grid,
   Header,
   Image,
   Modal,
-  Radio,
   Segment,
 } from "semantic-ui-react"
 
@@ -58,10 +53,13 @@ class SharedModalsTransitLogin extends TransitWrapper {
       onClose,
     } = this.props;
     const {
-      account,
       blockchain,
       processing,
     } = this.state;
+
+    const productionChains = Object.values(chains).filter(chain => {
+      return process.env.NODE_ENV === 'development' || chain.name !== 'jungle';
+    });
 
     return (
       <Modal
@@ -78,7 +76,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
               </Header>
               <Form>
                 <Segment.Group horizontal>
-                  {Object.values(chains).map(chain => (
+                  {productionChains.map(chain => (
                     <Segment
                       basic
                       onClick={() => this.setState({ blockchain: chain.name})}
