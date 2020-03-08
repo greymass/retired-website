@@ -46,7 +46,9 @@ class HeaderMobileMenu extends Component {
             {navbarItems.map(navbarItem => (
               <Menu.Item className="mobile-hidden" key={navbarItem.as}>
                 <LayoutHeaderMenuLink
-                  active={navbarItem.as.startsWith(activeItem)}
+                  active={
+                    activeItem !== `/${intl.locale}` && navbarItem.as.startsWith(activeItem)
+                  }
                   content={navbarItem.content}
                   dropdown={navbarItem.dropdown}
                   to={navbarItem.as}

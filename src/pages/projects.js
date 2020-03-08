@@ -12,7 +12,6 @@ class Projects extends Component {
   render() {
     const { data, intl, location } = this.props;
     const projects = data.projects.edges.map(({ node }) => node);
-    console.log({projects})
 
     const sortedProjects = projects.sort((projectA, projectB) => {
       const projectTitleA =
