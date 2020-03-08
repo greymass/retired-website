@@ -36,7 +36,7 @@ class Header extends TransitWrapper {
   handleToggle = () => this.setState({ sidebarVisible: !this.state.sidebarVisible });
 
   render() {
-    const { data, intl, location } = this.props;
+    const { data, intl } = this.props;
     const { sidebarVisible, transitSessions } = this.state;
 
     const pathName = (window.location && window.location.pathname.split('/')[2]) || '';

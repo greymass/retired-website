@@ -56,9 +56,6 @@ class TransitWrapper extends React.Component {
     const signer = signerArg || currentTransitSession.signer;
     const chainName = chainNameArg || currentTransitSession.chainName;
 
-    console.log({currentTransitSession})
-    console.log({transitSessions})
-
     const wallet = await this.initWallet(signer, chainName);
 
     let response;
