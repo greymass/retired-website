@@ -19,10 +19,11 @@ class Index extends Component {
           title={intl.formatMessage({ id: 'support_header' })}
           paragraph={intl.formatMessage({ id: 'support_paragraph' })}
         />
-        <Container className={supportStyles.container}>
-          <hr />
-          <TransactionHandlersVoteproducer />
-        </Container>
+        <div className={supportStyles.container}>
+          <Container>
+            <TransactionHandlersVoteproducer />
+          </Container>
+        </div>
       </Layout>
     )
   }

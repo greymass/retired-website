@@ -1,5 +1,6 @@
 .container {
   padding: 6em 0;
+  background: white;
 }
 
 .container a[class="ui header"] {

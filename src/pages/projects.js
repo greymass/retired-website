@@ -32,40 +32,43 @@ class Projects extends Component {
           title={intl.formatMessage({ id: 'platform_header_title' })}
           paragraph={intl.formatMessage({ id: 'platform_header_paragraph' })}
         />
-        <Container className={projectStyles.container}>
-          <Table size="large">
-            {sortedProjects.map((project) => (
-              <Table.Row>
-                <Table.Cell width={4}>
-                  <Header
-                    as="a"
-                    href={project.link || project.githubLink}
-                  >
-                    {intl.formatMessage({
-                      id: `project_${project.projectKey}_name`,
-                      defaultMessage: '[Project Name]',
-                      description: 'The name of the project'
-                    })}
-                    <Header.Subheader>
+        <div className={projectStyles.container}>
+
+          <Container>
+            <Table size="large">
+              {sortedProjects.map((project) => (
+                <Table.Row>
+                  <Table.Cell width={4}>
+                    <Header
+                      as="a"
+                      href={project.link || project.githubLink}
+                    >
                       {intl.formatMessage({
-                        id: `project_${project.projectKey}_extra`,
-                        defaultMessage: '[Project Extras]',
-                        description: 'Extra details of the project'
+                        id: `project_${project.projectKey}_name`,
+                        defaultMessage: '[Project Name]',
+                        description: 'The name of the project'
                       })}
-                    </Header.Subheader>
-                  </Header>
-                </Table.Cell>
-                <Table.Cell>
-                  {intl.formatMessage({
-                    id: `project_${project.projectKey}_description`,
-                    defaultMessage: '[Project Description]',
-                    description: 'The date the project launched'
-                  })}
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          </Table>
-        </Container>
+                      <Header.Subheader>
+                        {intl.formatMessage({
+                          id: `project_${project.projectKey}_extra`,
+                          defaultMessage: '[Project Extras]',
+                          description: 'Extra details of the project'
+                        })}
+                      </Header.Subheader>
+                    </Header>
+                  </Table.Cell>
+                  <Table.Cell>
+                    {intl.formatMessage({
+                      id: `project_${project.projectKey}_description`,
+                      defaultMessage: '[Project Description]',
+                      description: 'The date the project launched'
+                    })}
+                  </Table.Cell>
+                </Table.Row>
+              ))}
+            </Table>
+          </Container>
+        </div>
       </Layout>
     )
   }
