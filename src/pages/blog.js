@@ -19,7 +19,6 @@ class Blog extends Component {
       <Layout location={location}>
         <SharedHeader
           title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
-          paragraph={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
         />
         <div className={blogStyles.container}>
           <Grid stackable container>
