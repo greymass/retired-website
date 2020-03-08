@@ -45,7 +45,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query {
-        podcasts: allPodcastsJson(limit: 20) {
+        podcasts: allPodcastsJson(limit: 20, sort: {fields: date, order: DESC}) {
           edges {
             node {
               key
