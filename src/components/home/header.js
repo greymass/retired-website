@@ -34,7 +34,7 @@ class HomeHeader extends Component {
         </p>
         <div className={homeHeaderStyles.bottomContainer}>
           <p className={homeHeaderStyles.subheaderText}>
-            <Link className={homeHeaderStyles.supportUsLink} to={`/support`}>
+            <Link className={homeHeaderStyles.supportUsLink} to={`/${intl.locale}/support`}>
               {intl.formatMessage({ id: 'home_header_bottom_link' })}
             </Link>
           </p>
