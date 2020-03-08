@@ -17,13 +17,13 @@ class FuelLogin extends Component {
               <Header size="large">
                 EOSIO Network Resources On-Demand
                 <Header.Subheader>
-                  Login to get started!
+                  Sign in to get started!
                 </Header.Subheader>
               </Header>
               <Button
                 onClick={() => this.setState({ loggingIn: true })}
               >
-                Login
+                Sign in
               </Button>
 
               {loggingIn && (

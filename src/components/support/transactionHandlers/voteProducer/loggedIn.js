@@ -10,13 +10,17 @@ import {
 } from 'semantic-ui-react';
 
 import loggedInStyles from './loggedIn.module.css';
+
 import SharedDropdownsTransitSessions from '../../../shared/dropdowns/transit/sessions';
+import SharedElementsChainLogo from '../../../shared/elements/chainLogo';
+import SharedElementsExplorerLink from '../../../shared/elements/explorerLink';
 
 class VoteProducerLoggedIn extends Component {
   render() {
     const {
       account,
       clearTransaction,
+      currentTransitSession,
       logout,
       proxyVotes,
       setVoteToRemove,
@@ -24,20 +28,30 @@ class VoteProducerLoggedIn extends Component {
       vote,
     } = this.props;
 
+    const { chainName } = currentTransitSession;
+
     return (
       <div className={loggedInStyles.root}>
-        <Segment textAlign="center" basic>
-          <p>
-            Logged in as
-            &nbsp;
-            <SharedDropdownsTransitSessions />
-          </p>
+        <Segment
+          secondary
+          stacked
+          textAlign="center"
+        >
           <Header
-            content="You can choose to delegate to our proxy or simply add Greymass to your list of voted bps."
+            content="To support us directly from our website, select an option below."
             textAlign="center"
           />
-          <br />
-          <Segment basic>
+          <Segment attached="top" size="large">
+            <SharedElementsChainLogo
+              chain={chainName}
+            />
+            <p style={{ marginTop: '1em'}}>
+              Voting on <strong>{chainName}</strong> as
+              &nbsp;
+              <SharedDropdownsTransitSessions />
+            </p>
+          </Segment>
+          <Segment attached>
             <Grid centered stackable>
               <Grid.Column width={6} textAlign="center">
                 <Button
@@ -46,8 +60,21 @@ class VoteProducerLoggedIn extends Component {
                   primary
                   size="huge"
                 />
+                <p>
+                  Proxy your voting rights to the
+                  {' '}
+                  <SharedElementsExplorerLink
+                    chain={chainName}
+                    type="account"
+                    value="greymassvote"
+                  />
+                  {' '}
+                  proxy, which will be used to vote for the block producers we feel bring the most value (including Greymass).
+                </p>
               </Grid.Column>
-              <span className="mobile-only">OR</span>
+              <Grid.Column width={1}>
+                <span className="mobile-only">OR</span>
+              </Grid.Column>
               <Grid.Column width={6} textAlign="center">
                 {(account.voter_info && account.voter_info.producers.length === 30) && (
                   <Dropdown
@@ -70,6 +97,17 @@ class VoteProducerLoggedIn extends Component {
                   primary
                   size="huge"
                 />
+                <p>
+                  Add
+                  {' '}
+                  <SharedElementsExplorerLink
+                    chain={chainName}
+                    type="account"
+                    value="teamgreymass"
+                  />
+                  {' '}
+                  as one of your 30 votes to support us while controlling the remaining 29 votes.
+                </p>
               </Grid.Column>
             </Grid>
             <Divider className="mobile-hidden" vertical>OR</Divider>

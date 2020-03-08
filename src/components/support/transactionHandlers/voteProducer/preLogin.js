@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Grid } from 'semantic-ui-react';
+import { Button, Header, Grid, Segment } from 'semantic-ui-react';
 
 import chains from '../../../../constants/chains';
 
@@ -14,24 +14,22 @@ class VoteProducerPreLogin extends Component {
     });
 
     return (
-      <div className={preLoginStyles.root}>
+      <Segment
+        className={preLoginStyles.root}
+        secondary
+        stacked
+      >
         <Header
           textAlign='center'
-          content="To vote for Greymass or to delegate to our proxy, first please login on one of those chains."
+          content="To vote for Greymass directly or through our proxy, please sign in."
         />
-        <Grid centered stackable>
-          {Object.values(productionChains).map(chain => (
-            <Grid.Column tablet={16} computer={5}>
-              <Button
-                content={`Support us on ${chain.name.toUpperCase()}`}
-                onClick={() => onClick(chain.name)}
-                primary
-                size="large"
-              />
-            </Grid.Column>
-          ))}
-        </Grid>
-      </div>
+        <Button
+          content={`Sign in`}
+          onClick={onClick}
+          primary
+          size="large"
+        />
+      </Segment>
     );
   }
 }

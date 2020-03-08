@@ -8,23 +8,12 @@ import {
   Segment,
 } from "semantic-ui-react"
 
+import SharedElementsChainLogo from '../../../shared/elements/chainLogo';
 import TransitWrapper from '../../../shared/wrappers/transit';
-
-import chains from '../../../../constants/chains';
-
-import eosLogo from '../../../../images/blockchains/eos.png';
-import jungleLogo from '../../../../images/blockchains/jungle.png';
-import telosLogo from '../../../../images/blockchains/telos.jpg';
-import waxLogo from '../../../../images/blockchains/wax.png';
 
 import loginStyles from './login.module.css';
 
-const logos = {
-  'eos': eosLogo,
-  'jungle': jungleLogo,
-  'telos': telosLogo,
-  'wax': waxLogo,
-}
+import chains from '../../../../constants/chains';
 
 class SharedModalsTransitLogin extends TransitWrapper {
   componentDidMount() {
@@ -51,6 +40,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
   render() {
     const {
       onClose,
+      open,
     } = this.props;
     const {
       blockchain,
@@ -66,71 +56,66 @@ class SharedModalsTransitLogin extends TransitWrapper {
         centered={false}
         className={loginStyles.modal}
         content={(
-          <Modal.Content>
-            <Segment
-              basic
-              loading={processing}
-            >
-              <Header textAlign="center">
-                Which blockchain would you like to authenticate with?
-              </Header>
-              <Form>
-                <Segment.Group horizontal>
-                  {productionChains.map(chain => (
-                    <Segment
-                      basic
-                      onClick={() => this.setState({ blockchain: chain.name})}
-                      secondary
-                      textAlign="center"
-                    >
-                      <Image
-                        centered
-                        src={logos[chain.name]}
-                        size="small"
-                      />
-                      <Header
-                        style={{ marginTop: 0 }}
-                      >
-                        {chain.name.toUpperCase()}
-                      </Header>
-                      <Form.Radio
-                        name='blockchain'
-                        checked={chain.name === blockchain}
-                      />
-                    </Segment>
-                  ))}
-                </Segment.Group>
-              </Form>
-              {(blockchain)
-                ? (
-                  <Segment basic textAlign="center">
-                    <Header>
-                      Login to the {blockchain} blockchain using one of the following wallets:
-                    </Header>
-                    <Button
-                      content="Anchor"
-                      disabled={!blockchain}
-                      onClick={() => this.transitLogin('anchor-link')}
-                      primary
-                      size="large"
+          <Segment
+            basic
+            padded
+            secondary
+            style={{ marginTop: 0 }}
+            loading={processing}
+          >
+            <Form>
+              <Segment.Group horizontal>
+                {productionChains.map(chain => (
+                  <Segment
+                    basic
+                    onClick={() => this.setState({ blockchain: chain.name})}
+                    secondary
+                    textAlign="center"
+                  >
+                    <SharedElementsChainLogo
+                      chain={chain.name}
                     />
-                    <Button
-                      content="Scatter"
-                      disabled={!blockchain}
-                      onClick={() => this.transitLogin('scatter')}
-                      primary
-                      size="large"
+                    <Header
+                      style={{ marginTop: 0 }}
+                    >
+                      {chain.name.toUpperCase()}
+                    </Header>
+                    <Form.Radio
+                      name='blockchain'
+                      checked={chain.name === blockchain}
                     />
                   </Segment>
-                )
-                : false
-              }
+                ))}
+              </Segment.Group>
+            </Form>
+            <Segment basic textAlign="center">
+              <Header>
+                {(blockchain)
+                  ? `Login to the ${blockchain} blockchain using one of the following wallets:`
+                  : `Select a blockchain to continue.`
+                }
+              </Header>
+              <Button
+                content="Anchor"
+                disabled={!blockchain}
+                onClick={() => this.transitLogin('anchor-link')}
+                primary
+                size="large"
+              />
+              <Button
+                content="Scatter"
+                disabled={!blockchain}
+                onClick={() => this.transitLogin('scatter')}
+                primary
+                size="large"
+              />
             </Segment>
-          </Modal.Content>
+          </Segment>
         )}
         closeIcon
         dimmer="inverted"
-        open
+        header="Select a blockchain and signature provider to sign in."
+        open={open}
         onClose={onClose}
       />
       );

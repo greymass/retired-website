@@ -30,7 +30,7 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
         {account ? (
           <Dropdown
             className={sessionsDropdownStyles.dropdown}
-            text={account ? account.name : 'Login'}
+            text={account ? account.name : 'Sign in'}
             pointing
           >
             <Dropdown.Menu>
@@ -40,7 +40,7 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
                   {otherTransitSessions.map(transitSession => (
                     <a onClick={() => this.switchAccount(transitSession)}>
                       <Dropdown.Item>
-                        {transitSession.account.name}
+                        <strong>{transitSession.account.name}</strong>
                       </Dropdown.Item>
                     </a>
                   ))}
@@ -61,12 +61,13 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
           </Dropdown>
         ) : (
           <a href='#' onClick={() => this.setState({ loggingIn: true })}>
-            Login
+            Sign in
           </a>
         )}
         {loggingIn && (
           <SharedModalsTransitLogin
             onClose={() => this.setState({ loggingIn: false })}
+            open={loggingIn}
           />
         )}
       </>

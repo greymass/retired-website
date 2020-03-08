@@ -70,6 +70,7 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
     const {
       blockchain,
       currentTransitSession,
+      login,
       processing,
       transaction
     } = this.state;
@@ -83,24 +84,24 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
        loading={processing}
        basic
      >
-       {!blockchain && !account && (
+       <TransitLogin
+          blockchain={blockchain}
+          setSigner={(walletName, blockchain) => new Promise(async () => {
+            const account = await this.setSigner(walletName, blockchain)
+            this.setState({ account });
+          })}
+          onClose={() => this.setState({ login: false })}
+          open={login}
+       />
+       {!account && (
          <PreLogin
-           onClick={(blockchainName) => this.setState({ blockchain: blockchainName })}
-         />
-       )}
-       {(blockchain && !account) && (
-         <TransitLogin
-            blockchain={blockchain}
-            setSigner={(walletName, blockchain) => new Promise(async () => {
-              const account = await this.setSigner(walletName, blockchain)
-              this.setState({ account });
-            })}
-            onClose={() => this.setState({ blockchain: null })}
+           onClick={() => this.setState({ login: true })}
          />
        )}
        {account && (
          <LoggedIn
            account={account}
+           currentTransitSession={currentTransitSession}
            proxyVotes={this.proxyVotes}
            vote={this.vote}
            logout={this.logout}
