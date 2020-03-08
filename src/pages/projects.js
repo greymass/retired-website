@@ -5,14 +5,27 @@ import { Container, Header, Table } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
-import ProjectList from '../components/projects/projectList';
-import FeaturedProject from '../components/projects/featuredProject';
+
+import projectStyles from './projects.module.css';
 
 class Projects extends Component {
   render() {
     const { data, intl, location } = this.props;
     const projects = data.projects.edges.map(({ node }) => node);
-    const featuredProject = projects.find(project => project.projectKey === 'anchor');
+    console.log({projects})
+
+    const sortedProjects = projects.sort((projectA, projectB) => {
+      const projectTitleA =
+        intl.formatMessage({ id: `project_${projectA.projectKey}_name` }) || '';
+      const projectTitleB =
+        intl.formatMessage({ id: `project_${projectB.projectKey}_name` }) || '';
+
+      if (projectTitleA.toLowerCase() > projectTitleB.toLowerCase()) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
 
     return (
       <Layout location={location}>
@@ -20,13 +33,9 @@ class Projects extends Component {
           title={intl.formatMessage({ id: 'platform_header_title' })}
           paragraph={intl.formatMessage({ id: 'platform_header_paragraph' })}
         />
-        {/* <ProjectList images={data.images} projects={projects} platform="eosio" primary />
-        <FeaturedProject images={data.images} project={featuredProject} projectKey="anchor" />
-        <ProjectList images={data.images} projects={projects} platform="steem" />
-        <ProjectList images={data.images} projects={projects} platform="others" /> */}
-        <Container style={{ padding: '0 0 6em 0' }}>
+        <Container className={projectStyles.container}>
           <Table size="large">
-            {projects.map((project) => (
+            {sortedProjects.map((project) => (
               <Table.Row>
                 <Table.Cell width={4}>
                   <Header
@@ -68,7 +77,7 @@ export default injectIntl(Projects);
 
 export const query = graphql`
   query {
-    projects: allProjectsJson(limit: 100) {
+    projects: allProjectsJson(limit: 100, sort: {fields: projectKey}) {
       edges {
         node {
           githubLink
