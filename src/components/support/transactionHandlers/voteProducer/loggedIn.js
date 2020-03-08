@@ -6,39 +6,32 @@ import {
   Grid,
   Header,
   Segment,
+  Message,
 } from 'semantic-ui-react';
 
 import loggedInStyles from './loggedIn.module.css';
+import SharedDropdownsTransitSessions from '../../../shared/dropdowns/transit/sessions';
 
 class VoteProducerLoggedIn extends Component {
   render() {
     const {
       account,
+      clearTransaction,
       logout,
       proxyVotes,
-      transaction,
       setVoteToRemove,
+      transaction,
       vote,
     } = this.props;
 
-    console.log({account})
-    console.log({t: account.voter_info.producers})
-
     return (
       <div className={loggedInStyles.root}>
-        <Segment basic>
-          <Header
-            textAlign="center"
-          >
-            Signed in as "{account.name}".
+        <Segment textAlign="center" basic>
+          <p>
+            Logged in as
             &nbsp;
-            &nbsp;
-            <Button
-              content="Logout"
-              onClick={logout}
-              size="mini"
-            />
-          </Header>
+            <SharedDropdownsTransitSessions />
+          </p>
           <Header
             content="You can choose to delegate to our proxy or simply add Greymass to your list of voted bps."
             textAlign="center"
@@ -83,15 +76,18 @@ class VoteProducerLoggedIn extends Component {
           </Segment>
         </Segment>
         {(transaction) && (
-          <Segment secondary size="large">
+          <Message
+            positive
+            onDismiss={clearTransaction}
+          >
             <Header size="large">
               Thank you, {account.name}!
               <Header.Subheader>
                 We truly appreciate your support.
               </Header.Subheader>
             </Header>
-            <p>If you'd like to vote again with a different account, simply click the button again and change accounts.</p>
-          </Segment>
+            <p>If you'd like to vote again with a different account, simply login to that account and select it from the dropdown above.</p>
+          </Message>
         )}
       </div>
     );
