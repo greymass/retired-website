@@ -41,7 +41,6 @@ class Projects extends Component {
                   <Header
                     as="a"
                     href={project.link || project.githubLink}
-                    style={{ color: '#0091E2' }}
                   >
                     {intl.formatMessage({
                       id: `project_${project.projectKey}_name`,
