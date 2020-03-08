@@ -106,6 +106,7 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
            logout={this.logout}
            setVoteToRemove={voteToRemove => this.setState({ voteToRemove })}
            transaction={transaction}
+           clearTransaction={() => this.setState({ transaction: false })}
          />
        )}
      </Segment>
