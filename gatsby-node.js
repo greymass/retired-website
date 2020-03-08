@@ -10,7 +10,7 @@ const {ApiClient, EosjsDataProvider, render} = require('decentium')
 const {JsonRpc} = require('eosjs')
 const fetch = require('node-fetch')
 const rpc = new JsonRpc('http://eos.greymass.com', { fetch })
-const dataProvider = new EosjsDataProvider(rpc)
+const dataProvider = new EosjsDataProvider(rpc, {whitelist: ['decentiumorg']});
 const client = new ApiClient({dataProvider})
 const slugify = require('slugify')
 
