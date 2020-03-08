@@ -54,7 +54,7 @@ exports.onPreInit = async () => {
         .then((resolvedPost) => {
           const html = render(resolvedPost.doc)
           const frontmatter = `---
-title: ${resolvedPost.title}
+title: "${resolvedPost.title.replace(/"/g, '\\"')}"
 date: ${post.timestamp.split("T")[0]}
 author: ${(resolvedPost.author === 'teamgreymass') ? 'Greymass Team' : resolvedPost.author}
 featured: true
