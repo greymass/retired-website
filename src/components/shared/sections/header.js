@@ -22,7 +22,7 @@ export default class SharedHeader extends Component {
                 paragraph ? sharedHeaderStyles.longBlueBar :  ''
               }`}/>
             </Grid.Column>
-            <Grid.Column computer={8} tablet={8} mobile={12}>
+            <Grid.Column computer={10} tablet={8} mobile={12}>
               <h4 className={sharedHeaderStyles.headerText}>
                 {title}
               </h4>
