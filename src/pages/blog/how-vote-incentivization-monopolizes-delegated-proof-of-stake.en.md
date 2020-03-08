@@ -1,5 +1,5 @@
 ---
-title: How Vote Incentivization Monopolizes Delegated Proof of Stake
+title: "How Vote Incentivization Monopolizes Delegated Proof of Stake"
 date: 2019-10-24
 author: Greymass Team
 featured: true

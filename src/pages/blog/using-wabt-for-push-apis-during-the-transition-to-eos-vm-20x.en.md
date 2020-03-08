@@ -1,5 +1,5 @@
 ---
-title: Using WABT for "push" APIs during the transition to EOS-VM (2.0.x)
+title: "Using WABT for \"push\" APIs during the transition to EOS-VM (2.0.x)"
 date: 2020-02-23
 author: Greymass Team
 featured: true

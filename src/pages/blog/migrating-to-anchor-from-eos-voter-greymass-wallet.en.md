@@ -1,5 +1,5 @@
 ---
-title: Migrating to Anchor from eos-voter ("Greymass Wallet")
+title: "Migrating to Anchor from eos-voter (\"Greymass Wallet\")"
 date: 2020-02-29
 author: Greymass Team
 featured: true
