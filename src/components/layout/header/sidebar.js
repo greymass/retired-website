@@ -37,10 +37,9 @@ class HeaderMobileSidebar extends Component {
         <Menu.Item>
           <SupportUsButton />
         </Menu.Item>
-        <hr />
-
-        <SharedDropdownsTransitSessions />
-
+        <Menu.Item>
+          <SharedDropdownsTransitSessions />
+        </Menu.Item>
       </Sidebar>
     );
   }
