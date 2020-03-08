@@ -1,0 +1,26 @@
+
+.container {
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.header {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+
+.date {
+  color: var(--mainBlack);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  margin-top: 0;
+}
