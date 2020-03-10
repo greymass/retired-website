@@ -1,5 +1,5 @@
 .container {
-  background-color: var(--mainGrey);
+  background-color: var(--darkGrey);
   min-height: 200px;
   position: relative;
 }
