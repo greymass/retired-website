@@ -16,7 +16,7 @@
 
 .top.container.project.card > [class="content"],
 .top.container.project.card > [class="extra content"] {
-  background-color: var(--mainGrey);
+  background-color: var(--darkGrey);
   min-height: 200px;
 }
 
@@ -27,13 +27,13 @@
 }
 
 .primaryContainer.top.container.project.card {
-  border: solid 1px var(--mainGrey);
+  border: solid 1px var(--darkGrey);
   margin: auto;
   width: 340px;
 }
 
 .secondaryContainer.top.container.project.card {
-  border: solid 1px var(--mainGrey);
+  border: solid 1px var(--darkGrey);
   margin: auto;
   max-width: 250px;
 }
