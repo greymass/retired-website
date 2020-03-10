@@ -23,7 +23,7 @@ class Index extends Component {
           <Container>
             <Grid>
               <Grid.Row centered>
-                <Grid.Column width={12}>
+                <Grid.Column computer={12} tablet={14} mobile={16}>
                   <TransactionHandlersVoteproducer />
                 </Grid.Column>
               </Grid.Row>
