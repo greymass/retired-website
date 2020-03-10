@@ -172,6 +172,7 @@ exports.onCreatePage = ({ page, actions: { createPage, deletePage } }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   await createResourcePages(actions, graphql, reporter);
   await createBlogPages(actions, graphql, reporter);
+  await createBlogIndexPages(actions, graphql, reporter);
 }
 
 async function createResourcePages(actions, graphql, reporter) {
@@ -204,6 +205,41 @@ async function createBlogPages(actions, graphql, reporter) {
       component: blogPostTemplate,
     })
   })
+}
+
+async function createBlogIndexPages(actions, graphql, reporter) {
+  const { createPage } = actions;
+
+  const result = await fetchMarkdownPagesByFolder('blog', graphql, reporter);
+  const blogPosts = result.data.results.edges;
+
+  const locales = [];
+
+  blogPosts.forEach(blogPost => {
+    const blogPostLocale = blogPost.node.fields.page.locale;
+
+    if (!locales.includes(blogPostLocale)) {
+      locales.push(blogPostLocale);
+    }
+  });
+
+  const blogPostsComponent = path.resolve('src/templates/blog-post.js');
+
+  locales.forEach(locale => {
+    const blogPostForLocale = blogPosts.filter(blogPost => {
+      blogPost.node.fields.page.locale === locale;
+    });
+
+    const numberOfPagesForLocale = blogPostForLocale.length / 10;
+
+    for (var pageNumber = 1; pageNumber < numberOfPagesForLocale; pageNumber++) {
+      createPage({
+        path: `/${locale}/blog/${pageNumber}`,
+        context: { pageNumber },
+        component: blogPostsComponent,
+      })
+    }
+  });
 }
 
 async function fetchMarkdownPagesByFolder(folder, graphql, reporter) {
