@@ -53,7 +53,7 @@ class VoteProducerLoggedIn extends Component {
           </Segment>
           <Segment attached>
             <Grid centered stackable>
-              <Grid.Column width={6} textAlign="center">
+              <Grid.Column computer={6} textAlign="center">
                 <Button
                   content="Proxy your Vote"
                   onClick={proxyVotes}
@@ -72,9 +72,8 @@ class VoteProducerLoggedIn extends Component {
                   proxy, which will be used to vote for the block producers we feel bring the most value (including Greymass).
                 </p>
               </Grid.Column>
-              <Grid.Column width={1}>
-                <span className="mobile-only">OR</span>
-              </Grid.Column>
+              <Grid.Column width={1} />
+              <span className="mobile-only">OR</span>
               <Grid.Column width={6} textAlign="center">
                 {(account.voter_info && account.voter_info.producers.length === 30) && (
                   <Dropdown

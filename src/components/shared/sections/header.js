@@ -16,12 +16,12 @@ export default class SharedHeader extends Component {
       <Container>
         <Grid className={sharedHeaderStyles.container}>
           <Grid.Row className={sharedHeaderStyles.row}>
-            <Grid.Column computer={2} tablet={2} mobile={1}>
+            <Grid.Column computer={2} tablet={2} mobile={3}>
               <div className={`${sharedHeaderStyles.blueBar} ${
                 paragraph ? sharedHeaderStyles.longBlueBar :  ''
               }`}/>
             </Grid.Column>
-            <Grid.Column computer={10} tablet={8} mobile={12}>
+            <Grid.Column computer={10} tablet={8} mobile={11}>
               <h4 className={sharedHeaderStyles.headerText}>
                 {title}
               </h4>
