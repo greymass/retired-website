@@ -12,28 +12,18 @@ class Resources extends Component {
     return (
       <div className={footerResourcesStyles.container}>
         <FooterResourcesLink
-          to="https://greymass.com/bp.json"
-          content={intl.formatMessage({ id: 'bp_info' })}
+          to="resources/ownership"
+          content={intl.formatMessage({ id: 'ownership' })}
         />
         <span className={footerResourcesStyles.divider}>|</span>
         <FooterResourcesLink
           to="resources/code-of-conduct"
           content={intl.formatMessage({ id: 'code_of_conduct'})}
         />
-        <span className={footerResourcesStyles.divider}>|</span>
-        <FooterResourcesLink
-          to="resources/ownership"
-          content={intl.formatMessage({ id: 'ownership' })}
-        />
         <div className={footerResourcesStyles.menuSecondLine} >
           <FooterResourcesLink
-            to="resources/terms-of-use"
-            content={intl.formatMessage({ id: 'terms_of_use' })}
-          />
-          <span className={footerResourcesStyles.divider}>|</span>
-          <FooterResourcesLink
-            to="resources/privacy-policy"
-            content={intl.formatMessage({ id: 'privacy_policy' })}
+            to="https://greymass.com/bp.json"
+            content={intl.formatMessage({ id: 'bp_info' })}
           />
         </div>
         <p className={footerResourcesStyles.copyright}>
