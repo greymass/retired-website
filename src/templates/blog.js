@@ -12,8 +12,8 @@ import blogStyles from './blog.module.css';
 
 class Blog extends Component {
   render() {
-    const { data, intl, location, pageResources } = this.props;
-    const { pageNumber, totalNumberOfPages } = pageResources.json.pageContext;
+    const { data, intl, location, pageContext } = this.props;
+    const { pageNumber, totalNumberOfPages } = pageContext;
 
     return (
       <Layout location={location}>
