@@ -27,14 +27,7 @@ class BlogPostList extends Component {
           content={intl.formatMessage({ id: 'blog_blog_post_list_title' })}
           className={blogPostListStyles.headerText}
         />
-        <Pagination
-          defaultActivePage={pageNumber}
-          firstItem={null}
-          lastItem={null}
-          onPageChange={this.handlePaginationChange}
-          totalPages={totalNumberOfPages}
-        />
-
+      
         <List className={blogPostListStyles.list}>
           {data
             .allMarkdownRemark.edges
