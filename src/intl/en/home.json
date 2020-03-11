@@ -1,7 +1,7 @@
 {
-  "home_about_link": "about us",
-  "home_about_paragraph_one": "Greymass is an organization built to perform research around distributed ledger technologies, share our knowledge, and use our experiences to improve the system for all its users.",
-  "home_about_paragraph_two": "It is able to do this through funding mechanisms built into the blockchains, as the stakeholders of each project elect candidates like Greymass to serve as what's know as a block producer.",
+  "home_about_link": "You can learn more about us here",
+  "home_about_paragraph_one": "Greymass is an organization built to facilitate the growth of distributed ledger technologies and the infrastructure powering them. We study and participate in decentralized ecosystems in order to build solutions that improve these systems for all of their users. ",
+  "home_about_paragraph_two": "Our business model is built upon funding mechanisms built into blockchains themselves. As elected validators, we are trusted by the network’s community of token holders to maintain and govern the network.",
   "home_about_title": "What is Greymass?",
   "home_blog_posts_link": "See Blog",
   "home_blog_posts_title": "Our recent publications...",
@@ -11,8 +11,8 @@
   "home_header_one": "We are",
   "home_header_two": "An EOSIO Block Producer",
   "home_header_three": "Creating solutions for the age of the distributed ledger",
-  "home_newsletter_subtitle": "Signup for the newsletter",
-  "home_newsletter_title": "Stay up to date",
+  "home_newsletter_subtitle": "We write a monthly newsletter covering the latest projects we’re working on, updates from around the EOSIO ecosystem, and news from the blockchains and ecosystems we support.",
+  "home_newsletter_title": "Subscribe to Our Monthly Newsletter",
   "home_projects_portfolio_link": "See all of our projects",
   "home_projects_title": "Notable creations include:"
 }
