@@ -92,7 +92,7 @@ class Header extends TransitWrapper {
         key: 'about'
       },
       {
-        as: `/${intl.locale}/blog`,
+        as: `/${intl.locale}/blog/1`,
         content: 'blog',
         key: 'blog'
       },

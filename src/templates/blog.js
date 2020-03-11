@@ -12,7 +12,8 @@ import blogStyles from './blog.module.css';
 
 class Blog extends Component {
   render() {
-    const { data, intl, location } = this.props;
+    const { data, intl, location, pageResources } = this.props;
+    const { pageNumber, totalNumberOfPages } = pageResources.json.pageContext;
 
     return (
       <Layout location={location}>
@@ -22,7 +23,11 @@ class Blog extends Component {
         <div className={blogStyles.container}>
           <Grid stackable container>
             <Grid.Column mobile={16} tablet={11} computer={11}>
-              <BlogPostList data={data} />
+              <BlogPostList
+                data={data}
+                pageNumber={pageNumber}
+                totalNumberOfPages={totalNumberOfPages}
+              />
             </Grid.Column>
             <Grid.Column floated="right" mobile={16} tablet={5} computer={5}>
               <RecentPodcasts />
