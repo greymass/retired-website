@@ -15,7 +15,7 @@ import { Button,
 } from 'semantic-ui-react';
 
 import FuelNumber from '../number';
-import eosLogo from '../../../images/blockchain-eos-logo.svg';
+import eosLogo from '../../../images/blockchains/eos.svg';
 
 const packages = [
   {
