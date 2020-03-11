@@ -7,7 +7,7 @@ import chains from '../../../constants/chains';
 
 import eosLogo from '../../../images/blockchains/eos.png';
 import jungleLogo from '../../../images/blockchains/jungle.png';
-import telosLogo from '../../../images/blockchains/telos.jpg';
+import telosLogo from '../../../images/blockchains/telos.png';
 import waxLogo from '../../../images/blockchains/wax.png';
 
 const logos = {
@@ -21,12 +21,13 @@ class SharedElementsChainLogo extends Component {
   render() {
     const {
       chain,
+      size,
     } = this.props;
     return (
       <Image
         centered
         src={logos[chain]}
-        size="small"
+        size={size || 'small'}
       />
     );
   }
