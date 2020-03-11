@@ -65,27 +65,34 @@ class SharedModalsTransitLogin extends TransitWrapper {
             loading={processing}
           >
             <Form>
-              <Grid>
+              <Grid stackable>
                 <Grid.Row columns={productionChains.length}>
                   {productionChains.map(chain => (
                     <Grid.Column
                       basic
                       onClick={() => this.setState({ blockchain: chain.name})}
                       secondary
+                      style={{
+                        cursor: 'pointer'
+                      }}
                       textAlign="center"
                     >
-                      <SharedElementsChainLogo
-                        chain={chain.name}
-                      />
-                      <Header
-                        style={{ marginTop: 0 }}
-                      >
-                        {chain.name.toUpperCase()}
-                      </Header>
-                      <Form.Radio
-                        name='blockchain'
-                        checked={chain.name === blockchain}
-                      />
+                      <Segment>
+                        <SharedElementsChainLogo
+                          chain={chain.name}
+                          size="tiny"
+                        />
+                        <Header
+                          style={{ marginTop: '0.5em' }}
+                        >
+                          {chain.name.toUpperCase()}
+                        </Header>
+                        <Form.Checkbox
+                          name='blockchain'
+                          checked={chain.name === blockchain}
+                        />
+
+                      </Segment>
                     </Grid.Column>
                   ))}
                 </Grid.Row>
