@@ -26,12 +26,14 @@ class FuelControlsMenu extends Component {
             name="transactions"
             active={menuItem === "transactions"}
             onClick={onMenuChange}
+            style={{ display: 'none' }}
           />
           <Menu.Item
             as="a"
             name="settings"
             active={menuItem === "settings"}
             onClick={onMenuChange}
+            style={{ display: 'none' }}
           />
         </Menu>
       </React.Fragment>
