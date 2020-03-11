@@ -22,6 +22,7 @@ class FuelLogin extends Component {
               </Header>
               <Button
                 onClick={() => this.setState({ loggingIn: true })}
+                primary
               >
                 Sign in
               </Button>
@@ -30,6 +31,7 @@ class FuelLogin extends Component {
                 <TransitLogin
                   setSigner={setSigner}
                   onClose={() => this.setState({ loggingIn: false })}
+                  open={loggingIn}
                 />
               )}
 

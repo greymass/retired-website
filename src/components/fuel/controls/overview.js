@@ -1,5 +1,18 @@
 import React, { Component } from "react";
-import { Button, Card, Container, Divider, Form, Header, Grid, Image, List, Message, Modal, Table } from 'semantic-ui-react';
+import { Button,
+  Card,
+  Container,
+  Divider,
+  Form,
+  Header,
+  Grid,
+  Image,
+  List,
+  Message,
+  Modal,
+  Segment,
+  Table,
+} from 'semantic-ui-react';
 
 import FuelNumber from '../number';
 import eosLogo from '../../../images/blockchain-eos-logo.svg';
@@ -7,7 +20,7 @@ import eosLogo from '../../../images/blockchain-eos-logo.svg';
 const packages = [
   {
     name: 'basic',
-    price: 100,
+    price: 1000,
   },
   {
     name: 'pro',
@@ -66,7 +79,11 @@ class FuelControlsOverview extends Component {
         <Modal
           centered={false}
           content={(
-            <Modal.Content>
+            <Segment
+              attached="top"
+              secondary
+              style={{ marginTop: 0 }}
+            >
               <Grid>
                 <Grid.Row centered>
                   <Grid.Column width={16}>
@@ -81,7 +98,7 @@ class FuelControlsOverview extends Component {
                         <Card color="blue">
                           <Card.Content>
                             <Card.Header>
-                              {pkg.name}
+                              {pkg.name.toUpperCase()}
                             </Card.Header>
                             <Card.Meta>
                               <span className='date'>{pkg.price / cosigner.fee_ms}ms of CPU</span>
@@ -111,6 +128,7 @@ class FuelControlsOverview extends Component {
                     </Card.Group>
                   </Grid.Column>
                 </Grid.Row>
+                {/*
                 <Grid.Row>
                   <Grid.Column width={16}>
                     <Divider horizontal>Or</Divider>
@@ -118,39 +136,43 @@ class FuelControlsOverview extends Component {
                 </Grid.Row>
                 <Grid.Row centered>
                   <Grid.Column width={7}>
-                    <Header
-                      size="large"
-                      textAlign="center"
-                    >
-                      Enter a custom amount
-                    </Header>
-                    <Form>
-                      <Form.Field>
-                        <label htmlFor="amount">
-                          Amount of EOS to spend
-                          <Form.Input name="amount" type="text" />
-                        </label>
-
-                      </Form.Field>
-                      <Container textAlign="center">
-                        <Button
-                          content="Purchase"
-                          primary
-                        />
-                      </Container>
-                    </Form>
+                    <Segment stacked style={{ marginTop: 0 }}>
+                      <Header
+                        size="large"
+                        textAlign="center"
+                      >
+                        Enter a custom amount
+                      </Header>
+                      <Form>
+                        <Form.Field>
+                          <label htmlFor="amount">
+                            Amount of EOS to spend
+                            <Form.Input name="amount" type="text" />
+                          </label>
+                        </Form.Field>
+                        <Container textAlign="center">
+                          <Button
+                            content="Purchase"
+                            primary
+                            size="large"
+                          />
+                        </Container>
+                      </Form>
+                    </Segment>
                   </Grid.Column>
                 </Grid.Row>
+                */}
                 <Grid.Row>
                   <Grid.Column textAlign="center" width={16}>
                     <Button
+                      basic
                       onClick={() => this.setState({ openedModal: false })}
                       content="Cancel"
                     />
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
-            </Modal.Content>
+            </Segment>
           )}
           closeIcon
           dimmer="inverted"
@@ -158,11 +180,13 @@ class FuelControlsOverview extends Component {
           open={openedModal}
           onClose={() => this.setState({ openedModal: false }) }
           trigger={(
-            <Button
-              onClick={() => this.setState({ openedModal: true })}
-              content="Purchase Fuel"
-              primary
-            />
+            <Segment basic textAlign="center">
+              <Button
+                onClick={() => this.setState({ openedModal: true })}
+                content="Purchase Fuel"
+                primary
+              />
+            </Segment>
           )}
         />
       </React.Fragment>
