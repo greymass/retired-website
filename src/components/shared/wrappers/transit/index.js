@@ -177,8 +177,6 @@ class TransitWrapper extends React.Component {
              transitSession.account.name !== currentTransitSession.account.name;
     });
 
-    console.log({newTransitSessions})
-
     localStorage.setItem('transitSessions', JSON.stringify(newTransitSessions));
 
     if (newTransitSessions.length > 0) {

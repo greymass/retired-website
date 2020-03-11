@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
-import { Header, List } from 'semantic-ui-react';
+import { Header, List, Pagination } from 'semantic-ui-react';
 import { injectIntl } from 'gatsby-plugin-intl';
+import { navigate } from 'gatsby'
 
 import BlogPostListItem from './blogPostList/item';
 import blogPostListStyles from './blogPostList.module.css';
 
 class BlogPostList extends Component {
+  handlePaginationChange = (e, { activePage }) => {
+    const { intl } = this.props;
+
+    navigate(`/${intl.locale}/blog/${activePage}`);
+  }
   render() {
-    const { data, intl } = this.props;
+    const {
+      data,
+      intl,
+      pageNumber,
+      totalNumberOfPages
+    } = this.props;
 
     return (
       <div className={blogPostListStyles.container}>
@@ -16,6 +27,14 @@ class BlogPostList extends Component {
           content={intl.formatMessage({ id: 'blog_blog_post_list_title' })}
           className={blogPostListStyles.headerText}
         />
+        <Pagination
+          defaultActivePage={pageNumber}
+          firstItem={null}
+          lastItem={null}
+          onPageChange={this.handlePaginationChange}
+          totalPages={totalNumberOfPages}
+        />
+
         <List className={blogPostListStyles.list}>
           {data
             .allMarkdownRemark.edges
@@ -23,6 +42,14 @@ class BlogPostList extends Component {
               <BlogPostListItem blogPost={node} />
             ))}
         </List>
+
+        <Pagination
+          defaultActivePage={pageNumber}
+          firstItem={null}
+          lastItem={null}
+          onPageChange={this.handlePaginationChange}
+          totalPages={totalNumberOfPages}
+        />
       </div>
     );
   }

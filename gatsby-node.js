@@ -160,10 +160,6 @@ exports.onCreatePage = ({ page, actions: { createPage, deletePage } }) => {
   const pageLanguage = page.context.intl && page.context.intl.language;
 
   deletePage(page);
-  console.log({context: page.context})
-  // if (page.context.resultsToSKip) {
-  //   process.exit()
-  // }
   createPage({
     ...page,
     context: {
@@ -219,10 +215,8 @@ async function createBlogIndexPages(actions, graphql, reporter) {
 
   const locales = [];
 
-  console.log({blogPosts})
   blogPosts.forEach(blogPost => {
     const blogPostLocale = blogPost.node.fields.page.locale;
-    console.log({page: blogPost.node.fields.page})
 
     if (!locales.includes(blogPostLocale)) {
       locales.push(blogPostLocale);
@@ -231,25 +225,21 @@ async function createBlogIndexPages(actions, graphql, reporter) {
 
   const blogPostsComponent = path.resolve('src/templates/blog.js');
 
-  console.log({locales});
-
   locales.forEach(locale => {
-    console.log({locale});
     const blogPostForLocale = blogPosts.filter(blogPost => {
       return blogPost.node.fields.page.locale === locale;
     });
 
-    console.log({blogPostForLocale})
+    const numberOfPagesForLocale = Math.ceil(blogPostForLocale.length / 10);
 
-    const numberOfPagesForLocale = blogPostForLocale.length / 10;
-
-    for (var pageNumber = 1; pageNumber < numberOfPagesForLocale; pageNumber++) {
+    for (var pageNumber = 1; pageNumber <= numberOfPagesForLocale; pageNumber++) {
       createPage({
         path: `/blog/${pageNumber}`,
         context: {
           pageNumber,
           resultsToSkip: (pageNumber - 1) * 10,
           locale,
+          totalNumberOfPages: numberOfPagesForLocale,
         },
         component: blogPostsComponent,
       })

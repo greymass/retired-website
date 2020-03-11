@@ -14,8 +14,8 @@
   text-transform: uppercase;
 }
 
-.list {
-  padding: 100px;
+.container .list  {
+  margin: 50px 0;
 }
 
 @media only screen and (max-width: 767px) {
