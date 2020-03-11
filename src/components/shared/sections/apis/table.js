@@ -6,69 +6,62 @@ import { Table, Header, Image, Label, Icon, Responsive } from "semantic-ui-react
 
 import { JsonRpc } from 'eosjs';
 
-import eosLogo from '../../../../images/blockchain-eos-logo.svg';
-import fioLogo from '../../../../images/blockchain-fio-logo.svg';
-import instarLogo from '../../../../images/blockchain-insights-logo.svg';
-import jungleLogo from '../../../../images/blockchain-eos-logo.svg'; // change for real logo
-import lynxLogo from '../../../../images/blockchain-lynx-logo.svg'; // change for real logo
-import telosLogo from '../../../../images/blockchain-telos-logo.svg';
-import waxLogo from '../../../../images/blockchain-wax-logo.svg';
-
+import SharedElementsChainLogo from '../../../shared/elements/chainLogo';
 import apisTableStyles from './table.module.css';
 
 const nodes = [
   {
+    logo: 'eos',
     url: 'https://eos.greymass.com',
     name: 'EOS',
-    logo: eosLogo,
     v1: true,
   },
   {
+    logo: 'instar',
     url: 'https://instar.greymass.com',
     name: 'Instar',
-    logo: instarLogo,
     v1: true,
   },
   {
+    logo: 'lynx',
     url: 'https://lynx.greymass.com',
     name: 'Lynx',
-    logo: lynxLogo,
     v1: true,
   },
   {
+    logo: 'telos',
     url: 'https://telos.greymass.com',
     name: 'Telos',
-    logo: telosLogo,
     v1: true,
   },
   {
+    logo: 'wax',
     url: 'https://wax.greymass.com',
     name: 'WAX',
-    logo: waxLogo,
     v1: true,
   },
   {
+    logo: 'fio',
     url: 'https://fiotestnet.greymass.com',
     name: 'FIO (Testnet)',
-    logo: fioLogo,
     v1: true,
   },
   {
+    logo: 'jungle',
     url: 'https://jungle.greymass.com',
     name: 'Jungle (Testnet)',
-    logo: jungleLogo,
     v1: true,
   },
   {
+    logo: 'lynx',
     url: 'https://lynxtestnet.greymass.com',
     name: 'Lynx (Testnet)',
-    logo: lynxLogo,
     v1: true,
   },
   {
+    logo: 'wax',
     url: 'https://waxtestnet.greymass.com',
     name: 'WAX (Testnet)',
-    logo: waxLogo,
     v1: true,
   },
 ]
@@ -141,7 +134,10 @@ class Apis extends React.Component {
             {responses.map(response =>  (
               <Table.Row key={response.name}>
                 <Table.Cell collapsing>
-                  <Image src={response.logo} rounded size='mini'/>
+                  <SharedElementsChainLogo
+                    chain={response.logo}
+                    size="mini"
+                  />
                 </Table.Cell>
                 <Table.Cell>
                   <Header as='h4' image>
