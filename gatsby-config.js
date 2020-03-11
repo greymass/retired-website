@@ -5,7 +5,7 @@ module.exports = {
     defaultLanguage: 'en',
     description: 'EOSIO Block Producer',
     officialEmail: 'hello@greymass.com',
-    officialAddress: '#1 Vancouver Road, Vancouver, BC',
+    officialAddress: 'Suite 1700 - 1185 West Georgia Street, Vancouver BC V6E 4E6, Canada',
     links: {
       github: 'https://github.com/greymass/',
       twitter: 'https://twitter.com/greymass',
