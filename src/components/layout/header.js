@@ -55,12 +55,14 @@ class Header extends TransitWrapper {
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/anchor`}
+              style={{ display: 'none' }}
             >
               Anchor Wallet
             </Menu.Item>
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/esr`}
+              style={{ display: 'none' }}
             >
               ESR Protocol
             </Menu.Item>
