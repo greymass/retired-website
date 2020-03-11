@@ -160,11 +160,15 @@ exports.onCreatePage = ({ page, actions: { createPage, deletePage } }) => {
   const pageLanguage = page.context.intl && page.context.intl.language;
 
   deletePage(page);
+  console.log({context: page.context})
+  // if (page.context.resultsToSKip) {
+  //   process.exit()
+  // }
   createPage({
     ...page,
     context: {
       ...page.context,
-      language: pageLanguage || defaultLanguage
+      language: pageLanguage || page.context.locale || defaultLanguage
     },
   });
 };
@@ -215,27 +219,38 @@ async function createBlogIndexPages(actions, graphql, reporter) {
 
   const locales = [];
 
+  console.log({blogPosts})
   blogPosts.forEach(blogPost => {
     const blogPostLocale = blogPost.node.fields.page.locale;
+    console.log({page: blogPost.node.fields.page})
 
     if (!locales.includes(blogPostLocale)) {
       locales.push(blogPostLocale);
     }
   });
 
-  const blogPostsComponent = path.resolve('src/templates/blog-post.js');
+  const blogPostsComponent = path.resolve('src/templates/blog.js');
+
+  console.log({locales});
 
   locales.forEach(locale => {
+    console.log({locale});
     const blogPostForLocale = blogPosts.filter(blogPost => {
-      blogPost.node.fields.page.locale === locale;
+      return blogPost.node.fields.page.locale === locale;
     });
+
+    console.log({blogPostForLocale})
 
     const numberOfPagesForLocale = blogPostForLocale.length / 10;
 
     for (var pageNumber = 1; pageNumber < numberOfPagesForLocale; pageNumber++) {
       createPage({
-        path: `/${locale}/blog/${pageNumber}`,
-        context: { pageNumber },
+        path: `/blog/${pageNumber}`,
+        context: {
+          pageNumber,
+          resultsToSkip: (pageNumber - 1) * 10,
+          locale,
+        },
         component: blogPostsComponent,
       })
     }
@@ -255,6 +270,7 @@ async function fetchMarkdownPagesByFolder(folder, graphql, reporter) {
               page {
                 slug
                 path
+                locale
               }
             }
           }

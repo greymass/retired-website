@@ -4,7 +4,6 @@ import { Grid } from "semantic-ui-react"
 import { injectIntl } from "gatsby-plugin-intl";
 
 import Layout from '../components/layout';
-import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 import BlogPostList from '../components/blog/blogPostList';
 import RecentPodcasts from '../components/blog/recentPodcasts';
 import SharedHeader from '../components/shared/sections/header';
@@ -38,11 +37,12 @@ class Blog extends Component {
 export default injectIntl(Blog);
 
 export const query = graphql`
-  query($language: String!) {
+  query($language: String!, $resultsToSkip: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC },
       filter: {fileAbsolutePath: {regex: "/(blog)/"}, fields: { page: { locale: { eq: $language } } } },
-      limit: 100
+      limit: 10,
+      skip: $resultsToSkip,
     ) {
       edges {
         node {
