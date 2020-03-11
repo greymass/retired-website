@@ -12,6 +12,9 @@ class HomeNewsletter extends Component {
         <p className={newsletterStyles.title}>
           {intl.formatMessage({ id: 'home_newsletter_title' })}
         </p>
+        <p className={newsletterStyles.subtitle}>
+          {intl.formatMessage({ id: 'home_newsletter_subtitle' })}
+        </p>
         <iframe
           title="newsletter-iframe"
           width="100%"

@@ -12,9 +12,6 @@ class HomeHeader extends Component {
       <div className={homeHeaderStyles.container}>
         <p
           className={homeHeaderStyles.headerText}
-          style={{
-            marginBottom: '60px'
-          }}
         >
           {intl.formatMessage({ id: 'home_header_one' })}
         </p>

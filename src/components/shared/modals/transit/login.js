@@ -2,6 +2,7 @@ import React  from 'react';
 import {
   Button,
   Form,
+  Grid,
   Header,
   Image,
   Modal,
@@ -64,29 +65,31 @@ class SharedModalsTransitLogin extends TransitWrapper {
             loading={processing}
           >
             <Form>
-              <Segment.Group horizontal>
-                {productionChains.map(chain => (
-                  <Segment
-                    basic
-                    onClick={() => this.setState({ blockchain: chain.name})}
-                    secondary
-                    textAlign="center"
-                  >
-                    <SharedElementsChainLogo
-                      chain={chain.name}
-                    />
-                    <Header
-                      style={{ marginTop: 0 }}
+              <Grid>
+                <Grid.Row columns={productionChains.length}>
+                  {productionChains.map(chain => (
+                    <Grid.Column
+                      basic
+                      onClick={() => this.setState({ blockchain: chain.name})}
+                      secondary
+                      textAlign="center"
                     >
-                      {chain.name.toUpperCase()}
-                    </Header>
-                    <Form.Radio
-                      name='blockchain'
-                      checked={chain.name === blockchain}
-                    />
-                  </Segment>
-                ))}
-              </Segment.Group>
+                      <SharedElementsChainLogo
+                        chain={chain.name}
+                      />
+                      <Header
+                        style={{ marginTop: 0 }}
+                      >
+                        {chain.name.toUpperCase()}
+                      </Header>
+                      <Form.Radio
+                        name='blockchain'
+                        checked={chain.name === blockchain}
+                      />
+                    </Grid.Column>
+                  ))}
+                </Grid.Row>
+              </Grid>
             </Form>
             <Segment basic textAlign="center">
               <Header>

@@ -6,3 +6,10 @@
 .container a[class="ui header"] {
   color: var(--mainBlue);
 }
+
+@media only screen and (max-width: 769px) {
+  .container {
+    padding: 2em 0;
+    background: white;
+  }
+}
