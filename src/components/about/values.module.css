@@ -17,7 +17,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 44px;
-  padding: 40px;
+  padding: 60px 0 0;
   text-transform: uppercase;
 }
 
@@ -26,7 +26,6 @@
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-style: normal;
-  font-weight: bold;
   letter-spacing: 0.1em;
   line-height: 34px;
   margin: 40px 5% 0 5%;
