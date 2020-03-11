@@ -87,7 +87,7 @@ class TeamMemberProjectCard extends Component {
               </p>
             )}
           </Card.Description>
-          <Grid className={aboutTeamMembersCardStyles.grid}>
+          <Grid centered className={aboutTeamMembersCardStyles.grid}>
             <SocialMediaButton name="facebook f" link={facebookLink} />
             <SocialMediaButton name="twitter" link={twitterLink} />
             <SocialMediaButton name="linkedin" link={linkedinLink} />
@@ -119,4 +119,3 @@ export default props => (
     render={data => <TeamMemberProjectCardWrapper data={data} {...props} />}
   />
 );
-

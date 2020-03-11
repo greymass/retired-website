@@ -1,5 +1,7 @@
 {
   "key": "scott",
   "joined": 2,
-  "socialMedia": {}
+  "socialMedia": {
+    "githubLink": "https://github.com/ScottSallinen"
+  }
 }

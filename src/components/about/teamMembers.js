@@ -56,7 +56,6 @@ export default props => (
                  githubLink
                  linkedinLink
                  twitterLink
-                 youtubeLink
                }
              }
            }

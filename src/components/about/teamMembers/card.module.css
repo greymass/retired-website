@@ -6,7 +6,7 @@
 .top.container.teamMember.card div[class='content'] {
   background-color: var(--mainGrey);
   padding: 50px 30px 100px 30px;
-  min-height: 580px;
+  min-height: 520px;
 }
 
 .top.container.teamMember.card div[class='content'] div[class='header'] {
