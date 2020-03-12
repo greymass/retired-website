@@ -1,13 +1,43 @@
 import React, { Component } from 'react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
-import { Container, Grid, Header, Segment } from "semantic-ui-react"
+import { Container, Divider, Grid, Header, List, Segment } from "semantic-ui-react"
 
 import Layout from '../components/layout';
 import TransactionHandlersVoteproducer from '../components/support/transactionHandlers/voteProducer';
 import SharedHeader from '../components/shared/sections/header';
+import SharedElementsChainLogo from '../components/shared/elements/chainLogo';
+import SharedElementsExplorerLink from '../components/shared/elements/explorerLink';
 
 import supportStyles from './support.module.css';
+
+const bps = [
+  {
+    network: 'eos',
+    producer: 'teamgreymass',
+    proxy: 'greymassvote',
+  },
+  // {
+  //   network: 'fio',
+  //   producer: 'teamgreymass',
+  // },
+  {
+    network: 'instar',
+    producer: 'teamgreymass',
+  },
+  {
+    network: 'lynx',
+    producer: 'teamgreymass',
+  },
+  {
+    network: 'telos',
+    producer: 'teamgreymass',
+  },
+  {
+    network: 'wax',
+    producer: 'teamgreymass',
+  },
+]
 
 class Index extends Component {
   render() {
@@ -21,21 +51,84 @@ class Index extends Component {
         />
         <div className={supportStyles.container}>
           <Container>
-            <Grid>
-              <Grid.Row>
-                <p>
-                  If you would like to support the work we do, please consider voting for us on the EOS mainnet (+ WAX and TELOS) at [teamgreymass](https://bloks.io/account/teamgreymass) . If you’d like to proxy your vote to us, you can do so with  [greymassvote](https://bloks.io/account/greymassvote). You can do that directly by signing in below.
-                </p>
-              </Grid.Row>
+            <Grid stackable>
               <Grid.Row centered>
                 <Grid.Column computer={12} tablet={14} mobile={16}>
-                  <TransactionHandlersVoteproducer />
+                  <TransactionHandlersVoteproducer
+                    bps={bps}
+                  />
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row>
+              <Grid.Row columns={1}>
+                <Grid.Column
+                  style={{
+                    padding: '40px 0 0'
+                  }}
+                  textAlign="center"
+                >
+                  <Header size="small">
+                    Greymass on EOSIO
+                    <Header.Subheader>
+                      If you would like to support the work we do, please consider voting for us on one of the networks:
+                    </Header.Subheader>
+                  </Header>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row
+                columns={bps.length}
+                style={{
+                  padding: '0 0 40px'
+                }}
+              >
+                {bps.map(bp => (
+                  <Grid.Column>
+                    <Segment
+                      color="blue"
+                      stacked
+                      textAlign="center"
+                    >
+                      <SharedElementsChainLogo
+                        chain={bp.network}
+                        size="mini"
+                      />
+                      <Header
+                        size="small"
+                        style={{ margin: 0 }}
+                      >
+                        {bp.network.toUpperCase()}
+                        <Header.Subheader>
+                          Block Producer
+                        </Header.Subheader>
+                      </Header>
+                      <List>
+                        <List.Item>
+                          <strong>
+                            <SharedElementsExplorerLink
+                              chain={bp.network}
+                              type="account"
+                              value={bp.producer}
+                            />
+                          </strong>
+                        </List.Item>
+                      </List>
+                    </Segment>
+                  </Grid.Column>
+                ))}
+              </Grid.Row>
+              <Grid.Row
+                columns={1}
+                style={{
+                  padding: '0 0 40px'
+                }}
+              >
                 <Grid.Column>
+                  <Divider horizontal>Continue on to learn more</Divider>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row centered>
+                <Grid.Column width={10}>
                   <Header>
-                    SECTION: What are block producers and why are they paid?
+                    What are block producers and why are they paid?
                   </Header>
                   <p>
                     Block producers are the entities that validate the network, ensuring that transactions are received, propagated, and confirmed. In many networks, block producers also serve important governance roles.
@@ -45,10 +138,10 @@ class Index extends Component {
                   </p>
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row>
-                <Grid.Column>
+              <Grid.Row centered>
+                <Grid.Column width={10}>
                   <Header>
-                    SECTION: What is the Greymass Proxy?
+                    What is the Greymass Proxy?
                   </Header>
                   <p>
                     On EOSIO networks, there are two ways to vote. Token holders can vote directly for block producers, or they can proxy their vote to another account. Using a proxy allows a user to lend the weight of their voting power to another account, who can choose who to vote for. This entire process is non-custodial and reversible at any time. Any user who proxies their vote to another account retains full control of their tokens— they simply allow the other account to direct their vote.
@@ -61,23 +154,23 @@ class Index extends Component {
                   </p>
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row>
-                <Grid.Column>
+              <Grid.Row centered>
+                <Grid.Column width={10}>
                   <Header>
-                    SECTION: Use your own wallet to vote
+                    Use your own wallet to vote
                   </Header>
                   <p>
                     You can use any EOSIO wallet to cast a vote. Many wallets have a voting interface built into them directly. Others, like Scatter, can be used in conjunction with web interfaces like Bloks.io or EOS Authority.
                   </p>
                   <p>
-                    To vote for us, simply find the **teamgreymass** account on your wallet’s voting portal and cast a vote for us. We appreciate your support!
+                    To vote for us, simply find the <strong>teamgreymass</strong> account on your wallet’s voting portal and cast a vote for us. We appreciate your support!
                   </p>
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row>
-                <Grid.Column>
+              <Grid.Row centered>
+                <Grid.Column width={10}>
                   <Header>
-                    SECTION: Have a question or want to talk with our team?
+                    Have a question or want to talk with our team?
                   </Header>
                   <p>
                     If you’d like to reach us, feel free to shoot an email to our whole team at team@greymass.com
