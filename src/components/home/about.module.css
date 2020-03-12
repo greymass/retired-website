@@ -3,6 +3,10 @@
   padding: 100px 0;
   position: relative;
   width: 100%;
+  box-shadow:
+    inset 0px 7px 6px -10px #000,
+    inset 0px -7px 6px -10px #000;
+
 }
 
 .imageContainer {

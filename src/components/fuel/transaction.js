@@ -4,7 +4,6 @@ import { Button, Container, Header, Grid, Message, Segment } from 'semantic-ui-r
 class FuelTransaction extends Component {
   render() {
     const { clearTx, tx } = this.props;
-    console.log(tx)
     return (
       <Grid.Row centered>
         <Grid.Column width={10}>

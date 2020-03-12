@@ -7,6 +7,7 @@ import {
   Grid,
   Header,
   List,
+  Message,
   Image,
   Segment,
 } from 'semantic-ui-react';
@@ -19,11 +20,14 @@ import FuelControls from '../components/fuel/controls';
 import FuelLogin from '../components/fuel/login';
 import FuelLoginLoader from '../components/fuel/login/loader';
 import FuelTransaction from '../components/fuel/transaction';
+import FuelUnavailable from '../components/fuel/unavailable';
 
 import SharedElementsChainLogo from '../components/shared/elements/chainLogo';
 import TransitWrapper from '../components/shared/wrappers/transit';
 
 import fuelStyles from './fuel.module.css';
+
+const chains = ['eos', 'jungle'];
 
 class Fuel extends TransitWrapper {
   purchase = async (pkg) => {
@@ -75,12 +79,13 @@ class Fuel extends TransitWrapper {
 
     const {
       account,
+      chainName,
       signer
     } = currentTransitSession;
 
     return (
       <Layout location={location}>
-        <Container style={{ minHeight: '600px' }}>
+        <Container>
           <Grid padded>
             <Grid.Row centered>
               <Grid.Column width={10} textAlign="center">
@@ -91,41 +96,66 @@ class Fuel extends TransitWrapper {
                 />
               </Grid.Column>
             </Grid.Row>
-            {(!account)
-              ? <FuelLogin setSigner={this.setSigner} />
-              : false
-            }
-            {(signer && !account)
-              ? (
-                <FuelLoginLoader
-                  setSigner={this.setSigner}
-                  signer={signer}
-                />
-              )
-              : false
-            }
-            {(signer && account && !tx)
-              ? (
-                <FuelControls
-                  account={account}
-                  logout={this.logout}
-                  purchase={this.purchase}
-                  signer={signer}
-                />
-              )
-              : false
-            }
-            {(tx)
-              ? (
-                <FuelTransaction
-                  clearTx={this.clearTx}
-                  tx={tx}
-                />
-              )
-              : false
-            }
           </Grid>
         </Container>
+        <div className={fuelStyles.interface}>
+          <Container>
+            <Grid stackable>
+              <Grid.Row centered>
+                <Grid.Column width={10} textAlign="center">
+                  {(!account)
+                    ? <FuelLogin setSigner={this.setSigner} />
+                    : false
+                  }
+                  {(signer && !account)
+                    ? (
+                      <FuelLoginLoader
+                        setSigner={this.setSigner}
+                        signer={signer}
+                      />
+                    )
+                    : false
+                  }
+                  {(signer && account && !chains.includes(chainName))
+                    ? (
+                      <FuelUnavailable
+                        chainName={chainName}
+                      />
+                    )
+                    : false
+                  }
+                  {(signer && account && chains.includes(chainName) && !tx)
+                    ? (
+                      <FuelControls
+                        account={account}
+                        chainName={chainName}
+                        logout={this.logout}
+                        purchase={this.purchase}
+                        signer={signer}
+                      />
+                    )
+                    : false
+                  }
+                  {(tx)
+                    ? (
+                      <FuelTransaction
+                        clearTx={this.clearTx}
+                        tx={tx}
+                      />
+                    )
+                    : false
+                  }
+                  <Message
+                    header="Fuel is a BETA product"
+                    content="If you encounter any issues while using Fuel, please contact us for assitance."
+                    textAlign="left"
+                    size="large"
+                  />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Container>
+        </div>
         <div className={fuelStyles.container}>
           <Container>
             <Grid stackable>

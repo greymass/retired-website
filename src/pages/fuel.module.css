@@ -2,5 +2,13 @@
   width: 100%;
   background-color: white;
   font-size: 18px;
-  padding: 3em 0;
+  padding: 3em 0 4em;
+}
+
+.interface {
+  background-color: var(--mainBlue);
+  padding: 60px 0;
+  box-shadow:
+    inset 0px 7px 6px -10px #000,
+    inset 0px -7px 6px -10px #000;
 }

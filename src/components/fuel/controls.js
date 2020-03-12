@@ -81,6 +81,7 @@ class FuelControls extends Component {
     if (!this.state) return false
     const {
       account,
+      chainName,
       logout,
       purchase,
     } = this.props;
