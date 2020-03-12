@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { find } from 'lodash';
 import {
   Button,
   Divider,
@@ -19,6 +20,7 @@ class VoteProducerLoggedIn extends Component {
   render() {
     const {
       account,
+      bps,
       clearTransaction,
       currentTransitSession,
       logout,
@@ -28,7 +30,10 @@ class VoteProducerLoggedIn extends Component {
       vote,
     } = this.props;
 
+    console.log(bps)
+
     const { chainName } = currentTransitSession;
+    const hasProxy = find(bps, { network: chainName }).proxy
 
     return (
       <div className={loggedInStyles.root}>
@@ -53,27 +58,6 @@ class VoteProducerLoggedIn extends Component {
           </Segment>
           <Segment attached>
             <Grid centered stackable>
-              <Grid.Column computer={6} textAlign="center">
-                <Button
-                  content="Proxy your Vote"
-                  onClick={proxyVotes}
-                  primary
-                  size="huge"
-                />
-                <p>
-                  Proxy your voting rights to the
-                  {' '}
-                  <SharedElementsExplorerLink
-                    chain={chainName}
-                    type="account"
-                    value="greymassvote"
-                  />
-                  {' '}
-                  proxy, which will be used to vote for the block producers we feel bring the most value (including Greymass).
-                </p>
-              </Grid.Column>
-              <Grid.Column width={1} />
-              <span className="mobile-only">OR</span>
               <Grid.Column width={6} textAlign="center">
                 {(account.voter_info && account.voter_info.producers.length === 30) && (
                   <Dropdown
@@ -108,8 +92,37 @@ class VoteProducerLoggedIn extends Component {
                   as one of your 30 votes to support us while controlling the remaining 29 votes.
                 </p>
               </Grid.Column>
+              {(hasProxy)
+                ? (
+                  <React.Fragment>
+                    <Grid.Column width={1} />
+                    <span className="mobile-only">OR</span>
+                    <Divider className="mobile-hidden" vertical>OR</Divider>
+                    <Grid.Column computer={6} textAlign="center">
+                      <Button
+                        content="Proxy your Vote"
+                        onClick={proxyVotes}
+                        primary
+                        size="huge"
+                      />
+                      <p>
+                        Proxy your voting rights to the
+                        {' '}
+                        <SharedElementsExplorerLink
+                          chain={chainName}
+                          type="account"
+                          value="greymassvote"
+                        />
+                        {' '}
+                        proxy, which will be used to vote for the block producers we feel bring the most value (including Greymass).
+                      </p>
+                    </Grid.Column>
+                  </React.Fragment>
+                )
+                : false
+              }
+
             </Grid>
-            <Divider className="mobile-hidden" vertical>OR</Divider>
           </Segment>
         </Segment>
         {(transaction) && (

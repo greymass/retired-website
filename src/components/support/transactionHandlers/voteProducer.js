@@ -74,6 +74,9 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
       processing,
       transaction
     } = this.state;
+    const {
+      bps,
+    } = this.props;
 
     const {
       account
@@ -101,6 +104,7 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
        {account && (
          <LoggedIn
            account={account}
+           bps={bps}
            currentTransitSession={currentTransitSession}
            proxyVotes={this.proxyVotes}
            vote={this.vote}
