@@ -39,7 +39,7 @@ class HomeProjects extends Component {
             cards={4}
           />
           <div className={homeProjectsStyles.portfolioContainer}>
-            <Link className={homeProjectsStyles.supportUsLink} to={`/${intl.locale}/projects`}>
+            <Link className={homeProjectsStyles.projectsLink} to={`/${intl.locale}/projects`}>
               {intl.formatMessage({ id: 'home_projects_portfolio_link' })}
               <Icon name="arrow right" style={{ marginLeft: '5px'}} />
             </Link>

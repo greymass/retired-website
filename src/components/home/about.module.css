@@ -69,7 +69,6 @@
 
   .titleText {
     font-size: 26px;
-    text-align: center;
     line-height: 30px;
   }
 
@@ -81,10 +80,16 @@
 
   .aboutUsLink {
     font-size: 14px;
-    margin-left: 25%;
+    margin-left: 10%;
   }
 
   .icon {
     margin-left: 5px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .titleText {
+    text-align: center;
   }
 }
