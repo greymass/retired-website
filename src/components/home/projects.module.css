@@ -37,7 +37,7 @@
   margin-bottom: 30px;
 }
 
-.supportUsLink {
+.projectsLink {
   color: var(--mainBlue);
   font-size: 21px;
   font-family: 'Roboto', sans-serif;
@@ -63,7 +63,11 @@
     padding-top: 0;
   }
 
-  .supportUsLink {
+  .portfolioContainer {
+    padding: 60px 40px 80px 40px;
+  }
+
+  .projectsLink {
     font-size: 18px;
   }
 }

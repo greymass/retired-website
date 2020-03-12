@@ -19,9 +19,6 @@ class HomeHeader extends Component {
           alt='greymass-header'
           className={homeHeaderStyles.image}
           src={greymassHeaderBackground}
-          style={{
-            // marginBottom: '60px'
-          }}
         />
         <p className={homeHeaderStyles.headerText}>
           {intl.formatMessage({ id: 'home_header_two' })}
