@@ -52,9 +52,22 @@
   padding: 60px 60px 80px 60px;
 }
 
+@media only screen and (max-width: 1024px) {
+  .arrowDownContainer .arrowDownIcon {
+    top: 15px;
+  }
+}
+
+@media only screen and (max-width: 968px) {
+  .arrowDownContainer .arrowDownIcon {
+    top: 45px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
-  .arrowDownIcon {
+  .arrowDownContainer .arrowDownIcon {
     top: 25px;
+    font-size: 20px;
   }
 
   .headerText {
