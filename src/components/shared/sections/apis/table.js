@@ -2,7 +2,7 @@ import React from 'react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import { Table, Header, Image, Label, Icon, Responsive } from "semantic-ui-react"
+import { Table, Header, Label, Icon, Responsive } from "semantic-ui-react"
 
 import { JsonRpc } from 'eosjs';
 

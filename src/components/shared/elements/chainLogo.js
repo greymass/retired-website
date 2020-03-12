@@ -3,8 +3,6 @@ import {
   Image,
 } from "semantic-ui-react"
 
-import chains from '../../../constants/chains';
-
 import eosLogo from '../../../images/blockchains/eos.png';
 import fioLogo from '../../../images/blockchains/fio.svg';
 import instarLogo from '../../../images/blockchains/instar.svg';

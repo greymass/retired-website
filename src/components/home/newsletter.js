@@ -20,7 +20,7 @@ class HomeNewsletter extends Component {
           width="100%"
           height="320"
           src="https://greymass.substack.com/embed"
-          frameborder="0"
+          frameBorder="0"
           scrolling="no"
         />
       </Container>

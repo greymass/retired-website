@@ -4,7 +4,6 @@ import {
   Form,
   Grid,
   Header,
-  Image,
   Modal,
   Segment,
 } from "semantic-ui-react"

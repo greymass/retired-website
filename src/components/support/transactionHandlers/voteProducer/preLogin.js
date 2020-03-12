@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Grid, Segment } from 'semantic-ui-react';
+import { Button, Header, Segment } from 'semantic-ui-react';
 
 import chains from '../../../../constants/chains';
 
@@ -8,11 +8,6 @@ import preLoginStyles from './preLogin.module.css';
 class VoteProducerPreLogin extends Component {
   render() {
     const { onClick } = this.props;
-
-    const productionChains = Object.values(chains).filter(chain => {
-      return process.env.NODE_ENV === 'development' || chain.name !== 'jungle';
-    });
-
     return (
       <Segment
         className={preLoginStyles.root}

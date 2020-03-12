@@ -23,14 +23,11 @@ class VoteProducerLoggedIn extends Component {
       bps,
       clearTransaction,
       currentTransitSession,
-      logout,
       proxyVotes,
       setVoteToRemove,
       transaction,
       vote,
     } = this.props;
-
-    console.log(bps)
 
     const { chainName } = currentTransitSession;
     const hasProxy = find(bps, { network: chainName }).proxy

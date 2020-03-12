@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Container, Header, Grid, Message, Segment } from 'semantic-ui-react';
+import { Container, Header, Grid, Segment } from 'semantic-ui-react';
 import SharedElementsChainLogo from '../shared/elements/chainLogo';
 
 class FuelUnavailable extends Component {

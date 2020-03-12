@@ -23,6 +23,9 @@ class SharedElementsExplorerLink extends Component {
       case "account":
         url += `/account/${value}`
         break;
+      default:
+        // no default
+        break;
     }
     return (
       <a

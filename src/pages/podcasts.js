@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 import { graphql } from 'gatsby';
-import { Container, Header, Table } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
