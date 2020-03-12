@@ -28,23 +28,6 @@
   padding-top: 40px;
 }
 
-@media only screen and (max-width: 767px) {
-  .container .grid .gridColumn.connectBannerLinksContainer {
-    padding-top: 10px;
-  }
-
-  .connectBannerLinksInnerContainer {
-    width: 250px;
-    margin: auto;
-  }
-
-  .container .grid .text {
-    font-size: 22px;
-    margin: 0;
-    text-align: center;
-  }
-}
-
 @media only screen and (max-width: 991px) {
   .container .grid .gridColumn.connectBannerLinksContainer {
     padding-top: 40px;
@@ -61,9 +44,21 @@
   }
 }
 
-@media only screen and (max-width: 667px) {
-  .connectBannerLinksInnerContainer {
-    width: 250px;
+@media only screen and (max-width: 767px) {
+  .container .grid .gridColumn.connectBannerLinksContainer {
+    display: block;
     margin: auto;
+    width: 150px;
+  }
+
+  .connectBannerLinksInnerContainer {
+    width: 160px;
+    margin: auto;
+  }
+
+  .container .grid .text {
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
   }
 }

@@ -25,7 +25,7 @@ class FooterConnectBanner extends Component {
           <Grid.Column
             computer={6}
             tablet={7}
-            mobile={7}
+            mobile={10}
             className={`${
               footerConnectBannerStyles.connectBannerLinksContainer
             } ${
