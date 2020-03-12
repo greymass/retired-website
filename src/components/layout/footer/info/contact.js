@@ -19,9 +19,9 @@ class FooterInfoContact extends Component {
         <p className={contactInfoStyles.text}>
           {data.site.siteMetadata.officialAddress}
         </p>
-        <div className={contactInfoStyles.languageSwitcherContainer}>
-          <FooterContactInfoLanguageSwitcher />
-        </div>
+        {/*<div className={contactInfoStyles.languageSwitcherContainer}>*/}
+          {/*<FooterContactInfoLanguageSwitcher />*/}
+        {/*</div>*/}
       </div>
     )
   }
