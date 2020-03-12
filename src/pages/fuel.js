@@ -6,9 +6,9 @@ import {
   Divider,
   Grid,
   Header,
+  Image,
   List,
   Message,
-  Image,
   Segment,
 } from 'semantic-ui-react';
 
@@ -24,7 +24,7 @@ import FuelUnavailable from '../components/fuel/unavailable';
 
 import SharedElementsChainLogo from '../components/shared/elements/chainLogo';
 import TransitWrapper from '../components/shared/wrappers/transit';
-
+import anchorLogo from '../images/projects/anchor.png';
 import fuelStyles from './fuel.module.css';
 
 const chains = ['eos', 'jungle'];
@@ -230,24 +230,18 @@ class Fuel extends TransitWrapper {
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row centered>
-                <Grid.Column width={8}>
-                  <Segment basic size="large">
-                    <Divider horizontal>
-                      <Header size="huge" textAlign="center">
-                        Where can I use Fuel?
-                      </Header>
-                    </Divider>
-                    <p>
-                      Fuel can be used by any wallet or application that integrates it, or any application that integrates with the Anchor wallet.
-                      {' '}
-                      <Link
-                        to="/en/blog/5ms-worth-of-free-transactions-available-now-in-anchor-wallet/"
-                      >
-                        Anchor has Fuel built directly into it
-                      </Link>
-                      {' '}
-                      and allows you to toggle its usage for any EOSIO transaction.
-                    </p>
+                <Grid.Column width={16}>
+                  <Divider horizontal>
+                    <Header size="huge" textAlign="center">
+                      Where can I use Fuel today?
+                    </Header>
+                  </Divider>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row centered>
+                <Grid.Column width={8} textAlign="center">
+                  <Segment size="large">
+                    <Header>Available Networks</Header>
                     <p>
                       Fuel is currently available on the following EOSIO networks:
                     </p>
@@ -273,6 +267,49 @@ class Fuel extends TransitWrapper {
                     </Grid>
                     <p style={{ marginTop: '2em', textAlign: 'center' }}>
                       Additional networks will be made available with time and upon demand.
+                    </p>
+                  </Segment>
+                </Grid.Column>
+                <Grid.Column width={8} textAlign="center">
+                  <Segment size="large">
+                    <Header>Available Wallets</Header>
+                    <p>
+                      Fuel is currently used within the following EOSIO wallets:
+                    </p>
+                    <Grid>
+                      <Grid.Row columns={2}>
+                        <Grid.Column textAlign="center">
+                          <Link
+                            to="/en/blog/5ms-worth-of-free-transactions-available-now-in-anchor-wallet/"
+                          >
+                            <Image
+                              centered
+                              src={anchorLogo}
+                              style={{ maxHeight: '150px' }}
+                            />
+                            <Header>
+                              Anchor
+                            </Header>
+                          </Link>
+                        </Grid.Column>
+                        <Grid.Column textAlign="center">
+                          <a
+                            href="https://eosauthority.com"
+                          >
+                            <Image
+                              centered
+                              src="https://pbs.twimg.com/profile_images/991949967517462529/xV9RvbEL.jpg"
+                              style={{ maxHeight: '150px' }}
+                            />
+                            <Header>
+                              EOSAuthority
+                            </Header>
+                          </a>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                    <p style={{ marginTop: '2em'}}>
+                      All wallets are capable of integrating Fuel, these are just the first.
                     </p>
                   </Segment>
                 </Grid.Column>
