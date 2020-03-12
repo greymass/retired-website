@@ -24,7 +24,6 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
         transitSession.account.name !== currentTransitSession.account.name ||
         transitSession.chainName !== currentTransitSession.chainName;
     });
-
     return (
       <>
         {account ? (
@@ -40,7 +39,7 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
                   {otherTransitSessions.map(transitSession => (
                     <a onClick={() => this.switchAccount(transitSession)}>
                       <Dropdown.Item>
-                        <strong>{transitSession.account.name}</strong>
+                        {transitSession.account.name} ({transitSession.chainName})
                       </Dropdown.Item>
                     </a>
                   ))}
