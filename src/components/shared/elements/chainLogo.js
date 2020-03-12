@@ -28,12 +28,14 @@ class SharedElementsChainLogo extends Component {
     const {
       chain,
       size,
+      style,
     } = this.props;
     return (
       <Image
         centered
         src={logos[chain]}
         size={size || 'small'}
+        style={style}
       />
     );
   }
