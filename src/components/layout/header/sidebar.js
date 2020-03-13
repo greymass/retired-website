@@ -3,14 +3,13 @@ import React, { Component } from 'react';
 
 
 import { Sidebar, Menu } from 'semantic-ui-react';
-
-import { Link } from 'gatsby';
-
-import mobileHeaderSidebarStyles from './sidebar.module.css';
 import SupportUsButton from '../../shared/buttons/supportUs';
 
 import SharedDropdownsTransitSessions from '../../shared/dropdowns/transit/sessions';
 import LayoutHeaderSidebarLink from './sidebar/link';
+
+import sidebarStyles from './sidebar.module.css';
+
 
 class HeaderMobileSidebar extends Component {
   render() {
@@ -20,26 +19,28 @@ class HeaderMobileSidebar extends Component {
     } = this.props;
 
     return (
-      <Sidebar
-        as={Menu}
-        animation="overlay"
-        icon="labeled"
-        items={navbarItems}
-        vertical
-        visible={sidebarVisible}
-      >
-        {navbarItems.map(navbarItem => (
+      <div className={sidebarStyles.container}>
+        <Sidebar
+          as={Menu}
+          animation="overlay"
+          icon="labeled"
+          items={navbarItems}
+          vertical
+          visible={sidebarVisible}
+        >
+          {navbarItems.map(navbarItem => (
+            <Menu.Item>
+              <LayoutHeaderSidebarLink navbarItem={navbarItem} />
+            </Menu.Item>
+          ))}
           <Menu.Item>
-            <LayoutHeaderSidebarLink navbarItem={navbarItem} />
+            <SupportUsButton />
           </Menu.Item>
-        ))}
-        <Menu.Item>
-          <SupportUsButton />
-        </Menu.Item>
-        <Menu.Item>
-          <SharedDropdownsTransitSessions />
-        </Menu.Item>
-      </Sidebar>
+          <Menu.Item>
+            <SharedDropdownsTransitSessions />
+          </Menu.Item>
+        </Sidebar>
+      </div>
     );
   }
 }
