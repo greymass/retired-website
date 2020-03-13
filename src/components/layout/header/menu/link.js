@@ -4,7 +4,7 @@ import { injectIntl } from "gatsby-plugin-intl"
 import { Popup } from "semantic-ui-react"
 import linkStyles from './link.module.css'
 
-class LayoutHeaderLink extends Component {
+class LayoutHeaderMenuLink extends Component {
   render() {
     const {
       active,
@@ -55,4 +55,4 @@ class LayoutHeaderLink extends Component {
   }
 }
 
-export default injectIntl(LayoutHeaderLink);
+export default injectIntl(LayoutHeaderMenuLink);
