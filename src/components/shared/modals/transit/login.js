@@ -112,6 +112,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
                 size="large"
               />
               <Button
+                className="mobile-hidden"
                 content="Scatter"
                 disabled={!blockchain}
                 onClick={() => this.transitLogin('scatter')}
