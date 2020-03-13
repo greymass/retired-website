@@ -10,7 +10,7 @@ import mobileHeaderSidebarStyles from './sidebar.module.css';
 import SupportUsButton from '../../shared/buttons/supportUs';
 
 import SharedDropdownsTransitSessions from '../../shared/dropdowns/transit/sessions';
-import LayoutHeaderMenuLink from "./menu"
+import LayoutHeaderSidebarLink from './sidebar/link';
 
 class HeaderMobileSidebar extends Component {
   render() {
@@ -29,10 +29,8 @@ class HeaderMobileSidebar extends Component {
         visible={sidebarVisible}
       >
         {navbarItems.map(navbarItem => (
-          <Menu.Item dropdown={navbarItem.dropdown}>
-            <Link className={mobileHeaderSidebarStyles.linkText} to={navbarItem.as}>
-              {navbarItem.content}
-            </Link>
+          <Menu.Item>
+            <LayoutHeaderSidebarLink navbarItem={navbarItem} />
           </Menu.Item>
         ))}
         <Menu.Item>
