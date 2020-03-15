@@ -1,0 +1,6 @@
+/bp.json
+  Access-Control-Allow-Origin: *
+/chains.json
+  Access-Control-Allow-Origin: *
+/bp/*
+  Access-Control-Allow-Origin: *
