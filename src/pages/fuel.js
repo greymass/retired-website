@@ -75,12 +75,12 @@ class Fuel extends TransitWrapper {
     const {
       currentTransitSession,
       tx,
-      signer,
     } = this.state;
 
     const {
       account,
       chainName,
+      signer,
     } = currentTransitSession;
 
     return (
