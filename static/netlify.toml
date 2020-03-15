@@ -1,0 +1,10 @@
+[[headers]]
+  for = "/bp/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+  for = "/bp.json"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+  for = "/chains.json"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
