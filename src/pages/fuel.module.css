@@ -12,3 +12,11 @@
     inset 0px 7px 6px -10px #000,
     inset 0px -7px 6px -10px #000;
 }
+
+@media only screen and (max-width: 767px) {
+  .container div[class="centered row"]
+  div[class="ui horizontal divider"]
+  div[class="ui huge center aligned header"] {
+    font-size: 20px;
+  }
+}

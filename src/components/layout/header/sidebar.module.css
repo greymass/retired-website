@@ -1,9 +1,3 @@
-.linkText {
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 25px;
-  letter-spacing: 0.02em;
-  margin-bottom: 5px;
-  text-transform: uppercase;
+.container div[class="ui vertical labeled icon ui overlay left visible sidebar menu"] {
+  overflow-y: visible !important;
 }
