@@ -66,11 +66,10 @@ class TransitWrapper extends React.Component {
     } catch(error) {
       console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
 
-      return alert(
-        `Cannot connect to ${
-          signer
-        }. Please make sure that the wallet app is opened and try again.`
-      );
+      this.setState({ error });
+      // console.log({error})
+
+      return { error };
     }
     const { account_name, permissions } = response;
 
@@ -108,6 +107,8 @@ class TransitWrapper extends React.Component {
     );
 
     window.dispatchEvent(new CustomEvent('storage'));
+
+    return { account };
   }
 
   initWallet = async (signer, chainName) => {
