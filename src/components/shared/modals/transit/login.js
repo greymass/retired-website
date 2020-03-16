@@ -10,6 +10,7 @@ import {
 
 import SharedElementsChainLogo from '../../../shared/elements/chainLogo';
 import TransitWrapper from '../../../shared/wrappers/transit';
+import MessagesTransitError from '../../messages/transit/error';
 
 import loginStyles from './login.module.css';
 
@@ -30,11 +31,16 @@ class SharedModalsTransitLogin extends TransitWrapper {
 
     this.setState({
       processing: true,
+      error: null,
     });
 
-    await this.login(walletName, blockchain);
+    const { error } = await this.login(walletName, blockchain);
+    console.log({error});
     this.setState({ processing: false });
-    onClose();
+
+    if (!error) {
+      onClose();
+    }
   }
 
   render() {
@@ -44,6 +50,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
     } = this.props;
     const {
       blockchain,
+      error,
       processing,
     } = this.state;
 
@@ -120,6 +127,12 @@ class SharedModalsTransitLogin extends TransitWrapper {
                 size="large"
               />
             </Segment>
+
+            {error && (
+              <MessagesTransitError
+                error={error}
+              />
+            )}
           </Segment>
         )}
         closeIcon
