@@ -8,6 +8,7 @@ import TransitLogin from '../../shared/modals/transit/login';
 
 import PreLogin from './voteProducer/preLogin';
 import LoggedIn from './voteProducer/loggedIn';
+import TransitError from "../../shared/messages/transit/error"
 
 class SupportTransactionHandlersVoteProducer extends TransitWrapper {
   vote = debounce(async () => {
@@ -22,7 +23,7 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
     const { currentTransitSession, voteToRemove } = this.state;
     const { account } = currentTransitSession;
 
-    this.setState({ processing: true });
+    this.setState({ processing: true, error: null });
 
     const producers = (type === 'vote')
       ? account.voter_info.producers.filter(vote => vote !== voteToRemove)
@@ -72,7 +73,8 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
       currentTransitSession,
       login,
       processing,
-      transaction
+      transaction,
+      error,
     } = this.state;
     const {
       bps,
@@ -112,6 +114,11 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
            setVoteToRemove={voteToRemove => this.setState({ voteToRemove })}
            transaction={transaction}
            clearTransaction={() => this.setState({ transaction: false })}
+         />
+       )}
+       {error && (
+         <TransitError
+           error={error}
          />
        )}
      </Segment>

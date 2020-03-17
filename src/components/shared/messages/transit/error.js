@@ -5,6 +5,7 @@ import { Message } from 'semantic-ui-react';
 const errorMessages = {
   'Cannot connect to Scatter': 'Cannot connect to Scatter. Please make sure that the application is running.',
   '{"code":"E_CANCEL"}': 'skip',
+  'voter holding REX token': 'You seem to be holding some REX tokens. REX token holders need to either vote for 30 bps or proxy their votes.',
 };
 
 export default class TransitErrors extends Component {

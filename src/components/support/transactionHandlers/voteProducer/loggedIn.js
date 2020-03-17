@@ -30,7 +30,21 @@ class VoteProducerLoggedIn extends Component {
     } = this.props;
 
     const { chainName } = currentTransitSession;
-    const hasProxy = find(bps, { network: chainName }).proxy
+    const hasProxy = find(bps, { network: chainName }).proxy;
+    const producers = (account.voter_info && account.voter_info.producers) || [];
+    const proxyAccount = account.voter_info.proxy;
+
+    let statusMessage;
+
+    if (proxyAccount) {
+      statusMessage = `You are currently proxying your vote to ${proxyAccount}.`;
+    } else if (producers.length === 0) {
+      statusMessage = 'You are currently not voting for block producers.';
+    } else if (producers.includes('teamgreymass')) {
+      statusMessage = `You are currently voting for ${producers.length} block producers, including teamgreymass.`
+    } else {
+      statusMessage = `You are currently voting for ${producers.length} block producers, and not voting for teamgreymass.`
+    }
 
     return (
       <div className={loggedInStyles.root}>
@@ -52,11 +66,14 @@ class VoteProducerLoggedIn extends Component {
               &nbsp;
               <SharedDropdownsTransitSessions />
             </p>
+            <p>
+              {statusMessage}
+            </p>
           </Segment>
           <Segment attached>
             <Grid centered stackable>
               <Grid.Column width={6} textAlign="center">
-                {(account.voter_info && account.voter_info.producers.length === 30) && (
+                {(producers.length === 30) && (
                   <Dropdown
                     fluid
                     onChange={(event, data) => setVoteToRemove(data.text)}
