@@ -152,11 +152,7 @@ class TransitWrapper extends React.Component {
     try {
       return await window.transitWallet.eosApi.transact(transaction, config);
     } catch(error) {
-      const cancelledRequest = JSON.stringify(error).includes('CANCEL');
-
-      if (!cancelledRequest) {
-        alert(`Transaction Error: ${JSON.stringify(error)}`);
-      }
+      this.setState({ error });
     }
   }
   logout = async () => {
