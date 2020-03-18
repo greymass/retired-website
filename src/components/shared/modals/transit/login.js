@@ -25,8 +25,15 @@ class SharedModalsTransitLogin extends TransitWrapper {
     super.componentDidMount.apply(this);
   }
 
-  transitLogin = async (walletName) => {
+  onClose = () => {
     const { onClose } = this.props;
+
+    this.setState({ error: null });
+
+    onClose();
+  }
+
+  transitLogin = async (walletName) => {
     const { blockchain } = this.state;
 
     this.setState({
@@ -35,17 +42,16 @@ class SharedModalsTransitLogin extends TransitWrapper {
     });
 
     const { error } = await this.login(walletName, blockchain);
-    console.log({error});
+
     this.setState({ processing: false });
 
     if (!error) {
-      onClose();
+      this.onClose();
     }
   }
 
   render() {
     const {
-      onClose,
       open,
     } = this.props;
     const {
@@ -139,7 +145,7 @@ class SharedModalsTransitLogin extends TransitWrapper {
         dimmer="inverted"
         header="Select a blockchain and signature provider to sign in."
         open={open}
-        onClose={onClose}
+        onClose={this.onClose}
       />
       );
   }
