@@ -162,7 +162,11 @@ class TransitWrapper extends React.Component {
     } = this.state;
 
     if (window.transitWallet) {
-      await window.transitWallet.logout();
+      try {
+        await window.transitWallet.logout();
+      } catch (error) {
+        console.log({error});
+      }
 
       window.transitWallet = null;
     }
