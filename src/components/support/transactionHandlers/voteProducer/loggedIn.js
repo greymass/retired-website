@@ -30,9 +30,11 @@ class VoteProducerLoggedIn extends Component {
     } = this.props;
 
     const { chainName } = currentTransitSession;
-    const hasProxy = find(bps, { network: chainName }).proxy;
+
+    const chainBp = find(bps, { network: chainName });
+    const hasProxy = chainBp && chainBp.proxy;
     const producers = (account.voter_info && account.voter_info.producers) || [];
-    const proxyAccount = account.voter_info.proxy;
+    const proxyAccount = account.voter_info && account.voter_info.proxy;
 
     let statusMessage;
 
