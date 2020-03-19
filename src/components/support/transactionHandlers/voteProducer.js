@@ -8,7 +8,9 @@ import TransitLogin from '../../shared/modals/transit/login';
 
 import PreLogin from './voteProducer/preLogin';
 import LoggedIn from './voteProducer/loggedIn';
-import TransitError from "../../shared/messages/transit/error"
+import TransitError from '../../shared/messages/transit/error';
+
+import chains from '../../../constants/chains';
 
 class SupportTransactionHandlersVoteProducer extends TransitWrapper {
   vote = debounce(async () => {
@@ -21,45 +23,46 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
 
   voteproducerAction = async (type) => {
     const { currentTransitSession, voteToRemove } = this.state;
-    const { account } = currentTransitSession;
+    const { account, chainName } = currentTransitSession;
 
     this.setState({ processing: true, error: null });
 
     const currentProducers = account.voter_info &&
       account.voter_info.producers.filter(vote => vote !== voteToRemove);
-    
+
     const producers = (type === 'vote') ? (currentProducers || []) : [];
 
     producers.push('teamgreymass');
 
-    const transactionData = {
-      actions: [
-        {
-          authorization: [{
-            actor: 'greymassfuel',
-            permission: 'cosign',
-          }],
-          account: 'greymassnoop',
-          name: 'noop',
-          data: {}
-        },
-        {
-          account: 'eosio',
-          name: 'voteproducer',
-          authorization: [{
-            actor: account.name,
-            permission: account.authority,
-          }],
-          data: {
-            producers: type === 'proxy' ? [] : producers,
-            proxy: type === 'proxy' ? 'greymassvote' : '',
-            voter: account.name,
-          }
-        }
-      ],
+    const actions = [];
+
+    if (chains[chainName].fuel) {
+      actions.push({
+        authorization: [{
+          actor: 'greymassfuel',
+          permission: 'cosign',
+        }],
+        account: 'greymassnoop',
+        name: 'noop',
+        data: {}
+      })
     }
 
-    const transaction = await this.transact(transactionData, {
+    actions.push({
+      account: 'eosio',
+      name: 'voteproducer',
+      authorization: [{
+        actor: account.name,
+        permission: account.authority,
+      }],
+      data: {
+        producers: type === 'proxy' ? [] : producers,
+        proxy: type === 'proxy' ? 'greymassvote' : '',
+        voter: account.name,
+      }
+    });
+
+    const transaction = await this.transact({ actions }, {
       blocksBehind: 3,
       expireSeconds: 120,
       broadcast: true,
@@ -70,7 +73,6 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
 
   render() {
     const {
-      blockchain,
       currentTransitSession,
       login,
       processing,
@@ -82,7 +84,7 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
     } = this.props;
 
     const {
-      account
+      account,
     } = currentTransitSession;
 
     return (
@@ -91,9 +93,8 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
        basic
      >
        <TransitLogin
-          blockchain={blockchain}
-          setSigner={(walletName, blockchain) => new Promise(async () => {
-            const account = await this.setSigner(walletName, blockchain)
+          setSigner={(walletName, chainName) => new Promise(async () => {
+            const account = await this.setSigner(walletName, chainName)
             this.setState({ account });
           })}
           onClose={() => this.setState({ login: false })}
