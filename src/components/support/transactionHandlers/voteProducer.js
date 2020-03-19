@@ -25,9 +25,10 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
 
     this.setState({ processing: true, error: null });
 
-    const producers = (type === 'vote')
-      ? account.voter_info.producers.filter(vote => vote !== voteToRemove)
-      : [];
+    const currentProducers = account.voter_info &&
+      account.voter_info.producers.filter(vote => vote !== voteToRemove);
+    
+    const producers = (type === 'vote') ? (currentProducers || []) : [];
 
     producers.push('teamgreymass');
 
