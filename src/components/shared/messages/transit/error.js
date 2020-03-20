@@ -4,8 +4,10 @@ import { Message } from 'semantic-ui-react';
 
 const errorMessages = {
   'Cannot connect to Scatter': 'Cannot connect to Scatter. Please make sure that the application is running.',
-  '{"code":"E_CANCEL"}': 'skip',
+  'user must stake before they can vote': 'You do not seem to have staked any tokens. On the WAX Blockchain, voters must stake before they can vote.',
   'voter holding REX token': 'You seem to be holding some REX tokens. REX token holders need to either vote for 30 bps or proxy their votes.',
+  '{"code":"E_CANCEL"}': 'skip',
+  '{"code":"E_IDENTITY"}': 'There seems to have been an issue while connecting to your Anchor wallet. Please try again and if the problem persists, feel free to reach out to us.',
 };
 
 export default class TransitErrors extends Component {
