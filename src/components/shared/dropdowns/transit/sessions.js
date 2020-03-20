@@ -33,7 +33,7 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
             pointing
           >
             <Dropdown.Menu>
-              {transitSessions.length > 1 && (
+              {otherTransitSessions.length > 1 && (
                 <>
                   <Dropdown.Header>Switch Account</Dropdown.Header>
                   {otherTransitSessions.map(transitSession => (
