@@ -11,7 +11,7 @@ const chains = {
   },
   telos: {
     name: 'telos',
-    chainid: '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11',
+    chainId: '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11',
     apiNode: 'telos.greymass.com',
   },
   jungle: {
