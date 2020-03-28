@@ -28,8 +28,10 @@ exports.onPreInit = async () => {
   const p = `${__dirname}/src/intl`;
   const dirs = fs.readdirSync(p).filter((f) =>
     fs.statSync(`${p}/${f}`).isDirectory());
-  dirs.forEach((dir) => {
-    if (dir !== 'build') {
+  const excludes = ['build'];
+  dirs
+    .filter((d) => !excludes.includes(d))
+    .forEach((dir) => {
       const sourceDirectory = `${p}/${dir}/`;
       const destinationFile = `${p}/build/${dir}.json`;
 
@@ -43,8 +45,7 @@ exports.onPreInit = async () => {
           throw(`Invalid locale JSON. Error: ${JSON.stringify(e)}`);
         }
       });
-    }
-  })
+    });
 
   console.log('Syncing Decentium Blog Posts')
   const response = await client.getPosts('teamgreymass')
