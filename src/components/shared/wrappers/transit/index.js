@@ -64,7 +64,7 @@ class TransitWrapper extends React.Component {
       await wallet.connect();
       response = await wallet.login();
     } catch(error) {
-      console.log(`Error connecting and/or logging in: ${JSON.stringify(error)}`);
+      console.log('Error connecting and/or logging in:', {error});
       this.setState({ error });
 
       return { error };
