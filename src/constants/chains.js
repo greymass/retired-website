@@ -15,6 +15,12 @@ const chains = {
     name: 'telos',
     chainId: '4667b205c6838ef70ff7988f6e8257e8be0e1284a2f59699054a018f743b1d11',
     apiNode: 'telos.greymass.com',
+    fuel: true,
+  },
+  fio: {
+    name: 'fio',
+    chainId: '21dcae42c0182200e93f954a074011f9048a7624c6fe81d3c9541a614a88bd1c',
+    apiNode: 'fio.greymass.com',
     fuel: false,
   },
   jungle: {
