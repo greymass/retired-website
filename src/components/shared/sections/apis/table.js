@@ -17,6 +17,12 @@ const nodes = [
     v1: true,
   },
   {
+    logo: 'fio',
+    url: 'https://fio.greymass.com',
+    name: 'FIO',
+    v1: true,
+  },
+  {
     logo: 'instar',
     url: 'https://instar.greymass.com',
     name: 'Instar',
@@ -50,12 +56,6 @@ const nodes = [
     logo: 'jungle',
     url: 'https://jungle.greymass.com',
     name: 'Jungle (Testnet)',
-    v1: true,
-  },
-  {
-    logo: 'lynx',
-    url: 'https://lynxtestnet.greymass.com',
-    name: 'Lynx (Testnet)',
     v1: true,
   },
   {
