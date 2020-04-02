@@ -20,3 +20,9 @@
   line-height: 66px;
   text-align: center;
 }
+
+@media only screen and (max-width: 767px) {
+  .bodyContainer {
+    padding: 30px 20px;
+  }
+}
