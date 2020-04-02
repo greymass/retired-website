@@ -17,6 +17,8 @@ html {
   overflow-x: hidden;
 }
 
+html, body { height: auto }
+
 @media screen and (max-width: 768px) {
   .mobile-hidden {
     display: none !important;
