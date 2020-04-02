@@ -4,7 +4,7 @@ title: 'Ownership Disclosure'
 
 ## Greymass is completely owned by the members that make up the organization.
 
-Greymass has no external obligations or external stakeholders, and solely makes decisions about operations and governance based on the objective views of the team. This members of the team who have ownership in Greymass includes:
+Greymass has no external obligations or external stakeholders, and solely makes decisions about operations and governance based on the objective views of the team. The members of the team who have ownership in Greymass include:
 
 - Aaron Cox
 - Scott Sallinen
