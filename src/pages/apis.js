@@ -10,6 +10,8 @@ import ApisTable from '../components/shared/sections/apis/table';
 
 import SharedHeader from '../components/shared/sections/header';
 
+import SEO from '../components/shared/seo';
+
 import apisStyle from './apis.module.css';
 
 class Apis extends React.Component {
@@ -18,6 +20,11 @@ class Apis extends React.Component {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['APIs', 'greymass']}
+          title="APIs"
+        />
         <SharedHeader
           title={intl.formatMessage({ id: 'apis_header' })}
           paragraph={intl.formatMessage({ id: 'apis_subheader' })}

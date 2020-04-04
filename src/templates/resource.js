@@ -5,16 +5,24 @@ import { graphql } from 'gatsby';
 import { Container, Header } from "semantic-ui-react"
 
 import Layout from '../components/layout';
+import SEO from '../components/shared/seo';
 
 import resourceStyles from './resource.module.css';
 
 class Resource extends Component {
   render() {
-    const { data } = this.props;
+    const { data, pageContext } = this.props;
+    const { intl } = pageContext;
+
     const resource = data.markdownRemark;
 
     return (
       <Layout>
+        <SEO
+          lang={intl.locale}
+          keywords={['blog', 'greymass']}
+          title={resource.frontmatter.title}
+        />
         <div>
           <div className={resourceStyles.headerContainer}>
             <Container>
