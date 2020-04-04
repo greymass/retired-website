@@ -10,6 +10,7 @@ import SharedElementsChainLogo from '../components/shared/elements/chainLogo';
 import SharedElementsExplorerLink from '../components/shared/elements/explorerLink';
 
 import supportStyles from './support.module.css';
+import SEO from '../components/shared/seo';
 
 const bps = [
   {
@@ -45,6 +46,11 @@ class Index extends Component {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['support us', 'greymass']}
+          title="Support Us"
+        />
         <SharedHeader
           title={intl.formatMessage({ id: 'support_header' })}
           paragraph={intl.formatMessage({ id: 'support_paragraph' })}

@@ -24,6 +24,9 @@ import FuelUnavailable from '../components/fuel/unavailable';
 
 import SharedElementsChainLogo from '../components/shared/elements/chainLogo';
 import TransitWrapper from '../components/shared/wrappers/transit';
+
+import SEO from '../components/shared/seo';
+
 import anchorLogo from '../images/projects/anchor.png';
 import fuelStyles from './fuel.module.css';
 
@@ -69,7 +72,8 @@ class Fuel extends TransitWrapper {
   }
   render() {
     const {
-      location
+      location,
+      intl,
     } = this.props;
 
     const {
@@ -85,6 +89,11 @@ class Fuel extends TransitWrapper {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['fuel', 'greymass']}
+          title="Fuel"
+        />
         <Container>
           <Grid padded>
             <Grid.Row centered>

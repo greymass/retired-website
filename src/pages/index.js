@@ -7,7 +7,7 @@ import HomeProjects from '../components/home/projects';
 import HomeAbout from '../components/home/about';
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 import HomeNewsletter from '../components/home/newsletter';
-import SEO from "../components/shared/seo";
+import SEO from '../components/shared/seo';
 
 import homeStyles from './index.module.css';
 

@@ -9,6 +9,7 @@ import RecentPodcasts from '../components/blog/recentPodcasts';
 import SharedHeader from '../components/shared/sections/header';
 
 import blogStyles from './blog.module.css';
+import SEO from '../components/shared/seo';
 
 class Blog extends Component {
   render() {
@@ -17,6 +18,11 @@ class Blog extends Component {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['blog', 'greymass']}
+          title="Blog"
+        />
         <SharedHeader
           title={intl.formatMessage({ id: 'blog_header' })}
           paragraph={intl.formatMessage({ id: 'blog_subheader' })}

@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         }
       }
     `
-  )
+  );
 
   const metaDescription = description || site.siteMetadata.description
   const renderedTitle = (title)
