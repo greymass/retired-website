@@ -5,6 +5,7 @@ import AboutValues from '../components/about/values';
 import AboutTeamMembers from '../components/about/teamMembers';
 import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
+import SEO from '../components/shared/seo';
 
 class About extends React.Component {
   render() {
@@ -12,6 +13,11 @@ class About extends React.Component {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['about us', 'greymass']}
+          title="About"
+        />
         <SharedHeader
           title={intl.formatMessage({ id: 'about_header_title' })}
           paragraph={intl.formatMessage({ id: 'about_header_paragraph' })}

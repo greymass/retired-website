@@ -9,6 +9,7 @@ import SharedHeader from '../components/shared/sections/header';
 import SharedListItemsPodcast from '../components/shared/list/items/podcast';
 
 import podcastStyles from './podcasts.module.css';
+import SEO from '../components/shared/seo';
 
 class Projects extends Component {
   render() {
@@ -17,6 +18,11 @@ class Projects extends Component {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['podcasts', 'greymass']}
+          title="Podcasts"
+        />
         <SharedHeader
           title="Podcasts"
           paragraph="Below is the list of all podcasts that we have hosted so far. Discussion subjects range from current governance to some of the projects that we are most excited about."

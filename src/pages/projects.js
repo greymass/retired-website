@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import SharedHeader from '../components/shared/sections/header';
 
 import projectStyles from './projects.module.css';
+import SEO from '../components/shared/seo';
 
 class Projects extends Component {
   render() {
@@ -28,6 +29,11 @@ class Projects extends Component {
 
     return (
       <Layout location={location}>
+        <SEO
+          lang={intl.locale}
+          keywords={['projects', 'greymass']}
+          title="Projects"
+        />
         <SharedHeader
           title={intl.formatMessage({ id: 'platform_header_title' })}
           paragraph={intl.formatMessage({ id: 'platform_header_paragraph' })}

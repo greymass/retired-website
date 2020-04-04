@@ -10,14 +10,24 @@ import BlogPostHeader from '../components/blog/blogPost/header';
 import BlogPostBody from '../components/blog/blogPost/body';
 
 import blogPostStyles from './blog-post.module.css';
+import SEO from '../components/shared/seo';
 
 class BlogPost extends Component {
   render() {
-    const { data } = this.props;
+    const { data, pageContext } = this.props;
+    const { intl } = pageContext;
+
     const post = data.markdownRemark;
+
+    console.log({post});
 
     return (
       <Layout>
+        <SEO
+          lang={intl.locale}
+          keywords={['blog-page', 'greymass']}
+          title={post.frontmatter.title}
+        />
         <BlogPostHeader post={post}  />
         <div className={blogPostStyles.bodyContainer}>
           <BlogPostBody post={post} />
