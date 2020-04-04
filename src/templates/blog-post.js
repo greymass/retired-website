@@ -33,7 +33,6 @@ class BlogPost extends Component {
         </div>
         <div className={blogPostStyles.featuredBlogPostContainer}>
           <FeaturedBlogPosts
-            containerClassName="lightBlueBackground"
             inverted
             link={intl.formatMessage({ id: 'blog_featured_blog_post_link' })}
             textClassName="whiteText"
