@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { graphql } from 'gatsby';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import FeaturedBlogPosts from '../components/shared/sections/featuredBlogPosts';
 
 import Layout from '../components/layout';
@@ -14,12 +16,9 @@ import SEO from '../components/shared/seo';
 
 class BlogPost extends Component {
   render() {
-    const { data, pageContext } = this.props;
-    const { intl } = pageContext;
+    const { data, intl } = this.props;
 
     const post = data.markdownRemark;
-
-    console.log({post});
 
     return (
       <Layout>
@@ -36,9 +35,9 @@ class BlogPost extends Component {
           <FeaturedBlogPosts
             containerClassName="lightBlueBackground"
             inverted
-            link="blog:featured_blog_post_link"
+            link={intl.formatMessage({ id: 'blog_featured_blog_post_link' })}
             textClassName="whiteText"
-            title="blog:featured_blog_post_header"
+            title={intl.formatMessage({ id: 'blog_featured_blog_post_header' })}
           />
         </div>
       </Layout>
@@ -46,7 +45,7 @@ class BlogPost extends Component {
   }
 }
 
-export default BlogPost;
+export default injectIntl(BlogPost);
 
 export const query = graphql`
   query($slug: String!, $locale: String!) {
