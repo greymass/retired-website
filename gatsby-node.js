@@ -170,21 +170,21 @@ exports.onCreatePage = ({ page, actions: { createPage, deletePage } }) => {
 };
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  await createResourcePages(actions, graphql, reporter);
+  await createRootPages(actions, graphql, reporter);
   await createBlogPages(actions, graphql, reporter);
   await createBlogIndexPages(actions, graphql, reporter);
 }
 
-async function createResourcePages(actions, graphql, reporter) {
+async function createRootPages(actions, graphql, reporter) {
   const { createPage } = actions
   const resourceTemplate = path.resolve('src/templates/resource.js');
-  const result = await fetchMarkdownPagesByFolder('resources', graphql, reporter);
+  const result = await fetchMarkdownPagesByFolder('root', graphql, reporter);
 
   const resourcePages = result.data.results.edges;
   // Create post detail pages
   resourcePages.forEach(({ node }) => {
     createPage({
-      path: node.fields.page.slug,
+      path: node.fields.page.path,
       context: { slug: node.fields.page.slug, locale: node.fields.page.locale || defaultLanguage },
       component: resourceTemplate,
     })

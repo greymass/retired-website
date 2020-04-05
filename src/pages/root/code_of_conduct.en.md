@@ -27,6 +27,6 @@ One of the guiding ideas at Greymass is that for a blockchain to be successful, 
 
 We pledge to be a trustworthy block producer, and to always act with the utmost integrity. We will always ensure that we have the infrastructure and technical ability to produce blocks and secure the network. If infrastructure failures should ever occur, we will treat the issue as our highest priority and address the failure swiftly and effectively.
 
-In addition to meeting all block production requirements, we will never engage in any act that could be detrimental to the EOS system. Some examples of behaviors that fit this description are: buying or incentivizing votes, double signing blocks, operating without sufficient protection of user data, or colluding with other block producers to put our interests above those of the EOS community.
+In addition to meeting all block production requirements, we will never engage in any act that could be detrimental to the EOS system. Some examples of behaviors that fit this description are: double signing blocks, operating without sufficient protection of user data, or colluding with other block producers to put our interests above those of the EOS community.
 
 Finally, we commit to full developer transparency. All of our code is open-source and security audits are welcome.
