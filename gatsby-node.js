@@ -184,7 +184,7 @@ async function createResourcePages(actions, graphql, reporter) {
   // Create post detail pages
   resourcePages.forEach(({ node }) => {
     createPage({
-      path: node.fields.page.path,
+      path: node.fields.page.slug,
       context: { slug: node.fields.page.slug, locale: node.fields.page.locale || defaultLanguage },
       component: resourceTemplate,
     })

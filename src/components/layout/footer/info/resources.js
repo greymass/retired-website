@@ -12,12 +12,12 @@ class Resources extends Component {
     return (
       <div className={footerResourcesStyles.container}>
         <FooterResourcesLink
-          to="resources/ownership"
+          to="ownership"
           content={intl.formatMessage({ id: 'ownership' })}
         />
         <span className={footerResourcesStyles.divider}>|</span>
         <FooterResourcesLink
-          to="resources/code-of-conduct"
+          to="code-of-conduct"
           content={intl.formatMessage({ id: 'code_of_conduct'})}
         />
         <div className={footerResourcesStyles.menuSecondLine} >
