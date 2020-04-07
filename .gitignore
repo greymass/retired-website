@@ -76,6 +76,7 @@ tmp
 # Static folder
 static/bp.json
 static/chains.json
+static/publish.sh
 static/bp/
 
 # Ignore decentium injected posts
