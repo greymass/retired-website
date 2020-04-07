@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Header, Segment } from 'semantic-ui-react';
 
-import chains from '../../../../constants/chains';
-
 import preLoginStyles from './preLogin.module.css';
 
 class VoteProducerPreLogin extends Component {

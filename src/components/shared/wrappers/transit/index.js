@@ -111,7 +111,7 @@ class TransitWrapper extends React.Component {
 
   initWallet = async (signer, chainName) => {
     if (!chains[chainName]) {
-      throw `Chain ${chainName} is not supported!`;
+      console.log(`Chain ${chainName} is not supported!`);
     }
 
     const accessContext = initAccessContext({

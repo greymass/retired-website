@@ -7,7 +7,6 @@ import datetStyles from './date.module.css'
 class BlogPostBodyDate extends Component {
   render() {
     const {
-      intl,
       post,
     } = this.props;
 

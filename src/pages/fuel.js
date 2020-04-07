@@ -37,7 +37,6 @@ class Fuel extends TransitWrapper {
     const { currentTransitSession } = this.state;
     const {
       account,
-      signer
     } = currentTransitSession;
     const result = await this.transact({
       actions: [{
