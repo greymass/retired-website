@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import { Link } from 'gatsby';
-import { Menu } from 'semantic-ui-react';
 
 import linkStyles from './link.module.css'
 
