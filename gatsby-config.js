@@ -37,17 +37,32 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages`,
-      },
-    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/data/`,
+        path: `${__dirname}/src/data`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'blog',
+        path: `${__dirname}/src/pages/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'docs',
+        path: `${__dirname}/src/pages/docs`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'website',
+        path: `${__dirname}/src/pages/website`,
       },
     },
     {
@@ -55,7 +70,7 @@ module.exports = {
       options: {
         query: `
         {
-          allMarkdownRemark {
+          allMarkdownRemark(filter: { sourceInstanceName: { eq: "blog" } }) {
             edges {
               node {
                 fields {
