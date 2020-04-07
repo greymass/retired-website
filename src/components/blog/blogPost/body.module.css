@@ -19,19 +19,18 @@
 
 .markdownContainer img {
   height: auto;
-  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .markdownContainer pre > code {
+  letter-spacing: 0;
+  line-height: 1.25em;
 }
 
 .markdownContainer pre {
-  background-color: #2d2d2d;
-  border-radius: 6px;
-  color: #ccc;
-  margin: 1em 0;
-  overflow: auto;
-  padding: 1em;
 }
 
 .markdownContainer figcaption {

@@ -131,6 +131,5 @@ As always, thank you for your support. We couldn’t do any of this without the 
 Sincerely, 
 The Greymass Team
 
-<center>
+
 ![Greymass](https://i.imgur.com/wLI79sx.png)
-</center>

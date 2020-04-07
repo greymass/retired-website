@@ -3,9 +3,9 @@ title: 'Greymass Support of the "tokenauction" Referendum Proposal'
 date: "2019-04-30"
 author: "Greymass"
 ---
-<center>
+
 ![](https://cdn.steemitimages.com/DQmS131dxdxSjU3UKrrEJT7CJUBMNZJkuCrgyqLwX1KHAvp/mXkfdToSwHy717SyTJHRsb6HY62chsj1ZCaMXwgRwhe9yMk4gNRDsqF3yQ8viERHTjhZCZPmpeusCiJ4YG9AzNmg8w5rYCQNMZDDA7m6N.png)
-</center>
+
 
 Today, we’d like to voice our support for the  [tokenauction](https://bloks.io/vote/referendums/tokenauction)  referendum proposal by EOS New York. Should this issue be put to a 15/21 BP approval vote, we plan to vote in favor of the approval. As part of our commitment to active participation in EOS governance, we’ve signaled our support of the proposal on-chain (see transaction  [here](https://bloks.io/transaction/28c87d492c52318b05702d298c4e2d8192e0c769cbc602395211176b843cde19) ), and will also offer an explanation of our stance below. 
 

@@ -11,9 +11,9 @@ After many months of reimagining, rebranding, and experimentation, we are proud 
 
 ## Introducing: Anchor
 
-<center>
+
  ![Imgur](https://i.imgur.com/U972tzQ.png)  
-</center>
+
 <br/>
 
 Anchor is built upon the same principals we embraced while developing eos-voter, ones which we will always maintain and defend. We care deeply about protecting the security of your account, the privacy of your identity, and your freedom to use the wallet as you choose. We’ve built the necessary tools to make it all possible, and we’ve presented them in a way that makes them user-friendly and intuitive.  The name Anchor itself is symbolic of these ideals, as anchors are tools to help vessels secure their position in constantly shifting waters.
