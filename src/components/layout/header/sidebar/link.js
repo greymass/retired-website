@@ -15,14 +15,14 @@ class LayoutHeaderSidebarLink extends Component {
       <div className={linkStyles.container}>
         {navbarItem.dropdown ? (
           <>
-            <a
+            <button
               className={linkStyles.linkText}
               onClick={() => this.setState(state => {
                 return { displayDropdown: !state.displayDropdown }
               })}
             >
               {navbarItem.content}
-            </a>
+            </button>
             <div className={linkStyles.dropdown}>
               {displayDropdown && navbarItem.dropdown}
             </div>

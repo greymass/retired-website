@@ -57,17 +57,18 @@ class TeamMemberProjectCard extends Component {
             {expanded ? (
               <p>
                 {intl.formatMessage({ id: `about_team_member_${teamMemberKey}_description` })}
-                <span
+                <button
                   className={`${
                     aboutTeamMembersCardStyles.expandButton
                   } ${
                     aboutTeamMembersCardStyles.expandedButton
                   }`}
                   onClick={() => this.setState({ expanded: false })}
+                  onKeyUp={() => this.setState({ expanded: false })}
                 >
                   {intl.formatMessage({ id: 'about_team_member_card_read_less' })}
                   <Icon className={aboutTeamMembersCardStyles.icon} name="arrow up" />
-                </span>
+                </button>
               </p>
             ) : (
               <p>
@@ -78,12 +79,13 @@ class TeamMemberProjectCard extends Component {
                 }
                 <br />
                 <br />
-                <span
+                <button
                   className={aboutTeamMembersCardStyles.expandButton}
                   onClick={() => this.setState({ expanded: true })}
+                  onKeyUp={() => this.setState({ expanded: true })}
                 >
                   {intl.formatMessage({ id: 'about_team_member_card_read_more' })}
-                </span>
+                </button>
               </p>
             )}
           </Card.Description>
