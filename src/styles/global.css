@@ -19,6 +19,15 @@ html {
 
 html, body { height: auto }
 
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+
+}
+
 @media screen and (max-width: 768px) {
   .mobile-hidden {
     display: none !important;

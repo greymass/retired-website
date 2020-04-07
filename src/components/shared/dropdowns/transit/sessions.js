@@ -37,31 +37,31 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
                 <>
                   <Dropdown.Header>Switch Account</Dropdown.Header>
                   {otherTransitSessions.map(transitSession => (
-                    <a onClick={() => this.switchAccount(transitSession)}>
+                    <button onClick={() => this.switchAccount(transitSession)}>
                       <Dropdown.Item>
                         {transitSession.account.name} ({transitSession.chainName})
                       </Dropdown.Item>
-                    </a>
+                    </button>
                   ))}
                   <Dropdown.Divider />
                 </>
               )}
-              <a onClick={() => this.setState({ loggingIn: true })}>
+              <button onClick={() => this.setState({ loggingIn: true })}>
                 <Dropdown.Item>
                   + Add account
                 </Dropdown.Item>
-              </a>
-              <a onClick={this.logout}>
+              </button>
+              <button onClick={this.logout}>
                 <Dropdown.Item>
                   Logout
                 </Dropdown.Item>
-              </a>
+              </button>
             </Dropdown.Menu>
           </Dropdown>
         ) : (
-          <a href='#' onClick={() => this.setState({ loggingIn: true })}>
+          <button onClick={() => this.setState({ loggingIn: true })}>
             Sign in
-          </a>
+          </button>
         )}
         {loggingIn && (
           <SharedModalsTransitLogin
