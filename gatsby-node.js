@@ -131,7 +131,7 @@ function updateNodeData(node, createNodeField, getNode, getNodes, reporter) {
   const pageData = {
     pageId: node.id,
     slug: sluggishTitle,
-    path: `${pageType}/${sluggishTitle}/`,
+    path: (pageType === 'website') ? sluggishTitle : `${pageType}/${sluggishTitle}/`,
     locale,
   };
 
@@ -147,13 +147,10 @@ function updateNodeData(node, createNodeField, getNode, getNodes, reporter) {
 function getDataFromNode(node, getNode) {
   const slug = createFilePath({ node, getNode, basePath: `pages` })
   const partsOfSlug = slug.split('.');
-
   const locale = partsOfSlug[1].split('/').join('');
-  const sluggishTitle = partsOfSlug[0].split('/')[2];
-
+  const sluggishTitle = partsOfSlug[0].split('/')[1];
   const pageType =
     node.fileAbsolutePath.split('/src/pages/')[1].split('/')[0];
-
   return { sluggishTitle, pageType, locale };
 }
 
@@ -179,7 +176,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 async function createRootPages(actions, graphql, reporter) {
   const { createPage } = actions
   const resourceTemplate = path.resolve('src/templates/resource.js');
-  const result = await fetchMarkdownPagesByFolder('root', graphql, reporter);
+  const result = await fetchMarkdownPagesByFolder('website', graphql, reporter);
 
   const resourcePages = result.data.results.edges;
   // Create post detail pages
