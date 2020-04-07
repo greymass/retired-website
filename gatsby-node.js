@@ -96,7 +96,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       //
       // See: https://github.com/webpack-contrib/mini-css-extract-plugin/issues/250
       new FilterWarningsPlugin({
-        exclude: /mini-css-extract-plugin[^]*Conflicting order between:/
+        exclude: /mini-css-extract-plugin/
       })
     ]
   });
