@@ -34,8 +34,8 @@ exports.onPreInit = async () => {
     .forEach((dir) => {
       const sourceDirectory = `${p}/${dir}/`;
       const destinationFile = `${p}/build/${dir}.json`;
-
-      validateLocaleDir(sourceDirectory);
+      console.log(`${sourceDirectory} -> ${destinationFile}`);
+      // validateLocaleDir(sourceDirectory);
 
       jsonConcat({
         src: sourceDirectory,
