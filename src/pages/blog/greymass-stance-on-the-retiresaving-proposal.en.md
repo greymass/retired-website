@@ -3,7 +3,7 @@ title: 'Greymass Stance on the "retiresaving" Proposal'
 date: "2019-05-06"
 author: "Greymass"
 ---
-<center>![GreymassSteem.png](https://cdn.steemitimages.com/DQmTQpRpfo1YsuK9EniM19AfwAs6Cd1LN26MxcqEXEoUzgo/GreymassSteem.png)</center>
+![GreymassSteem.png](https://cdn.steemitimages.com/DQmTQpRpfo1YsuK9EniM19AfwAs6Cd1LN26MxcqEXEoUzgo/GreymassSteem.png)
 
 This past Thursday, we  [voted](https://bloks.io/transaction/3ba95e3609bdf04295ea1e531baf22bf4265a40905373379e28c466e485271bb)  in favor of step one of the “ [forumretire](https://eosauthority.com/approval/view?scope=eosnationftw&name=forumretire&lnc=en) ” proposal by EOS Nation. This proposal has since been approved in a 15/21 BP vote. In this post, we’d like to offer a short background on the proposal and elaborate on our stance on this important issue. 
 

@@ -187,6 +187,6 @@ We'd welcome everyone interested to join in and discuss this topic in a new Tele
 
 [https://t.me/wcsvps](https://t.me/wcsvps)
 
-<center>
+
 ![gm-vert-small.png](https://cdn.steemitimages.com/DQmYmutmtKdawRyv7S7A3AM1LbejWc3JZeHFAJpVS79ZHvN/gm-vert-small.png)
-</center>
+
