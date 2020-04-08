@@ -84,11 +84,6 @@ featured: true
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '../../theme.config$': path.join(__dirname,  'src/semantic/theme.config')
-      }
-    },
     plugins: [
       // Silence mini-css-extract-plugin generating lots of warnings for CSS ordering.
       // We use CSS modules that should not care for the order of CSS imports, so we
