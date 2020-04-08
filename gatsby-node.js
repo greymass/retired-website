@@ -168,12 +168,12 @@ exports.onCreatePage = ({ page, actions: { createPage, deletePage } }) => {
 };
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  await createRootPages(actions, graphql, reporter);
+  await createWebsitePages(actions, graphql, reporter);
   await createBlogPages(actions, graphql, reporter);
   await createBlogIndexPages(actions, graphql, reporter);
 }
 
-async function createRootPages(actions, graphql, reporter) {
+async function createWebsitePages(actions, graphql, reporter) {
   const { createPage } = actions
   const resourceTemplate = path.resolve('src/templates/resource.js');
   const result = await fetchMarkdownPagesByFolder('website', graphql, reporter);
