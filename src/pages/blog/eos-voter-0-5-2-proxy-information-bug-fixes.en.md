@@ -46,7 +46,7 @@ To date the `eos-voter` tool has seen over 61,000 downloads in one of the larges
 
 Previous updates for more information:
 
-- [2018/08/17 - eos-voter 0.5.0 -Permission Management + Contacts (+0.4.0 feature overview)](https://steemit.com/eos/@greymass/eos-voter-0-5-0-permission-management-contacts-0-4-0-feature-overview) 
+- [2018/08/17 - eos-voter 0.5.0 -Permission Management + Contacts (+0.4.0 feature overview)](https://steemit.com/eos/@greymass/eos-voter-0-5-0-permission-management-contacts-0-4-0-feature-overview)
 - [2018/07/07 - eos-voter 0.3.0 - Multiple Accounts, RAM, Account History and Proxy Voting](https://steemit.com/eos/@greymass/eos-voter-0-3-0-multiple-accounts-ram-account-history-and-proxy-voting)
 - [2018/06/25 - eos-voter 0.2.1 - Custom Tokens + Cold/Watch Wallets](https://steemit.com/eos/@greymass/eos-voter-0-2-1-custom-tokens-cold-watch-wallets)
 - [2018/06/17 - eos-voter 0.1.6 - A better welcome experience + tutorial](https://steemit.com/eos/@greymass/eos-voter-0-1-6-a-better-welcome-experience-tutorial)
@@ -85,7 +85,7 @@ Further useful links:
 
 ### Browse Proxy Information
 
-Having the time to research and decide on 30 block producers is not an option for everyone, which is why many people choose to use a Proxy to cast their votes. This new section will display all proxies registered through the [regproxyinfo]((https://github.com/AlohaEOS/eos-proxyinfo)) smart contract developed by [AlohaEOS](https://www.alohaeos.com/). 
+Having the time to research and decide on 30 block producers is not an option for everyone, which is why many people choose to use a Proxy to cast their votes. This new section will display all proxies registered through the [regproxyinfo](https://github.com/AlohaEOS/eos-proxyinfo) smart contract developed by [AlohaEOS](https://www.alohaeos.com/). 
 
 This smart contract allows those who choose to act as a proxy to publish basic information about themselves and their voting philosophies, to pitch themselves those who wish to use a proxy.
 
@@ -112,9 +112,9 @@ It's our hope that by providing this additional information, it will help more u
 
 ### Register Proxy Information
 
-For those who wish to become a proxy, and publish their information into the [regproxyinfo]((https://github.com/AlohaEOS/eos-proxyinfo)) smart contract developed by [AlohaEOS](https://www.alohaeos.com/), we have integrated a form into the Register Voting Proxy section (Tools -> Register Voting Proxy). 
+For those who wish to become a proxy, and publish their information into the [regproxyinfo]((https://github.com/AlohaEOS/eos-proxyinfo)) smart contract developed by [AlohaEOS](https://www.alohaeos.com/), we have integrated a form into the Register Voting Proxy section (Tools -> Register Voting Proxy).
 
-Upon registering as a proxy, a second form will be displayed that then allows the proxy to provide additional information to those on the hunt for a proxy. 
+Upon registering as a proxy, a second form will be displayed that then allows the proxy to provide additional information to those on the hunt for a proxy.
 
 This information does consume some of the originating accounts RAM - as all contract do. When unregistering as a proxy, this information will be removed from the contract and return the utilized RAM.
 
