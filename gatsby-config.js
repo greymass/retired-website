@@ -54,13 +54,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'docs',
-        path: `${__dirname}/src/pages/docs`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: 'website',
         path: `${__dirname}/src/pages/website`,
       },
@@ -127,13 +120,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-serviceworker`,
-    `gatsby-plugin-less`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
