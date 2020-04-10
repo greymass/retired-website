@@ -3,7 +3,7 @@ import React from 'react';
 import { initAccessContext } from 'eos-transit';
 
 import scatter from 'eos-transit-scatter-provider';
-import anchorLink from 'temp-anchorlink-provider';
+import anchorLink from 'eos-transit-anchorlink-provider';
 
 import chains from '../../../../constants/chains';
 
