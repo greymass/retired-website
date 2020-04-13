@@ -28,13 +28,17 @@
   padding-top: 40px;
 }
 
+.connectBannerLinksInnerContainer {
+  margin: 30px auto 0 auto;
+}
+
 @media only screen and (max-width: 991px) {
   .container .grid .gridColumn.connectBannerLinksContainer {
     padding-top: 40px;
   }
 
   .connectBannerLinksInnerContainer {
-    margin: 30px auto 0 auto;
+    margin: 50px auto 0 auto;
   }
 
   .container .grid .text {
