@@ -1,4 +1,19 @@
 {
   "support_header": "Support Us",
-  "support_paragraph": "Greymass funds its operations through rewards paid to elected block producers. We are elected by token holders like you — your support is greatly appreciated! "
+  "support_paragraph": "Greymass funds its operations through rewards paid to elected block producers. We are elected by token holders like you — your support is greatly appreciated! ",
+  "support_status_message_proxying": "You are currently proxying your vote to {proxyAccount}.",
+  "support_status_message_not_voting": "You are currently not voting for block producers.",
+  "support_status_message_voting_for_greymass": "You are currently voting for {producersCount} block producers, including teamgreymass.",
+  "support_status_message_voting_but_not_for_greymass": "You are currently voting for {producersCount} block producers, and not voting for teamgreymass.",
+  "support_add_greymass_message": "Add {explorerLink} as one of your 30 votes to support us while controlling the remaining 29 votes.",
+  "support_proxy_to_greymass": "Proxy your voting rights to the {explorerLink} proxy, which will be used to vote for the block producers we feel bring the most value (including Greymass).",
+  "support_logged_in_message": "Voting on <strong>{chainName}</strong> as",
+  "support_remove_one_vote": "Remove one of your votes",
+  "support_vote_greymass_button": "Vote for Greymass",
+  "support_proxy_your_vote_button": "Proxy your Vote",
+  "support_thank_you_header": "Thank you, {accountName}!",
+  "support_thank_you_subheader": "We truly appreciate your support.",
+  "support_thank_you_paragraph": "If you'd like to vote again with a different account, simply login to that account and select it from the dropdown above.",
+  "support_us_directly": "To support us directly from our website, select an option below.",
+  "support_please_sign_in": "To vote for Greymass directly or through our proxy, please sign in."
 }
