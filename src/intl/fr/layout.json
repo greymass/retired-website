@@ -1,9 +1,16 @@
 {
   "about": "À Propos",
-  "apis": "API",
-  "projects": "Projets",
-  "contact": "Contactez-nous",
   "blog": "Blog",
-  "heading": "Bienvenue sur le site de Greymass!",
-  "home": "Accueil"
+  "bp_info": "Info de BP (JSON)",
+  "code_of_conduct": "Code de conduite",
+  "connect_with_us": "Connectez-vous avec nous",
+  "contact": "Contact",
+  "home": "Acceuil",
+  "ownership": "Propriétaires",
+  "privacy_policy": "Politique de confidentialité",
+  "projects": "Projets",
+  "terms_of_use": "Conditions d'utilisation",
+  "copyright_text": "Copyright 2019-2020, Greymass Inc.",
+  "email": "E: {{email}}",
+  "address": "A: {{address}}"
 }

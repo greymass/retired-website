@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Header, Segment } from 'semantic-ui-react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import preLoginStyles from './preLogin.module.css';
 
 class VoteProducerPreLogin extends Component {
   render() {
-    const { onClick } = this.props;
+    const { onClick, intl } = this.props;
     return (
       <Segment
         className={preLoginStyles.root}
@@ -14,7 +16,7 @@ class VoteProducerPreLogin extends Component {
       >
         <Header
           textAlign='center'
-          content="To vote for Greymass directly or through our proxy, please sign in."
+          content={intl.formatMessage({ id: 'support_please_sign_in' })}
         />
         <Button
           content={`Sign in`}
@@ -27,4 +29,4 @@ class VoteProducerPreLogin extends Component {
   }
 }
 
-export default VoteProducerPreLogin;
+export default injectIntl(VoteProducerPreLogin);
