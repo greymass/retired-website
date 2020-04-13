@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { graphql, StaticQuery } from 'gatsby';
 
-// import FooterContactInfoLanguageSwitcher from './contact/languageSwitcher';
+import FooterContactInfoLanguageSwitcher from './contact/languageSwitcher';
 
 import contactInfoStyles from './contact.module.css';
 
@@ -19,9 +19,9 @@ class FooterInfoContact extends Component {
         <p className={contactInfoStyles.text}>
           {data.site.siteMetadata.officialAddress}
         </p>
-        {/*<div className={contactInfoStyles.languageSwitcherContainer}>*/}
-          {/*<FooterContactInfoLanguageSwitcher />*/}
-        {/*</div>*/}
+        <div className={contactInfoStyles.languageSwitcherContainer}>
+          <FooterContactInfoLanguageSwitcher />
+        </div>
       </div>
     )
   }
