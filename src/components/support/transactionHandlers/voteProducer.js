@@ -48,6 +48,8 @@ class SupportTransactionHandlersVoteProducer extends TransitWrapper {
       })
     }
 
+    console.log({account})
+
     actions.push({
       account: 'eosio',
       name: 'voteproducer',
