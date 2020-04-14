@@ -14,7 +14,7 @@
   "support_thank_you_header": "Merci {accountName}!",
   "support_thank_you_subheader": "Nous apprécions vraiment votre soutien.",
   "support_thank_you_paragraph": "Si vous souhaitez voter à nouveau avec un autre compte, connectez-vous simplement à ce compte et sélectionnez-le dans la liste ci-dessous.",
-  "support_us_directly": "Pour nous soutenir directement à partir de notre site Web, sélectionnez une option ci-dessous.",
+  "support_support_us_directly": "Pour nous soutenir directement à partir de notre site Web, sélectionnez une option ci-dessous.",
   "support_please_sign_in": "Pour voter pour Greymass directement ou via notre proxy, veuillez vous connecter.",
   "support_explanation_header":"Greymass sur EOSIO",
   "support_explanation_subheader": "Si vous souhaitez soutenir notre travail, pensez à voter pour nous sur l'un de ces réseaux:",
