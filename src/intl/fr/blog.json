@@ -1,5 +1,5 @@
 {
-    "blog_blog_post_entry_written_by": "Écrit par: {{author}}",
+    "blog_blog_post_entry_written_by": "Écrit par: {author}",
     "blog_blog_post_list_title": "Articles Récents",
     "blog_featured_blog_post_header": "Articles Récents",
     "blog_featured_blog_post_link": "Voir le Blog",
@@ -10,15 +10,5 @@
     "blog_recent_podcasts_link": "Voir tous les Podcasts",
     "blog_sticky_banner_paragraph": "Nous apprécions votre soutien!",
     "blog_sticky_banner_title": "Greymass",
-    "blog_subheader": "Ce blog sert de hub central pour les mises à jour de notre équipe. Si vous souhaitez être informé des mises à jour par e-mail, vous pouvez vous abonner à notre newsletter mensuelle.",
-    "podcast_decentium_description": "Un entretien avec Johan Nordberg sur Decentium.",
-    "podcast_decentium_title": "Johan Nordberg de Decentium",
-    "podcast_driving_crypto_adoption_description": "Nous parlons à Aaron Cox de son récent article «Driving Crypto Adoption».",
-    "podcast_driving_crypto_adoption_title": "Stimuler l'adoption de la Crypto - Une conversation avec Aaron Cox",
-    "podcast_eoswps_interview_description": "Yves La Rose d'EOS Nation se joint à nous pour discuter la proposition d'EOS Nation concernant un nouveau système de proposition de travailleur (WPS) sur EOS.",
-    "podcast_eoswps_interview_title": "EOS WPS - Une entrevue avec Yves La Rose de EOS Nation",
-    "podcast_scatter_interview_description": "Nous nous réunissons avec l'équipe de Scatter pour discuter de leurs derniers projets et initiatives, ainsi que de l'écosystème de EOSIO dans son ensemble.",
-    "podcast_scatter_interview_title": "L'entrevue Scatter",
-    "podcast_team_update_description": "Aaron, Scott, Johan et Myles de l'équipe Greymass discutent des derniers projets sur lesquels Greymass a travaillé.",
-    "podcast_team_update_title": "Mise à jour de l'équipe Greymass"
+    "blog_subheader": "Ce blog sert de hub central pour les mises à jour de notre équipe. Si vous souhaitez être informé des mises à jour par e-mail, vous pouvez vous abonner à notre newsletter mensuelle."
 }
