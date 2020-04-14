@@ -93,12 +93,17 @@ class Header extends TransitWrapper {
         content: 'about',
         key: 'about'
       },
-      {
-        as: `/${intl.locale}/blog/1`,
-        content: 'blog',
-        key: 'blog'
-      },
     ];
+
+    if (data.site.siteMetadata.localesWithBlog.includes(intl.locale)) {
+      navbarItems.push(
+        {
+          as: `/${intl.locale}/blog/1`,
+          content: 'blog',
+          key: 'blog'
+        }
+      );
+    }
 
     return (
       <React.Fragment>
@@ -132,6 +137,11 @@ export default props => (
             fluid(maxWidth: 256, maxHeight: 256) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+        site {
+          siteMetadata {
+            localesWithBlog
           }
         }
       }
