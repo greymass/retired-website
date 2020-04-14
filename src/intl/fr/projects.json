@@ -33,7 +33,7 @@
   "project_eosio_failover_name": "eosio-failover",
   "project_eosio_http_proxy_description": "Serveur servant de point d'entrée dans un environnement de API EOSIO unifié.",
   "project_eosio_http_proxy_extra": "Service d'API",
-  "project_eosio_http_proxy_name": "Proxie HTTP pour EOSIO",
+  "project_eosio_http_proxy_name": "Proxy HTTP pour EOSIO",
   "project_eosio_pricefeed_description": "Un outil de mise à jour de flux de prix pour le \"Smart Contract\" de DelphiOracle avec des fournisseurs de flux de prix.",
   "project_eosio_pricefeed_extra": "Outil de BP",
   "project_eosio_pricefeed_name": "Flux de Prix EOSIO",
