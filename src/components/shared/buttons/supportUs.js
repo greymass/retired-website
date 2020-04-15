@@ -11,7 +11,7 @@ class SupportUsButton extends Component {
       intl,
     } = this.props;
     return (
-      <Link to={`/${intl.locale}/support`} style={{
+      <Link to={`/${intl.locale}/support-us`} style={{
         textAlign: (centered) ? 'center' : '',
       }}>
         <div className={supportUsStyles.supportUsButton}>
