@@ -9,6 +9,8 @@ import LayoutFooter from './layout/footer';
 
 import layoutStyles from './layout.module.css';
 
+import favicon from '../../static/favicon.ico';
+
 class Layout extends Component {
   render() {
     const {
@@ -28,6 +30,7 @@ class Layout extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>{data.site.siteMetadata.title}</title>
+          <link rel="shortcut icon" type="image/png" href={favicon} />
           <link rel="canonical" href="https://greymass.com" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
         </Helmet>
