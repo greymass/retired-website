@@ -69,13 +69,12 @@ class TransitWrapper extends React.Component {
 
       return { error };
     }
-    const { account_name, permissions } = response;
+    const { account_name } = response;
 
     const account = {
       ...response,
       name: account_name,
-      // Figure out how to extract authority from permissions
-      authority: permissions[0] && permissions[0].perm_name,
+      authority: window.transitWallet.auth.permission,
     };
 
     const newTransitSessions = transitSessions.filter(transitSession => {
@@ -148,7 +147,6 @@ class TransitWrapper extends React.Component {
 
   clearTx = () => this.setState({ tx: false })
   transact = async (transaction, config) => {
-    console.log({transaction})
     try {
       return await window.transitWallet.eosApi.transact(transaction, config);
     } catch(error) {
