@@ -10,7 +10,7 @@
   "fuel_more_info_paragraph": "For more information, ",
   "fuel_more_info_link": "please check out our announcement post",
   "fuel_header_two_title": "Want to use Fuel in your app?",
-  "fuel_header_two_paragraph": "Any application can integrate Fuel (for free) to give their users 5ms of free CPU time. Simply {linkComponent} to get started.",
+  "fuel_header_two_paragraph_one": "Any application can integrate Fuel (for free) to give their users 5ms of free CPU time. Simply {linkComponent} to get started.",
   "fuel_header_two_link": "follow the instructions provided",
   "fuel_header_two_link_two": "Fuel telegram channel",
   "fuel_header_two_link_three": "via email",
