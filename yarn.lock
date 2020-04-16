@@ -1865,10 +1865,10 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
-anchor-link-browser-transport@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/anchor-link-browser-transport/-/anchor-link-browser-transport-0.2.0.tgz#009e61d322251f58ca195df6293fd3efb9bf648f"
-  integrity sha512-Y3ptsOtKQXzIiM+5egwmVuXhwS58dcfChkE7su+VbXOUR5KIztbIIx4JWKekouMk/bAjcm4JO5ey86vZkC62ew==
+anchor-link-browser-transport@^1.0.0:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/anchor-link-browser-transport/-/anchor-link-browser-transport-1.0.2.tgz#9f69df1f2ef827ba05fde7e6392511931fcb725c"
+  integrity sha512-IJ4eKQv77G/5PV4ahTbGWdO6VlgjmobX36xQ8MYnOVPOrb0BHEonY/N8EaObY5VUHpr0STaNyCLbRr9gePhXow==
   dependencies:
     qrcode "^1.4.4"
 
@@ -1885,6 +1885,20 @@ anchor-link@^0.3.0:
     qrcode-terminal "^0.12.0"
     uuid "^7.0.2"
     ws "^7.2.2"
+
+anchor-link@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/anchor-link/-/anchor-link-1.0.3.tgz#e781b7bcd4c0ba449a128e1f2cd0c256df45fc4c"
+  integrity sha512-65Nl7jgBsHig6Hxki2vsajYlBZB7qS2ArbvpDMG97FHeJV+CcZ6JLrypbGiiFIAg0zUihLfaGWrJX8bZ5/9vqg==
+  dependencies:
+    eosio-signing-request "^1.1.1"
+    eosjs "^20.0.0"
+    eosjs-ecc "^4.0.7"
+    fetch-ponyfill "^6.1.0"
+    isomorphic-ws "^4.0.1"
+    pako "^1.0.10"
+    uuid "^7.0.3"
+    ws "^7.2.3"
 
 ansi-align@^3.0.0:
   version "3.0.0"
@@ -4820,24 +4834,33 @@ eol@^0.8.1:
   resolved "https://registry.yarnpkg.com/eol/-/eol-0.8.1.tgz#defc3224990c7eca73bb34461a56cf9dc24761d0"
   integrity sha1-3vwyJJkMfspzuzRGGlbPncJHYdA=
 
-eos-transit-scatter-provider@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/eos-transit-scatter-provider/-/eos-transit-scatter-provider-4.0.2.tgz#6de7e0596af47fac90ceefb8339cb30617209c78"
-  integrity sha512-SWOgzyulSZXEMoqF3CXQhCZw4HRZbFhuMi5QzIcSKAwK0xKTWXH8kbl1jYQO0t5r5+dF+pCCHkTp274YQxpZ1g==
+eos-transit-anchorlink-provider@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/eos-transit-anchorlink-provider/-/eos-transit-anchorlink-provider-4.0.5.tgz#e3aaaa4a8f066cfb4af20c40a2f0077cdb596104"
+  integrity sha512-oaonH6SmtNIvkAPNNPZw5/vdL7g4WhgCaZE5AUxmwmzmR7+/kzCHUeD3osNpLVCQaAXrb2QUHwfbk0M8pKCMhA==
   dependencies:
-    eos-transit "^4.0.2"
+    anchor-link "^1.0.0"
+    anchor-link-browser-transport "^1.0.0"
+    eos-transit "^4.0.5"
+
+eos-transit-scatter-provider@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/eos-transit-scatter-provider/-/eos-transit-scatter-provider-4.0.5.tgz#1a81202ff724b77aebd54e4c80df2007164932a0"
+  integrity sha512-yU1XHXSqJBQaTE8jMH0qJBmfDH7TnRUr5QMvbqzkw6IRGt+KFeQ6f7q5BIGKgjDPfDgfAJelx7vpMnJ41gLHZQ==
+  dependencies:
+    eos-transit "^4.0.5"
     scatterjs-core "2.7.18"
     scatterjs-plugin-eosjs2 "1.5.0"
 
-eos-transit@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/eos-transit/-/eos-transit-4.0.2.tgz#9ea6c234dbe8b925dbd7fa23c7b8bb409c5a1ac6"
-  integrity sha512-QTWcfmmigink78Q30y+1JX1O4ReH7VLtDmyRB4xHWsR49iiOrnNXgy3op7URp1JgS/9zfKS460//5T7VmpHLtg==
+eos-transit@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/eos-transit/-/eos-transit-4.0.5.tgz#68f578077a54451145d32702d40f5625be6d1a55"
+  integrity sha512-NRNvBv9ENeDZAwzV2jaVLALqiI3JrfXJPPDf7uZIIVzfru9VImjTMCLYLXMourgzeWOkexzOVnUE4/klq0CIFQ==
   dependencies:
     eosjs "^20.0.0"
     uuid "^3.3.2"
 
-eosio-signing-request@1.1.1, eosio-signing-request@^1.1.1:
+eosio-signing-request@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/eosio-signing-request/-/eosio-signing-request-1.1.1.tgz#f221caaafeb564944b71cb0f9eb0f4795cb1661c"
   integrity sha512-ZEq/R3mmgmBnjmjjyH5WstTPUBqK26NxT4fejqmkaco2h/I3wj6Nlz3fJuOoCYi01DMZ8/k5lBRbpHALCXQamg==
@@ -10826,7 +10849,7 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@^1.18.2, prettier@^1.19.1:
+prettier@^1.18.2:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
@@ -13194,16 +13217,6 @@ tar@^5.0.5:
     mkdirp "^0.5.0"
     yallist "^4.0.0"
 
-temp-anchorlink-provider@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/temp-anchorlink-provider/-/temp-anchorlink-provider-1.0.1.tgz#9b7a3bf5e09982d0fea80324f93a2826f42aa01b"
-  integrity sha512-W1C1d6Q09Cp/H66CtkcF//DOrlM08erJzZeIbpr/QU4PUkqhtBBkI3U4MyFwPmVivs/g5Lvo+2pxztNr9wAabQ==
-  dependencies:
-    anchor-link "^0.3.0"
-    anchor-link-browser-transport "^0.2.0"
-    eos-transit "^4.0.2"
-    prettier "^1.19.1"
-
 temp-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/temp-dir/-/temp-dir-1.0.0.tgz#0a7c0ea26d3a39afa7e0ebea9c1fc0bc4daa011d"
@@ -14000,6 +14013,11 @@ uuid@^7.0.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.2.tgz#7ff5c203467e91f5e0d85cfcbaaf7d2ebbca9be6"
   integrity sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw==
 
+uuid@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
+
 v8-compile-cache@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-1.1.2.tgz#8d32e4f16974654657e676e0e467a348e89b0dc4"
@@ -14571,7 +14589,7 @@ ws@^7.1.2, ws@^7.2.1:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.1.tgz#03ed52423cd744084b2cf42ed197c8b65a936b8e"
   integrity sha512-sucePNSafamSKoOqoNfBd8V0StlkzJKL2ZAhGQinCfNQ+oacw+Pk7lcdAElecBF2VkLNZRiIb5Oi1Q5lVUVt2A==
 
-ws@^7.2.2:
+ws@^7.2.2, ws@^7.2.3:
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.3.tgz#a5411e1fb04d5ed0efee76d26d5c46d830c39b46"
   integrity sha512-HTDl9G9hbkNDk98naoR/cHDws7+EyYMOdL1BmjsZXRUjf7d+MficC4B7HLUPlSiho0vg+CWKrGIt/VJBd1xunQ==
