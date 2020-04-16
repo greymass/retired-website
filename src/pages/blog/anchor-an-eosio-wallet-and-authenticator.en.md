@@ -3,7 +3,7 @@ title: "Anchor, an EOSIO Wallet and Authenticator"
 date: 2020-04-16
 author: Greymass Team
 description: "Today we’re excited to announce the official release of the replacement to our previous wallet eos-voter, named Anchor."
-image: "https://i.imgur.com/oS12Y2Z.png"
+image: "https://raw.githubusercontent.com/greymass/anchor/master/internals/img/anchor-ss1.png"
 featured: true
 ---
 # Anchor, an EOSIO Wallet and Authenticator
@@ -42,7 +42,7 @@ We’d like to invite both users and developers of any EOSIO-based ecosystem to 
 
 ### Features introduced in Anchor 1.0.0
 
-<figure><img src="https://i.imgur.com/oS12Y2Z.png" alt=""></figure>
+<figure><img src="https://raw.githubusercontent.com/greymass/anchor/master/internals/img/anchor-ss1.png" alt=""></figure>
 
 Anchor has the essentials you’d expect in any EOSIO wallet: transferring tokens, managing staked tokens and RAM, block producer and proxy voting, key/permission management, and hardware wallet support with Ledger devices.
 
@@ -59,7 +59,7 @@ A few of the more notable changes to the interface include:
 While we did spent a lot of time reimagining the user interface, what’s changed under the hood between our initial eos-voter release and Anchor is far more significant. A brief list of the major changes is as follows:
 
 - [Support for the EOSIO Signing Request (ESR) protocol](<https://github.com/greymass/EEPs/blob/master/EEPS/eep-7.md>) to allow authentication and app integration. You can give it a try on [greymass.com](<http://greymass.com/>) or any other ESR compatible site. With Anchor installed you simply need to Sign-in.
-- [Greymass Fuel is available directly in the wallet](<https://greymass.com/en/blog/5ms-worth-of-free-transactions-available-now-in-anchor-wallet/>) to provide an alternative to REX along with a minimum of 5ms free CPU per account, per day. This resources system work with all the tools in the wallet, as well as requests from any authenticated apps.
+- [Greymass Fuel is available directly in the wallet](<https://greymass.com/en/blog/5ms-worth-of-free-transactions-available-now-in-anchor-wallet/>) to provide an alternative to REX along with a minimum of 5ms free CPU per account, per day. This resources system works with all the tools in the wallet, as well as requests from any authenticated apps.
 - An overhaul of the wallet engine, which allows for better storage and multiple wallets to be unlocked at the same time for quick switching with less password prompting.
 
 <!-- -->
