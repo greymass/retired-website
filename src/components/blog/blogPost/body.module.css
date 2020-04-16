@@ -13,8 +13,19 @@
   line-height: 32px;
 }
 
-.markdownContainer a {
-  color: var(--mainBlue);
+.markdownContainer p {
+  line-height: 30px;
+}
+
+.markdownContainer p a {
+  color: var(--darkGrey);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.markdownContainer h3 {
+  font-size: 1.4em;
+  margin: 1.5em 0 1em;
 }
 
 .markdownContainer img {

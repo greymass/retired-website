@@ -36,7 +36,7 @@ class BlogPostBodyDesktopn extends Component {
 
     return (
       <Grid>
-        <Grid.Column only="computer" width={3}>
+        <Grid.Column only="computer" width={4}>
           <Ref innerRef={this.contextRef}>
             <Rail>
               <Sticky context={this.contextRef} pushing>
@@ -45,7 +45,7 @@ class BlogPostBodyDesktopn extends Component {
             </Rail>
           </Ref>
         </Grid.Column>
-        <Grid.Column mobile={16} tablet={16} computer={10}>
+        <Grid.Column mobile={16} tablet={16} computer={11}>
           <Visibility onUpdate={this.handleUpdate}>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </Visibility>

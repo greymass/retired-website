@@ -1,7 +1,8 @@
 .supportUsButton {
   border: 1px solid var(--mainBlue);
   padding: 10px 20px;
-  max-width: 140px;
+  max-width: 180px;
+  text-align: center;
 }
 
 .supportUsButton:hover {
