@@ -2,6 +2,8 @@
 title: "How Vote Incentivization Monopolizes Delegated Proof of Stake"
 date: 2019-10-24
 author: Greymass Team
+description: "In an article I wrote almost a year ago, I explored a very crucial aspect of DPoS: how voter kickbacks (explicitly or implicitly) degrades.."
+image: "https://steemitimages.com/640x0/https://i.imgur.com/BByrwTp.jpg"
 featured: true
 ---
 # How Vote Incentivization Monopolizes Delegated Proof of Stake

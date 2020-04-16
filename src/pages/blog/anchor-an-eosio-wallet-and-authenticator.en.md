@@ -2,6 +2,8 @@
 title: "Anchor, an EOSIO Wallet and Authenticator"
 date: 2020-04-16
 author: Greymass Team
+description: "Today we’re excited to announce the official release of the replacement to our previous wallet eos-voter, named Anchor."
+image: "https://i.imgur.com/oS12Y2Z.png"
 featured: true
 ---
 # Anchor, an EOSIO Wallet and Authenticator

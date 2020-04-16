@@ -2,6 +2,8 @@
 title: "5ms worth of free transactions available now in Anchor wallet"
 date: 2020-01-03
 author: Greymass Team
+description: ""
+image: "https://i.imgur.com/OJz123n.gif"
 featured: true
 ---
 # 5ms worth of free transactions available now in Anchor wallet

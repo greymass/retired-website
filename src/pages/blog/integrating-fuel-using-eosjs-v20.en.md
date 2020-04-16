@@ -2,6 +2,8 @@
 title: "Integrating Fuel using eosjs v20+"
 date: 2019-12-19
 author: Greymass Team
+description: ""
+image: "https://i.imgur.com/wQFuoY5.png"
 featured: true
 ---
 # Integrating Fuel using eosjs v20+

@@ -2,6 +2,8 @@
 title: "Migrating to Anchor from eos-voter (\"Greymass Wallet\")"
 date: 2020-02-29
 author: Greymass Team
+description: "This post explains how users of the eos-voter wallet (commonly referred to as \"Greymass Wallet\") can migrate their accounts to Anchor. "
+image: "https://i.imgur.com/FelUojM.gif"
 featured: true
 ---
 # Migrating to Anchor from eos-voter ("Greymass Wallet")

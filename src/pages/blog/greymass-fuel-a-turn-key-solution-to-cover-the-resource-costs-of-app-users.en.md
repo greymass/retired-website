@@ -2,6 +2,8 @@
 title: "Greymass Fuel: a turn-key solution to cover the resource costs of app users"
 date: 2019-12-12
 author: Greymass Team
+description: ""
+image: "https://jesta.us/images/greymassfuel-logo.png"
 featured: true
 ---
 # Greymass Fuel: a turn-key solution to cover the resource costs of app users
