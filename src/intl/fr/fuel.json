@@ -10,7 +10,7 @@
   "fuel_more_info_paragraph": "Pour plus d'information, ",
   "fuel_more_info_link": "veuillez consulter notre annonce",
   "fuel_header_two_title": "Souhaitez-vous utiliser Fuel dans votre application?",
-  "fuel_header_two_paragraph": "Toute application peut utiliser Fuel (gratuitement) pour donner à ses utilisateurs 5 ms de temps de CPU gratuit. Il vous suffit de {linkComponent} pour commencer.",
+  "fuel_header_two_paragraph_one": "Toute application peut utiliser Fuel (gratuitement) pour donner à ses utilisateurs 5 ms de temps de CPU gratuit. Il vous suffit de {linkComponent} pour commencer.",
   "fuel_header_two_link": "suivez les instructions suivantes",
   "fuel_header_two_link_two": "Canal de Telegram dédié à Fuel",
   "fuel_header_two_link_three": "par email",
