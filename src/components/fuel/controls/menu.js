@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Menu } from 'semantic-ui-react';
+import { injectIntl } from 'gatsby-plugin-intl';
 
 class FuelControlsMenu extends Component {
   render() {
     const {
+      intl,
       menuItem,
       onMenuChange,
     } = this.props;
@@ -41,4 +43,4 @@ class FuelControlsMenu extends Component {
   }
 }
 
-export default FuelControlsMenu;
+export default injectIntl(FuelControlsMenu);
