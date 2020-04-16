@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+import favicon from '../../images/favicon.ico';
+
 function SEO({
   author,
   description,
@@ -42,6 +44,13 @@ function SEO({
       htmlAttributes={{
         lang,
       }}
+      link={[
+        {
+          "rel": "icon",
+          "type": "image/png",
+          "href": favicon
+        }
+      ]}
       title={renderedTitle}
       meta={[
         {
