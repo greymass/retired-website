@@ -136,7 +136,7 @@ class Index extends Component {
               <Grid.Row centered>
                 <Grid.Column width={10}>
                   <Header>
-                    {intl.formatMessage({ id: 'support_explanation_what_are_bps' })}
+                    {intl.formatMessage({ id: 'support_explanation_what_are_bps_header' })}
                   </Header>
                   <p>
                     {intl.formatMessage({ id: 'support_explanation_what_are_bps_paragraph_one' })}
