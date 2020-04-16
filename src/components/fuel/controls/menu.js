@@ -17,20 +17,20 @@ class FuelControlsMenu extends Component {
         >
           <Menu.Item
             as="a"
-            name="overview"
+            name={intl.formatMessage({id: 'fuel_menu_overview' })}
             active={menuItem === "overview"}
             onClick={onMenuChange}
           />
           <Menu.Item
             as="a"
-            name="transactions"
+            name={intl.formatMessage({id: 'fuel_menu_transactions' })}
             active={menuItem === "transactions"}
             onClick={onMenuChange}
             style={{ display: 'none' }}
           />
           <Menu.Item
             as="a"
-            name="settings"
+            name={intl.formatMessage({id: 'fuel_menu_settings' })}
             active={menuItem === "settings"}
             onClick={onMenuChange}
             style={{ display: 'none' }}

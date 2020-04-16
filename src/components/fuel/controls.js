@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { Button, Header, Grid, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import FuelControlsMenu from './controls/menu';
 import FuelControlsOverview from './controls/overview';
 
-const apiUrl = 'https://eos.greymass.com/v1/fuel'
+const apiUrl = 'https://eos.greymass.com/v1/fuel';
 
 class FuelControls extends Component {
   constructor(props) {
@@ -81,6 +83,7 @@ class FuelControls extends Component {
     if (!this.state) return false
     const {
       account,
+      intl,
       logout,
       purchase,
     } = this.props;
@@ -103,7 +106,7 @@ class FuelControls extends Component {
                       </Header>
                       <Button
                         basic
-                        content="Logout"
+                        content={intl.formatMessage({ id: 'fuel_logout' })}
                         fluid
                         onClick={logout}
                         size="mini"
@@ -137,4 +140,4 @@ class FuelControls extends Component {
   }
 }
 
-export default FuelControls;
+export default injectIntl(FuelControls);

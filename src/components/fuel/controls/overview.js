@@ -11,6 +11,8 @@ import { Button,
   Table,
 } from 'semantic-ui-react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import FuelNumber from '../number';
 import eosLogo from '../../../images/blockchains/eos.svg';
 
@@ -34,6 +36,7 @@ class FuelControlsOverview extends Component {
     const {
       client,
       cosigner,
+      intl,
       purchase,
     } = this.props;
     const {
@@ -45,10 +48,10 @@ class FuelControlsOverview extends Component {
         <Table definition>
           <Table.Header>
             <Table.HeaderCell>
-              Network
+              {intl.formatMessage({ id: 'fuel_overview_header_network' })}
             </Table.HeaderCell>
             <Table.HeaderCell textAlign="center">
-              Resource Quotas
+              {intl.formatMessage({ id: 'fuel_overview_header_quotas' })}
             </Table.HeaderCell>
           </Table.Header>
           <Table.Row>
@@ -69,8 +72,8 @@ class FuelControlsOverview extends Component {
         </Table>
         <Message
           info
-          header="Wait Times"
-          content="All purchases take approximately 3 minutes to confirm while awaiting irreversibility."
+          header={intl.formatMessage({ id: 'fuel_overview_message_wait_times_title' })}
+          content={intl.formatMessage({ id: 'fuel_overview_message_wait_times_content' })}
           textAlign="left"
         />
         <Modal
@@ -88,7 +91,7 @@ class FuelControlsOverview extends Component {
                       size="large"
                       textAlign="center"
                     >
-                      Please select one of the options below.
+                      {intl.formatMessage({ id: 'fuel_overview_header_please_select' })}
                     </Header>
                     <Card.Group centered>
                       {packages.map((pkg) => (
@@ -98,11 +101,19 @@ class FuelControlsOverview extends Component {
                               {pkg.name.toUpperCase()}
                             </Card.Header>
                             <Card.Meta>
-                              <span className='date'>{pkg.price / cosigner.fee_ms}ms of CPU</span>
+                              <span className='date'>
+                                {pkg.price / cosigner.fee_ms}
+                                {intl.formatMessage({ id: 'fuel_overview_card_meta' })}
+                              </span>
                             </Card.Meta>
                             <Card.Description>
                               <List>
-                                <List.Item>Around {pkg.price / cosigner.fee_ms / msPerTransfer} tokens transfers</List.Item>
+                                <List.Item>
+                                  {intl.formatMessage(
+                                    {id: 'fuel_overview_list_item_token_amount' },
+                                    { tokenAmount: (pkg.price / cosigner.fee_ms / msPerTransfer) }
+                                  )}
+                                  </List.Item>
                               </List>
                             </Card.Description>
                           </Card.Content>
@@ -115,7 +126,7 @@ class FuelControlsOverview extends Component {
                               EOS
                             </Header>
                             <Button
-                              content="Purchase"
+                              content={intl.formatMessage({id: 'fuel_overview_purchase' })}
                               primary
                               onClick={() => purchase(pkg)}
                             />
@@ -164,7 +175,7 @@ class FuelControlsOverview extends Component {
                     <Button
                       basic
                       onClick={() => this.setState({ openedModal: false })}
-                      content="Cancel"
+                      content={intl.formatMessage({id: 'fuel_overview_cancel' })}
                     />
                   </Grid.Column>
                 </Grid.Row>
@@ -173,14 +184,14 @@ class FuelControlsOverview extends Component {
           )}
           closeIcon
           dimmer="inverted"
-          header="Purchase Fuel"
+          header={intl.formatMessage({id: 'fuel_overview_purchase_fuel' })}
           open={openedModal}
           onClose={() => this.setState({ openedModal: false }) }
           trigger={(
             <Segment basic textAlign="center">
               <Button
                 onClick={() => this.setState({ openedModal: true })}
-                content="Purchase Fuel"
+                content={intl.formatMessage({id: 'fuel_overview_purchase_fuel' })}
                 primary
               />
             </Segment>
@@ -191,4 +202,4 @@ class FuelControlsOverview extends Component {
   }
 }
 
-export default FuelControlsOverview;
+export default injectIntl(FuelControlsOverview);

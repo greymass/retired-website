@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Header, Grid, Segment, Button } from 'semantic-ui-react';
 import TransitLogin from '../shared/modals/transit/login';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 class FuelLogin extends Component {
   state = {};
 
   render() {
-    const { setSigner } = this.props;
+    const { setSigner, intl } = this.props;
     const { loggingIn } = this.state;
 
     return (
@@ -15,9 +17,9 @@ class FuelLogin extends Component {
           <Grid.Column width={10} textAlign="center">
             <Segment padded stacked>
               <Header size="large">
-                EOSIO Network Resources On-Demand
+                {intl.formatMessage({ id: 'fuel_login_header' })}
                 <Header.Subheader>
-                  Sign in to get started!
+                  {intl.formatMessage({ id: 'fuel_login_subheader' })}
                 </Header.Subheader>
               </Header>
               <Button
@@ -43,4 +45,4 @@ class FuelLogin extends Component {
   }
 }
 
-export default FuelLogin;
+export default injectIntl(FuelLogin);
