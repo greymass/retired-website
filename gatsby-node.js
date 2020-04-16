@@ -54,10 +54,13 @@ exports.onPreInit = async () => {
       client.resolvePost(post)
         .then((resolvedPost) => {
           const html = render(resolvedPost.doc)
+          const summary = (resolvedPost.metadata && resolvedPost.metadata.summary) ? resolvedPost.metadata.summary.replace(/"/g, '\\"') : ''
           const frontmatter = `---
 title: "${resolvedPost.title.replace(/"/g, '\\"')}"
 date: ${post.timestamp.split("T")[0]}
 author: ${(resolvedPost.author === 'teamgreymass') ? 'Greymass Team' : resolvedPost.author}
+description: "${summary}"
+image: "${resolvedPost.metadata.image}"
 featured: true
 ---
 `

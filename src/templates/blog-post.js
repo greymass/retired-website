@@ -23,9 +23,12 @@ class BlogPost extends Component {
     return (
       <Layout>
         <SEO
-          lang={intl.locale}
+          description={post.frontmatter.description}
+          image={post.frontmatter.image}
           keywords={['blog-page', 'greymass']}
+          lang={intl.locale}
           title={post.frontmatter.title}
+          url={`https://greymass.com${this.props.path}`}
         />
         <BlogPostHeader post={post}  />
         <div className={blogPostStyles.bodyContainer}>
@@ -54,6 +57,8 @@ export const query = graphql`
         author
         date
         title
+        image
+        description
       }
     }
   }
