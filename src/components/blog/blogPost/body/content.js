@@ -36,7 +36,7 @@ class BlogPostBodyDesktopn extends Component {
 
     return (
       <Grid>
-        <Grid.Column only="computer" width={4}>
+        <Grid.Column only="computer" width={3}>
           <Ref innerRef={this.contextRef}>
             <Rail>
               <Sticky context={this.contextRef} pushing>
