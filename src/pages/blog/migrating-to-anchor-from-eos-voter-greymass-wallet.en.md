@@ -18,11 +18,15 @@ For those who already use eos-voter, we set out to make the migration process to
 
 ### Installing Anchor
 
-Installing Anchor is a similar process, one which you can do by visiting our Github releases page and grabbing the most recent version. All releases are located in one of these two places (they will automatically redirect regardless of which you use):
+Installing Anchor is a similar process, one which you can do by visiting our Github page
+
+[https://github.com/greymass/anchor#download-anchor](<https://github.com/greymass/anchor#download-anchor>)
+
+You can also view the releases page and grab any published version we have made available, as they are all published here:
 
 [https://github.com/greymass/anchor/releases](<https://github.com/greymass/eos-voter/releases>)
 
-[https://github.com/greymass/eos-voter/releases](<https://github.com/greymass/eos-voter/releases>)
+***A note for your security***: Please check the URL of your browser to ensure you're downloading from the right place.
 
 The "Assets" section below the "Signatures" for each version can be expanded to find the downloader for your operating system. If you are using:
 
@@ -66,10 +70,11 @@ To do so, follow these steps, and again an animated GIF below will illustrate th
 2. From the initial setup screen, choose "Restore Backup". 
 3. Select the file created in the previous step.
 4. If prompted to "Upgrade Wallets", click the button and enter the password for the wallet you used in eos-voter.
+5. Choose whether or not to allow Anchor to act as an authenticator for external applications. 
 
 <!-- -->
 
-<figure><img src="https://i.imgur.com/0a1TOUD.gif" alt=""><figcaption>Restoring a backup in Anchor</figcaption></figure>
+<figure><img src="https://i.imgur.com/379thu4.gif" alt=""><figcaption>Restoring a backup in Anchor</figcaption></figure>
 
 ### You're ready to start using Anchor
 
