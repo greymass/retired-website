@@ -59,7 +59,7 @@ A few of the more notable changes to the interface include:
 While we did spent a lot of time reimagining the user interface, what’s changed under the hood between our initial eos-voter release and Anchor is far more significant. A brief list of the major changes is as follows:
 
 - [Support for the EOSIO Signing Request (ESR) protocol](<https://github.com/greymass/EEPs/blob/master/EEPS/eep-7.md>) to allow authentication and app integration. You can give it a try on [greymass.com](<http://greymass.com/>) or any other ESR compatible site. With Anchor installed you simply need to Sign-in.
-- [Greymass Fuel is available directly in the wallet](<https://greymass.com/en/blog/5ms-worth-of-free-transactions-available-now-in-anchor-wallet/>) to provide an alternative to REX along with a minimum of 5ms free CPU per account, per day. This resources system work with all the tools in the wallet, as well as requests from any authenticated apps.
+- [Greymass Fuel is available directly in the wallet](<https://greymass.com/en/blog/5ms-worth-of-free-transactions-available-now-in-anchor-wallet/>) to provide an alternative to REX along with a minimum of 5ms free CPU per account, per day. This resources system works with all the tools in the wallet, as well as requests from any authenticated apps.
 - An overhaul of the wallet engine, which allows for better storage and multiple wallets to be unlocked at the same time for quick switching with less password prompting.
 
 <!-- -->
