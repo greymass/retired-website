@@ -1,6 +1,8 @@
 import React  from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import TransitWrapper from '../../../shared/wrappers/transit';
 
 import SharedModalsTransitLogin from '../../../shared/modals/transit/login';
@@ -9,6 +11,8 @@ import sessionsDropdownStyles from './sessions.module.css';
 
 class SharedDropdownsTransitSessions extends TransitWrapper {
   render() {
+    const { intl } = this.props;
+
     const {
       loggingIn,
       currentTransitSession,
@@ -29,7 +33,7 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
         {account ? (
           <Dropdown
             className={sessionsDropdownStyles.dropdown}
-            text={account ? account.name : 'Sign in'}
+            text={account ? account.name : intl.formatMessage({ id: 'sign_in' })}
             pointing
           >
             <Dropdown.Menu>
@@ -74,4 +78,4 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
   }
 }
 
-export default SharedDropdownsTransitSessions;
+export default injectIntl(SharedDropdownsTransitSessions);

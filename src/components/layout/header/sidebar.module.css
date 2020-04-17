@@ -1,3 +1,7 @@
 .container div[class="ui vertical labeled icon ui overlay left visible sidebar menu"] {
   overflow-y: visible !important;
 }
+
+.container div[class="ui vertical labeled icon ui overlay left visible sidebar menu"] a {
+  color: black;
+}
