@@ -19,7 +19,7 @@ class VoteProducerPreLogin extends Component {
           content={intl.formatMessage({ id: 'support_please_sign_in' })}
         />
         <Button
-          content={`Sign in`}
+          content={intl.formatMessage({ id: 'support_button_sign_in' })}
           onClick={onClick}
           primary
           size="large"

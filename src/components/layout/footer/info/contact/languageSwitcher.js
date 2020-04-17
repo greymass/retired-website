@@ -17,7 +17,7 @@ class FooterInfoLanguageSwitcher extends Component {
 
   render() {
     const { intl } = this.props;
-    
+
     const languageOptions = [
       { key: "en", text: 'english', value: "en" },
       { key: "fr", text: 'français', value: "fr" },
