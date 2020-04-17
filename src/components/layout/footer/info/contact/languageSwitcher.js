@@ -17,13 +17,15 @@ class FooterInfoLanguageSwitcher extends Component {
 
   render() {
     const { intl } = this.props;
-
+    
     const languageOptions = [
       { key: "en", text: 'english', value: "en" },
       { key: "fr", text: 'français', value: "fr" },
-    ]
+    ];
 
-    const path = window.location.pathname;
+    const location = this.props.location || (typeof window !== 'undefined' && window.location);
+
+    const path = location && location.pathname;
 
     const onBlogPage = path && path.includes('blog');
 
