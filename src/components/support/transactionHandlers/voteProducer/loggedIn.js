@@ -71,7 +71,7 @@ class VoteProducerLoggedIn extends Component {
             <p style={{ marginTop: '1em'}}>
               <FormattedHTMLMessage
                 id="support_logged_in_message"
-                values={chainName}
+                values={{chainName}}
               />
               &nbsp;
               <SharedDropdownsTransitSessions />
