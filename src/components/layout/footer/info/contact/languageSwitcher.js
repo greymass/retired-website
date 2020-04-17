@@ -11,7 +11,7 @@ class FooterInfoLanguageSwitcher extends Component {
     const { intl } = this.props;
     const path = window.location.pathname + window.location.search;
     const newLanguage = data.value;
-    
+
     navigate(path.replace(`/${intl.locale}/`, `/${newLanguage}/`));
   }
 
@@ -23,7 +23,11 @@ class FooterInfoLanguageSwitcher extends Component {
       { key: "fr", text: 'français', value: "fr" },
     ]
 
-    return (
+    const path = window.location.pathname;
+
+    const onBlogPage = path && path.includes('blog');
+
+    return (onBlogPage) ? '' : (
       <Menu compact>
         <Dropdown
           item
