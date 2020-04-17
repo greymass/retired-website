@@ -12,5 +12,11 @@
   "terms_of_use": "Terms of Use",
   "copyright_text": "Copyright 2019-2020, Greymass Inc.",
   "email": "E: {{email}}",
-  "address": "A: {{address}}"
+  "address": "A: {{address}}",
+  "sign_in": "Sign in",
+  "layout_anchor_wallet": "Anchor Wallet",
+  "layout_esr_protocol": "ESR Protocol",
+  "layout_fuel": "Fuel",
+  "layout_public_apis": "Public APIs",
+  "layout_view_all_projects": "View all projects"
 }
