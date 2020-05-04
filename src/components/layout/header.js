@@ -46,7 +46,7 @@ class Header extends TransitWrapper {
     const navbarItems = [
       {
         as: `/${intl.locale}/projects`,
-        content: 'projects',
+        content: intl.formatMessage({ id: 'layout_projects' }),
         dropdown: (
           <Menu
             secondary
@@ -57,32 +57,32 @@ class Header extends TransitWrapper {
               to={`/${intl.locale}/anchor`}
               style={{ display: 'none' }}
             >
-              Anchor Wallet
+              {intl.formatMessage({ id: 'layout_anchor_wallet' })}
             </Menu.Item>
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/esr`}
               style={{ display: 'none' }}
             >
-              ESR Protocol
+              {intl.formatMessage({ id: 'layout_esr_protocol' })}
             </Menu.Item>
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/fuel`}
             >
-              Fuel
+              {intl.formatMessage({ id: 'layout_fuel' })}
             </Menu.Item>
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/apis`}
             >
-              Public APIs
+              {intl.formatMessage({ id: 'layout_public_apis' })}
             </Menu.Item>
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/projects`}
             >
-              View all project
+              {intl.formatMessage({ id: 'layout_view_all_projects' })}
             </Menu.Item>
           </Menu>
         ),
@@ -90,15 +90,20 @@ class Header extends TransitWrapper {
       },
       {
         as: `/${intl.locale}/about`,
-        content: 'about',
+        content: intl.formatMessage({ id: 'layout_about' }),
         key: 'about'
       },
-      {
-        as: `/${intl.locale}/blog/1`,
-        content: 'blog',
-        key: 'blog'
-      },
     ];
+
+    if (data.site.siteMetadata.localesWithBlog.includes(intl.locale)) {
+      navbarItems.push(
+        {
+          as: `/${intl.locale}/blog/1`,
+          content: intl.formatMessage({ id: 'layout_blog' }),
+          key: 'blog'
+        }
+      );
+    }
 
     return (
       <React.Fragment>
@@ -132,6 +137,11 @@ export default props => (
             fluid(maxWidth: 256, maxHeight: 256) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+        site {
+          siteMetadata {
+            localesWithBlog
           }
         }
       }

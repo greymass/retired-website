@@ -10,10 +10,11 @@ import HomeNewsletter from '../components/home/newsletter';
 import SEO from '../components/shared/seo';
 
 import homeStyles from './index.module.css';
+import { graphql } from "gatsby"
 
 class Index extends Component {
   render() {
-    const { intl, location } = this.props;
+    const { intl, location, data } = this.props;
 
     return (
       <Layout location={location} >
@@ -25,15 +26,27 @@ class Index extends Component {
         <HomeProjects />
         <HomeAbout />
         <div className={homeStyles.bottomContainer}>
-          <FeaturedBlogPosts
-            link={intl.formatMessage({ id: 'blog_featured_blog_post_link' })}
-            title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
-          />
+          {(data.site.siteMetadata.localesWithBlog.includes(intl.locale)) && (
+            <FeaturedBlogPosts
+              link={intl.formatMessage({ id: 'blog_featured_blog_post_link' })}
+              title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
+            />
+          )}
           <HomeNewsletter />
         </div>
       </Layout>
     )
   }
 }
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        localesWithBlog
+      }
+    }
+  }`;
+
 
 export default injectIntl(Index);

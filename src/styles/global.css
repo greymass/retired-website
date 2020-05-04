@@ -14,10 +14,10 @@ body {
 }
 
 html {
-  /* overflow-x: hidden; */
+   overflow-x: hidden; 
 }
 
-html, body { height: auto }
+html, body { height: auto !important; }
 
 button {
   background: none;

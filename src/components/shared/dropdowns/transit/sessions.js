@@ -1,6 +1,8 @@
 import React  from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import TransitWrapper from '../../../shared/wrappers/transit';
 
 import SharedModalsTransitLogin from '../../../shared/modals/transit/login';
@@ -9,6 +11,8 @@ import sessionsDropdownStyles from './sessions.module.css';
 
 class SharedDropdownsTransitSessions extends TransitWrapper {
   render() {
+    const { intl } = this.props;
+
     const {
       loggingIn,
       currentTransitSession,
@@ -29,7 +33,7 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
         {account ? (
           <Dropdown
             className={sessionsDropdownStyles.dropdown}
-            text={account ? account.name : 'Sign in'}
+            text={account ? account.name : intl.formatMessage({ id: 'shared_transit_sign_in' })}
             pointing
           >
             <Dropdown.Menu>
@@ -48,19 +52,19 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
               )}
               <button onClick={() => this.setState({ loggingIn: true })}>
                 <Dropdown.Item>
-                  + Add account
+                  {intl.formatMessage({ id: 'shared_transit_add_account' })}
                 </Dropdown.Item>
               </button>
               <button onClick={this.logout}>
                 <Dropdown.Item>
-                  Logout
+                  {intl.formatMessage({ id: 'shared_transit_logout' })}
                 </Dropdown.Item>
               </button>
             </Dropdown.Menu>
           </Dropdown>
         ) : (
           <button onClick={() => this.setState({ loggingIn: true })}>
-            Sign in
+            {intl.formatMessage({ id: 'shared_transit_sign_in' })}
           </button>
         )}
         {loggingIn && (
@@ -74,4 +78,4 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
   }
 }
 
-export default SharedDropdownsTransitSessions;
+export default injectIntl(SharedDropdownsTransitSessions);

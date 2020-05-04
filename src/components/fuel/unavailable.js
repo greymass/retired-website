@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Container, Header, Grid, Segment } from 'semantic-ui-react';
+import { injectIntl } from 'gatsby-plugin-intl';
+
 import SharedElementsChainLogo from '../shared/elements/chainLogo';
 
 class FuelUnavailable extends Component {
   render() {
-    const { chainName } = this.props;
+    const { chainName, intl } = this.props;
     return (
       <Grid.Row centered>
         <Grid.Column width={10}>
@@ -14,9 +16,9 @@ class FuelUnavailable extends Component {
                 chain={chainName}
               />
               <Header size="large">
-                Fuel is currently not available on {chainName.toUpperCase()}.
+                {intl.formatMessage({ id: 'fuel_unavailable_header' }, { chainName: chainName.toUpperCase() })}
                 <Header.Subheader>
-                  To use Fuel, please sign in to one of the networks Fuel currently supports.
+                  {intl.formatMessage({ id: 'fuel_unavailable_subheader' })}
                 </Header.Subheader>
               </Header>
             </Container>
@@ -27,4 +29,4 @@ class FuelUnavailable extends Component {
   }
 }
 
-export default FuelUnavailable;
+export default injectIntl(FuelUnavailable);

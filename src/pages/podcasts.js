@@ -24,8 +24,8 @@ class Projects extends Component {
           title="Podcasts"
         />
         <SharedHeader
-          title="Podcasts"
-          paragraph="Below is the list of all podcasts that we have hosted so far. Discussion subjects range from current governance to some of the projects that we are most excited about."
+          title={intl.formatMessage({ id: 'podcasts_header_title' })}
+          paragraph={intl.formatMessage({ id: 'podcasts_header_paragraph' })}
         />
         <div className={podcastStyles.container}>
           <Container>

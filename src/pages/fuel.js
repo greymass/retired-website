@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOMServer from "react-dom/server"
 import { Link } from "gatsby";
 import { injectIntl } from 'gatsby-plugin-intl';
 import {
@@ -154,8 +155,8 @@ class Fuel extends TransitWrapper {
                     : false
                   }
                   <Message
-                    header="Fuel is a BETA product"
-                    content="If you encounter any issues while using Fuel, please contact us for assitance."
+                    header={intl.formatMessage({ id: 'fuel_message_header' })}
+                    content={intl.formatMessage({ id: 'fuel_message_content' })}
                     textAlign="left"
                     size="large"
                   />
@@ -171,30 +172,30 @@ class Fuel extends TransitWrapper {
                 <Grid.Column width={10}>
                   <Segment basic padded size="large">
                     <Header size="huge">
-                      What is Fuel?
+                      {intl.formatMessage({ id: 'fuel_header_one_title' })}
                     </Header>
                     <p>
-                      Fuel is a product developed by Greymass with the goal of being a turn key solution for resource billing. It serves two purposes:
+                      {intl.formatMessage({ id: 'fuel_header_one_paragraph' })}
                     </p>
                     <List bulleted relaxed>
                       <List.Item>
-                        <strong>For EOSIO users:</strong>
+                        <strong>{intl.formatMessage({ id: 'fuel_list_item_one_strong' })}</strong>
                         {' '}
-                        Every account on compatible EOSIO ecosystems are given 5ms free CPU to perform transactions and can purchase additional Fuel. It provides an alternative to staking or using REX.
+                        {intl.formatMessage({ id: 'fuel_list_item_one_paragraph' })}
                       </List.Item>
                       <List.Item>
-                        <strong>For developers:</strong>
+                        <strong> {intl.formatMessage({ id: 'fuel_list_item_two_strong' })}</strong>
                         {' '}
-                        Fuel allows application developers involved in the EOSIO ecosystem to cover the resource costs (NET/CPU) of their users.
+                        {intl.formatMessage({ id: 'fuel_list_item_two_paragraph' })}
                       </List.Item>
                     </List>
                     <p>
-                      For more information,
+                      {intl.formatMessage({ id: 'fuel_more_info_paragraph' })}
                       {' '}
                       <Link
                         to="/en/blog/greymass-fuel-a-turn-key-solution-to-cover-the-resource-costs-of-app-users/"
                       >
-                        please check out our announcement post
+                        {intl.formatMessage({ id: 'fuel_more_info_link' })}
                       </Link>
                       .
                     </p>
@@ -203,36 +204,46 @@ class Fuel extends TransitWrapper {
                 <Grid.Column width={6}>
                   <Segment color="purple" size="large" style={{ marginTop: '3em' }}>
                     <Header>
-                      Want to use Fuel in your app?
+                      {intl.formatMessage({ id: 'fuel_header_two_title' })}
                     </Header>
                     <p>
-                      Any application can integrate Fuel (for free) to give their users 5ms of free CPU time. Simply
-                      {' '}
-                      <Link
-                        to="/en/blog/integrating-fuel-using-eosjs-v20/"
-                      >
-                        follow the instructions provided
-                      </Link>
-                      {' '}
-                      to get started.
+                      <div dangerouslySetInnerHTML={{
+                        __html: intl.formatMessage({
+                            id: 'fuel_header_two_paragraph_one',
+                          },
+                          {
+                            linkComponent: ReactDOMServer.renderToStaticMarkup(
+                              <Link
+                                to="/en/blog/integrating-fuel-using-eosjs-v20/"
+                              >
+                                {intl.formatMessage({ id: 'fuel_header_two_link_one' })}
+                              </Link>
+                            )
+                          })
+                      }} />
                     </p>
                     <p>
-                      If you'd like to go above and beyond the 5ms provided - please contact us either through our
-                      {' '}
-                      <a
-                        href="https://t.me/greymassfuel"
-                      >
-                        Fuel telegram channel
-                      </a>
-                      {' '}
-                      or
-                      {' '}
-                      <a
-                        href="mailto:team@greymass.com"
-                      >
-                        via email
-                      </a>
-                      .
+                      <div dangerouslySetInnerHTML={{
+                        __html: intl.formatMessage({
+                            id: 'fuel_header_two_paragraph_two',
+                          },
+                          {
+                            linkComponentOne: ReactDOMServer.renderToStaticMarkup(
+                              <a
+                                href="https://t.me/greymassfuel"
+                              >
+                                {intl.formatMessage({ id: 'fuel_header_two_link_two' })}
+                              </a>
+                            ),
+                            linkComponentTwo: ReactDOMServer.renderToStaticMarkup(
+                              <a
+                                href="mailto:team@greymass.com"
+                              >
+                                {intl.formatMessage({ id: 'fuel_header_two_link_three' })}
+                              </a>
+                            )
+                          })
+                      }} />
                     </p>
                   </Segment>
                 </Grid.Column>
@@ -241,7 +252,7 @@ class Fuel extends TransitWrapper {
                 <Grid.Column width={16}>
                   <Divider horizontal>
                     <Header size="huge" textAlign="center">
-                      Where can I use Fuel today?
+                      {intl.formatMessage({ id: 'fuel_header_three_title' })}
                     </Header>
                   </Divider>
                 </Grid.Column>
@@ -249,9 +260,9 @@ class Fuel extends TransitWrapper {
               <Grid.Row centered>
                 <Grid.Column width={8} textAlign="center">
                   <Segment size="large">
-                    <Header>Available Networks</Header>
+                    <Header>{intl.formatMessage({ id: 'fuel_available_networks_title' })}</Header>
                     <p>
-                      Fuel is currently available on the following EOSIO networks:
+                      {intl.formatMessage({ id: 'fuel_available_networks_subtitle' })}
                     </p>
                     <Grid>
                       <Grid.Row columns={2}>
@@ -274,15 +285,15 @@ class Fuel extends TransitWrapper {
                       </Grid.Row>
                     </Grid>
                     <p style={{ marginTop: '2em', textAlign: 'center' }}>
-                      Additional networks will be made available with time and upon demand.
+                      {intl.formatMessage({ id: 'fuel_available_networks_note' })}
                     </p>
                   </Segment>
                 </Grid.Column>
                 <Grid.Column width={8} textAlign="center">
                   <Segment size="large">
-                    <Header>Available Wallets</Header>
+                    <Header>{intl.formatMessage({ id: 'fuel_available_wallets_title' })}</Header>
                     <p>
-                      Fuel is currently used within the following EOSIO wallets:
+                      {intl.formatMessage({ id: 'fuel_available_wallets_subtitle' })}
                     </p>
                     <Grid>
                       <Grid.Row columns={2}>
@@ -317,7 +328,7 @@ class Fuel extends TransitWrapper {
                       </Grid.Row>
                     </Grid>
                     <p style={{ marginTop: '2em'}}>
-                      All wallets are capable of integrating Fuel, these are just the first.
+                      {intl.formatMessage({ id: 'fuel_available_wallets_note' })}
                     </p>
                   </Segment>
                 </Grid.Column>
@@ -327,29 +338,34 @@ class Fuel extends TransitWrapper {
                   <Segment basic size="large">
                     <Divider horizontal>
                       <Header size="huge" textAlign="center">
-                        Questions? Want to learn more?
+                        {intl.formatMessage({ id: 'fuel_questions_title' })}
                       </Header>
                     </Divider>
                     <p>
-                      Fuel is a product actively being developed and more information will be formally released over time.
+                      {intl.formatMessage({ id: 'fuel_questions_paragraph_one' })}
                     </p>
                     <p>
-                      While we're still building, feel free to join our
-                      {' '}
-                      <a
-                        href="https://t.me/greymassfuel"
-                      >
-                        Fuel telegram channel
-                      </a>
-                      {' '}
-                      or
-                      {' '}
-                      <a
-                        href="mailto:team@greymass.com"
-                      >
-                        contact us via email
-                      </a>
-                      .
+                      <div dangerouslySetInnerHTML={{
+                        __html: intl.formatMessage({
+                            id: 'fuel_questions_paragraph_two',
+                          },
+                          {
+                            linkComponentOne: ReactDOMServer.renderToStaticMarkup(
+                              <a
+                                href="https://t.me/greymassfuel"
+                              >
+                                {intl.formatMessage({ id: 'fuel_questions_link_one' })}
+                              </a>
+                            ),
+                            linkComponentTwo: ReactDOMServer.renderToStaticMarkup(
+                              <a
+                                href="mailto:team@greymass.com"
+                              >
+                                {intl.formatMessage({ id: 'fuel_questions_link_two' })}
+                              </a>
+                            )
+                          })
+                      }} />
                     </p>
                   </Segment>
                 </Grid.Column>

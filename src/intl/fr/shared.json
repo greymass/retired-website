@@ -1,0 +1,13 @@
+{
+  "shared_english": "EN-US",
+  "shared_french": "FR",
+  "shared_support_us": "Supportez-nous",
+  "shared_apis_table_header_height": "Blocs",
+  "shared_apis_table_header_features": "Caractéristiques",
+  "shared_apis_table_header_name": "Chaîne",
+  "shared_apis_table_header_status": "Statut",
+  "shared_apis_table_header_response_time": "Temps de réponse",
+  "shared_transit_sign_in": "Connectez-vous",
+  "shared_transit_logout": "Déconnection",
+  "shared_transit_add_account": "+ Ajouter un compte"
+}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactDOMServer from 'react-dom/server';
+
 import { find } from 'lodash';
 import {
   Button,
@@ -10,11 +12,13 @@ import {
   Message,
 } from 'semantic-ui-react';
 
-import loggedInStyles from './loggedIn.module.css';
+import { injectIntl, FormattedHTMLMessage } from 'gatsby-plugin-intl';
 
 import SharedDropdownsTransitSessions from '../../../shared/dropdowns/transit/sessions';
 import SharedElementsChainLogo from '../../../shared/elements/chainLogo';
 import SharedElementsExplorerLink from '../../../shared/elements/explorerLink';
+
+import loggedInStyles from './loggedIn.module.css';
 
 class VoteProducerLoggedIn extends Component {
   render() {
@@ -23,6 +27,7 @@ class VoteProducerLoggedIn extends Component {
       bps,
       clearTransaction,
       currentTransitSession,
+      intl,
       proxyVotes,
       setVoteToRemove,
       transaction,
@@ -39,13 +44,13 @@ class VoteProducerLoggedIn extends Component {
     let statusMessage;
 
     if (proxyAccount) {
-      statusMessage = `You are currently proxying your vote to ${proxyAccount}.`;
+      statusMessage = intl.formatMessage({ id: 'support_status_message_proxying' }, { proxyAccount });
     } else if (producers.length === 0) {
-      statusMessage = 'You are currently not voting for block producers.';
+      statusMessage = intl.formatMessage({ id: 'support_status_message_not_voting' });
     } else if (producers.includes('teamgreymass')) {
-      statusMessage = `You are currently voting for ${producers.length} block producers, including teamgreymass.`
+      statusMessage = intl.formatMessage({ id: 'support_status_message_voting_for_greymass', producersCount: producers.length })
     } else {
-      statusMessage = `You are currently voting for ${producers.length} block producers, and not voting for teamgreymass.`
+      statusMessage = intl.formatMessage({ id: 'support_status_message_voting_but_not_for_greymass', producersCount: producers.length })
     }
 
     return (
@@ -56,7 +61,7 @@ class VoteProducerLoggedIn extends Component {
           textAlign="center"
         >
           <Header
-            content="To support us directly from our website, select an option below."
+            content={intl.formatMessage({ id: 'support_support_us_directly' })}
             textAlign="center"
           />
           <Segment attached="top" size="large">
@@ -64,7 +69,10 @@ class VoteProducerLoggedIn extends Component {
               chain={chainName}
             />
             <p style={{ marginTop: '1em'}}>
-              Voting on <strong>{chainName}</strong> as
+              <FormattedHTMLMessage
+                id="support_logged_in_message"
+                values={{chainName}}
+              />
               &nbsp;
               <SharedDropdownsTransitSessions />
             </p>
@@ -86,26 +94,31 @@ class VoteProducerLoggedIn extends Component {
                         value: producer,
                       }))
                     }
-                    placeholder="Remove one of your votes"
+                    placeholder={intl.formatMessage({ id: 'support_remove_one_vote' })}
                     selection
                   />
                 )}
                 <Button
-                  content="Vote for Greymass"
+                  content={intl.formatMessage({ id: 'support_vote_greymass_button' })}
                   onClick={vote}
                   primary
                   size="huge"
                 />
                 <p>
-                  Add
-                  {' '}
-                  <SharedElementsExplorerLink
-                    chain={chainName}
-                    type="account"
-                    value="teamgreymass"
-                  />
-                  {' '}
-                  as one of your 30 votes to support us while controlling the remaining 29 votes.
+                  <div dangerouslySetInnerHTML={{
+                    __html: intl.formatMessage({
+                      id: 'support_add_greymass_message',
+                    },
+                    {
+                      explorerLink: ReactDOMServer.renderToStaticMarkup(
+                        <SharedElementsExplorerLink
+                          chain={chainName}
+                          type="account"
+                          value="teamgreymass"
+                        />
+                      )
+                    })
+                  }} />
                 </p>
               </Grid.Column>
               {(hasProxy)
@@ -116,21 +129,26 @@ class VoteProducerLoggedIn extends Component {
                     <Divider className="mobile-hidden" vertical>OR</Divider>
                     <Grid.Column computer={6} textAlign="center">
                       <Button
-                        content="Proxy your Vote"
+                        content={intl.formatMessage({ id: 'support_proxy_your_vote_button' })}
                         onClick={proxyVotes}
                         primary
                         size="huge"
                       />
                       <p>
-                        Proxy your voting rights to the
-                        {' '}
-                        <SharedElementsExplorerLink
-                          chain={chainName}
-                          type="account"
-                          value="greymassvote"
-                        />
-                        {' '}
-                        proxy, which will be used to vote for the block producers we feel bring the most value (including Greymass).
+                        <div dangerouslySetInnerHTML={{
+                          __html: intl.formatMessage({
+                              id: 'support_proxy_to_greymass',
+                            },
+                            {
+                              explorerLink: ReactDOMServer.renderToStaticMarkup(
+                                <SharedElementsExplorerLink
+                                  chain={chainName}
+                                  type="account"
+                                  value="greymassvote"
+                                />
+                              )
+                            })
+                        }} />
                       </p>
                     </Grid.Column>
                   </React.Fragment>
@@ -147,12 +165,12 @@ class VoteProducerLoggedIn extends Component {
             onDismiss={clearTransaction}
           >
             <Header size="large">
-              Thank you, {account.name}!
+              {intl.formatMessage({ id: 'support_thank_you_header', values: { accountName: account.name } })}
               <Header.Subheader>
-                We truly appreciate your support.
+                {intl.formatMessage({ id: 'support_thank_you_subheader' })}
               </Header.Subheader>
             </Header>
-            <p>If you'd like to vote again with a different account, simply login to that account and select it from the dropdown above.</p>
+            <p>{intl.formatMessage({ id: 'support_thank_you_paragraph' })}</p>
           </Message>
         )}
       </div>
@@ -160,4 +178,4 @@ class VoteProducerLoggedIn extends Component {
   }
 }
 
-export default VoteProducerLoggedIn;
+export default injectIntl(VoteProducerLoggedIn);

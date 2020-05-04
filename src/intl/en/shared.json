@@ -6,5 +6,8 @@
   "shared_apis_table_header_features": "Features",
   "shared_apis_table_header_name": "Chain",
   "shared_apis_table_header_status": "Status",
-  "shared_apis_table_header_response_time": "Response Time"
+  "shared_apis_table_header_response_time": "Response Time",
+  "shared_transit_sign_in": "Sign in",
+  "shared_transit_logout": "Logout",
+  "shared_transit_add_account": "+ Add account"
 }
