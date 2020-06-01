@@ -55,7 +55,6 @@ class Header extends TransitWrapper {
             <Menu.Item
               as={Link}
               to={`/${intl.locale}/anchor`}
-              style={{ display: 'none' }}
             >
               {intl.formatMessage({ id: 'layout_anchor_wallet' })}
             </Menu.Item>

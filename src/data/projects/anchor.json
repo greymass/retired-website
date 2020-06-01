@@ -1,6 +1,6 @@
 {
   "homepage": true,
-  "githubLink": "https://github.com/greymass/eos-voter",
+  "link": "/anchor",
   "icon": "github",
   "platform": "eosio",
   "projectKey": "anchor"

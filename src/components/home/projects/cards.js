@@ -58,6 +58,7 @@ export default props => (
           edges {
             node {
               homepage
+              link
               githubLink
               icon
               platform

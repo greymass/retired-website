@@ -5,7 +5,7 @@
     "platform_others": "Others",
     "platform_steem": "Steem",
     "project_anchor_description": "Anchor is a full featured, open source wallet, that Greymass has been developing since the genesis of the EOS blockchain. Formerly known as \"eos-voter\" or \"Greymass Wallet\".",
-    "project_anchor_extra": "Desktop Wallet",
+    "project_anchor_extra": "EOSIO Wallet",
     "project_anchor_link_description": "Library to abstract the identity and session components for EOSIO Signing Requests (ESR/EEP-7).",
     "project_anchor_link_extra": "Developer Tool",
     "project_anchor_link_name": "Anchor Link",
