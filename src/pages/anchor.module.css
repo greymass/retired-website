@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  background-color: white;
+  font-size: 18px;
+  padding: 3em 0 4em;
+}
+
+.interface {
+  background-color: var(--mainBlue);
+  padding: 60px 0;
+  box-shadow:
+    inset 0px 7px 6px -10px #000,
+    inset 0px -7px 6px -10px #000;
+}
+
+@media only screen and (max-width: 767px) {
+  .container div[class="centered row"]
+  div[class="ui horizontal divider"]
+  div[class="ui huge center aligned header"] {
+    font-size: 20px;
+  }
+}
