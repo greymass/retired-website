@@ -42,7 +42,7 @@ class Anchor extends TransitWrapper {
           keywords={['anchor', 'wallet', 'eosio', 'mobile', 'desktop', 'eos', 'wax', 'lynx', 'telos', 'greymass']}
           title="Anchor Wallet for Desktop and Mobile"
         />
-        <Container fluid>
+        <Container>
           <Segment
             basic
             padded="very"
@@ -60,7 +60,7 @@ class Anchor extends TransitWrapper {
             <Segment basic>
               <Grid>
                 <Grid.Row centered>
-                  <Grid.Column textAlign="center" width={5}>
+                  <Grid.Column textAlign="center" width={8}>
                     <p>{intl.formatMessage({ id: 'anchor_download_desktop' })}</p>
                     <Button
                       as="a"
@@ -81,7 +81,9 @@ class Anchor extends TransitWrapper {
                       href={`https://github.com/greymass/anchor/releases/v${version}`}
                     />
                   </Grid.Column>
-                  <Grid.Column textAlign="center" width={5}>
+                </Grid.Row>
+                <Grid.Row centered>
+                  <Grid.Column textAlign="center" width={8}>
                     <p>{intl.formatMessage({ id: 'anchor_download_mobile' })}</p>
                     <Button
                       as="a"
