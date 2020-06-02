@@ -137,6 +137,13 @@ class Anchor extends TransitWrapper {
                         </List.Header>
                       </List.Item>
                       <List.Item>
+                        <a href="/en/blog/migrating-to-anchor-from-eos-voter-greymass-wallet/">
+                          <Icon name="write square" /> Migration Guide
+                        </a>
+                        {' - '}
+                        How to migrate from eos-voter to Anchor
+                      </List.Item>
+                      <List.Item>
                         <a href="https://t.me/anchorwallet">
                           <Icon name="telegram" /> Telegram Group for Anchor
                         </a>
