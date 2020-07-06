@@ -33,8 +33,8 @@ class Anchor extends TransitWrapper {
       location,
       intl,
     } = this.props;
-    const version = "1.0.4";
-    const release = "2020/06/03"
+    const version = "1.0.5";
+    const release = "2020/06/23"
     return (
       <Layout location={location}>
         <SEO
@@ -108,7 +108,7 @@ class Anchor extends TransitWrapper {
               </Grid>
               <p style={{ marginTop: '2.5em' }}>
                 <a
-                  href={`https://github.com/greymass/anchor/releases/${version}`}
+                  href={`https://github.com/greymass/anchor/releases/v${version}`}
                 >
                   {intl.formatMessage({ id: 'anchor_updated' })}
                   {' '}
