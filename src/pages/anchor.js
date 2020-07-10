@@ -87,9 +87,9 @@ class Anchor extends TransitWrapper {
                     <p>{intl.formatMessage({ id: 'anchor_download_mobile' })}</p>
                     <Button
                       as="a"
-                      content="iOS (Beta)"
+                      content="iOS"
                       icon="apple"
-                      href={`https://testflight.apple.com/join/huZddLBu`}
+                      href={`https://apps.apple.com/us/app/anchor-wallet/id1487410877`}
                     />
                     <Popup
                       content={intl.formatMessage({ id: 'anchor_download_mobile_indev_content' })}
