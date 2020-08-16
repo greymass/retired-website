@@ -144,8 +144,8 @@ class Anchor extends TransitWrapper {
                         How to migrate from eos-voter to Anchor
                       </List.Item>
                       <List.Item>
-                        <a href="https://t.me/anchorwallet">
-                          <Icon name="telegram" /> Telegram Group for Anchor
+                        <a href="https://forums.greymass.com/c/greymass/anchor-wallet/5">
+                          <Icon name="telegram" /> Discussion Forum for Anchor Wallet
                         </a>
                         {' - '}
                         Support, feedback, and discussion
@@ -156,18 +156,11 @@ class Anchor extends TransitWrapper {
                         </List.Header>
                       </List.Item>
                       <List.Item>
-                        <a href="https://t.me/anchorwalletdev">
-                          <Icon name="telegram" /> Anchor Wallet Beta
+                        <a href="https://forums.greymass.com">
+                          <Icon name="telegram" /> Greymass Forums
                         </a>
                         {' - '}
-                        Group chat for Anchor wallet beta testers.
-                      </List.Item>
-                      <List.Item>
-                        <a href="https://t.me/anchor_link">
-                          <Icon name="telegram" /> Anchor Link
-                        </a>
-                        {' - '}
-                        Technical support for Anchor Link website integration.
+                        Discussion forum for Anchor Wallet integration and development
                       </List.Item>
                       <List.Item>
                         <a href="https://github.com/greymass/anchor">
