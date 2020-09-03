@@ -31,9 +31,9 @@
   "support_explanation_use_wallet_to_vote_paragraph_one": "Vous pouvez utiliser n'importe quel Wallet EOSIO pour voter. De nombreux Wallet disposent directement d'une interface de vote. D'autres, comme Scatter, peuvent être utilisés en conjonction avec des Interfaces Web comme Bloks.io ou EOS Authority.",
   "support_explanation_use_wallet_to_vote_paragraph_two": "Pour voter pour nous, il vous suffit de trouver le compte <strong> teamgreymass </strong> sur le portail de vote de votre portefeuille et de voter pour nous. Nous apprécions votre soutien!",
   "support_explanation_have_a_question_header": "Vous avez une question ou souhaitez discuter avec notre équipe?",
-  "support_explanation_have_a_question_paragraph_one": "Si vous souhaitez nous joindre, n'hésitez pas à envoyer un e-mail à toute notre équipe à <a href='mailto:team@greymass.com'>team@greymass.com</a>.",
-  "support_explanation_have_a_question_paragraph_two": "Vous pouvez également nous trouver sur <a href='https://t.me/greymass'>Telegram</a>, <a href='https://github.com/greymass/'>Github</a> et <a href='https://twitter.com/greymass'>Twitter</a>.",
-  "support_explanation_have_a_question_paragraph_three": "Si vous êtes spécifiquement intéressé par l'un de nos projets, nous avons également des groupes Telegram pour <a href='https://t.me/anchorwallet'>la Wallet Anchor</a>, <a href='https://t.me/anchordevs'>pour les développeurs de Anchor</a> et <a href='https://t.me/greymassfuel'>pour Greymass Fuel</a>.",
+  "support_explanation_have_a_question_paragraph_one": "Si vous souhaitez nous joindre, n'hésitez pas à envoyer un e-mail à toute notre équipe à team@greymass.com",
+  "support_explanation_have_a_question_paragraph_two": "Vous pouvez également nous trouver sur Telegram, Github et Twitter.",
+  "support_explanation_have_a_question_paragraph_three": "Si vous êtes spécifiquement intéressé par l'un de nos projets, nous avons également des groupes Telegram pour le Wallet Anchor, pour les développeurs de Anchor et pour Greymass Fuel.",
   "support_explanation_have_a_question_paragraph_four": "Nous avons hâte d'avoir de vos nouvelles!",
   "support_button_sign_in": "Connectez-vous"
 }

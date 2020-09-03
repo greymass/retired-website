@@ -183,13 +183,13 @@ class Index extends Component {
                     {intl.formatMessage({ id: 'support_explanation_have_a_question_header' })}
                   </Header>
                   <p>
-                    <FormattedHTMLMessage id="support_explanation_have_a_question_paragraph_one" />
+                    {intl.formatMessage({ id: 'support_explanation_have_a_question_paragraph_one' })}
                   </p>
                   <p>
-                    <FormattedHTMLMessage id="support_explanation_have_a_question_paragraph_two" />
+                    {intl.formatMessage({ id: 'support_explanation_have_a_question_paragraph_two' })}
                   </p>
                   <p>
-                    <FormattedHTMLMessage id="support_explanation_have_a_question_paragraph_three" />
+                    {intl.formatMessage({ id: 'support_explanation_have_a_question_paragraph_three' })}
                   </p>
                   <p>                    ​
                     {intl.formatMessage({ id: 'support_explanation_have_a_question_paragraph_four' })}

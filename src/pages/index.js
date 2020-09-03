@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { injectIntl } from "gatsby-plugin-intl";
+import { injectIntl } from 'gatsby-plugin-intl';
 
 import Layout from '../components/layout';
 import HomeHeader from '../components/home/header';
@@ -10,32 +10,39 @@ import HomeNewsletter from '../components/home/newsletter';
 import SEO from '../components/shared/seo';
 
 import homeStyles from './index.module.css';
-import { graphql } from "gatsby"
+import { graphql } from 'gatsby';
+import Anchor from '../components/home/anchor/anchor';
+import Versions from '../components/home/versions/versions';
+import ContactUs from '../components/home/contactUs/contactUs';
+import GetStarted from '../components/home/getStarted/getStarted';
 
 class Index extends Component {
   render() {
     const { intl, location, data } = this.props;
 
     return (
-      <Layout location={location} >
-        <SEO
-          lang={intl.locale}
-          keywords={[`gatsby`, `application`, `react`]}
-        />
+      <Layout location={location}>
+        <SEO lang={intl.locale} keywords={[`gatsby`, `application`, `react`]} />
         <HomeHeader />
-        <HomeProjects />
-        <HomeAbout />
-        <div className={homeStyles.bottomContainer}>
-          {(data.site.siteMetadata.localesWithBlog.includes(intl.locale)) && (
+        <Anchor />
+        <Versions />
+        <ContactUs />
+        <GetStarted />
+        {/* <HomeProjects /> */}
+        {/* <HomeAbout /> */}
+        {/* <div className={homeStyles.bottomContainer}>
+          {data.site.siteMetadata.localesWithBlog.includes(intl.locale) && (
             <FeaturedBlogPosts
-              link={intl.formatMessage({ id: 'blog_featured_blog_post_link' })}
-              title={intl.formatMessage({ id: 'blog_featured_blog_post_title' })}
+              link={intl.formatMessage({ id: "blog_featured_blog_post_link" })}
+              title={intl.formatMessage({
+                id: "blog_featured_blog_post_title",
+              })}
             />
           )}
           <HomeNewsletter />
-        </div>
+        </div> */}
       </Layout>
-    )
+    );
   }
 }
 
@@ -46,7 +53,7 @@ export const query = graphql`
         localesWithBlog
       }
     }
-  }`;
-
+  }
+`;
 
 export default injectIntl(Index);

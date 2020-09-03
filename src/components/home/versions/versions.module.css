@@ -1,0 +1,225 @@
+.containerFluid {
+  width: 100%;
+  background-color: #eff1f7;
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 330px;
+  width: 100%;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 400px;
+  height: 100%;
+}
+
+.versions {
+  margin-bottom: 50px;
+}
+
+.versions button {
+  font-weight: 600;
+  margin-right: 35px;
+  font-size: 24px;
+  border-bottom: 4px solid transparent;
+  color: #000000;
+}
+
+.versions .enabled {
+  border-bottom: 4px solid #3650a2;
+  transition: border 0.5s;
+}
+
+.versions button:hover {
+  color: #1f1f1f9d;
+}
+
+.headerMain {
+  font-size: 34px;
+}
+
+.headerAbout {
+  font-size: 24px;
+  line-height: 32px;
+  color: rgba(0, 0, 0, 0.5);
+  width: 80%;
+}
+
+.header img {
+  width: calc(100% - 550px);
+  height: 100%;
+  border-radius: 6px;
+}
+
+.download {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 5px 20px;
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 290px;
+}
+.download:hover {
+  background: #2c3c70;
+  color: #ffffff;
+}
+
+.aboutBlocks {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-top: 70px;
+}
+
+.block {
+  width: 30%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-right: 50px;
+}
+
+.block .name {
+  margin-top: 15px;
+  transition: 2s;
+}
+
+.images {
+  display: flex;
+  align-items: center;
+}
+
+.images img {
+  margin-right: 20px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .header img {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .header img {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .phone {
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 50px;
+  }
+  .versions {
+    margin-bottom: 25px;
+  }
+  .versions button {
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  .header {
+    flex-direction: column-reverse;
+    justify-content: center;
+    max-width: unset;
+    height: unset;
+  }
+  .leftSide {
+    max-width: 90%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header img {
+    height: 420px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .headerMain {
+    font-size: 24px;
+  }
+  .headerAbout {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .aboutBlocks {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+  .block {
+    width: 90%;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .about {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .header img {
+    height: 350px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .leftSide {
+    align-items: flex-start;
+    text-align: start;
+  }
+  .download {
+    width: 80%;
+  }
+  .header img {
+    height: 300px;
+  }
+  .block {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    padding: 0 20px;
+  }
+  .header {
+    margin: 0 -5%;
+    width: unset;
+  }
+  .block {
+    width: 100%;
+  }
+  .aboutBlocks {
+    /* margin: 0 -5%; */
+  }
+}

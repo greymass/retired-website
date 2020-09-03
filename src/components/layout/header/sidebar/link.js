@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link } from 'gatsby';
 
-import linkStyles from './link.module.css'
+import linkStyles from './link.module.css';
 
 class LayoutHeaderSidebarLink extends Component {
   state = {};
@@ -17,9 +17,11 @@ class LayoutHeaderSidebarLink extends Component {
           <>
             <button
               className={linkStyles.linkText}
-              onClick={() => this.setState(state => {
-                return { displayDropdown: !state.displayDropdown }
-              })}
+              onClick={() =>
+                this.setState(state => {
+                  return { displayDropdown: !state.displayDropdown };
+                })
+              }
             >
               {navbarItem.content}
             </button>
@@ -33,7 +35,7 @@ class LayoutHeaderSidebarLink extends Component {
           </Link>
         )}
       </div>
-    )
+    );
   }
 }
 

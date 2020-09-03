@@ -1,9 +1,14 @@
-
 .dropdown a {
-  color: black;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .dropdown div[class="menu transition visible"] div[class="item"] {
   margin: 20px;
+  color: #ffffff;
+}
+
+.button {
+  color: #ffffff;
+  font-size: 16px;
 }

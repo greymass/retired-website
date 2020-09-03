@@ -1,11 +1,12 @@
 :root {
-  --anchorGreen: #80C341;
+  --anchorGreen: #80c341;
   --darkGrey: #424954;
-  --lightGrey: #F4F4F4;
+  --lightGrey: #f4f4f4;
   --mainBlack: #343941;
-  --mainBlue: #0091E2;
-  --mainGrey: #B6BDC9;
-  --lightBlueGradient: linear-gradient(112.06deg, #0091E2 9.23%, #00ABD0 100%);
+  --mainBlue: #0091e2;
+  --mainGrey: #b6bdc9;
+  --mainPurple: #131b33;
+  --lightBlueGradient: linear-gradient(112.06deg, #0091e2 9.23%, #00abd0 100%);
 }
 
 body {
@@ -14,10 +15,13 @@ body {
 }
 
 html {
-   overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
-html, body { height: auto !important; }
+html,
+body {
+  height: auto !important;
+}
 
 button {
   background: none;

@@ -1,0 +1,208 @@
+.containerFluid {
+  width: 100%;
+  background-color: #131b33;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.background {
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  filter: invert(0.5);
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  z-index: 2;
+}
+
+.header {
+  font-size: 34px;
+  line-height: 45px;
+}
+
+.download {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 5px 20px;
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 290px;
+}
+.download:hover {
+  background: #2c3c70;
+  color: #ffffff;
+}
+
+.versions {
+  display: flex;
+  flex-direction: column;
+}
+.version {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.version > span {
+  opacity: 0.5;
+}
+
+.versionImgName {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.versionImgName span {
+  margin-left: 10px;
+}
+
+.opacity {
+  opacity: 0.5 !important;
+}
+
+.banners {
+  display: flex;
+  align-items: center;
+  margin-top: 80px;
+  width: 100%;
+  height: 230px;
+}
+
+.helpBanner {
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  border-radius: 6px;
+  background-color: #3650a2;
+}
+
+.helpBannerBack {
+  background: url("../../../images/forums_bg.svg");
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.voteBanner {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #546aaf;
+}
+.voteBannerBack {
+  background: url("../../../images/brain_bg.svg");
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.bannerHeader {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.subheading {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.banners button {
+  margin-top: 20px;
+  padding: 7px 25px;
+  background: #ffffff;
+  border-radius: 90px;
+  color: #080b15;
+  font-size: 16px;
+}
+
+.banners button:hover {
+  background: #dddddd;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 50px;
+  }
+  .header {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+  .versions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .version {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%;
+  }
+  .versionImgName {
+    margin: 10px 0;
+  }
+  .versionImgName span {
+    font-size: 13px;
+  }
+  .version > span {
+    margin-bottom: 10px;
+  }
+  .banners {
+    flex-direction: column;
+    height: unset;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .helpBanner {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+  .subheading {
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    padding: 0 20px;
+  }
+  /* .download {
+    width: 90%;
+  } */
+}

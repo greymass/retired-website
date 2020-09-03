@@ -165,7 +165,7 @@ class VoteProducerLoggedIn extends Component {
             onDismiss={clearTransaction}
           >
             <Header size="large">
-              {intl.formatMessage({ id: 'support_thank_you_header' }, { accountName: account.account_name })}
+              {intl.formatMessage({ id: 'support_thank_you_header', values: { accountName: account.name } })}
               <Header.Subheader>
                 {intl.formatMessage({ id: 'support_thank_you_subheader' })}
               </Header.Subheader>

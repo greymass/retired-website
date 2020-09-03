@@ -1,0 +1,138 @@
+.containerFluid {
+  width: 100%;
+  background: #080b15;
+  min-height: 600px;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.description {
+  width: 480px;
+  margin-top: 30px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 28px;
+}
+
+.descrWithHelper {
+  text-decoration: underline;
+  display: inline;
+  position: relative;
+  padding-right: 5px;
+}
+
+.descrWithHelper:hover .helper {
+  display: block;
+  position: absolute;
+  width: 250px;
+  bottom: 25px;
+  left: -50px;
+  right: -50px;
+  padding: 15px 25px;
+  z-index: 3;
+  border-radius: 4px;
+  background: #3650a2;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 18px;
+  /* text-align: center;/ */
+}
+
+.helperNum {
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.descrWithHelper .helper {
+  display: none;
+}
+
+.descrNumber {
+  text-align: start;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  color: #ffffff;
+}
+
+.advantages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+  max-width: 250px;
+  text-align: start;
+}
+
+.advantageName {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.advantageDescription {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 50px 20px 50px;
+  }
+  .advantages {
+    flex-direction: column;
+  }
+  .block {
+    width: unset;
+    max-width: 500px;
+    margin-bottom: 30px;
+  }
+  .description {
+    width: unset;
+    max-width: 500px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    padding: 0 20px 20px 20px;
+  }
+}

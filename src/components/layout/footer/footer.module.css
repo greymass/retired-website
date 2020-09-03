@@ -1,0 +1,59 @@
+.containerFluid {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 50px 0 100px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex !important;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.leftSide {
+  display: flex;
+  align-items: baseline;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 150px;
+}
+
+.about span {
+  margin-bottom: 10px;
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.logos {
+  display: flex;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
+.logos img {
+  margin-right: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  font-size: 13px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.info span {
+  margin-bottom: 15px;
+}
