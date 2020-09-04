@@ -20,7 +20,7 @@ class GetStarted extends Component {
         <img src={pattern} alt="" className={getStartedStyles.background} />
         <Container className={getStartedStyles.container}>
           <h1 className={getStartedStyles.header}>
-            {intl.formatMessage({ id: "home_get_started_header" })}
+            {intl.formatMessage({ id: "anchor_get_started_header" })}
           </h1>
           <Link
             to={`/${intl.locale}/download`}

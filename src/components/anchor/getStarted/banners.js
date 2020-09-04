@@ -10,30 +10,30 @@ class Banners extends Component {
         <div className={getStartedStyles.helpBanner}>
           <div className={getStartedStyles.helpBannerBack}>
             <h2 className={getStartedStyles.bannerHeader}>
-              {intl.formatMessage({ id: "home_help_banner_header" })}
+              {intl.formatMessage({ id: "anchor_help_banner_header" })}
             </h2>
             <span className={getStartedStyles.subheading}>
-              {intl.formatMessage({ id: "home_help_banner_subheading" })}
+              {intl.formatMessage({ id: "anchor_help_banner_subheading" })}
             </span>
 
             <span className={getStartedStyles.subheading}>
-              {intl.formatMessage({ id: "home_help_banner_visit" })}
+              {intl.formatMessage({ id: "anchor_help_banner_visit" })}
             </span>
             <button>
-              {intl.formatMessage({ id: "home_help_banner_forums" })}
+              {intl.formatMessage({ id: "anchor_help_banner_forums" })}
             </button>
           </div>
         </div>
         <div className={getStartedStyles.voteBanner}>
           <div className={getStartedStyles.voteBannerBack}>
             <h2 className={getStartedStyles.bannerHeader}>
-              {intl.formatMessage({ id: "home_vote_banner_header" })}
+              {intl.formatMessage({ id: "anchor_vote_banner_header" })}
             </h2>
             <span className={getStartedStyles.subheading}>
-              {intl.formatMessage({ id: "home_vote_banner_subheading" })}
+              {intl.formatMessage({ id: "anchor_vote_banner_subheading" })}
             </span>
             <button>
-              {intl.formatMessage({ id: "home_vote_banner_vote_us" })}
+              {intl.formatMessage({ id: "anchor_vote_banner_vote_us" })}
             </button>
           </div>
         </div>

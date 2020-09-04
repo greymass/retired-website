@@ -1,8 +1,58 @@
 {
   "anchor_header_one_title": "An EOSIO Wallet and Authenticator",
-  "anchor_download_desktop": "For desktop computers...",
-  "anchor_download_mobile": "For mobile devices...",
-  "anchor_download_mobile_indev_content": "This platform is currently in development.",
-  "anchor_download_mobile_indev_header": "In Development",
-  "anchor_updated": "Last updated: "
+  "anchor_header_vote": "Vote for us!",
+  "anchor_header_one": "Welcome to Anchor, The Easiest Way to Use Crypto.",
+  "anchor_header_description": "Use the Anchor Wallet to seamlessly and securely interact with any EOSIO chain.",
+
+  "anchor_anchor_description": "Anchor is a security and privacy focused open-source digital wallet for EOSIO networks.",
+  "anchor_anchor_secure_subheading": "Secure",
+  "anchor_anchor_secure_description": "Anchor uses modern approaches to ensure the security of your accounts. The use of strong 'encryption 1' , trusted execution 'environments 2' , and integrations with hardware wallets helps keep your private keys as safe as possible.",
+  "anchor_anchor_private_subheading": "Private",
+  "anchor_anchor_private_description": "A core principle considered in the design of Anchor is the need for privacy when using it. The default servers the app connects with collect no identifiable information and can be customized to use the services of your choosing.",
+  "anchor_anchor_integration_subheading": "Integration",
+  "anchor_anchor_integration_description": "Anchor and all of its open-source components are integrated in many of the most-used dApps on EOSIO networks. Any external applications can leverage EOSIO using our new signing protocol to securely make requests to users.",
+
+  "anchor_versions_mobile_name_1": "All of EOSIO",
+  "anchor_versions_mobile_about_1": "Anchor is designed to work with smart contracts on any EOSIO-based blockchain. Any application built by any developer can leverage Anchor as a secure way for users and applications to communicate with one another.",
+  "anchor_versions_mobile_name_2": "Easy Sign-In",
+  "anchor_versions_mobile_about_2": "Signing into an EOSIO-based application is as simple as clicking a link or scanning a QR Code. The signing protocol Anchor uses will provably verify your identity and sign you in securely.",
+  "anchor_versions_mobile_name_3": "Cross Platform",
+  "anchor_versions_mobile_about_3": "Anchor and its associated technologies are being developed to work across all desktop and mobile platforms. Stable releases are available for Windows, macOS, Linux, iOS, and soon Android.",
+  "anchor_versions_mobile_name_4": "Secure Enclave",
+  "anchor_versions_mobile_about_4": "Sensitive information with Anchor, such as your private keys, are stored using the device’s own secure coprocessor. Within iOS devices the Secure Enclave chip is used and in Android the TrustZone chip.",
+  "anchor_versions_mobile_name_5": "Free Transactions",
+  "anchor_versions_mobile_about_5": "Every account loaded in Anchor can perform a limited number of free transactions by utilizing Fuel (a Greymass project). This service offers all accounts 5ms worth of free CPU on select EOSIO networks.",
+  "anchor_versions_mobile_name_6": "Account Creation",
+  "anchor_versions_mobile_about_6": "New EOSIO users who do not yet have an account will be able to easily and securely create and then backup their new account. Key generation can be done from within the secure coprocessor and a user friendly backup sheet will be provided.",
+
+  "anchor_versions_pc_name_1": "All of EOSIO",
+  "anchor_versions_pc_about_1": "Anchor is designed to work with smart contracts on any EOSIO-based blockchain. Any application built by any developer can leverage Anchor as a secure way for users and applications to communicate with one another.",
+  "anchor_versions_pc_name_2": "Easy Sign-In",
+  "anchor_versions_pc_about_2": "Signing into an EOSIO-based application is as simple as clicking a link or scanning a QR Code. The signing protocol Anchor uses will provably verify your identity and sign you in securely.",
+  "anchor_versions_pc_name_3": "Ledger Support",
+  "anchor_versions_pc_about_3": "The desktop version of Anchor integrates directly with Ledger devices to provide accounts with an extra layer of security. Private keys can be kept external of the desktop computer and require the Ledger to approve transactions.",
+  "anchor_versions_pc_name_4": "Feature Complete",
+  "anchor_versions_pc_about_4": "Anchor for Desktop is more than just an authenticator and also provides a rich set of user interfaces to help manage your EOSIO-based accounts. Transfer tokens, stake resources, or get an account overview all from within the app.",
+  "anchor_versions_pc_name_5": "Free Transaction",
+  "anchor_versions_pc_about_5": "Every account loaded in Anchor can perform a limited number of free transactions by utilizing Fuel (a Greymass project). This service offers all accounts 5ms worth of free CPU on select EOSIO networks.",
+  "anchor_versions_pc_name_6": "Cross Platform",
+  "anchor_versions_pc_about_6": "Anchor and its associated technologies are being developed to work across all desktop and mobile platforms. Stable releases are available for Windows, macOS, Linux, iOS, and soon Android.",
+
+  "anchor_versions_header": "Simple to Use. Full of Features.",
+  "anchor_versions_subheading": "Access the best of EOSIO blockchains, as well as cutting-edge infrastructure tools unique to Anchor.",
+  "anchor_versions_download_now": "Download now!",
+
+  "anchor_contact_header": "Are You a Developer? Let’s Chat!",
+  "anchor_contact_subheading": "We want to help you integrate Anchor.",
+  "anchor_contact_button": "Contact Us!",
+
+  "anchor_help_banner_header": "Need help or have questions?",
+  "anchor_help_banner_subheading": "We are here for you",
+  "anchor_help_banner_visit": "Visit the Greymass forums.",
+  "anchor_help_banner_forums": "Greymass forums",
+  "anchor_vote_banner_header": "Support open and free software!",
+  "anchor_vote_banner_subheading": " Vote for Greymass as block producer to improve the development of Anchor.",
+  "anchor_vote_banner_vote_us": "Vote for us now!",
+
+  "anchor_get_started_header": "Get started with Anchor today!"
 }

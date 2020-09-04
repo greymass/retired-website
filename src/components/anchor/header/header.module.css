@@ -1,0 +1,157 @@
+.containerFluid {
+  height: calc(100vh - 126px);
+  min-height: 550px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #131b33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 50px 0px;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 676px;
+  opacity: 0.2;
+  filter: invert(0.5);
+}
+
+.container {
+  display: flex !important;
+  z-index: 2;
+}
+
+.bottomContainer {
+  margin-top: 40px;
+}
+
+.leftSide {
+  color: #ffffff;
+}
+
+.phone {
+  margin-left: -100px;
+  width: 600px;
+  height: 100%;
+}
+
+.download {
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  padding: 5px 20px;
+}
+.download:hover {
+  background: #2c3c70;
+}
+
+.headerText {
+  font-size: 34px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.headerDescription {
+  font-size: 24px;
+  width: 80%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.subHeaderText {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  margin: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  max-width: 900px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subheaderText {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  line-height: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+.supportUsLink {
+  color: var(--mainBlue);
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+@media only screen and (max-width: 1050px) {
+  .phone {
+    width: 400px;
+    margin-left: -80px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .phone {
+    width: 370px;
+  }
+  .headerText {
+    font-size: 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+  }
+  .headerDescription {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 50px;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .headerText {
+    font-size: 20px;
+    padding: 10px 0 0;
+  }
+  .phone {
+    width: 80%;
+    margin-left: 0;
+  }
+  .leftSide {
+    width: 100%;
+  }
+  .subheaderText {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .phone {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .containerFluid {
+    height: 500px;
+  }
+  .background {
+    height: 626px;
+  }
+}

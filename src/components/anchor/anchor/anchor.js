@@ -20,17 +20,17 @@ class Anchor extends Component {
             ANCHOR
           </div>
           <div className={anchorStyles.description}>
-            {intl.formatMessage({ id: "home_anchor_description" })}
+            {intl.formatMessage({ id: "anchor_anchor_description" })}
           </div>
           <div className={anchorStyles.advantages}>
             <div className={anchorStyles.block}>
               <img src={secureLogo} alt="secure" />
               <h3 className={anchorStyles.advantageName}>
-                {intl.formatMessage({ id: "home_anchor_secure_subheading" })}
+                {intl.formatMessage({ id: "anchor_anchor_secure_subheading" })}
               </h3>
               <span className={anchorStyles.advantageDescription}>
                 {intl
-                  .formatMessage({ id: "home_anchor_secure_description" })
+                  .formatMessage({ id: "anchor_anchor_secure_description" })
                   .split("'")
                   .map((descrPart, index) =>
                     index % 2 !== 0 ? (
@@ -60,10 +60,12 @@ class Anchor extends Component {
             <div className={anchorStyles.block}>
               <img src={privateLogo} alt="private" />
               <h3 className={anchorStyles.advantageName}>
-                {intl.formatMessage({ id: "home_anchor_private_subheading" })}
+                {intl.formatMessage({ id: "anchor_anchor_private_subheading" })}
               </h3>
               <span className={anchorStyles.advantageDescription}>
-                {intl.formatMessage({ id: "home_anchor_private_description" })}
+                {intl.formatMessage({
+                  id: "anchor_anchor_private_description",
+                })}
               </span>
             </div>
 
@@ -71,12 +73,12 @@ class Anchor extends Component {
               <img src={integrationLogo} alt="integration" />
               <h3 className={anchorStyles.advantageName}>
                 {intl.formatMessage({
-                  id: "home_anchor_integration_subheading",
+                  id: "anchor_anchor_integration_subheading",
                 })}
               </h3>
               <span className={anchorStyles.advantageDescription}>
                 {intl.formatMessage({
-                  id: "home_anchor_integration_description",
+                  id: "anchor_anchor_integration_description",
                 })}
               </span>
             </div>

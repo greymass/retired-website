@@ -57,17 +57,17 @@ class Versions extends Component {
           <div className={versionsStyles.header}>
             <div className={versionsStyles.leftSide}>
               <h2 className={versionsStyles.headerMain}>
-                {intl.formatMessage({ id: "home_versions_header" })}
+                {intl.formatMessage({ id: "anchor_versions_header" })}
               </h2>
               <span className={versionsStyles.headerAbout}>
-                {intl.formatMessage({ id: "home_versions_subheading" })}
+                {intl.formatMessage({ id: "anchor_versions_subheading" })}
               </span>
               <Link
                 to={`/${intl.locale}/download`}
                 className={versionsStyles.download}
               >
                 <button>
-                  {intl.formatMessage({ id: "home_versions_download_now" })}
+                  {intl.formatMessage({ id: "anchor_versions_download_now" })}
                 </button>
               </Link>
             </div>
@@ -95,14 +95,14 @@ class Versions extends Component {
                 </div>
                 <h3 className={versionsStyles.name}>
                   {intl.formatMessage({
-                    id: `home_versions_${
+                    id: `anchor_versions_${
                       this.state.isMobile ? "mobile" : "pc"
                     }_name_${num + 1}`,
                   })}
                 </h3>
                 <span className={versionsStyles.about}>
                   {intl.formatMessage({
-                    id: `home_versions_${
+                    id: `anchor_versions_${
                       this.state.isMobile ? "mobile" : "pc"
                     }_about_${num + 1}`,
                   })}

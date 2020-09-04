@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import { injectIntl } from "gatsby-plugin-intl"
 import { Container } from "semantic-ui-react"
 import differenceStyles from "./difference.module.css"
-import Banners from "../home/getStarted/banners"
+import Banners from "../anchor/getStarted/banners"
 
 class VersionDifference extends Component {
   constructor(props) {
