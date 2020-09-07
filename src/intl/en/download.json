@@ -1,4 +1,9 @@
 {
+  "header_desktop": "Anchor wallet Desktop",
+  "download_for_mac": "Download for Mac",
+  "header_mobile": "Anchor wallet Mobile",
+  "download_for_ios": "Download for iPhone & iPad",
+
   "download_feature_1": "Account backups",
   "download_feature_2": "Free transactions (Greymass Fuel)",
   "download_feature_3": "Sign-in to dApps and websites",
@@ -16,10 +21,9 @@
   "last_updated": "Last updated: 2020/06/03 (1.0.4) on",
   "last_updated_mobile": "Last updated: 2020/06/03 (1.0.4) on",
   "available": "Available on",
+  "go_to_github": "Go to Anchor Github",
 
   "difference_header": "Here is the feature difference between desktop and mobile.",
   "difference_subheading": "For more technical documentation visit our Github page.",
-  "feature": "Feature",
-  "desktop": "Desktop",
-  "mobile": "Mobile"
+  "feature": "Feature"
 }

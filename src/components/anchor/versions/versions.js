@@ -45,13 +45,13 @@ class Versions extends Component {
               className={this.state.isMobile ? versionsStyles.enabled : ""}
               onClick={() => this.handleVersionClick(true)}
             >
-              {intl.formatMessage({ id: "mobile" })}
+              {intl.formatMessage({ id: "shared_mobile" })}
             </button>
             <button
               className={!this.state.isMobile ? versionsStyles.enabled : ""}
               onClick={() => this.handleVersionClick(false)}
             >
-              {intl.formatMessage({ id: "desktop" })}
+              {intl.formatMessage({ id: "shared_desktop" })}
             </button>
           </div>
           <div className={versionsStyles.header}>

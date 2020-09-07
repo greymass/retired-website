@@ -22,7 +22,9 @@ class AnchorHeader extends Component {
             </p>
             <Link to={`/${intl.locale}/download`}>
               <button className={anchorHeaderStyles.download}>
-                Download for Free Today
+                {intl.formatMessage({
+                  id: "anchor_header_download_for_free_today",
+                })}
               </button>
             </Link>
           </div>

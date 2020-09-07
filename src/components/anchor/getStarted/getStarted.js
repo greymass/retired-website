@@ -26,11 +26,15 @@ class GetStarted extends Component {
             to={`/${intl.locale}/download`}
             className={getStartedStyles.download}
           >
-            <button>Download now for macOS</button>
+            <button>
+              {intl.formatMessage({
+                id: "anchor_get_started_download_for_macOs",
+              })}
+            </button>
           </Link>
           <div className={getStartedStyles.versions}>
             <div className={getStartedStyles.version}>
-              <span>Desktop</span>
+              <span>{intl.formatMessage({ id: "shared_desktop" })}</span>
               <div className={getStartedStyles.versionImgName}>
                 <img src={windows} alt="windows" />
                 <span>Windows</span>
@@ -47,7 +51,7 @@ class GetStarted extends Component {
               </div>
             </div>
             <div className={getStartedStyles.version}>
-              <span>Mobile</span>
+              <span>{intl.formatMessage({ id: "shared_mobile" })}</span>
               <div className={getStartedStyles.versionImgName}>
                 <img src={macOS} alt="macOS" />
                 <span>iOS</span>
@@ -56,7 +60,7 @@ class GetStarted extends Component {
                 className={`${getStartedStyles.versionImgName} ${getStartedStyles.opacity}`}
               >
                 <img src={android} alt="android" />
-                <span>Android (coming soon)</span>
+                <span>{intl.formatMessage({ id: "shared_android" })}</span>
               </div>
             </div>
           </div>

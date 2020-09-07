@@ -3,6 +3,7 @@
   "anchor_header_vote": "Vote for us!",
   "anchor_header_one": "Welcome to Anchor, The Easiest Way to Use Crypto.",
   "anchor_header_description": "Use the Anchor Wallet to seamlessly and securely interact with any EOSIO chain.",
+  "anchor_header_download_for_free_today": "Download for Free Today",
 
   "anchor_anchor_description": "Anchor is a security and privacy focused open-source digital wallet for EOSIO networks.",
   "anchor_anchor_secure_subheading": "Secure",
@@ -54,5 +55,9 @@
   "anchor_vote_banner_subheading": " Vote for Greymass as block producer to improve the development of Anchor.",
   "anchor_vote_banner_vote_us": "Vote for us now!",
 
-  "anchor_get_started_header": "Get started with Anchor today!"
+  "anchor_get_started_header": "Get started with Anchor today!",
+  "anchor_get_started_download_for_macOs": "Download now for macOS",
+  "desktop": "desktop",
+  "mobile": "mobile",
+  "android": "Android (coming soon)"
 }
