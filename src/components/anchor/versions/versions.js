@@ -38,7 +38,7 @@ class Versions extends Component {
     const { intl } = this.props;
 
     return (
-      <div className={versionsStyles.containerFluid}>
+      <div id={versionsStyles.containerFluid}>
         <Container className={versionsStyles.container}>
           <div className={versionsStyles.versions}>
             <button

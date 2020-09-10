@@ -1,4 +1,4 @@
-.containerFluid {
+#containerFluid {
   width: 100%;
   background-color: #eff1f7;
   padding-top: 50px;
@@ -25,7 +25,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 400px;
+  max-width: 460px;
   height: 100%;
 }
 
@@ -58,7 +58,7 @@
   font-size: 24px;
   line-height: 32px;
   color: rgba(0, 0, 0, 0.5);
-  width: 80%;
+  width: 85%;
 }
 
 .header img {
@@ -71,7 +71,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  padding: 5px 20px;
+  padding: 13px 53px;
   background: #3650a2;
   border-radius: 90px;
   color: #ffffff;
@@ -89,17 +89,17 @@
   justify-content: space-between;
   align-items: baseline;
   flex-wrap: wrap;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .block {
   width: 30%;
-  height: 250px;
+  height: 260px;
   display: flex;
   flex-direction: column;
   text-align: start;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   padding-right: 50px;
 }
 
@@ -175,14 +175,19 @@
     flex-wrap: nowrap;
     align-items: center;
     margin-bottom: 50px;
+    margin-top: 35px;
   }
   .block {
     width: 90%;
     padding-right: 0;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    height: unset;
   }
   .about {
     width: 90%;
+  }
+  .download {
+    padding: 9px 20px;
   }
 }
 
@@ -206,20 +211,32 @@
   .block {
     width: 100%;
   }
+  .headerAbout,
+  .download {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 450px) {
-  .container {
+  #containerFluid .container {
     padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .header {
-    margin: 0 -5%;
+    margin: 0 -10px;
     width: unset;
   }
   .block {
-    width: 100%;
+    width: 95%;
   }
   .aboutBlocks {
     /* margin: 0 -5%; */
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .header img {
+    height: 180px;
   }
 }

@@ -16,7 +16,7 @@ class GetStarted extends Component {
     const { intl } = this.props;
 
     return (
-      <div className={getStartedStyles.containerFluid}>
+      <div id={getStartedStyles.containerFluid}>
         <img src={pattern} alt="" className={getStartedStyles.background} />
         <Container className={getStartedStyles.container}>
           <h1 className={getStartedStyles.header}>

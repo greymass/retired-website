@@ -9,7 +9,7 @@ class ContactUs extends Component {
     const { intl } = this.props;
 
     return (
-      <div className={contactStyles.containerFluid}>
+      <div id={contactStyles.containerFluid}>
         <Container className={contactStyles.container}>
           <h1>{intl.formatMessage({ id: "anchor_contact_header" })}</h1>
           <span>{intl.formatMessage({ id: "anchor_contact_subheading" })}</span>

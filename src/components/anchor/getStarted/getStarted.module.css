@@ -1,7 +1,7 @@
-.containerFluid {
+#containerFluid {
   width: 100%;
   background-color: #131b33;
-  padding: 50px 0;
+  padding: 60px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,18 +30,20 @@
 .header {
   font-size: 34px;
   line-height: 45px;
+  margin: 0;
 }
 
 .download {
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  padding: 5px 20px;
+  margin-bottom: 10px;
+  padding: 13px 20px;
   background: #3650a2;
   border-radius: 90px;
   color: #ffffff;
   font-size: 16px;
-  width: 290px;
+  width: 250px;
 }
 .download:hover {
   background: #2c3c70;
@@ -55,7 +57,7 @@
 .version {
   display: flex;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 16px;
 }
 
@@ -81,7 +83,7 @@
 .banners {
   display: flex;
   align-items: center;
-  margin-top: 80px;
+  margin-top: 85px;
   width: 100%;
   height: 230px;
 }
@@ -136,6 +138,11 @@
   font-weight: 600;
 }
 
+.helpBannerSubheadings {
+  display: flex;
+  flex-direction: column;
+}
+
 .subheading {
   font-size: 18px;
   line-height: 24px;
@@ -143,7 +150,7 @@
 
 .banners button {
   margin-top: 20px;
-  padding: 7px 25px;
+  padding: 13px 50px;
   background: #ffffff;
   border-radius: 90px;
   color: #080b15;
@@ -167,6 +174,7 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: -20px;
   }
   .version {
     flex-direction: column;
@@ -182,11 +190,19 @@
   .version > span {
     margin-bottom: 10px;
   }
+  .download {
+    width: 80%;
+    padding: 9px 20px;
+  }
   .banners {
     flex-direction: column;
     height: unset;
     justify-content: center;
     align-items: flex-start;
+  }
+  .banners button {
+    padding: 9px 30px;
+    width: 250px;
   }
   .helpBanner {
     margin-bottom: 20px;
@@ -196,13 +212,27 @@
     font-size: 16px;
     line-height: 21px;
   }
+  .voteBanner,
+  .helpBanner {
+    height: 250px;
+  }
 }
 
 @media only screen and (max-width: 450px) {
-  .container {
+  #containerFluid .container {
     padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
-  /* .download {
-    width: 90%;
-  } */
+  #containerFluid {
+    padding: 40px 0;
+  }
+  .download {
+    width: 100%;
+  }
+  .banners {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: unset;
+  }
 }

@@ -67,7 +67,7 @@ class VersionDifference extends Component {
     const { intl, location, data } = this.props
 
     return (
-      <div className={differenceStyles.containerFluid}>
+      <div id={differenceStyles.containerFluid}>
         <Container className={differenceStyles.container}>
           <div className={differenceStyles.difference}>
             <div className={differenceStyles.header}>

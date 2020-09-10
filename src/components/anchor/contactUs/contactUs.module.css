@@ -1,7 +1,7 @@
-.containerFluid {
+#containerFluid {
   width: 100%;
   background-color: #ffffff;
-  padding: 50px 0;
+  padding: 60px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +19,8 @@
   font-size: 34px;
   font-weight: 600;
   line-height: 45px;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .container span {
@@ -28,13 +30,13 @@
 }
 
 .container button {
-  padding: 7px 20px;
+  padding: 13px 40px;
   background: #3650a2;
   border-radius: 90px;
   color: #ffffff;
   font-size: 16px;
   width: 250px;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .container button:hover {
@@ -55,13 +57,18 @@
   }
   .container button {
     width: 80%;
-    padding: 7px 10px;
+    padding: 9px 10px;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .container {
+  #containerFluid .container {
     padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  #containerFluid {
+    padding: 45px 0;
   }
   .container button {
     width: 100%;

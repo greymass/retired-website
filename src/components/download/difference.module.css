@@ -1,7 +1,7 @@
-.containerFluid {
+#containerFluid {
   width: 100%;
   background-color: #080b15;
-  padding: 50px 0;
+  padding: 60px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,6 +28,7 @@
 .header h1 {
   font-size: 34px;
   line-height: 45px;
+  margin-bottom: 0px;
 }
 
 .header span {
@@ -37,7 +38,7 @@
 }
 
 .header button {
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 5px 20px;
   background: #3650a2;
   border-radius: 90px;
@@ -83,7 +84,7 @@
   content: "+";
 }
 
-table tr:nth-child(2n + 3) {
+table tr:nth-child(2n) {
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -99,7 +100,7 @@ table tr:nth-child(2n + 3) {
 .featuring .names {
   width: 50%;
   text-align: start;
-  padding-left: 0;
+  padding-left: 10px;
 }
 
 .featuring th {
@@ -111,7 +112,7 @@ table tr:nth-child(2n + 3) {
 }
 
 .featuring td {
-  padding: 15px 10px 15px 0;
+  padding: 15px 10px 15px 10px;
   font-size: 14px;
   line-height: 18px;
 }
@@ -146,8 +147,13 @@ table tr:nth-child(2n + 3) {
 }
 
 @media only screen and (max-width: 767px) {
-  .container {
-    padding: 0 50px;
+  #containerFluid {
+    padding: 40px 0;
+  }
+  #containerFluid .container {
+    padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .difference {
     flex-direction: column;
@@ -165,7 +171,7 @@ table tr:nth-child(2n + 3) {
     line-height: 24px;
   }
   .featuring {
-    margin-top: 20px;
+    margin-top: 30px;
     width: 100%;
   }
   .featuring th {
@@ -177,5 +183,26 @@ table tr:nth-child(2n + 3) {
   }
   .header button {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .featuring {
+    width: 100vw;
+    margin-left: -20px;
+  }
+  .featuring td {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .featuring .names {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .difference {
+    width: 100%;
+  }
+  .underTable {
+    margin-left: 35px;
   }
 }

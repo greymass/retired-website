@@ -16,7 +16,7 @@ class VersionsDownload extends Component {
     const { intl } = this.props
 
     return (
-      <div className={downloadStyles.containerFluid}>
+      <div id={downloadStyles.containerFluid}>
         <Container className={downloadStyles.container}>
           <div className={downloadStyles.wallet}>
             <h1 className={downloadStyles.header}>

@@ -10,7 +10,7 @@ class AnchorHeader extends Component {
   render() {
     const { intl } = this.props;
     return (
-      <div className={anchorHeaderStyles.containerFluid}>
+      <div id={anchorHeaderStyles.containerFluid}>
         <img src={pattern} alt="" className={anchorHeaderStyles.background} />
         <Container className={anchorHeaderStyles.container}>
           <div className={anchorHeaderStyles.leftSide}>

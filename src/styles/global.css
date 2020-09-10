@@ -21,6 +21,7 @@ html {
 html,
 body {
   height: auto !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 button {
@@ -29,6 +30,7 @@ button {
   color: inherit;
   cursor: pointer;
   outline: none;
+  padding: 0;
 }
 
 @media screen and (max-width: 768px) {

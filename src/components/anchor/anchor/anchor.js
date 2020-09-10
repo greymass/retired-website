@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { injectIntl } from "gatsby-plugin-intl";
 import anchorStyles from "./anchor.module.css";
 import logo from "../../../images/anchor-blue-icon.svg";
+import anchor from "../../../images/anchor.svg";
 import privateLogo from "../../../images/private.svg";
 import secureLogo from "../../../images/secureLogo.svg";
 import integrationLogo from "../../../images/integration.svg";
@@ -13,15 +14,20 @@ class Anchor extends Component {
     const { intl } = this.props;
 
     return (
-      <div className={anchorStyles.containerFluid}>
+      <div id={anchorStyles.containerFluid}>
         <Container className={anchorStyles.container}>
           <div className={anchorStyles.logo}>
-            <img src={logo} alt="Anchor logo" />
-            ANCHOR
+            <img
+              src={logo}
+              alt="Anchor logo"
+              className={anchorStyles.logoImg}
+            />
+            <img src={anchor} alt="ANCHOR" className={anchorStyles.anchor} />
           </div>
           <div className={anchorStyles.description}>
             {intl.formatMessage({ id: "anchor_anchor_description" })}
           </div>
+          <hr className={anchorStyles.line} />
           <div className={anchorStyles.advantages}>
             <div className={anchorStyles.block}>
               <img src={secureLogo} alt="secure" />

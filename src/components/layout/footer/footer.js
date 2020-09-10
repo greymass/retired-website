@@ -12,7 +12,7 @@ class Footer extends Component {
   render() {
     const { intl, location, data } = this.props
     return (
-      <div className={footerStyles.containerFluid}>
+      <div id={footerStyles.containerFluid}>
         <Container className={footerStyles.container}>
           <div className={footerStyles.leftSide}>
             <div className={footerStyles.about}>
