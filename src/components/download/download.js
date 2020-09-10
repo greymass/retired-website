@@ -58,7 +58,7 @@ class VersionsDownload extends Component {
                 EOS, BEOS, BOS, FIO, Insights MEET.ONE, Proton, Telos, Worbli,
                 WAX
               </span>
-              <div className={downloadStyles.lastUpdated}>
+              <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
                   {intl.formatMessage({ id: "last_updated" })}
                 </span>{" "}

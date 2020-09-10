@@ -73,6 +73,12 @@ class VersionDifference extends Component {
             <div className={differenceStyles.header}>
               <h1>{intl.formatMessage({ id: "difference_header" })}</h1>
               <span>{intl.formatMessage({ id: "difference_subheading" })}</span>
+              <div className={differenceStyles.lastUpdatedDesktop}>
+                <span className={differenceStyles.updated}>
+                  {intl.formatMessage({ id: "last_updated" })}
+                </span>{" "}
+                Github
+              </div>
               <button>{intl.formatMessage({ id: "go_to_github" })}</button>
             </div>
             <div className={differenceStyles.featuring}>

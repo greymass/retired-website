@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
-import { injectIntl } from "gatsby-plugin-intl";
-import anchorStyles from "./anchor.module.css";
-import logo from "../../../images/anchor-blue-icon.svg";
-import anchor from "../../../images/anchor.svg";
-import privateLogo from "../../../images/private.svg";
-import secureLogo from "../../../images/secureLogo.svg";
-import integrationLogo from "../../../images/integration.svg";
-import { Container } from "semantic-ui-react";
+import { injectIntl } from "gatsby-plugin-intl"
+import anchorStyles from "./anchor.module.css"
+import logo from "../../../images/anchor-blue-icon.svg"
+import anchor from "../../../images/ANCHOR.svg"
+import privateLogo from "../../../images/private.svg"
+import secureLogo from "../../../images/secureLogo.svg"
+import integrationLogo from "../../../images/integration.svg"
+import { Container } from "semantic-ui-react"
 
 class Anchor extends Component {
   render() {
-    const { intl } = this.props;
+    const { intl } = this.props
 
     return (
       <div id={anchorStyles.containerFluid}>
@@ -91,7 +91,7 @@ class Anchor extends Component {
           </div>
         </Container>
       </div>
-    );
+    )
   }
 }
-export default injectIntl(Anchor);
+export default injectIntl(Anchor)
