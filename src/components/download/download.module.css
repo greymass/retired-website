@@ -1,6 +1,7 @@
 #containerFluid {
   width: 100%;
   background-color: #131b33;
+  max-height: 800px;
   padding: 50px 0;
   display: flex;
   align-items: center;
@@ -34,6 +35,7 @@
   justify-content: center;
   position: relative;
 }
+
 .imgContainer .desktopImg,
 .imgContainer .phoneImg {
   width: 90%;
@@ -42,8 +44,8 @@
   z-index: 2;
 }
 .imgContainer .background {
-  width: 300%;
-  height: 300%;
+  width: 500%;
+  height: 500%;
   position: absolute;
   top: 0;
   left: 0;
@@ -94,7 +96,13 @@
   display: flex;
   align-items: center;
   margin-right: 20px;
+  font-weight: 600;
   /* margin-left: 20px; */
+}
+
+.versionImgName img {
+  width: 24px;
+  height: 24px;
 }
 
 .versionImgName span {
@@ -129,9 +137,23 @@
   margin-left: -5px;
 }
 
+@media only screen and (orientation: portrait) {
+  #containerFluid {
+    max-height: 700px;
+    min-height: unset;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .header {
+    font-size: 28px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   #containerFluid {
     min-height: calc(100vh - 106px);
+    max-height: unset;
     padding: 0;
   }
   #containerFluid .container {
@@ -146,13 +168,12 @@
     margin-bottom: 40px;
   }
   .download {
-    width: 90%;
+    width: 280px;
     padding: 9px 20px;
   }
   .header {
     font-size: 24px;
     line-height: 32px;
-    white-space: wrap;
   }
   .lastUpdated {
     margin-top: 20px;
@@ -171,7 +192,7 @@
     width: 100%;
   }
   .imgContainer {
-    height: 200px;
+    height: 250px;
   }
 }
 

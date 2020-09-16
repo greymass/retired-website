@@ -70,6 +70,12 @@
   align-items: center;
   margin-right: 20px;
   margin-left: 20px;
+  font-weight: 600;
+}
+
+.versionImgName img {
+  width: 24px;
+  height: 24px;
 }
 
 .versionImgName span {
@@ -191,8 +197,8 @@
     margin-bottom: 10px;
   }
   .download {
-    width: 80%;
-    padding: 9px 20px;
+    width: 280px;
+    padding: 9px 40px;
   }
   .banners {
     flex-direction: column;
@@ -216,6 +222,10 @@
   .helpBanner {
     height: 250px;
   }
+  .background {
+    width: 400%;
+    height: 200%;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -230,6 +240,7 @@
   .download {
     width: 100%;
   }
+
   .banners {
     margin-left: -10px;
     margin-right: -10px;

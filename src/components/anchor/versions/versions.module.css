@@ -103,8 +103,14 @@
   padding-right: 50px;
 }
 
+.about {
+  opacity: 0.5;
+  font-size: 13px;
+}
+
 .block .name {
   margin-top: 15px;
+  font-size: 24px;
   transition: 2s;
 }
 
@@ -126,6 +132,9 @@
 @media only screen and (max-width: 991px) {
   .header img {
     width: 350px;
+  }
+  .block {
+    height: 300px;
   }
 }
 
@@ -187,7 +196,7 @@
     width: 90%;
   }
   .download {
-    padding: 9px 20px;
+    padding: 9px 40px;
   }
 }
 
@@ -228,7 +237,9 @@
     width: unset;
   }
   .block {
-    width: 95%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: unset;
   }
   .aboutBlocks {
     /* margin: 0 -5%; */

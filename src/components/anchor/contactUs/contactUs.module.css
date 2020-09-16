@@ -56,7 +56,7 @@
     line-height: 24px;
   }
   .container button {
-    width: 80%;
+    width: 280px;
     padding: 9px 10px;
   }
 }
@@ -68,7 +68,7 @@
     margin-right: 0 !important;
   }
   #containerFluid {
-    padding: 45px 0;
+    padding: 45px 0 25px 0;
   }
   .container button {
     width: 100%;

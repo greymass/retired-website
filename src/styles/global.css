@@ -33,13 +33,13 @@ button {
   padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .mobile-hidden {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 767px) {
   .mobile-only {
     display: none !important;
   }

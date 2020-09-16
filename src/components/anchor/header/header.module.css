@@ -1,6 +1,7 @@
 #containerFluid {
   height: calc(100vh - 126px);
   min-height: 450px;
+  max-height: 800px;
   width: 100%;
   background-color: #131b33;
   display: flex;
@@ -96,6 +97,13 @@
   margin-left: 5px;
 }
 
+@media only screen and (orientation: portrait) {
+  #containerFluid {
+    max-height: 600px;
+    min-height: unset;
+  }
+}
+
 @media only screen and (max-width: 1050px) {
   .phone {
     width: 400px;
@@ -118,9 +126,15 @@
   }
 }
 
+@media only screen and (orientation: portrait) and (max-width: 900px) {
+  #containerFluid {
+    max-height: 500px;
+    min-height: unset;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .phone {
-    width: 370px;
     height: 250px;
   }
   .headerText {
@@ -162,7 +176,7 @@
     width: 300%;
   }
   .download {
-    padding: 9px 20px;
+    padding: 9px 40px;
   }
 }
 

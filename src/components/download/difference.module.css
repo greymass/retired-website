@@ -174,9 +174,6 @@ table tr:nth-child(2n) {
     font-size: 18px;
     line-height: 24px;
   }
-  .header button {
-    padding: 9px 40px;
-  }
   .featuring {
     margin-top: 30px;
     width: 100%;
@@ -189,7 +186,8 @@ table tr:nth-child(2n) {
     margin-left: 10px;
   }
   .header button {
-    width: 100%;
+    padding: 9px 40px;
+    width: 280px;
   }
   .lastUpdatedDesktop {
     display: block;
@@ -219,6 +217,7 @@ table tr:nth-child(2n) {
   }
   .difference {
     width: 100%;
+    margin-bottom: -40px;
   }
   .underTable {
     margin-left: 35px;

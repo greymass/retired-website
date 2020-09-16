@@ -1,41 +1,41 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
-import { injectIntl } from "gatsby-plugin-intl";
-import { Link } from "gatsby";
-import { Container } from "semantic-ui-react";
-import versionsStyles from "./versions.module.css";
+import { injectIntl } from "gatsby-plugin-intl"
+import { Link } from "gatsby"
+import { Container } from "semantic-ui-react"
+import versionsStyles from "./versions.module.css"
 
-import mobile from "../../../images/mobile.png";
-import pc from "../../../images/pc.png";
-import mob1 from "../../../images/check.svg";
-import mob2 from "../../../images/key.svg";
-import mob3 from "../../../images/ios.svg";
-import mob4 from "../../../images/android.svg";
-import mob5 from "../../../images/secure.svg";
-import mob6 from "../../../images/fuel.svg";
-import mob7 from "../../../images/user-plus.svg";
+import mobile from "../../../images/mobile.png"
+import pc from "../../../images/pc.png"
+import mob1 from "../../../images/check.svg"
+import mob2 from "../../../images/key.svg"
+import mob3 from "../../../images/ios.svg"
+import mob4 from "../../../images/android.svg"
+import mob5 from "../../../images/secure.svg"
+import mob6 from "../../../images/fuel.svg"
+import mob7 from "../../../images/user-plus.svg"
 
-import pc3 from "../../../images/support.svg";
-import pc4 from "../../../images/feature.svg";
-import pc6 from "../../../images/win.svg";
-import pc8 from "../../../images/linux.svg";
+import pc3 from "../../../images/support.svg"
+import pc4 from "../../../images/feature.svg"
+import pc6 from "../../../images/win.svg"
+import pc8 from "../../../images/linux.svg"
 
 class Versions extends Component {
   constructor(props) {
-    super(props);
-    this.state = { isMobile: true };
+    super(props)
+    this.state = { isMobile: true }
     this.icons = {
       mobile: [mob1, mob2, [mob3, mob4], mob5, mob6, mob7],
       pc: [mob1, mob2, pc3, pc4, mob6, [pc6, mob3, pc8]],
-    };
+    }
   }
   handleVersionClick(version) {
     if (version !== this.state.isMobile) {
-      this.setState({ isMobile: version });
+      this.setState({ isMobile: version })
     }
   }
   render() {
-    const { intl } = this.props;
+    const { intl } = this.props
 
     return (
       <div id={versionsStyles.containerFluid}>
@@ -112,7 +112,7 @@ class Versions extends Component {
           </div>
         </Container>
       </div>
-    );
+    )
   }
 }
-export default injectIntl(Versions);
+export default injectIntl(Versions)
