@@ -24,7 +24,11 @@ class VersionsDownload extends Component {
             </h1>
             <div className={downloadStyles.imgContainer}>
               <img src={pattern} alt="" className={downloadStyles.background} />
-              <img src={desktop} alt="desktop" />
+              <img
+                src={desktop}
+                alt="desktop"
+                className={downloadStyles.desktopImg}
+              />
             </div>
             <button className={downloadStyles.download}>
               {intl.formatMessage({ id: "download_for_mac" })}
@@ -33,7 +37,7 @@ class VersionsDownload extends Component {
               <span className={downloadStyles.opacity}>
                 {intl.formatMessage({ id: "available" })}
               </span>
-              <div className={downloadStyles.compatibilityImg}>
+              <div className={downloadStyles.compatibilityImgDesktop}>
                 <div className={downloadStyles.versionImgName}>
                   <img src={windows} alt="windows" />
                   <span>Windows</span>
@@ -73,7 +77,11 @@ class VersionsDownload extends Component {
             </h1>
             <div className={downloadStyles.imgContainer}>
               <img src={pattern} alt="" className={downloadStyles.background} />
-              <img src={phone} alt="phone" />
+              <img
+                src={phone}
+                alt="phone"
+                className={downloadStyles.phoneImg}
+              />
             </div>
             <button className={downloadStyles.download}>
               {intl.formatMessage({ id: "download_for_ios" })}

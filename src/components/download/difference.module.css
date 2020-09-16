@@ -39,7 +39,7 @@
 
 .header button {
   margin-top: 15px;
-  padding: 5px 20px;
+  padding: 13px 40px;
   background: #3650a2;
   border-radius: 90px;
   color: #ffffff;
@@ -173,6 +173,9 @@ table tr:nth-child(2n) {
   .header span {
     font-size: 18px;
     line-height: 24px;
+  }
+  .header button {
+    padding: 9px 40px;
   }
   .featuring {
     margin-top: 30px;
