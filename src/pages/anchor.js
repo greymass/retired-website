@@ -33,8 +33,8 @@ class Anchor extends TransitWrapper {
       location,
       intl,
     } = this.props;
-    const version = "1.1.5";
-    const release = "2020/09/16"
+    const version = "1.1.6";
+    const release = "2020/09/25"
     return (
       <Layout location={location}>
         <SEO
