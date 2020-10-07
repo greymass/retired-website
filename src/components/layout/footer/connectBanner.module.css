@@ -1,0 +1,68 @@
+.container {
+  background-color: var(--mainBlue);
+  padding: 40px 0 60px 0;
+  width: 100%;
+}
+.container .grid {
+  margin: auto;
+}
+.container .grid .text {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 54px;
+  text-align: right;
+  text-transform: uppercase;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.container .grid .text .arrowIcon {
+  margin-left: 6%;
+}
+
+.container .grid .gridColumn.connectBannerLinksContainer {
+  padding-top: 40px;
+}
+
+.connectBannerLinksInnerContainer {
+  margin: 30px auto 0 auto;
+}
+
+@media only screen and (max-width: 991px) {
+  .container .grid .gridColumn.connectBannerLinksContainer {
+    padding-top: 40px;
+  }
+
+  .connectBannerLinksInnerContainer {
+    margin: 50px auto 0 auto;
+  }
+
+  .container .grid .text {
+    font-size: 22px;
+    margin: 40px 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container .grid .gridColumn.connectBannerLinksContainer {
+    display: block;
+    margin: auto;
+    width: 150px;
+  }
+
+  .connectBannerLinksInnerContainer {
+    width: 160px;
+    margin: auto;
+  }
+
+  .container .grid .text {
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+  }
+}

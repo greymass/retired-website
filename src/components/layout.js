@@ -5,7 +5,7 @@ import { graphql, StaticQuery } from "gatsby";
 import { Helmet } from "react-helmet";
 
 import LayoutHeader from "./layout/header";
-import LayoutFooter from "./layout/footer/footer";
+import LayoutFooter from "./layout/footer";
 
 import layoutStyles from "./layout.module.css";
 

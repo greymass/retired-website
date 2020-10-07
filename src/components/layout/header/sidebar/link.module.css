@@ -2,8 +2,8 @@
   width: auto;
 }
 
-.linkText {
-  font-family: "Roboto", sans-serif;
+.container .linkText {
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 18px;
   line-height: 25px;

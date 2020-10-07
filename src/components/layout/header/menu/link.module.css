@@ -7,14 +7,13 @@
 }
 
 .text {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-size: 21px;
   line-height: 64px;
   margin-bottom: 8px;
   letter-spacing: 0.02em;
-  color: #ffffff;
-  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .activeText {
@@ -32,18 +31,4 @@
   bottom: 6px;
   height: 4px;
   width: 100%;
-}
-
-@media only screen and (max-width: 900px) {
-  .activeContainer,
-  .inactiveContainer {
-    line-height: 64px;
-    margin: 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .text {
-    font-size: 13px;
-  }
 }

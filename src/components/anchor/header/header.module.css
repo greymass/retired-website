@@ -1,5 +1,5 @@
 #containerFluid {
-  height: calc(100vh - 126px);
+  height: calc(100vh);
   min-height: 450px;
   max-height: 800px;
   width: 100%;
@@ -14,9 +14,9 @@
 
 .background {
   width: 200%;
-  height: calc(100% + 126px);
+  height: calc(100%);
   position: absolute;
-  top: -126px;
+  /* top: -126px; */
   left: 0;
   opacity: 0.2;
   filter: invert(0.5);

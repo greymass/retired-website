@@ -1,38 +1,20 @@
-.pusher {
-  width: 100%;
-  background-color: var(--mainPurple);
-  display: flex;
-  justify-content: center;
-}
-
-.container
-  div[class="ui secondary menu"]
-  div[class="right menu"]
-  .sidebarButton {
+.container div[class="ui secondary menu"] div[class="right menu"] .sidebarButton {
   font-size: 20px;
   padding: 28px;
   width: 70px;
-  color: #ffffff;
 }
 
 .image {
-  width: 40px;
+  padding: 8px;
 }
-
-.link {
-  font-size: 16px;
-  color: #ffffff !important;
+.imageContainer {
+  background-color: var(--mainBlue);
+  border-radius: 5px;
+  width: 64px;
+  height: 64px;
 }
-
 .container {
-  padding: 20px 0px;
-  width: 100%;
-  display: flex !important;
-  z-index: 20;
-}
-
-.menu {
-  width: 100%;
+  padding: 20px 0;
 }
 
 .topMenuBar {
@@ -42,18 +24,4 @@
   top: 0;
   height: 6px;
   width: 100%;
-}
-.sidebarButton {
-  color: #ffffff;
-}
-
-@media only screen and (max-width: 500px) {
-  .item {
-    padding-left: 5px !important;
-    padding-right: 5px !important;
-    margin: 0 !important;
-  }
-  .image {
-    width: 30px;
-  }
 }
