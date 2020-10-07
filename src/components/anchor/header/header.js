@@ -14,9 +14,10 @@ class AnchorHeader extends Component {
         <img src={pattern} alt="" className={anchorHeaderStyles.background} />
         <Container className={anchorHeaderStyles.container}>
           <div className={anchorHeaderStyles.leftSide}>
-            <p className={anchorHeaderStyles.headerText}>
-              {intl.formatMessage({ id: "anchor_header_one" })}
-            </p>
+            <h2 className={anchorHeaderStyles.headerText}>
+              <div>{intl.formatMessage({ id: "anchor_header_one" })}</div>
+              {intl.formatMessage({ id: "anchor_header_two" })}
+            </h2>
             <p className={anchorHeaderStyles.headerDescription}>
               {intl.formatMessage({ id: "anchor_header_description" })}
             </p>
