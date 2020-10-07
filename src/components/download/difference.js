@@ -34,6 +34,7 @@ class VersionDifference extends Component {
         pc: true,
         mobile: true,
         markPC: 1,
+        markMob: 2,
       },
       {
         name: "download_feature_6",
