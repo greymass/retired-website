@@ -16,7 +16,7 @@ class AnchorPage extends Component {
     const { intl, location, data } = this.props;
 
     return (
-      <Layout location={location}>
+      <Layout location={location} containerClassName="anchor">
         <SEO
           lang={intl.locale}
           keywords={[

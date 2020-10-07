@@ -8,6 +8,37 @@
   background-repeat: repeat;
 }
 
+.anchor {
+  background-color: #131b33;
+}
+
+.anchor div[class="ui secondary menu"] > div[class="item"] > a {
+  background-color: #EBF3FF;
+}
+
+.anchor div[class="ui secondary menu"] > *[class="item mobile-hidden"] a,
+.anchor div[class="ui secondary menu"] > div[class="right menu"] i[class="sidebar icon"],
+.anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a,
+.anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div h3 {
+  color: #EBF3FF;
+}
+
+.anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div {
+  border: 1px solid #EBF3FF;
+}
+
+.anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div:hover {
+  background-color: #EBF3FF;
+}
+
+.anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div:hover h3 {  
+  color: #131b33;
+}
+
+.anchor div[class="ui secondary menu"] > div[class="item"] > a img {
+  filter: invert(100%);
+}
+
 @media only screen and (max-width: 933px) {
   .shortHeader {
     height: 300px;

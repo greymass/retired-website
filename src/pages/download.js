@@ -11,7 +11,7 @@ class Download extends Component {
     const { intl, location } = this.props;
 
     return (
-      <Layout location={location}>
+      <Layout location={location} containerClassName="anchor">
         <SEO lang={intl.locale} keywords={[`gatsby`, `application`, `react`]} />
         <VersionsDownload />
         <VersionDifference />
