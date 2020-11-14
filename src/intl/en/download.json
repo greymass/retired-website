@@ -18,8 +18,8 @@
   "additional_1": "Requires existing account",
   "additional_2": "Via third party app",
   "supported_blockchains": "Supported blockchains:",
-  "last_updated_desktop": "Last updated: {data} {version} on",
-  "last_updated_mobile": "Last updated: {data} {version}",
+  "last_updated_desktop": "Last updated: {updateData} on",
+  "last_updated_mobile": "Last updated: {updateData}",
 
   "available": "Available on",
   "go_to_github": "Go to Anchor Github",

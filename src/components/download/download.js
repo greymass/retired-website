@@ -1,5 +1,11 @@
 import React, { Component } from "react"
 
+import {
+  isIOS,
+  isWindows,
+  isMacOs,
+} from "react-device-detect";
+
 import { injectIntl } from "gatsby-plugin-intl"
 import { Container } from "semantic-ui-react"
 import downloadStyles from "./download.module.css"
@@ -73,7 +79,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_desktop" }, { date: '2020/10/23', version: '1.1.8' })}
+                  {intl.formatMessage({ id: "last_updated_desktop", values: { updateData: '2020/10/23 (1.1.8)' } })}
                 </span>{" "}
                 Github
               </div>
@@ -128,7 +134,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdated}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_mobile" }, { date: '2020/09/23', version: '1.0.2' })}
+                  {intl.formatMessage({ id: "last_updated_mobile" }, { updateData: '2020/09/23 (1.0.2)' })}
                 </span>
               </div>
             </div>
