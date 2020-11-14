@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { injectIntl } from "gatsby-plugin-intl";
 import getStartedStyles from "./getStarted.module.css";
 import getStarted from "./getStarted";
+import { Link } from "gatsby"
 
 class Banners extends Component {
   render() {
@@ -22,9 +23,11 @@ class Banners extends Component {
                 {intl.formatMessage({ id: "anchor_help_banner_visit" })}
               </span>
             </div>
-            <button>
-              {intl.formatMessage({ id: "anchor_help_banner_forums" })}
-            </button>
+            <a href='https://forums.greymass.com/'>
+              <button>
+                {intl.formatMessage({ id: "anchor_help_banner_forums" })}
+              </button>
+            </a>
           </div>
         </div>
         <div className={getStartedStyles.voteBanner}>
@@ -35,9 +38,11 @@ class Banners extends Component {
             <span className={getStartedStyles.subheading}>
               {intl.formatMessage({ id: "anchor_vote_banner_subheading" })}
             </span>
-            <button>
-              {intl.formatMessage({ id: "anchor_vote_banner_vote_us" })}
-            </button>
+            <Link to={`/${intl.locale}/support`}>
+              <button>
+                {intl.formatMessage({ id: "anchor_vote_banner_vote_us" })}
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -13,7 +13,9 @@ class ContactUs extends Component {
         <Container className={contactStyles.container}>
           <h1>{intl.formatMessage({ id: "anchor_contact_header" })}</h1>
           <span>{intl.formatMessage({ id: "anchor_contact_subheading" })}</span>
-          <button>{intl.formatMessage({ id: "anchor_contact_button" })}</button>
+          <a href="mailto:name@email.com">
+            <button>{intl.formatMessage({ id: "anchor_contact_button" })}</button>
+          </a>
         </Container>
       </div>
     );

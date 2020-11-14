@@ -38,20 +38,29 @@ class VersionsDownload extends Component {
                 {intl.formatMessage({ id: "available" })}
               </span>
               <div className={downloadStyles.compatibilityImgDesktop}>
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href='https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+                >
                   <img src={windows} alt="windows" />
                   <span>Windows</span>
-                </div>
+                </a>
 
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href='https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg'
+                >
                   <img src={macOS} alt="macOS" />
                   <span>macOS</span>
-                </div>
+                </a>
 
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href='https://github.com/greymass/anchor/releases/v1.1.8'
+                >
                   <img src={linux} alt="linux" />
                   <span>Linux</span>
-                </div>
+                </a>
               </div>
             </div>
             <div className={downloadStyles.about}>
@@ -83,18 +92,24 @@ class VersionsDownload extends Component {
                 className={downloadStyles.phoneImg}
               />
             </div>
-            <button className={downloadStyles.download}>
+            <a
+              className={downloadStyles.download}
+              href='https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+            >
               {intl.formatMessage({ id: "download_for_ios" })}
-            </button>
+            </a>
             <div className={downloadStyles.compatibility}>
               <span className={downloadStyles.opacity}>
                 {intl.formatMessage({ id: "available" })}
               </span>
               <div className={downloadStyles.compatibilityImg}>
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href='https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+                >
                   <img src={macOS} alt="iOS" />
                   <span>iOS</span>
-                </div>
+                </a>
 
                 <div
                   className={`${downloadStyles.versionImgName} ${downloadStyles.opacity}`}
@@ -113,7 +128,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdated}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated" })}
+                  {intl.formatMessage({ id: "last_updated", { date: } })}
                 </span>{" "}
                 Github
               </div>
