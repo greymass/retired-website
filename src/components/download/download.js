@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 
 import {
-  isIOS,
-  isWindows,
   isMacOs,
 } from "react-device-detect";
 
@@ -18,8 +16,17 @@ import desktop from "../../images/desktop.png"
 import pattern from "../../images/pattern.png"
 
 class VersionsDownload extends Component {
+  state = {};
+
+  componentDidMount() {
+    if (isMacOs) {
+      this.setState({ macOs: true })
+    }
+  }
+
   render() {
-    const { intl } = this.props
+    const { intl } = this.props;
+    const { macOs } = this.state;
 
     return (
       <div id={downloadStyles.containerFluid}>
@@ -36,9 +43,18 @@ class VersionsDownload extends Component {
                 className={downloadStyles.desktopImg}
               />
             </div>
-            <button className={downloadStyles.download}>
-              {intl.formatMessage({ id: "download_for_mac" })}
-            </button>
+            <a
+              className={downloadStyles.versionImgName}
+              href={
+                macOs ?
+                'https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg' :
+                  'https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+              }
+            >
+              <button className={downloadStyles.download}>
+                {intl.formatMessage({ id: macOs ? "download_for_mac" : "download_for_windows" })}
+              </button>
+            </a>
             <div className={downloadStyles.compatibility}>
               <span className={downloadStyles.opacity}>
                 {intl.formatMessage({ id: "available" })}
@@ -79,7 +95,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_desktop", values: { updateData: '2020/10/23 (1.1.8)' } })}
+                  {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: '2020/10/23 (1.1.8)' })}
                 </span>{" "}
                 Github
               </div>
