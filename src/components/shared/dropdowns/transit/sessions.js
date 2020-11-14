@@ -24,6 +24,8 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
         transitSession.chainName !== currentTransitSession.chainName
       );
     });
+
+    console.log({ props: this.props })
     return (
       <>
         {account ? (
