@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
+import { isMacOs } from "react-device-detect";
+
 import { injectIntl } from "gatsby-plugin-intl";
 import { Link } from "gatsby";
 import { Container } from "semantic-ui-react";
+
 import Banners from "./banners";
 import getStartedStyles from "./getStarted.module.css";
 import windows from "../../../images/windows_white.svg";
@@ -12,8 +15,18 @@ import android from "../../../images/android_white.svg";
 import pattern from "../../../images/pattern.png";
 
 class GetStarted extends Component {
+  state = {};
+
+  componentDidMount() {
+    if (isMacOs) {
+      this.setState({ macOs: true })
+    }
+  }
+
   render() {
     const { intl } = this.props;
+
+    const { macOs } = this.state;
 
     return (
       <div id={getStartedStyles.containerFluid}>
@@ -22,16 +35,20 @@ class GetStarted extends Component {
           <h1 className={getStartedStyles.header}>
             {intl.formatMessage({ id: "anchor_get_started_header" })}
           </h1>
-          <Link
-            to={`/${intl.locale}/download`}
+
+          <a
+            href={
+              macOs ?
+                'https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg' :
+                'https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+            }
             className={getStartedStyles.download}
           >
             <button>
-              {intl.formatMessage({
-                id: "anchor_get_started_download_for_macOs",
-              })}
+              {intl.formatMessage({ id: macOs ? "download_for_mac" : "download_for_windows" })}
             </button>
-          </Link>
+          </a>
+
           <div className={getStartedStyles.versions}>
             <div className={getStartedStyles.version}>
               <span>{intl.formatMessage({ id: "shared_desktop" })}</span>

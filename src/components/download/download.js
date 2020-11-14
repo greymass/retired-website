@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 
-import {
-  isMacOs,
-} from "react-device-detect";
+import { isMacOs } from "react-device-detect";
 
 import { injectIntl } from "gatsby-plugin-intl"
 import { Container } from "semantic-ui-react"
