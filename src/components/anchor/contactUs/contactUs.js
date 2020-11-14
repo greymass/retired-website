@@ -13,7 +13,7 @@ class ContactUs extends Component {
         <Container className={contactStyles.container}>
           <h1>{intl.formatMessage({ id: "anchor_contact_header" })}</h1>
           <span>{intl.formatMessage({ id: "anchor_contact_subheading" })}</span>
-          <a href="mailto:name@email.com">
+          <a href="https://t.me/anchor_link">
             <button>{intl.formatMessage({ id: "anchor_contact_button" })}</button>
           </a>
         </Container>

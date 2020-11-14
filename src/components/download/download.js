@@ -73,7 +73,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated" })}
+                  {intl.formatMessage({ id: "last_updated_desktop" }, { date: '2020/10/23', version: '1.1.8' })}
                 </span>{" "}
                 Github
               </div>
@@ -128,9 +128,8 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdated}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated", { date: } })}
-                </span>{" "}
-                Github
+                  {intl.formatMessage({ id: "last_updated_mobile" }, { date: '2020/09/23', version: '1.0.2' })}
+                </span>
               </div>
             </div>
           </div>

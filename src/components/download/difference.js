@@ -80,7 +80,9 @@ class VersionDifference extends Component {
                 </span>{" "}
                 Github
               </div>
-              <button>{intl.formatMessage({ id: "go_to_github" })}</button>
+              <a href='https://github.com/greymass/anchor'>
+                <button>{intl.formatMessage({ id: "go_to_github" })}</button>
+              </a>
             </div>
             <div className={differenceStyles.featuring}>
               <table>
