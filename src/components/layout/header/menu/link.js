@@ -41,7 +41,6 @@ class LayoutHeaderMenuLink extends Component {
       </Link>
     )
     if (dropdown) {
-      console.log({dropdown})
       return (
         <Popup
           content={dropdown}

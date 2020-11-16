@@ -25,7 +25,6 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
       );
     });
 
-    console.log({ props: this.props })
     return (
       <>
         {account ? (

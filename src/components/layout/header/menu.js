@@ -22,8 +22,6 @@ class HeaderMobileMenu extends Component {
       navbarItems,
     } = this.props;
 
-    console.log({navbarItems})
-
     return (
       <Sidebar.Pusher
         onClick={this.props.handlePusher}
