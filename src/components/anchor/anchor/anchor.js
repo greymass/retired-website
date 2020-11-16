@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+import { Container } from "semantic-ui-react"
+
 import { injectIntl } from "gatsby-plugin-intl"
 import anchorStyles from "./anchor.module.css"
 import logo from "../../../images/anchor-blue-icon.svg"
@@ -7,7 +9,6 @@ import anchor from "../../../images/ANCHOR.svg"
 import privateLogo from "../../../images/private.svg"
 import secureLogo from "../../../images/secureLogo.svg"
 import integrationLogo from "../../../images/integration.svg"
-import { Container } from "semantic-ui-react"
 
 class Anchor extends Component {
   render() {

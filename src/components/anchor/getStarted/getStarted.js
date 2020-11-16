@@ -13,6 +13,7 @@ import macOS from "../../../images/macOS_white.svg";
 import linux from "../../../images/linux_white.svg";
 import android from "../../../images/android_white.svg";
 import pattern from "../../../images/pattern.png";
+import downloadStyles from "../../download/download.module.css"
 
 class GetStarted extends Component {
   state = {};
@@ -52,27 +53,39 @@ class GetStarted extends Component {
           <div className={getStartedStyles.versions}>
             <div className={getStartedStyles.version}>
               <span>{intl.formatMessage({ id: "shared_desktop" })}</span>
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href='https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+              >
                 <img src={windows} alt="windows" />
                 <span>Windows</span>
-              </div>
+              </a>
 
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href='https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg'
+              >
                 <img src={macOS} alt="macOS" />
                 <span>macOS</span>
-              </div>
+              </a>
 
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href='https://github.com/greymass/anchor/releases/v1.1.8'
+              >
                 <img src={linux} alt="linux" />
                 <span>Linux</span>
-              </div>
+              </a>
             </div>
             <div className={getStartedStyles.version}>
               <span>{intl.formatMessage({ id: "shared_mobile" })}</span>
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href='https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+              >
                 <img src={macOS} alt="macOS" />
                 <span>iOS</span>
-              </div>
+              </a>
               <div
                 className={`${getStartedStyles.versionImgName} ${getStartedStyles.opacity}`}
               >
