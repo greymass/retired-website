@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { injectIntl } from "gatsby-plugin-intl";
 import getStartedStyles from "./getStarted.module.css";
-import getStarted from "./getStarted";
+
 import { Link } from "gatsby"
 
 class Banners extends Component {
@@ -38,7 +38,7 @@ class Banners extends Component {
             <span className={getStartedStyles.subheading}>
               {intl.formatMessage({ id: "anchor_vote_banner_subheading" })}
             </span>
-            <Link to={`/${intl.locale}/support`}>
+            <Link to={`/${intl.locale}/support-us`}>
               <button>
                 {intl.formatMessage({ id: "anchor_vote_banner_vote_us" })}
               </button>
