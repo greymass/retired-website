@@ -45,8 +45,8 @@ class VersionsDownload extends Component {
               className={downloadStyles.versionImgName}
               href={
                 macOs ?
-                'https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg' :
-                  'https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+                `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg` :
+                  `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
               }
             >
               <button className={downloadStyles.download}>
@@ -60,7 +60,7 @@ class VersionsDownload extends Component {
               <div className={downloadStyles.compatibilityImgDesktop}>
                 <a
                   className={downloadStyles.versionImgName}
-                  href='https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+                  href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`}
                 >
                   <img src={windows} alt="windows" />
                   <span>Windows</span>
@@ -68,7 +68,7 @@ class VersionsDownload extends Component {
 
                 <a
                   className={downloadStyles.versionImgName}
-                  href='https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg'
+                  href{`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`}
                 >
                   <img src={macOS} alt="macOS" />
                   <span>macOS</span>
@@ -76,7 +76,7 @@ class VersionsDownload extends Component {
 
                 <a
                   className={downloadStyles.versionImgName}
-                  href='https://github.com/greymass/anchor/releases/v1.1.8'
+                  href={`https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`}
                 >
                   <img src={linux} alt="linux" />
                   <span>Linux</span>
@@ -93,7 +93,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: '2020/10/23 (1.1.8)' })}
+                  {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: `${process.env.ANCHOR_DESKTOP_RELEASE_DATE} (${process.env.ANCHOR_DESKTOP_VERSION})` })}
                 </span>{" "}
                 <a className={downloadStyles.githubLink} href="https://github.com/greymass/anchor">
                   Github
@@ -150,7 +150,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdated}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_mobile" }, { updateData: '2020/09/23 (1.0.2)' })}
+                  {intl.formatMessage({ id: "last_updated_mobile" }, { updateData: `${process.env.ANCHOR_IOS_RELEASE_DATE} (${process.env.ANCHOR_IOS_VERSION})` })}
                 </span>
               </div>
             </div>

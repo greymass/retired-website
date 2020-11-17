@@ -40,8 +40,8 @@ class GetStarted extends Component {
           <a
             href={
               macOs ?
-                'https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg' :
-                'https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+                `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg` :
+                `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
             }
             className={getStartedStyles.download}
           >
@@ -55,7 +55,7 @@ class GetStarted extends Component {
               <span>{intl.formatMessage({ id: "shared_desktop" })}</span>
               <a
                 className={getStartedStyles.versionImgName}
-                href='https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe'
+                href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`}
               >
                 <img src={windows} alt="windows" />
                 <span>Windows</span>
@@ -63,7 +63,7 @@ class GetStarted extends Component {
 
               <a
                 className={getStartedStyles.versionImgName}
-                href='https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg'
+                href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`}
               >
                 <img src={macOS} alt="macOS" />
                 <span>macOS</span>
@@ -71,7 +71,7 @@ class GetStarted extends Component {
 
               <a
                 className={getStartedStyles.versionImgName}
-                href='https://github.com/greymass/anchor/releases/v1.1.8'
+                href={`https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`}
               >
                 <img src={linux} alt="linux" />
                 <span>Linux</span>
