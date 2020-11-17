@@ -38,8 +38,8 @@ class FooterConnectBanner extends Component {
                 type={`youtube`}
               /> */}
               <ConnectBannerLink
-                to={data.site.siteMetadata.links.telegram}
-                type={`telegram plane`}
+                to={data.site.siteMetadata.links.forums}
+                type={`list`}
               />
               <ConnectBannerLink
                 to={data.site.siteMetadata.links.twitter}
