@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
-import { isMacOs } from "react-device-detect";
+import { isAndroid, isIOS, isMacOs, isWindows } from "react-device-detect"
 
 import { injectIntl } from "gatsby-plugin-intl";
-import { Link } from "gatsby";
 import { Container } from "semantic-ui-react";
 
 import Banners from "./banners";
@@ -19,15 +18,45 @@ class GetStarted extends Component {
   state = {};
 
   componentDidMount() {
-    if (isMacOs) {
-      this.setState({ macOs: true })
+    if (isAndroid) {
+      this.setState({
+        currentDeviceTextId: 'download_for_android'
+      })
+    } else if (isIOS) {
+      this.setState({
+        currentDeviceTextId: 'download_for_ios',
+        currentDeviceUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+      })
+    } else if (isMacOs) {
+      this.setState({
+        currentDeviceTextId: 'download_for_mac',
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`
+      })
+    } else if (isWindows) {
+      this.setState({
+        currentDeviceTextId: 'download_for_windows',
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
+      })
+    } else {
+      this.setState({
+        currentDeviceTextId: 'download_for_linux',
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`
+      })
     }
   }
 
   render() {
     const { intl } = this.props;
 
-    const { macOs } = this.state;
+    const {
+      currentDeviceTextId,
+      currentDeviceUrl,
+    } = this.state;
+
+    console.log({
+      currentDeviceTextId,
+      currentDeviceUrl,
+    })
 
     return (
       <div id={getStartedStyles.containerFluid}>
@@ -37,18 +66,22 @@ class GetStarted extends Component {
             {intl.formatMessage({ id: "anchor_get_started_header" })}
           </h1>
 
-          <a
-            href={
-              macOs ?
-                `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg` :
-                `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
-            }
-            className={getStartedStyles.download}
-          >
-            <button>
-              {intl.formatMessage({ id: macOs ? "download_for_mac" : "download_for_windows" })}
-            </button>
-          </a>
+          {currentDeviceUrl ? (
+            <a
+              className={downloadStyles.versionImgName}
+              href={currentDeviceUrl}
+            >
+              <button className={downloadStyles.download}>
+                {intl.formatMessage({ id: currentDeviceTextId })}
+              </button>
+            </a>
+          ) : (
+            <div className={downloadStyles.versionImgName}>
+              <button className={downloadStyles.download}>
+                {currentDeviceTextId && intl.formatMessage({ id: currentDeviceTextId })}
+              </button>
+            </div>
+          )}
 
           <div className={getStartedStyles.versions}>
             <div className={getStartedStyles.version}>

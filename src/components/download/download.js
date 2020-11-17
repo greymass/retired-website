@@ -22,32 +22,30 @@ class VersionsDownload extends Component {
   state = {};
 
   componentDidMount() {
-    if (isMacOs) {
-      if (isAndroid) {
-        this.setState({
-          currentDeviceTextId: 'android'
-        })
-      } else if (isIOS) {
-        this.setState({
-          currentDeviceTextId: 'download_for_ios',
-          currentDeviceUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877'
-        })
-      } else if (isMacOs) {
-        this.setState({
-          currentDeviceTextId: 'download_for_mac',
-          currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`
-        })
-      } else if (isWindows) {
-        this.setState({
-          currentDeviceTextId: 'download_for_windows',
-          currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
-        })
-      } else {
-        this.setState({
-          currentDeviceTextId: 'download_for_linux',
-          currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`
-        })
-      }
+    if (isAndroid) {
+      this.setState({
+        currentDeviceTextId: 'download_for_android'
+      })
+    } else if (isIOS) {
+      this.setState({
+        currentDeviceTextId: 'download_for_ios',
+        currentDeviceUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+      })
+    } else if (isMacOs) {
+      this.setState({
+        currentDeviceTextId: 'download_for_mac',
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`
+      })
+    } else if (isWindows) {
+      this.setState({
+        currentDeviceTextId: 'download_for_windows',
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
+      })
+    } else {
+      this.setState({
+        currentDeviceTextId: 'download_for_linux',
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`
+      })
     }
   }
 
@@ -85,7 +83,7 @@ class VersionsDownload extends Component {
             ) : (
               <div className={downloadStyles.versionImgName}>
                 <button className={downloadStyles.download}>
-                  {intl.formatMessage({ id: currentDeviceTextId })}
+                  {currentDeviceTextId && intl.formatMessage({ id: currentDeviceTextId })}
                 </button>
               </div>
             )}
@@ -105,7 +103,7 @@ class VersionsDownload extends Component {
 
                 <a
                   className={downloadStyles.versionImgName}
-                  href{}
+                  href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`}
                 >
                   <img src={macOS} alt="macOS" />
                   <span>macOS</span>
