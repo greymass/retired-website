@@ -13,11 +13,25 @@ import linux from "../../../images/linux_white.svg";
 import android from "../../../images/android_white.svg";
 import pattern from "../../../images/pattern.png";
 import downloadStyles from "../../download/download.module.css"
+import { graphql, StaticQuery } from "gatsby"
 
 class GetStarted extends Component {
   state = {};
 
   componentDidMount() {
+    const {
+      data: {
+        site: {
+          siteMetadata: {
+            anchor: {
+              desktopVersion,
+              desktopReleaseDate,
+            }
+          }
+        }
+      }
+    } = this.props;
+
     if (isAndroid) {
       this.setState({
         currentDeviceTextId: 'download_for_android'
@@ -30,17 +44,17 @@ class GetStarted extends Component {
     } else if (isMacOs) {
       this.setState({
         currentDeviceTextId: 'download_for_mac',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${desktopVersion}/mac-anchor-wallet-${desktopReleaseDate}.dmg`
       })
     } else if (isWindows) {
       this.setState({
         currentDeviceTextId: 'download_for_windows',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${desktopVersion}/win-anchor-wallet-${desktopReleaseDate}.exe`
       })
     } else {
       this.setState({
         currentDeviceTextId: 'download_for_linux',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`
+        currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${desktopVersion}`
       })
     }
   }
@@ -52,11 +66,6 @@ class GetStarted extends Component {
       currentDeviceTextId,
       currentDeviceUrl,
     } = this.state;
-
-    console.log({
-      currentDeviceTextId,
-      currentDeviceUrl,
-    })
 
     return (
       <div id={getStartedStyles.containerFluid}>
@@ -133,4 +142,23 @@ class GetStarted extends Component {
     );
   }
 }
-export default injectIntl(GetStarted);
+
+const GetStartedWrapper = props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              anchor {
+                desktopVersion
+                desktopReleaseDate
+              }
+            }
+          }
+        }
+    `}
+    render={data => <GetStarted data={data} {...props} />}
+  />
+);
+
+export default injectIntl(GetStartedWrapper);
