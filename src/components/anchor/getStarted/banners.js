@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { injectIntl } from "gatsby-plugin-intl";
 import getStartedStyles from "./getStarted.module.css";
-import getStarted from "./getStarted";
+
+import { graphql, Link, StaticQuery } from "gatsby"
 
 class Banners extends Component {
   render() {
-    const { intl } = this.props;
+    const { data, intl } = this.props;
+
     return (
       <div className={getStartedStyles.banners}>
         <div className={getStartedStyles.helpBanner}>
@@ -22,9 +24,11 @@ class Banners extends Component {
                 {intl.formatMessage({ id: "anchor_help_banner_visit" })}
               </span>
             </div>
-            <button>
-              {intl.formatMessage({ id: "anchor_help_banner_forums" })}
-            </button>
+            <a href={data.site.siteMetadata.links.forums}>
+              <button>
+                {intl.formatMessage({ id: "anchor_help_banner_forums" })}
+              </button>
+            </a>
           </div>
         </div>
         <div className={getStartedStyles.voteBanner}>
@@ -35,9 +39,11 @@ class Banners extends Component {
             <span className={getStartedStyles.subheading}>
               {intl.formatMessage({ id: "anchor_vote_banner_subheading" })}
             </span>
-            <button>
-              {intl.formatMessage({ id: "anchor_vote_banner_vote_us" })}
-            </button>
+            <Link to={`/${intl.locale}/support-us`}>
+              <button>
+                {intl.formatMessage({ id: "anchor_vote_banner_vote_us" })}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -45,4 +51,21 @@ class Banners extends Component {
   }
 }
 
-export default injectIntl(Banners);
+const BannersWrapper = props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              links {
+                forums
+              }
+            }
+          }
+        }
+    `}
+    render={data => <Banners data={data} {...props} />}
+  />
+);
+
+export default injectIntl(BannersWrapper);

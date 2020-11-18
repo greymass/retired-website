@@ -1,5 +1,12 @@
 import React, { Component } from "react"
 
+import {
+  isAndroid,
+  isIOS,
+  isMacOs,
+  isWindows,
+} from "react-device-detect";
+
 import { injectIntl } from "gatsby-plugin-intl"
 import { Container } from "semantic-ui-react"
 import downloadStyles from "./download.module.css"
@@ -10,10 +17,79 @@ import android from "../../images/android_white.svg"
 import phone from "../../images/phone.png"
 import desktop from "../../images/desktop.png"
 import pattern from "../../images/pattern.png"
+import { graphql, StaticQuery } from "gatsby"
 
 class VersionsDownload extends Component {
+  state = {};
+
+  componentDidMount() {
+    const {
+      data: {
+        site: {
+          siteMetadata: {
+            anchor: {
+              iosDownloadUrl,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
+
+    if (isAndroid) {
+      this.setState({
+        currentDeviceTextId: 'download_for_android'
+      })
+    } else if (isIOS) {
+      this.setState({
+        currentDeviceTextId: 'download_for_ios',
+        currentDeviceUrl: iosDownloadUrl,
+      })
+    } else if (isMacOs) {
+      this.setState({
+        currentDeviceTextId: 'download_for_mac',
+        currentDeviceUrl: macDownloadUrl,
+      })
+    } else if (isWindows) {
+      this.setState({
+        currentDeviceTextId: 'download_for_windows',
+        currentDeviceUrl: windowsDownloadUrl,
+      })
+    } else {
+      this.setState({
+        currentDeviceTextId: 'download_for_linux',
+        currentDeviceUrl: linuxDownloadUrl
+      })
+    }
+  }
+
   render() {
-    const { intl } = this.props
+    const {
+      intl,
+      data: {
+        site: {
+          siteMetadata: {
+            links: githubLink,
+            anchor: {
+              desktopReleaseDate,
+              desktopVersion,
+              iosDownloadUrl,
+              iosReleaseDate,
+              iosVersion,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
+    const {
+      currentDeviceTextId,
+      currentDeviceUrl,
+    } = this.state;
 
     return (
       <div id={downloadStyles.containerFluid}>
@@ -30,28 +106,51 @@ class VersionsDownload extends Component {
                 className={downloadStyles.desktopImg}
               />
             </div>
-            <button className={downloadStyles.download}>
-              {intl.formatMessage({ id: "download_for_mac" })}
-            </button>
+            {currentDeviceUrl ? (
+              <a
+                className={downloadStyles.versionImgName}
+                href={currentDeviceUrl}
+              >
+                <button className={downloadStyles.download}>
+                  {intl.formatMessage({ id: currentDeviceTextId })}
+                </button>
+              </a>
+            ) : (
+              <div className={downloadStyles.versionImgName}>
+                <button className={downloadStyles.download}>
+                  {currentDeviceTextId && intl.formatMessage({ id: currentDeviceTextId })}
+                </button>
+              </div>
+            )}
+
             <div className={downloadStyles.compatibility}>
               <span className={downloadStyles.opacity}>
                 {intl.formatMessage({ id: "available" })}
               </span>
               <div className={downloadStyles.compatibilityImgDesktop}>
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href={windowsDownloadUrl}
+                >
                   <img src={windows} alt="windows" />
                   <span>Windows</span>
-                </div>
+                </a>
 
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href={macDownloadUrl}
+                >
                   <img src={macOS} alt="macOS" />
                   <span>macOS</span>
-                </div>
+                </a>
 
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href={linuxDownloadUrl}
+                >
                   <img src={linux} alt="linux" />
                   <span>Linux</span>
-                </div>
+                </a>
               </div>
             </div>
             <div className={downloadStyles.about}>
@@ -64,9 +163,11 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated" })}
+                  {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: `${desktopReleaseDate} (${desktopVersion})` })}
                 </span>{" "}
-                Github
+                <a className={downloadStyles.githubLink} href={githubLink}>
+                  Github
+                </a>
               </div>
             </div>
           </div>
@@ -83,18 +184,24 @@ class VersionsDownload extends Component {
                 className={downloadStyles.phoneImg}
               />
             </div>
-            <button className={downloadStyles.download}>
+            <a
+              className={downloadStyles.download}
+              href={iosDownloadUrl}
+            >
               {intl.formatMessage({ id: "download_for_ios" })}
-            </button>
+            </a>
             <div className={downloadStyles.compatibility}>
               <span className={downloadStyles.opacity}>
                 {intl.formatMessage({ id: "available" })}
               </span>
               <div className={downloadStyles.compatibilityImg}>
-                <div className={downloadStyles.versionImgName}>
+                <a
+                  className={downloadStyles.versionImgName}
+                  href={iosDownloadUrl}
+                >
                   <img src={macOS} alt="iOS" />
                   <span>iOS</span>
-                </div>
+                </a>
 
                 <div
                   className={`${downloadStyles.versionImgName} ${downloadStyles.opacity}`}
@@ -113,9 +220,8 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdated}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated" })}
-                </span>{" "}
-                Github
+                  {intl.formatMessage({ id: "last_updated_mobile" }, { updateData: `${iosReleaseDate} (${iosVersion})` })}
+                </span>
               </div>
             </div>
           </div>
@@ -124,4 +230,32 @@ class VersionsDownload extends Component {
     )
   }
 }
-export default injectIntl(VersionsDownload)
+
+const VersionsDownloadWrapper = props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              links {
+                github
+              }
+              anchor {
+                desktopReleaseDate
+                desktopVersion
+                iosDownloadUrl
+                iosReleaseDate
+                iosVersion
+                linuxDownloadUrl
+                macDownloadUrl
+                windowsDownloadUrl
+              }
+            }
+          }
+        }
+    `}
+    render={data => <VersionsDownload data={data} {...props} />}
+  />
+);
+
+export default injectIntl(VersionsDownloadWrapper);

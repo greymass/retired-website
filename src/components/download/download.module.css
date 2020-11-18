@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.githubLink {
+  color: white;
+}
+
 .container {
   display: flex !important;
   align-items: baseline;
@@ -96,6 +100,7 @@
   align-items: center;
   margin-right: 20px;
   font-weight: 600;
+  color: white;
   /* margin-left: 20px; */
 }
 

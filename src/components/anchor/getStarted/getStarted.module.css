@@ -80,6 +80,7 @@
 
 .versionImgName span {
   margin-left: 10px;
+  color: white;
 }
 
 .opacity {
@@ -120,7 +121,7 @@
   width: 100%;
   height: 100%;
   border-radius: 6px;
-  background-color: #546aaf;
+  background-color: var(--purpleBlue);
 }
 .voteBannerBack {
   background: url("../../../images/brain_bg.svg");
@@ -187,12 +188,7 @@
     align-items: flex-start;
     max-width: 50%;
   }
-  .versionImgName {
-    margin: 10px 0;
-  }
-  .versionImgName span {
-    font-size: 13px;
-  }
+
   .version > span {
     margin-bottom: 10px;
   }

@@ -6,7 +6,6 @@ import { Menu } from 'semantic-ui-react'
 import HeaderSidebar from './header/sidebar';
 import HeaderMenu from './header/menu';
 
-
 import TransitWrapper from '../shared/wrappers/transit';
 
 class Header extends TransitWrapper {

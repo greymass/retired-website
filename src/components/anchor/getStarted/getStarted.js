@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 
+import { isAndroid, isIOS, isMacOs, isWindows } from "react-device-detect"
+
 import { injectIntl } from "gatsby-plugin-intl";
-import { Link } from "gatsby";
 import { Container } from "semantic-ui-react";
+
 import Banners from "./banners";
 import getStartedStyles from "./getStarted.module.css";
 import windows from "../../../images/windows_white.svg";
@@ -10,10 +12,76 @@ import macOS from "../../../images/macOS_white.svg";
 import linux from "../../../images/linux_white.svg";
 import android from "../../../images/android_white.svg";
 import pattern from "../../../images/pattern.png";
+import downloadStyles from "../../download/download.module.css"
+import { graphql, StaticQuery } from "gatsby"
 
 class GetStarted extends Component {
+  state = {};
+
+  componentDidMount() {
+    const {
+      data: {
+        site: {
+          siteMetadata: {
+            anchor: {
+              iosDownloadUrl,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
+
+    if (isAndroid) {
+      this.setState({
+        currentDeviceTextId: 'download_for_android'
+      })
+    } else if (isIOS) {
+      this.setState({
+        currentDeviceTextId: 'download_for_ios',
+        currentDeviceUrl: iosDownloadUrl,
+      })
+    } else if (isMacOs) {
+      this.setState({
+        currentDeviceTextId: 'download_for_mac',
+        currentDeviceUrl: macDownloadUrl,
+      })
+    } else if (isWindows) {
+      this.setState({
+        currentDeviceTextId: 'download_for_windows',
+        currentDeviceUrl: windowsDownloadUrl,
+      })
+    } else {
+      this.setState({
+        currentDeviceTextId: 'download_for_linux',
+        currentDeviceUrl: linuxDownloadUrl
+      })
+    }
+  }
+
   render() {
-    const { intl } = this.props;
+    const {
+      intl,
+      data: {
+        site: {
+          siteMetadata: {
+            anchor: {
+              iosDownloadUrl,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
+
+    const {
+      currentDeviceTextId,
+      currentDeviceUrl,
+    } = this.state;
 
     return (
       <div id={getStartedStyles.containerFluid}>
@@ -22,40 +90,60 @@ class GetStarted extends Component {
           <h1 className={getStartedStyles.header}>
             {intl.formatMessage({ id: "anchor_get_started_header" })}
           </h1>
-          <Link
-            to={`/${intl.locale}/download`}
-            className={getStartedStyles.download}
-          >
-            <button>
-              {intl.formatMessage({
-                id: "anchor_get_started_download_for_macOs",
-              })}
-            </button>
-          </Link>
+
+          {currentDeviceUrl ? (
+            <a
+              className={downloadStyles.versionImgName}
+              href={currentDeviceUrl}
+            >
+              <button className={downloadStyles.download}>
+                {intl.formatMessage({ id: currentDeviceTextId })}
+              </button>
+            </a>
+          ) : (
+            <div className={downloadStyles.versionImgName}>
+              <button className={downloadStyles.download}>
+                {currentDeviceTextId && intl.formatMessage({ id: currentDeviceTextId })}
+              </button>
+            </div>
+          )}
+
           <div className={getStartedStyles.versions}>
             <div className={getStartedStyles.version}>
               <span>{intl.formatMessage({ id: "shared_desktop" })}</span>
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href={windowsDownloadUrl}
+              >
                 <img src={windows} alt="windows" />
                 <span>Windows</span>
-              </div>
+              </a>
 
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href={macDownloadUrl}
+              >
                 <img src={macOS} alt="macOS" />
                 <span>macOS</span>
-              </div>
+              </a>
 
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href={linuxDownloadUrl}
+              >
                 <img src={linux} alt="linux" />
                 <span>Linux</span>
-              </div>
+              </a>
             </div>
             <div className={getStartedStyles.version}>
               <span>{intl.formatMessage({ id: "shared_mobile" })}</span>
-              <div className={getStartedStyles.versionImgName}>
+              <a
+                className={getStartedStyles.versionImgName}
+                href={iosDownloadUrl}
+              >
                 <img src={macOS} alt="macOS" />
                 <span>iOS</span>
-              </div>
+              </a>
               <div
                 className={`${getStartedStyles.versionImgName} ${getStartedStyles.opacity}`}
               >
@@ -70,4 +158,25 @@ class GetStarted extends Component {
     );
   }
 }
-export default injectIntl(GetStarted);
+
+const GetStartedWrapper = props => (
+  <StaticQuery
+    query={graphql`
+        query {
+          site {
+            siteMetadata {
+              anchor {
+                iosDownloadUrl
+                linuxDownloadUrl
+                macDownloadUrl
+                windowsDownloadUrl
+              }
+            }
+          }
+        }
+    `}
+    render={data => <GetStarted data={data} {...props} />}
+  />
+);
+
+export default injectIntl(GetStartedWrapper);

@@ -11,10 +11,21 @@ module.exports = {
       github: 'https://github.com/greymass/',
       twitter: 'https://twitter.com/greymass',
       telegram: 'https://t.me/greymass',
+      forums: 'https://forums.greymass.com/',
       steem: 'https://steemit.com/@greymass',
       reddit: 'https://www.reddit.com/user/greymass',
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
+    anchor: {
+      desktopReleaseDate: '2020/10/23',
+      desktopVersion: '1.1.8',
+      iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
+      iosReleaseDate: '2020/09/23',
+      iosVersion: '1.0.2',
+      linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.1.8/mac-anchor-wallet-1.1.8.dmg',
+      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.1.8/win-anchor-wallet-1.1.8.exe',
+    }
   },
   plugins: [
     {

@@ -13,7 +13,7 @@ import GetStarted from "../components/anchor/getStarted/getStarted";
 
 class AnchorPage extends Component {
   render() {
-    const { intl, location, data } = this.props;
+    const { intl, location } = this.props;
 
     return (
       <Layout location={location} containerClassName="anchor">
