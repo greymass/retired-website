@@ -17,11 +17,27 @@ import android from "../../images/android_white.svg"
 import phone from "../../images/phone.png"
 import desktop from "../../images/desktop.png"
 import pattern from "../../images/pattern.png"
+import { graphql, StaticQuery } from "gatsby"
 
 class VersionsDownload extends Component {
   state = {};
 
   componentDidMount() {
+    const {
+      data: {
+        site: {
+          siteMetadata: {
+            anchor: {
+              iosDownloadUrl,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
+
     if (isAndroid) {
       this.setState({
         currentDeviceTextId: 'download_for_android'
@@ -29,28 +45,47 @@ class VersionsDownload extends Component {
     } else if (isIOS) {
       this.setState({
         currentDeviceTextId: 'download_for_ios',
-        currentDeviceUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+        currentDeviceUrl: iosDownloadUrl,
       })
     } else if (isMacOs) {
       this.setState({
         currentDeviceTextId: 'download_for_mac',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`
+        currentDeviceUrl: macDownloadUrl,
       })
     } else if (isWindows) {
       this.setState({
         currentDeviceTextId: 'download_for_windows',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`
+        currentDeviceUrl: windowsDownloadUrl,
       })
     } else {
       this.setState({
         currentDeviceTextId: 'download_for_linux',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`
+        currentDeviceUrl: linuxDownloadUrl
       })
     }
   }
 
   render() {
-    const { intl } = this.props;
+    const {
+      intl,
+      data: {
+        site: {
+          siteMetadata: {
+            links: githubLink,
+            anchor: {
+              desktopReleaseDate,
+              desktopVersion,
+              iosDownloadUrl,
+              iosReleaseDate,
+              iosVersion,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
     const {
       currentDeviceTextId,
       currentDeviceUrl,
@@ -95,7 +130,7 @@ class VersionsDownload extends Component {
               <div className={downloadStyles.compatibilityImgDesktop}>
                 <a
                   className={downloadStyles.versionImgName}
-                  href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`}
+                  href={windowsDownloadUrl}
                 >
                   <img src={windows} alt="windows" />
                   <span>Windows</span>
@@ -103,7 +138,7 @@ class VersionsDownload extends Component {
 
                 <a
                   className={downloadStyles.versionImgName}
-                  href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`}
+                  href={macDownloadUrl}
                 >
                   <img src={macOS} alt="macOS" />
                   <span>macOS</span>
@@ -111,7 +146,7 @@ class VersionsDownload extends Component {
 
                 <a
                   className={downloadStyles.versionImgName}
-                  href={`https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`}
+                  href={linuxDownloadUrl}
                 >
                   <img src={linux} alt="linux" />
                   <span>Linux</span>
@@ -128,9 +163,9 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdatedDesktop}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: `${process.env.ANCHOR_DESKTOP_RELEASE_DATE} (${process.env.ANCHOR_DESKTOP_VERSION})` })}
+                  {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: `${desktopReleaseDate} (${desktopVersion})` })}
                 </span>{" "}
-                <a className={downloadStyles.githubLink} href="https://github.com/greymass/anchor">
+                <a className={downloadStyles.githubLink} href={githubLink}>
                   Github
                 </a>
               </div>
@@ -151,7 +186,7 @@ class VersionsDownload extends Component {
             </div>
             <a
               className={downloadStyles.download}
-              href='https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+              href={iosDownloadUrl}
             >
               {intl.formatMessage({ id: "download_for_ios" })}
             </a>
@@ -162,7 +197,7 @@ class VersionsDownload extends Component {
               <div className={downloadStyles.compatibilityImg}>
                 <a
                   className={downloadStyles.versionImgName}
-                  href='https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+                  href={iosDownloadUrl}
                 >
                   <img src={macOS} alt="iOS" />
                   <span>iOS</span>
@@ -185,7 +220,7 @@ class VersionsDownload extends Component {
               </span>
               <div className={downloadStyles.lastUpdated}>
                 <span className={downloadStyles.updated}>
-                  {intl.formatMessage({ id: "last_updated_mobile" }, { updateData: `${process.env.ANCHOR_IOS_RELEASE_DATE} (${process.env.ANCHOR_IOS_VERSION})` })}
+                  {intl.formatMessage({ id: "last_updated_mobile" }, { updateData: `${iosReleaseDate} (${iosVersion})` })}
                 </span>
               </div>
             </div>
@@ -195,4 +230,32 @@ class VersionsDownload extends Component {
     )
   }
 }
-export default injectIntl(VersionsDownload)
+
+const VersionsDownloadWrapper = props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              links {
+                github
+              }
+              anchor {
+                desktopReleaseDate
+                desktopVersion
+                iosDownloadUrl
+                iosReleaseDate
+                iosVersion
+                linuxDownloadUrl
+                macDownloadUrl
+                windowsDownloadUrl
+              }
+            }
+          }
+        }
+    `}
+    render={data => <VersionsDownload data={data} {...props} />}
+  />
+);
+
+export default injectIntl(VersionsDownloadWrapper);

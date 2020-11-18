@@ -24,8 +24,10 @@ class GetStarted extends Component {
         site: {
           siteMetadata: {
             anchor: {
-              desktopVersion,
-              desktopReleaseDate,
+              iosDownloadUrl,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
             }
           }
         }
@@ -39,28 +41,42 @@ class GetStarted extends Component {
     } else if (isIOS) {
       this.setState({
         currentDeviceTextId: 'download_for_ios',
-        currentDeviceUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+        currentDeviceUrl: iosDownloadUrl,
       })
     } else if (isMacOs) {
       this.setState({
         currentDeviceTextId: 'download_for_mac',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${desktopVersion}/mac-anchor-wallet-${desktopReleaseDate}.dmg`
+        currentDeviceUrl: macDownloadUrl,
       })
     } else if (isWindows) {
       this.setState({
         currentDeviceTextId: 'download_for_windows',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/download/v${desktopVersion}/win-anchor-wallet-${desktopReleaseDate}.exe`
+        currentDeviceUrl: windowsDownloadUrl,
       })
     } else {
       this.setState({
         currentDeviceTextId: 'download_for_linux',
-        currentDeviceUrl: `https://github.com/greymass/anchor/releases/v${desktopVersion}`
+        currentDeviceUrl: linuxDownloadUrl
       })
     }
   }
 
   render() {
-    const { intl } = this.props;
+    const {
+      intl,
+      data: {
+        site: {
+          siteMetadata: {
+            anchor: {
+              iosDownloadUrl,
+              linuxDownloadUrl,
+              macDownloadUrl,
+              windowsDownloadUrl,
+            }
+          }
+        }
+      }
+    } = this.props;
 
     const {
       currentDeviceTextId,
@@ -97,7 +113,7 @@ class GetStarted extends Component {
               <span>{intl.formatMessage({ id: "shared_desktop" })}</span>
               <a
                 className={getStartedStyles.versionImgName}
-                href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/win-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.exe`}
+                href={windowsDownloadUrl}
               >
                 <img src={windows} alt="windows" />
                 <span>Windows</span>
@@ -105,7 +121,7 @@ class GetStarted extends Component {
 
               <a
                 className={getStartedStyles.versionImgName}
-                href={`https://github.com/greymass/anchor/releases/download/v${process.env.ANCHOR_DESKTOP_VERSION}/mac-anchor-wallet-${process.env.ANCHOR_DESKTOP_VERSION}.dmg`}
+                href={macDownloadUrl}
               >
                 <img src={macOS} alt="macOS" />
                 <span>macOS</span>
@@ -113,7 +129,7 @@ class GetStarted extends Component {
 
               <a
                 className={getStartedStyles.versionImgName}
-                href={`https://github.com/greymass/anchor/releases/v${process.env.ANCHOR_DESKTOP_VERSION}`}
+                href={linuxDownloadUrl}
               >
                 <img src={linux} alt="linux" />
                 <span>Linux</span>
@@ -123,7 +139,7 @@ class GetStarted extends Component {
               <span>{intl.formatMessage({ id: "shared_mobile" })}</span>
               <a
                 className={getStartedStyles.versionImgName}
-                href='https://apps.apple.com/us/app/anchor-wallet/id1487410877'
+                href={iosDownloadUrl}
               >
                 <img src={macOS} alt="macOS" />
                 <span>iOS</span>
@@ -146,12 +162,14 @@ class GetStarted extends Component {
 const GetStartedWrapper = props => (
   <StaticQuery
     query={graphql`
-       query {
+        query {
           site {
             siteMetadata {
               anchor {
-                desktopVersion
-                desktopReleaseDate
+                iosDownloadUrl
+                linuxDownloadUrl
+                macDownloadUrl
+                windowsDownloadUrl
               }
             }
           }
