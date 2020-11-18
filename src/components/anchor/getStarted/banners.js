@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { injectIntl } from "gatsby-plugin-intl";
 import getStartedStyles from "./getStarted.module.css";
 
-import { Link } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 
 class Banners extends Component {
   render() {
-    const { intl } = this.props;
+    const { data, intl } = this.props;
+
     return (
       <div className={getStartedStyles.banners}>
         <div className={getStartedStyles.helpBanner}>
@@ -23,7 +24,7 @@ class Banners extends Component {
                 {intl.formatMessage({ id: "anchor_help_banner_visit" })}
               </span>
             </div>
-            <a href='https://forums.greymass.com/'>
+            <a href={data.site.siteMetadata.links.forums}>
               <button>
                 {intl.formatMessage({ id: "anchor_help_banner_forums" })}
               </button>
@@ -50,4 +51,21 @@ class Banners extends Component {
   }
 }
 
-export default injectIntl(Banners);
+const BannersWrapper = props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              links {
+                forums
+              }
+            }
+          }
+        }
+    `}
+    render={data => <Banners data={data} {...props} />}
+  />
+);
+
+export default injectIntl(BannersWrapper);

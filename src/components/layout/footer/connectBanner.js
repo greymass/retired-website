@@ -72,7 +72,7 @@ export default props => (
               officialEmail
               links {
                 youtube
-                telegram
+                forums
                 twitter
                 reddit
                 github

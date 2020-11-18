@@ -11,10 +11,17 @@ module.exports = {
       github: 'https://github.com/greymass/',
       twitter: 'https://twitter.com/greymass',
       telegram: 'https://t.me/greymass',
+      forums: 'https://forums.greymass.com/',
       steem: 'https://steemit.com/@greymass',
       reddit: 'https://www.reddit.com/user/greymass',
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
+    anchor: {
+      iosVersion: '1.0.2',
+      iosReleaseDate: '2020/09/23',
+      desktopVersion: '1.1.8',
+      desktopReleaseDate: '2020/10/23',
+    }
   },
   plugins: [
     {
