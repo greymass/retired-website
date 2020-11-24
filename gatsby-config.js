@@ -29,24 +29,26 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-webfonts',
       options: {
-        fonts: [
-          {
-            family: `Montserrat`,
-            variants: [`600`]
-            // subsets: [`latin`],
-          },
-          {
-            family: `Roboto`,
-            variants: [`400`, `700`],
-            // subsets: [`latin`],
-          },
-          {
-            family: `Poppins`,
-            variants: [`400`, `700`]
-          },
-        ],
+        fonts: {
+          google: [
+            {
+              family: `Montserrat`,
+              variants: [`600`]
+              // subsets: [`latin`],
+            },
+            {
+              family: `Roboto`,
+              variants: [`400`, `700`],
+              // subsets: [`latin`],
+            },
+            {
+              family: `Poppins`,
+              variants: [`400`, `700`]
+            },
+          ],
+        }
       },
     },
     `gatsby-transformer-json`,
