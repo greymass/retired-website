@@ -1,5 +1,4 @@
 #containerFluid {
-  height: calc(100vh);
   min-height: 450px;
   max-height: 800px;
   width: 100%;
@@ -120,9 +119,6 @@
   }
   .headerDescription {
     width: 100%;
-  }
-  #containerFluid {
-    min-height: 550px;
   }
 }
 
