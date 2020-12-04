@@ -11,14 +11,21 @@
   padding: 50px 0px;
 }
 
-.background {
-  width: 200%;
+.backgroundContainer {
+  width: 100%;
   height: calc(100% + 126px);
+  overflow: hidden;
   position: absolute;
   top: -126px;
   left: 0;
   opacity: 0.2;
   filter: invert(0.5);
+}
+
+.background {
+  width: 3500px;
+  min-width: 200%;
+  height: auto;
 }
 
 .container {
@@ -168,9 +175,6 @@
   .subheaderText {
     font-size: 14px;
   }
-  .background {
-    width: 300%;
-  }
   .download {
     padding: 9px 40px;
   }
@@ -190,9 +194,6 @@
   }
   .containerFluid {
     height: 500px;
-  }
-  .background {
-    width: 400%;
   }
   .headerDescription,
   .download {
