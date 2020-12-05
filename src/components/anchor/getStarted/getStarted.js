@@ -14,7 +14,6 @@ import android from "../../../images/android_white.svg";
 import pattern from "../../../images/pattern.png";
 import downloadStyles from "../../download/download.module.css"
 import { graphql, StaticQuery } from "gatsby"
-import anchorHeaderStyles from "../header/header.module.css"
 
 class GetStarted extends Component {
   state = {};

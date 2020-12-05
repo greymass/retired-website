@@ -38,6 +38,8 @@ class VersionsDownload extends Component {
       }
     } = this.props;
 
+    // Turning off mobile device detection on this page for now since android is not available.
+
     // if (isAndroid) {
     //   this.setState({
     //     currentDeviceTextId: 'download_for_android'
