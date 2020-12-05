@@ -28,13 +28,14 @@
 .header h1 {
   font-size: 34px;
   line-height: 45px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 .header span {
   font-size: 24px;
   line-height: 32px;
   color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
 }
 
 .header button {

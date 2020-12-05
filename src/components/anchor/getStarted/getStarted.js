@@ -85,7 +85,9 @@ class GetStarted extends Component {
 
     return (
       <div id={getStartedStyles.containerFluid}>
-        <img src={pattern} alt="" className={getStartedStyles.background} />
+        <div className={getStartedStyles.backgroundContainer}>
+          <img src={pattern} alt="" className={getStartedStyles.background} />
+        </div>
         <Container className={getStartedStyles.container}>
           <h1 className={getStartedStyles.header}>
             {intl.formatMessage({ id: "anchor_get_started_header" })}

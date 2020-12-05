@@ -8,14 +8,22 @@
   position: relative;
   overflow: hidden;
 }
-.background {
-  width: 200%;
-  height: 200%;
+
+.backgroundContainer {
+  width: 100%;
+  height: calc(100% + 126px);
+  overflow: hidden;
   position: absolute;
-  top: 0;
+  top: -126px;
   left: 0;
   opacity: 0.2;
   filter: invert(0.5);
+}
+
+.background {
+  width: 3500px;
+  min-width: 200%;
+  height: auto;
 }
 
 .container {
@@ -217,10 +225,6 @@
   .voteBanner,
   .helpBanner {
     height: 250px;
-  }
-  .background {
-    width: 400%;
-    height: 200%;
   }
 }
 

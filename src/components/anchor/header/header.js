@@ -11,7 +11,9 @@ class AnchorHeader extends Component {
     const { intl } = this.props;
     return (
       <div id={anchorHeaderStyles.containerFluid}>
-        <img src={pattern} alt="" className={anchorHeaderStyles.background} />
+        <div className={anchorHeaderStyles.backgroundContainer}>
+          <img src={pattern} alt="" className={anchorHeaderStyles.background} />
+        </div>
         <Container className={anchorHeaderStyles.container}>
           <div className={anchorHeaderStyles.leftSide}>
             <h2 className={anchorHeaderStyles.headerText}>

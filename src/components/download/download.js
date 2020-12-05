@@ -38,16 +38,19 @@ class VersionsDownload extends Component {
       }
     } = this.props;
 
-    if (isAndroid) {
-      this.setState({
-        currentDeviceTextId: 'download_for_android'
-      })
-    } else if (isIOS) {
-      this.setState({
-        currentDeviceTextId: 'download_for_ios',
-        currentDeviceUrl: iosDownloadUrl,
-      })
-    } else if (isMacOs) {
+    // Turning off mobile device detection on this page for now since android is not available.
+
+    // if (isAndroid) {
+    //   this.setState({
+    //     currentDeviceTextId: 'download_for_android'
+    //   })
+    // } else if (isIOS) {
+    //   this.setState({
+    //     currentDeviceTextId: 'download_for_ios',
+    //     currentDeviceUrl: iosDownloadUrl,
+    //   })
+    // } else
+    if (isMacOs) {
       this.setState({
         currentDeviceTextId: 'download_for_mac',
         currentDeviceUrl: macDownloadUrl,

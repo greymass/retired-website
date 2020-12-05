@@ -30,7 +30,8 @@
 }
 
 .imgContainer {
-  height: 270px;
+  height: 380px;
+  width: 100%;
   background: #3650a2;
   border-radius: 6px;
   overflow: hidden;
@@ -41,10 +42,10 @@
 
 .imgContainer .desktopImg,
 .imgContainer .phoneImg {
-  width: 90%;
-  height: 100%;
-  margin-top: 55px;
+  width: 436px;
+  height: 380px;
   z-index: 2;
+  margin-top: 15px;
 }
 .imgContainer .background {
   width: 500%;
@@ -152,6 +153,16 @@
   .header {
     font-size: 28px;
   }
+  .imgContainer {
+    height: 300px;
+  }
+  .imgContainer .desktopImg,
+  .imgContainer .phoneImg {
+    width: 321px;
+    height: 280px;
+    z-index: 2;
+    margin-top: 15px;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -197,6 +208,12 @@
   }
   .imgContainer {
     height: 250px;
+    width: 90%;
+  }
+  .imgContainer .desktopImg,
+  .imgContainer .phoneImg {
+    width: 286px;
+    height: 250px;
   }
 }
 
@@ -212,19 +229,12 @@
     margin-bottom: 25px;
   }
   .imgContainer {
-    height: 160px;
+    height: 200px;
   }
-  .imgContainer .desktopImg {
-    width: 105%;
-    height: 105%;
-    margin-top: 30px;
-    z-index: 2;
-  }
+
+  .imgContainer .desktopImg,
   .imgContainer .phoneImg {
-    width: 105%;
-    height: 105%;
-    margin-top: 30px;
-    z-index: 2;
-    margin-left: 30px;
+    width: 230px;
+    height: 200px;
   }
 }
