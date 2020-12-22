@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import { injectIntl } from "gatsby-plugin-intl";
 import { Container } from "semantic-ui-react";
-import phone from "../../../images/phone.png";
+import phoneFull from "../../../images/phoneFull.png";
 import pattern from "../../../images/pattern.png";
 import anchorHeaderStyles from "./header.module.css";
 
@@ -23,7 +23,7 @@ class AnchorHeader extends Component {
             <p className={anchorHeaderStyles.headerDescription}>
               {intl.formatMessage({ id: "anchor_header_description" })}
             </p>
-            <Link to={`/${intl.locale}/download`}>
+            <Link className={anchorHeaderStyles.downloadLink} to={`/${intl.locale}/download`}>
               <button className={anchorHeaderStyles.download}>
                 {intl.formatMessage({
                   id: "anchor_header_download_for_free_today",
@@ -31,11 +31,13 @@ class AnchorHeader extends Component {
               </button>
             </Link>
           </div>
-          <img
-            src={phone}
-            alt="greymass-phone"
-            className={anchorHeaderStyles.phone}
-          />
+          <div className={anchorHeaderStyles.imgContainer}>
+            <img
+              src={phoneFull}
+              alt="greymass-phone"
+              className={anchorHeaderStyles.phone}
+            />
+          </div>
         </Container>
       </div>
     );
