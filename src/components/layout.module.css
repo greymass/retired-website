@@ -13,30 +13,30 @@
 }
 
 .anchor div[class="ui secondary menu"] > div[class="item"] > a {
-  background-color: var(--paleGrey);
+  background-color: white;
 }
 
 .anchor div[class="ui secondary menu"] > *[class="item mobile-hidden"] a,
 .anchor div[class="ui secondary menu"] > div[class="right menu"] i[class="sidebar icon"],
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a,
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div h3 {
-  color: #EBF3FF;
+  color: white;
 }
 
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div {
-  border: 1px solid var(--paleGrey);
+  border: 1px solid white;
 }
 
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div:hover {
-  background-color: var(--paleGrey);
+  background-color: white;
 }
 
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] div[class="text"] {
-  color: var(--paleGrey);
+  color: white;
 }
 
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] i {
-  color: var(--paleGrey);
+  color: white;
 }
 
 .anchor div[class="ui secondary menu"] > div[class="right menu"] > div[class="item mobile-hidden"] a div:hover h3 {
