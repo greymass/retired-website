@@ -16,10 +16,6 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 html,
 body {
   height: auto !important;
