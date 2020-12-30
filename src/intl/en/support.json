@@ -31,9 +31,9 @@
   "support_explanation_use_wallet_to_vote_paragraph_one": "You can use any EOSIO wallet to cast a vote. Many wallets have a voting interface built into them directly. Others, like Scatter, can be used in conjunction with web interfaces like Bloks.io or EOS Authority.",
   "support_explanation_use_wallet_to_vote_paragraph_two": "To vote for us, simply find the <strong>teamgreymass</strong> account on your wallet’s voting portal and cast a vote for us. We appreciate your support!",
   "support_explanation_have_a_question_header": "Have a question or want to talk with our team?",
-  "support_explanation_have_a_question_paragraph_one": "If you’d like to reach us, feel free to shoot an email to our whole team at team@greymass.com",
-  "support_explanation_have_a_question_paragraph_two": "You can also find us on Telegram, Github, and Twitter.",
-  "support_explanation_have_a_question_paragraph_three": "If you’re specifically interested in one of our projects, we also have Telegram groups for Anchor wallet, Anchor developers, and Greymass Fuel.",
+  "support_explanation_have_a_question_paragraph_one": "If you’d like to reach us, feel free to shoot an email to our whole team at <a href='mailto:team@greymass.com'>team@greymass.com</a>.",
+  "support_explanation_have_a_question_paragraph_two": "You can also find us on <a href=''https://t.me/greymass'>Telegram</a>, <a href='https://github.com/greymass/'>Github</a>, and <a href='https://twitter.com/greymass'>Twitter</a>.",
+  "support_explanation_have_a_question_paragraph_three": "If you’re specifically interested in one of our projects, we also have Telegram groups for <a href='https://t.me/anchorwallet'>Anchor wallet</a>, <a href='https://t.me/anchordevs'>Anchor developers</a>, and <a href='https://t.me/greymassfuel'>Greymass Fuel</a>.",
   "support_explanation_have_a_question_paragraph_four": "We look forward to hearing from you!",
   "support_button_sign_in": "Sign in"
 }
