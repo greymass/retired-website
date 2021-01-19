@@ -63,7 +63,7 @@ class Versions extends Component {
                 {intl.formatMessage({ id: "anchor_versions_subheading" })}
               </span>
               <Link
-                to={`/${intl.locale}/download`}
+                to={`/${intl.locale}/anchor/download`}
                 className={versionsStyles.download}
               >
                 <button>
