@@ -3,10 +3,10 @@
   "anchor_header_vote": "Vote for us!",
   "anchor_header_one": "Welcome to Anchor,",
   "anchor_header_two": "the easiest way to use dApps.",
-  "anchor_header_description": "Use the Anchor Wallet to seamlessly and securely interact with any EOSIO chain.",
+  "anchor_header_description": "Use the Anchor Wallet to seamlessly and securely interact with any EOSIO-based blockchain.",
   "anchor_header_download_for_free_today": "Download for Free Today",
 
-  "anchor_anchor_description": "Anchor is a security and privacy focused open-source digital wallet for EOSIO networks.",
+  "anchor_anchor_description": "Anchor is a security and privacy focused open-source digital wallet for all EOSIO-based networks.",
   "anchor_anchor_secure_subheading": "Secure",
   "anchor_anchor_secure_description": "Anchor uses modern approaches to ensure the security of your accounts. The use of strong 'encryption 1' , trusted execution 'environments 2' , and integrations with hardware wallets helps keep your private keys as safe as possible.",
   "anchor_anchor_private_subheading": "Private",
@@ -25,7 +25,7 @@
   "anchor_versions_mobile_name_5": "Free Transactions",
   "anchor_versions_mobile_about_5": "Every account loaded in Anchor can perform a limited number of free transactions by utilizing Fuel (a Greymass project). This service offers all accounts 5ms worth of free CPU on select EOSIO networks.",
   "anchor_versions_mobile_name_6": "Account Creation",
-  "anchor_versions_mobile_about_6": "New EOSIO users who do not yet have an account will be able to easily and securely create and then backup their new account. Key generation can be done from within the secure coprocessor and a user friendly backup sheet will be provided.",
+  "anchor_versions_mobile_about_6": "Coming soon: New EOSIO users who do not yet have an account will be able to easily and securely create and then backup their new account. Key generation can be done from within the secure coprocessor and a user friendly backup sheet will be provided.",
 
   "anchor_versions_pc_name_1": "All of EOSIO",
   "anchor_versions_pc_about_1": "Anchor is designed to work with smart contracts on any EOSIO-based blockchain. Any application built by any developer can leverage Anchor as a secure way for users and applications to communicate with one another.",
