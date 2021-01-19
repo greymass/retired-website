@@ -88,6 +88,7 @@ export const query = graphql`
       edges {
         node {
           githubLink
+          link
           platform
           projectKey
         }
