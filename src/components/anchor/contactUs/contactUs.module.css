@@ -1,0 +1,76 @@
+#containerFluid {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 45px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.container span {
+  font-size: 24px;
+  line-height: 28px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.container button {
+  padding: 13px 40px;
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 250px;
+  margin: 20px 0;
+}
+
+.container button:hover {
+  background: #2c3c70;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 50px;
+  }
+  .container h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .container span {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .container button {
+    width: 280px;
+    padding: 9px 10px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #containerFluid .container {
+    padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  #containerFluid {
+    padding: 45px 0 25px 0;
+  }
+  .container button {
+    width: 100%;
+  }
+}

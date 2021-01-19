@@ -1,0 +1,226 @@
+#containerFluid {
+  width: 100%;
+  background-color: #080b15;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+}
+
+.difference {
+  display: flex;
+}
+.header {
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 60px;
+}
+
+.header h1 {
+  font-size: 34px;
+  line-height: 45px;
+  margin-bottom: 20px;
+}
+
+.header span {
+  font-size: 24px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.header button {
+  margin-top: 15px;
+  padding: 13px 40px;
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 90%;
+}
+
+.header button:hover {
+  background: #2c3c70;
+}
+
+.lastUpdatedDesktop {
+  display: none;
+}
+
+.featureExists {
+  width: 20px;
+  height: 20px;
+  background-color: #3bb14a;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+.featureExists::before {
+  content: "\2713";
+}
+
+.featureExists span {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  font-size: 10px;
+}
+.featureNotExists {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  transform: rotate(45deg);
+  margin: 0 auto;
+  font-size: 23px;
+}
+
+.featureNotExists::before {
+  /* content: "\2613"; */
+  content: "+";
+}
+
+table tr:nth-child(2n) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.featuring {
+  width: 60%;
+}
+
+.featuring table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.featuring .names {
+  width: 50%;
+  text-align: start;
+  padding-left: 10px;
+}
+
+.featuring th {
+  text-align: center;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 10px;
+  font-weight: 600;
+}
+
+.featuring td {
+  padding: 15px 10px 15px 10px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.feature {
+  text-align: center;
+}
+
+.underTable {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  text-align: end;
+  margin-left: auto;
+  width: 180px;
+}
+
+.row {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.num {
+  position: absolute;
+  left: -10px;
+  top: -3px;
+  font-size: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  #containerFluid {
+    padding: 40px 0;
+  }
+  #containerFluid .container {
+    padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .difference {
+    flex-direction: column;
+  }
+  .header {
+    max-width: 100%;
+    margin-right: 0;
+  }
+  .header h1 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .header span {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .featuring {
+    margin-top: 30px;
+    width: 100%;
+  }
+  .featuring th {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .underTable {
+    margin-left: 10px;
+  }
+  .header button {
+    padding: 9px 40px;
+    width: 280px;
+  }
+  .lastUpdatedDesktop {
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 25px;
+    margin-left: -5px;
+  }
+  .lastUpdatedDesktop span {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .featuring {
+    width: 100vw;
+    margin-left: -20px;
+  }
+  .featuring td {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .featuring .names {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  .difference {
+    width: 100%;
+    margin-bottom: -40px;
+  }
+  .underTable {
+    margin-left: 35px;
+  }
+}

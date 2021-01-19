@@ -1,0 +1,249 @@
+#containerFluid {
+  width: 100%;
+  background-color: #131b33;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundContainer {
+  width: 100%;
+  height: calc(100% + 126px);
+  overflow: hidden;
+  position: absolute;
+  top: -126px;
+  left: 0;
+  opacity: 0.2;
+  filter: invert(0.5);
+}
+
+.background {
+  width: 3500px;
+  min-width: 200%;
+  height: auto;
+}
+
+.container {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  justify-content: center;
+  z-index: 2;
+}
+
+.header {
+  font-size: 34px;
+  line-height: 45px;
+  margin: 0;
+}
+
+.download {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 13px 20px;
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 250px;
+}
+.download:hover {
+  background: #2c3c70;
+  color: #ffffff;
+}
+
+.versions {
+  display: flex;
+  flex-direction: column;
+}
+.version {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.version > span {
+  opacity: 0.5;
+}
+
+.versionImgName {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-weight: 600;
+}
+
+.versionImgName img {
+  width: 24px;
+  height: 24px;
+}
+
+.versionImgName span {
+  margin-left: 10px;
+  color: white;
+}
+
+.opacity {
+  opacity: 0.5 !important;
+}
+
+.banners {
+  display: flex;
+  align-items: center;
+  margin-top: 85px;
+  width: 100%;
+  height: 230px;
+}
+
+.helpBanner {
+  width: 100%;
+  height: 100%;
+  margin-right: 10px;
+  border-radius: 6px;
+  background-color: #3650a2;
+}
+
+.helpBannerBack {
+  background: url("../../../images/forums_bg.svg");
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.voteBanner {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: var(--purpleBlue);
+}
+.voteBannerBack {
+  background: url("../../../images/brain_bg.svg");
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.bannerHeader {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.helpBannerSubheadings {
+  display: flex;
+  flex-direction: column;
+}
+
+.subheading {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.banners button {
+  margin-top: 20px;
+  padding: 13px 50px;
+  background: #ffffff;
+  border-radius: 90px;
+  color: #080b15;
+  font-size: 16px;
+}
+
+.banners button:hover {
+  background: #dddddd;
+}
+
+@media only screen and (max-width: 767px) {
+  .container {
+    padding: 0 50px;
+  }
+  .header {
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+  .versions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: -20px;
+  }
+  .version {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 50%;
+  }
+
+  .version > span {
+    margin-bottom: 10px;
+  }
+  .download {
+    width: 280px;
+    padding: 9px 40px;
+  }
+  .banners {
+    flex-direction: column;
+    height: unset;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .banners button {
+    padding: 9px 30px;
+    width: 250px;
+  }
+  .helpBanner {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+  .subheading {
+    font-size: 16px;
+    line-height: 21px;
+  }
+  .voteBanner,
+  .helpBanner {
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #containerFluid .container {
+    padding: 0 20px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  #containerFluid {
+    padding: 40px 0;
+  }
+  .download {
+    width: 100%;
+  }
+
+  .banners {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: unset;
+  }
+}

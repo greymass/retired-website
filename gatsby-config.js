@@ -11,31 +11,44 @@ module.exports = {
       github: 'https://github.com/greymass/',
       twitter: 'https://twitter.com/greymass',
       telegram: 'https://t.me/greymass',
+      forums: 'https://forums.greymass.com/',
       steem: 'https://steemit.com/@greymass',
       reddit: 'https://www.reddit.com/user/greymass',
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
+    anchor: {
+      desktopReleaseDate: '2021/01/19',
+      desktopVersion: '1.1.10',
+      iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
+      iosReleaseDate: '2020/12/28',
+      iosVersion: '1.0.3',
+      linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.1.10/mac-anchor-wallet-1.1.10.dmg',
+      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.1.10/win-anchor-wallet-1.1.10.exe',
+    }
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-webfonts',
       options: {
-        fonts: [
-          {
-            family: `Montserrat`,
-            variants: [`600`]
-            // subsets: [`latin`],
-          },
-          {
-            family: `Roboto`,
-            variants: [`400`, `700`],
-            // subsets: [`latin`],
-          },
-          {
-            family: `Poppins`,
-            variants: [`400`, `700`]
-          },
-        ],
+        fonts: {
+          google: [
+            {
+              family: `Montserrat`,
+              variants: [`600`]
+              // subsets: [`latin`],
+            },
+            {
+              family: `Roboto`,
+              variants: [`400`, `700`],
+              // subsets: [`latin`],
+            },
+            {
+              family: `Poppins`,
+              variants: [`400`, `700`]
+            },
+          ],
+        }
       },
     },
     `gatsby-transformer-json`,
