@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
 import { injectIntl } from 'gatsby-plugin-intl';
@@ -13,27 +13,28 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
   render() {
     const { intl } = this.props;
 
-    const {
-      loggingIn,
-      currentTransitSession,
-      transitSessions,
-    } = this.state;
+    const { loggingIn, currentTransitSession, transitSessions } = this.state;
 
-    const {
-      account
-    } = currentTransitSession;
+    const { account } = currentTransitSession;
 
     const otherTransitSessions = transitSessions.filter(transitSession => {
-      return !currentTransitSession.account ||
+      return (
+        !currentTransitSession.account ||
         transitSession.account.name !== currentTransitSession.account.name ||
-        transitSession.chainName !== currentTransitSession.chainName;
+        transitSession.chainName !== currentTransitSession.chainName
+      );
     });
+
     return (
       <>
         {account ? (
           <Dropdown
             className={sessionsDropdownStyles.dropdown}
-            text={account ? account.name : intl.formatMessage({ id: 'shared_transit_sign_in' })}
+            text={
+              account
+                ? account.name
+                : intl.formatMessage({ id: 'shared_transit_sign_in' })
+            }
             pointing
           >
             <Dropdown.Menu>
@@ -43,19 +44,26 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
                   {otherTransitSessions.map(transitSession => (
                     <button onClick={() => this.switchAccount(transitSession)}>
                       <Dropdown.Item>
-                        {transitSession.account.name} ({transitSession.chainName})
+                        {transitSession.account.name} (
+                        {transitSession.chainName})
                       </Dropdown.Item>
                     </button>
                   ))}
                   <Dropdown.Divider />
                 </>
               )}
-              <button onClick={() => this.setState({ loggingIn: true })}>
+              <button
+                onClick={() => this.setState({ loggingIn: true })}
+                className={sessionsDropdownStyles.button}
+              >
                 <Dropdown.Item>
                   {intl.formatMessage({ id: 'shared_transit_add_account' })}
                 </Dropdown.Item>
               </button>
-              <button onClick={this.logout}>
+              <button
+                onClick={this.logout}
+                className={sessionsDropdownStyles.button}
+              >
                 <Dropdown.Item>
                   {intl.formatMessage({ id: 'shared_transit_logout' })}
                 </Dropdown.Item>
@@ -63,7 +71,10 @@ class SharedDropdownsTransitSessions extends TransitWrapper {
             </Dropdown.Menu>
           </Dropdown>
         ) : (
-          <button onClick={() => this.setState({ loggingIn: true })}>
+          <button
+            className={sessionsDropdownStyles.button}
+            onClick={() => this.setState({ loggingIn: true })}
+          >
             {intl.formatMessage({ id: 'shared_transit_sign_in' })}
           </button>
         )}

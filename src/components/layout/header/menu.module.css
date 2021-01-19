@@ -2,6 +2,12 @@
   font-size: 20px;
   padding: 28px;
   width: 70px;
+  z-index: 10;
+}
+
+.container div[class="ui secondary menu"] .item,
+.container div[class="ui secondary menu"] div[class="right menu"] {
+  z-index: 100;
 }
 
 .image {
@@ -12,9 +18,14 @@
   border-radius: 5px;
   width: 64px;
   height: 64px;
+  z-index: 100;
 }
 .container {
   padding: 20px 0;
+}
+
+.rightMenu {
+  z-index: 100;
 }
 
 .topMenuBar {

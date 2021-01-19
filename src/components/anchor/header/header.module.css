@@ -1,0 +1,250 @@
+#containerFluid {
+  min-height: 450px;
+  max-height: 800px;
+  width: 100%;
+  background-color: #131b33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  position: relative;
+  padding: 50px 0px;
+}
+
+.backgroundContainer {
+  width: 100%;
+  height: calc(100% + 126px);
+  overflow: hidden;
+  position: absolute;
+  top: -126px;
+  left: 0;
+  opacity: 0.2;
+  filter: invert(0.5);
+}
+
+.background {
+  width: 3500px;
+  min-width: 200%;
+  height: auto;
+}
+
+.container {
+  display: flex !important;
+  z-index: 2;
+}
+
+.bottomContainer {
+  margin-top: 40px;
+}
+
+.leftSide {
+  color: #ffffff;
+}
+
+.imgContainer {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.phone {
+  margin-top: 30px;
+  width: 470px;
+  height: 280px;
+  margin-left: 50px;
+  z-index: 2;
+}
+
+.download {
+  background: #3650a2;
+  border-radius: 90px;
+  color: #ffffff;
+  padding: 13px 53px;
+  font-size: 16px;
+  line-height: 18px;
+}
+.download:hover {
+  background: #2c3c70;
+}
+
+.headerText {
+  font-size: 34px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+}
+
+.headerDescription {
+  font-size: 24px;
+  width: 80%;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 30px;
+}
+
+.subHeaderText {
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 44px;
+  margin: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  max-width: 900px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subheaderText {
+  font-size: 21px;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  line-height: 30px;
+  text-align: center;
+  margin: 0;
+}
+
+.supportUsLink {
+  color: var(--mainBlue);
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+@media only screen and (orientation: portrait) {
+  #containerFluid {
+    max-height: 600px;
+    min-height: unset;
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .leftSide {
+    width: calc(100% - 400px);
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .phone {
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+  .headerDescription {
+    width: 100%;
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 900px) {
+  #containerFluid {
+    max-height: 500px;
+    min-height: unset;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .phone {
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+  .headerText {
+    font-size: 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+  }
+  .headerDescription {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #containerFluid {
+    min-height: 650px;
+  }
+  .container {
+    padding: 0 50px;
+    flex-direction: column-reverse;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .downloadLink {
+    justify-content: center;
+    display: flex;
+  }
+  .headerText {
+    text-align: center;
+  }
+  .headerDescription {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    align-items: center;
+  }
+  .leftSide {
+    width: 100%;
+  }
+  .subheaderText {
+    font-size: 14px;
+  }
+  .download {
+    padding: 9px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imgContainer {
+    margin-top: -40px;
+  }
+
+  .phone {
+    margin-bottom: 30px;
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .phone {
+    margin-top: 30px;
+    width: 450px;
+    height: 270px;
+    margin-left: 50px;
+    z-index: 2;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #containerFluid .container {
+    padding: 0;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .containerFluid {
+    height: 500px;
+  }
+  .headerDescription,
+  .download {
+    width: 100%;
+    margin-left: 0;
+  }
+  .headerText {
+    margin-bottom: 30px;
+  }
+
+  .imgContainer {
+    margin-top: -80px;
+  }
+
+  .leftSide {
+    padding: 0 20px;
+  }
+
+  .phone {
+    width: 400px;
+    height: 240px;
+    margin-left: 50px;
+    z-index: 2;
+  }
+}

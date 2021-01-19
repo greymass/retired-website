@@ -1,11 +1,14 @@
 :root {
-  --anchorGreen: #80C341;
+  --anchorGreen: #80c341;
   --darkGrey: #424954;
-  --lightGrey: #F4F4F4;
+  --lightGrey: #f4f4f4;
+  --paleGrey: #EBF3FF;
   --mainBlack: #343941;
-  --mainBlue: #0091E2;
-  --mainGrey: #B6BDC9;
-  --lightBlueGradient: linear-gradient(112.06deg, #0091E2 9.23%, #00ABD0 100%);
+  --mainBlue: #0091e2;
+  --purpleBlue: #546aaf;
+  --mainGrey: #b6bdc9;
+  --mainPurple: #131b33;
+  --lightBlueGradient: linear-gradient(112.06deg, #0091e2 9.23%, #00abd0 100%);
 }
 
 body {
@@ -13,11 +16,11 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-html {
-   overflow-x: hidden; 
+html,
+body {
+  height: auto !important;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
-
-html, body { height: auto !important; }
 
 button {
   background: none;
@@ -25,15 +28,16 @@ button {
   color: inherit;
   cursor: pointer;
   outline: none;
+  padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .mobile-hidden {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 767px) {
   .mobile-only {
     display: none !important;
   }
