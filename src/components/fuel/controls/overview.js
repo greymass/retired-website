@@ -188,12 +188,14 @@ class FuelControlsOverview extends Component {
           open={openedModal}
           onClose={() => this.setState({ openedModal: false }) }
           trigger={(
-            <Segment basic textAlign="center">
-              <Button
-                onClick={() => this.setState({ openedModal: true })}
-                content={intl.formatMessage({id: 'fuel_overview_purchase_fuel' })}
-                primary
-              />
+            <Segment inverted color="orange" textAlign="center">
+              <p>
+                <Button
+                  content={intl.formatMessage({id: 'fuel_overview_purchase_fuel' })}
+                  disabled
+                />
+              </p>
+              <p>Fuel purchases currently disabled. Fuel V2 upgrade in progress and releasing soon.</p>
             </Segment>
           )}
         />
