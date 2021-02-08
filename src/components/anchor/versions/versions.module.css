@@ -62,8 +62,8 @@
 }
 
 .header img {
-  width: calc(100% - 550px);
-  height: 100%;
+  width: 583px;
+  height: 328px;
   border-radius: 6px;
 }
 
@@ -126,12 +126,14 @@
 @media only screen and (max-width: 1199px) {
   .header img {
     width: 500px;
+    height: 281px;
   }
 }
 
 @media only screen and (max-width: 991px) {
   .header img {
     width: 350px;
+    height: 197px;
   }
   .block {
     height: 300px;
@@ -168,8 +170,8 @@
   }
 
   .header img {
-    height: 420px;
     width: 100%;
+    height: auto;
     margin-bottom: 20px;
   }
   .headerMain {
@@ -200,12 +202,6 @@
   }
 }
 
-@media only screen and (max-width: 650px) {
-  .header img {
-    height: 350px;
-  }
-}
-
 @media only screen and (max-width: 550px) {
   .leftSide {
     align-items: flex-start;
@@ -214,9 +210,7 @@
   .download {
     width: 80%;
   }
-  .header img {
-    height: 300px;
-  }
+
   .block {
     width: 100%;
   }
