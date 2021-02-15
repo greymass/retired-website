@@ -127,7 +127,10 @@ module.exports = {
       resolve: `gatsby-plugin-intl`,
       options: {
         path: `${__dirname}/src/intl/build`,
-        languages: [`en`, `fr`],
+        languages: [
+          `en`,
+          // `fr`
+        ],
         defaultLanguage: `en`,
         redirect: true,
         redirectComponent: require.resolve(`./src/components/redirect.js`),
