@@ -20,7 +20,7 @@ class Index extends Component {
       <Layout location={location} >
         <SEO
           lang={intl.locale}
-          keywords={[`gatsby`, `application`, `react`]}
+          keywords={[`greymass`, `eosio`, `block producer`]}
         />
         <HomeHeader />
         <HomeProjects />
