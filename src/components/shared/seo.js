@@ -28,6 +28,8 @@ function SEO({
       query {
         site {
           siteMetadata {
+            author
+            description
             title
           }
         }

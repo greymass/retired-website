@@ -12,7 +12,7 @@ class Download extends Component {
 
     return (
       <Layout location={location} containerClassName="anchor">
-        <SEO lang={intl.locale} keywords={[`gatsby`, `application`, `react`]} />
+        <SEO lang={intl.locale} keywords={[`greymass`, `anchor`, `eosio`]} />
         <VersionsDownload />
         <VersionDifference />
       </Layout>
