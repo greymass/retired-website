@@ -17,14 +17,14 @@ module.exports = {
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
     anchor: {
-      desktopReleaseDate: '2021/03/31',
-      desktopVersion: '1.2.0',
+      desktopReleaseDate: '2021/04/07',
+      desktopVersion: '1.2.1',
       iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
       iosReleaseDate: '2021/02/04',
       iosVersion: '1.1.1',
       linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
-      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.0/mac-anchor-wallet-1.2.0.dmg',
-      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.0/win-anchor-wallet-1.2.0.exe',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.1/mac-anchor-wallet-1.2.1.dmg',
+      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.1/win-anchor-wallet-1.2.1.exe',
     }
   },
   plugins: [
