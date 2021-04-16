@@ -11,7 +11,7 @@ module.exports = {
       github: 'https://github.com/greymass/',
       twitter: 'https://twitter.com/greymass',
       telegram: 'https://t.me/greymass',
-      forums: 'https://forums.greymass.com/',
+      forums: 'https://forums.eoscommunity.org/c/greymass/6',
       steem: 'https://steemit.com/@greymass',
       reddit: 'https://www.reddit.com/user/greymass',
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',

@@ -18,16 +18,13 @@ const bps = [
     producer: 'teamgreymass',
     proxy: 'greymassvote',
   },
-  // {
-  //   network: 'fio',
-  //   producer: 'teamgreymass',
-  // },
   {
-    network: 'instar',
-    producer: 'teamgreymass',
+    network: 'fio',
+    producer: 'bp@greymass',
+    proxy: 'proxy@greymass',
   },
   {
-    network: 'lynx',
+    network: 'proton',
     producer: 'teamgreymass',
   },
   {
