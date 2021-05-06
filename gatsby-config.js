@@ -11,20 +11,20 @@ module.exports = {
       github: 'https://github.com/greymass/',
       twitter: 'https://twitter.com/greymass',
       telegram: 'https://t.me/greymass',
-      forums: 'https://forums.greymass.com/',
+      forums: 'https://forums.eoscommunity.org/c/greymass/6',
       steem: 'https://steemit.com/@greymass',
       reddit: 'https://www.reddit.com/user/greymass',
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
     anchor: {
-      desktopReleaseDate: '2021/01/20',
-      desktopVersion: '1.1.11',
+      desktopReleaseDate: '2021/04/07',
+      desktopVersion: '1.2.2',
       iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
-      iosReleaseDate: '2020/12/28',
-      iosVersion: '1.0.3',
+      iosReleaseDate: '2021/02/04',
+      iosVersion: '1.1.1',
       linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
-      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.1.11/mac-anchor-wallet-1.1.11.dmg',
-      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.1.11/win-anchor-wallet-1.1.11.exe',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.2/mac-anchor-wallet-1.2.2.dmg',
+      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.2/win-anchor-wallet-1.2.2.exe',
     }
   },
   plugins: [
@@ -127,7 +127,10 @@ module.exports = {
       resolve: `gatsby-plugin-intl`,
       options: {
         path: `${__dirname}/src/intl/build`,
-        languages: [`en`, `fr`],
+        languages: [
+          `en`,
+          // `fr`
+        ],
         defaultLanguage: `en`,
         redirect: true,
         redirectComponent: require.resolve(`./src/components/redirect.js`),

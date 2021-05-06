@@ -23,15 +23,9 @@ const nodes = [
     v1: true,
   },
   {
-    logo: 'instar',
-    url: 'https://instar.greymass.com',
-    name: 'Instar',
-    v1: true,
-  },
-  {
-    logo: 'lynx',
-    url: 'https://lynx.greymass.com',
-    name: 'Lynx',
+    logo: 'proton',
+    url: 'https://proton.greymass.com',
+    name: 'Proton',
     v1: true,
   },
   {
@@ -54,8 +48,8 @@ const nodes = [
   },
   {
     logo: 'jungle',
-    url: 'https://jungle.greymass.com',
-    name: 'Jungle (Testnet)',
+    url: 'https://jungle3.greymass.com',
+    name: 'Jungle 3 (Testnet)',
     v1: true,
   },
   {

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 const explorers = {
   'eos': 'https://bloks.io',
-  'instar': 'https://instar.eosx.io',
+  'fio': 'https://fio.bloks.io',
   'jungle': 'https://jungle.bloks.io',
-  'lynx': 'https://lynx.bloks.io',
+  'proton': 'https://proton.bloks.io',
   'telos': 'https://telos.bloks.io',
   'wax': 'https://wax.bloks.io',
 }
