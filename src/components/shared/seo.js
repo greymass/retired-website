@@ -38,7 +38,7 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description
-  const renderedTitle = (title)
+  const renderedTitle = title && title !== 'title'
     ? `${title} | ${site.siteMetadata.title}`
     : site.siteMetadata.title;
 
