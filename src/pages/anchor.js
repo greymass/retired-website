@@ -4,6 +4,7 @@ import { injectIntl } from "gatsby-plugin-intl";
 import Layout from "../components/layout";
 import AnchorHeader from "../components/anchor/header/header";
 import SEO from "../components/shared/seo";
+import image from '../images/oganchor.png';
 
 import { graphql } from "gatsby";
 import Anchor from "../components/anchor/anchor/anchor";
@@ -19,6 +20,7 @@ class AnchorPage extends Component {
       <Layout location={location} containerClassName="anchor">
         <SEO
           lang={intl.locale}
+          image={image}
           keywords={[
             "anchor",
             "wallet",
