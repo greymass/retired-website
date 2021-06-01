@@ -13,7 +13,7 @@ class ContactUs extends Component {
         site: {
           siteMetadata: {
             links: {
-              forums: forumsLink,
+              devForums: devForumsLink,
             }
           }
         }
@@ -25,7 +25,7 @@ class ContactUs extends Component {
         <Container className={contactStyles.container}>
           <h1>{intl.formatMessage({ id: "anchor_contact_header" })}</h1>
           <span>{intl.formatMessage({ id: "anchor_contact_subheading" })}</span>
-          <a href={forumsLink}>
+          <a href={devForumsLink}>
             <button>{intl.formatMessage({ id: "anchor_contact_button" })}</button>
           </a>
         </Container>
@@ -41,7 +41,7 @@ const ContactUsWrapper = props => (
         site {
           siteMetadata {
             links {
-              forums
+              devForums
             }
           }
         }
