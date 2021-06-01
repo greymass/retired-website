@@ -12,6 +12,7 @@ module.exports = {
       twitter: 'https://twitter.com/greymass',
       telegram: 'https://t.me/greymass',
       forums: 'https://forums.greymass.com/',
+      devForums: 'https://forums.eoscommunity.org/c/eosio-development/anchor-link/7',
       steem: 'https://steemit.com/@greymass',
       reddit: 'https://www.reddit.com/user/greymass',
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
