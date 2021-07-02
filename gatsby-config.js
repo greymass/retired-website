@@ -19,13 +19,13 @@ module.exports = {
     },
     anchor: {
       desktopReleaseDate: '2021/06/18',
-      desktopVersion: '1.2.5',
+      desktopVersion: '1.2.6',
       iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
       iosReleaseDate: '2021/05/04',
       iosVersion: '1.2.0',
       linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
-      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.5/mac-anchor-wallet-1.2.5.dmg',
-      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.5/win-anchor-wallet-1.2.5.exe',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.6/mac-anchor-wallet-1.2.6.dmg',
+      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.6/win-anchor-wallet-1.2.6.exe',
     }
   },
   plugins: [
