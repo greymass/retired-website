@@ -24,7 +24,7 @@ module.exports = {
       iosReleaseDate: '2021/05/04',
       iosVersion: '1.2.1',
       linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
-      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.6/mac-anchor-wallet-1.2.6-x64.dmg',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.6/mac-anchor-wallet-1.2.6.dmg',
       windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.2.6/win-anchor-wallet-1.2.6.exe',
     }
   },
