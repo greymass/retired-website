@@ -25,6 +25,7 @@ class GetStarted extends Component {
           siteMetadata: {
             anchor: {
               iosDownloadUrl,
+              androidDownloadUrl,
               linuxDownloadUrl,
               macDownloadUrl,
               windowsDownloadUrl,
@@ -36,7 +37,8 @@ class GetStarted extends Component {
 
     if (isAndroid) {
       this.setState({
-        currentDeviceTextId: 'download_for_android'
+        currentDeviceTextId: 'download_for_android',
+        currentDeviceUrl: androidDownloadUrl,
       })
     } else if (isIOS) {
       this.setState({
@@ -68,6 +70,7 @@ class GetStarted extends Component {
         site: {
           siteMetadata: {
             anchor: {
+              androidDownloadUrl,
               iosDownloadUrl,
               linuxDownloadUrl,
               macDownloadUrl,
@@ -146,12 +149,13 @@ class GetStarted extends Component {
                 <img src={macOS} alt="macOS" />
                 <span>iOS</span>
               </a>
-              <div
-                className={`${getStartedStyles.versionImgName} ${getStartedStyles.opacity}`}
+              <a
+                className={getStartedStyles.versionImgName}
+                href={androidDownloadUrl}
               >
                 <img src={android} alt="android" />
                 <span>{intl.formatMessage({ id: "shared_android" })}</span>
-              </div>
+              </a>
             </div>
           </div>
           <Banners />
@@ -168,6 +172,7 @@ const GetStartedWrapper = props => (
           site {
             siteMetadata {
               anchor {
+                androidDownloadUrl
                 iosDownloadUrl
                 linuxDownloadUrl
                 macDownloadUrl
