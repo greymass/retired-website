@@ -28,7 +28,6 @@ class VersionsDownload extends Component {
         site: {
           siteMetadata: {
             anchor: {
-              iosDownloadUrl,
               linuxDownloadUrl,
               macDownloadUrl,
               windowsDownloadUrl,
@@ -40,16 +39,6 @@ class VersionsDownload extends Component {
 
     // Turning off mobile device detection on this page for now since android is not available.
 
-    // if (isAndroid) {
-    //   this.setState({
-    //     currentDeviceTextId: 'download_for_android'
-    //   })
-    // } else if (isIOS) {
-    //   this.setState({
-    //     currentDeviceTextId: 'download_for_ios',
-    //     currentDeviceUrl: iosDownloadUrl,
-    //   })
-    // } else
     if (isMacOs) {
       this.setState({
         currentDeviceTextId: 'download_for_mac',
@@ -76,6 +65,7 @@ class VersionsDownload extends Component {
           siteMetadata: {
             links: githubLink,
             anchor: {
+              androidDownloadUrl,
               desktopReleaseDate,
               desktopVersion,
               iosDownloadUrl,
@@ -202,16 +192,17 @@ class VersionsDownload extends Component {
                   className={downloadStyles.versionImgName}
                   href={iosDownloadUrl}
                 >
-                  <img src={macOS} alt="iOS" />
+                  <img src={macOS} alt="macOS" />
                   <span>iOS</span>
                 </a>
 
-                <div
-                  className={`${downloadStyles.versionImgName} ${downloadStyles.opacity}`}
+                <a
+                  className={downloadStyles.versionImgName}
+                  href={androidDownloadUrl}
                 >
                   <img src={android} alt="android" />
                   <span>{intl.formatMessage({ id: "android" })}</span>
-                </div>
+                </a>
               </div>
             </div>
             <div className={downloadStyles.about}>
@@ -244,6 +235,7 @@ const VersionsDownloadWrapper = props => (
                 github
               }
               anchor {
+                androidDownloadUrl
                 desktopReleaseDate
                 desktopVersion
                 iosDownloadUrl
