@@ -60,7 +60,7 @@ export default class Explanation extends Component {
 
         <div className={explanationStyles.mobileInstructions}>
           <p>
-            Please click on a highlighted portion of the sheet to view it's purpose.
+            Click on a highlighted portion of the sheet to read it's explanation below.
           </p>
         </div>
 
@@ -72,10 +72,11 @@ export default class Explanation extends Component {
           />
         </div>
 
-        <div className={explanationStyles.mobileExplanation}>
-          {mobileExplanation}
-        </div>
-
+        {mobileExplanation && (
+          <div className={explanationStyles.mobileExplanation}>
+            {mobileExplanation}
+          </div>
+        )}
 
         <div
           onClick={() => this.setState({ viewingExplanationOf: 'privateKey' })}
