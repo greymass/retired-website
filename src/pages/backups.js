@@ -45,7 +45,7 @@ class Backups extends Component {
                 JS implementation of the keycert library
               </a>
 
-              <a href="https://github.com/greymass/keycert-js">
+              <a href="https://github.com/greymass/keycert-js-pdf">
                 Keycert PDF generation library
               </a>
             </div>
