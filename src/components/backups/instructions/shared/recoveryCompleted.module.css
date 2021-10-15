@@ -1,0 +1,6 @@
+div[class="one wide computer two wide mobile one wide tablet column"] i.checkIcon {
+  color: var(--successGreen);
+  font-size: 30px;
+  margin: 10px -2px 0 0;
+  float: right;
+}
