@@ -46,7 +46,7 @@ class Backups extends Component {
               <h2 className={backupStyles.title}>Advanced</h2>
 
               <a href="https://github.com/greymass/keycert-js">
-                JS implementation of our keycert library
+                JS implementation of the keycert library
               </a>
 
               <a href="https://github.com/greymass/keycert-js">
