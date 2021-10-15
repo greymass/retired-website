@@ -25,4 +25,5 @@ h2.title {
 
 hr {
   border-top: 1px solid var(--lightGrey);
+  margin: 20px;
 }

@@ -14,13 +14,8 @@ import backupsHeader from "../images/backups_header.jpg";
 import backupStyles from './backups.module.css';
 
 class Backups extends Component {
-  state = {
-    currentPlatform: 'iOS',
-  };
-
   render() {
     const { intl } = this.props;
-    const { currentPlatform } = this.state;
 
     return (
       <Layout containerClassName="anchor" location={location} >
@@ -42,6 +37,7 @@ class Backups extends Component {
             <Instructions />
             <hr />
             <Explanation />
+            <hr />
             <div className={backupStyles.advanced}>
               <h2 className={backupStyles.title}>Advanced</h2>
 

@@ -1,3 +1,6 @@
+.container {
+  position: relative;
+}
 
 h2.title {
   font-weight: bold;
@@ -8,8 +11,33 @@ h2.title {
   padding: 30px;
 }
 
-.container {
-  position: relative;
+@media only screen and (max-width: 600px) {
+  .imageContainer {
+    padding: 0;
+  }
+}
+
+.mobileInstructions {
+  position: absolute;
+  z-index: 100;
+  display: none;
+}
+
+.mobileInstructions p {
+  font-size: 12px;
+}
+
+.mobileExplanation {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .mobileInstructions {
+    display: block;
+  }
+  .mobileExplanation {
+    display: block;
+  }
 }
 
 .transparentRectangle {
@@ -25,12 +53,8 @@ h2.title {
   height: 10px;
 }
 
-.transparentRectangle.accountInfo {
-  left: 140px;
-  top: 205px;
-  background-color: #FF81FA;
-  width: 120px;
-  height: 10px;
+@media only screen and (max-width: 600px) {
+
 }
 
 .transparentRectangle.QR {
@@ -49,9 +73,23 @@ h2.title {
   height: 85px;
 }
 
+.transparentRectangle.encryptionKey {
+  left: 69px;
+  top: 380px;
+  background-color: #FF81FA;
+  width: 223px;
+  height: 32px;
+}
+
 .arrowExplanation {
   position: absolute;
   left: 290px;
+}
+
+@media only screen and (max-width: 800px) {
+  .arrowExplanation {
+    display: none;
+  }
 }
 
 .arrowExplanation.privateKey {
