@@ -8,6 +8,10 @@
   background-repeat: repeat;
 }
 
+.transparentBackground {
+  background-color: transparent;
+}
+
 .anchor {
   background-color: #131b33;
 }

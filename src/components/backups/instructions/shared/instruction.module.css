@@ -1,0 +1,10 @@
+.number {
+  background-color: var(--mediumGrey);
+  width: 30px;
+  height: 30px;
+  padding: 5px 5px 5px 11px;
+  border-radius: 15px;
+  color: var(--mainBlue);
+  margin-top: -5px;
+  float: right;
+}
