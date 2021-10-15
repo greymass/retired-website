@@ -11,6 +11,7 @@ import AndroidInstructions from '../components/backups/instructions/Android';
 import DesktopInstructions from '../components/backups/instructions/Desktop';
 
 import backupsHeader from "../images/backups_header.jpg";
+import keyCertificate from "../images/key_certificate.png";
 
 import backupStyles from './backups.module.css';
 
@@ -91,6 +92,20 @@ class Backups extends Component {
             <hr />
             <div className={backupStyles.explanation}>
               <h2 className={backupStyles.title}>Certificate explanation</h2>
+              <div className={backupStyles.mobileExplanation}>
+
+              </div>
+              <Image
+                alt='backups-header-image'
+                src={keyCertificate}
+                style={{ width: 400 }}
+              />
+              <div className={backupStyles.keyCertificateLayover}>
+
+              </div>
+              <div className={backupStyles.keyCertificateArrowExplanations}>
+
+              </div>
             </div>
             <div className={backupStyles.advanced}>
               <h2 className={backupStyles.title}>Advanced</h2>
