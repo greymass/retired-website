@@ -1,0 +1,38 @@
+
+h2.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.buttonsContainer {
+  padding: 10px 10px 10px 0;
+}
+
+.steps {
+  margin-bottom: 40px;
+}
+
+.steps button {
+  background-color: white;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.steps button:hover {
+  background-color: var(--mediumGrey);
+}
+
+.steps button.active {
+  background-color: var(--mediumGrey);
+}
+
+.steps button.inactive {
+  color: var(--mainBlue);
+}
+
+.steps .warningBox {
+  background-color: var(--warningYellow);
+  padding: 15px;
+  border-radius: 5px;
+}
