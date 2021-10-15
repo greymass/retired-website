@@ -12,6 +12,43 @@ h2.title {
   position: relative;
 }
 
+.transparentRectangle {
+  position: absolute;
+  opacity: 0.4;
+}
+
+.transparentRectangle.privateKey {
+  left: 80px;
+  top: 170px;
+  background-color: #FF81FA;
+  width: 200px;
+  height: 10px;
+}
+
+.transparentRectangle.accountInfo {
+  left: 140px;
+  top: 205px;
+  background-color: #FF81FA;
+  width: 120px;
+  height: 10px;
+}
+
+.transparentRectangle.QR {
+  left: 69px;
+  top: 191px;
+  background-color: #92FF81;
+  width: 70px;
+  height: 70px;
+}
+
+.transparentRectangle.mnemonicKey {
+  left: 69px;
+  top: 270px;
+  background-color: #FF8181;
+  width: 223px;
+  height: 85px;
+}
+
 .arrowExplanation {
   position: absolute;
   left: 290px;

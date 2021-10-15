@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 
-import backupStyles from "../../pages/backups.module.css";
 import { Grid } from "semantic-ui-react";
 
 import IOSInstructions from "./instructions/IOS";
 import AndroidInstructions from "./instructions/Android";
 import DesktopInstructions from "./instructions/Desktop";
 
-import instructionStyles from "./instructions.module.css";
+import instructionsStyles from "./instructions.module.css";
 
 const platforms = ['iOS', 'Android', 'Win/OSX/Linux']
 
@@ -18,8 +17,8 @@ export default class Instructions extends Component {
     const { currentPlatform } = this.state;
 
     return (
-      <div className={instructionStyles.steps}>
-        <h2 className={instructionStyles.title}>Account recovery</h2>
+      <div className={instructionsStyles.steps}>
+        <h2 className={instructionsStyles.title}>Account recovery</h2>
         <p>
           Follow these steps to recover your account
         </p>
@@ -28,11 +27,11 @@ export default class Instructions extends Component {
             <strong>
               Choose your platform for recovery
             </strong>
-            <div className={instructionStyles.buttonsContainer}>
+            <div className={instructionsStyles.buttonsContainer}>
               {platforms.map(platform => (
                 <button
                   onClick={() => this.setState({currentPlatform: platform})}
-                  className={currentPlatform === platform ? backupStyles.active : backupStyles.inactive}
+                  className={currentPlatform === platform ? instructionsStyles.active : instructionsStyles.inactive}
                 >
                   {platform}
                 </button>
@@ -52,7 +51,7 @@ export default class Instructions extends Component {
             )}
           </Grid.Column>
           <Grid.Column computer={3} tablet={16} mobile={16}>
-            <div className={backupStyles.warningBox}>
+            <div className={instructionsStyles.warningBox}>
               <strong>
                 Did you know?
               </strong>

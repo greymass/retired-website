@@ -21,9 +21,15 @@ export default class Explanation extends Component {
             style={{ width: 300 }}
           />
         </div>
-        <div className={explanationStyles.keyCertificateLayover}>
 
-        </div>
+        <div className={`${explanationStyles.transparentRectangle} ${explanationStyles.privateKey}`} />
+
+        <div className={`${explanationStyles.transparentRectangle} ${explanationStyles.accountInfo}`} />
+
+        <div className={`${explanationStyles.transparentRectangle} ${explanationStyles.QR}`} />
+
+        <div className={`${explanationStyles.transparentRectangle} ${explanationStyles.mnemonicKey}`} />
+
         <div className={`${explanationStyles.arrowExplanation} ${explanationStyles.privateKey}`}>
           <ArrowExplanation sizeOfArrow="short">
             <p>
