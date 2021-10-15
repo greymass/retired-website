@@ -8,31 +8,51 @@ h2.title {
   padding: 10px 10px 10px 0;
 }
 
-.steps {
+.container {
   margin-bottom: 40px;
 }
 
-.steps button {
+.container button {
   background-color: white;
   margin: 5px 10px 5px 0;
   padding: 10px;
   border-radius: 20px;
 }
 
-.steps button:hover {
+.container button:hover {
   background-color: var(--mediumGrey);
 }
 
-.steps button.active {
+.container button.active {
   background-color: var(--mediumGrey);
 }
 
-.steps button.inactive {
+.container button.inactive {
   color: var(--mainBlue);
 }
 
-.steps .warningBox {
+.container .warningBox {
   background-color: var(--warningYellow);
   padding: 15px;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container .subtitle {
+    text-align: center;
+  }
+
+  h2.title {
+    text-align: center;
+  }
+
+  .buttonsContainer {
+    margin: auto;
+    width: 300px;
+    padding: 10px;
+  }
+
+  .buttonsContainer button {
+    margin: 5px;
+  }
 }

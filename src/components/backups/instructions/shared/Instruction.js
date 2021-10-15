@@ -8,12 +8,12 @@ export default class Instruction extends Component {
 
     return (
       <Grid.Row>
-        <Grid.Column width={1}>
+        <Grid.Column computer={1} tablet={1} mobile={2}>
           <div className={instructionStyles.number}>
             {number}
           </div>
         </Grid.Column>
-        <Grid.Column width={15}>
+        <Grid.Column computer={15} tablet={15} mobile={14}>
           {this.props.children}
         </Grid.Column>
       </Grid.Row>

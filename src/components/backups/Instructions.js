@@ -17,16 +17,18 @@ export default class Instructions extends Component {
     const { currentPlatform } = this.state;
 
     return (
-      <div className={instructionsStyles.steps}>
+      <div className={instructionsStyles.container}>
         <h2 className={instructionsStyles.title}>Account recovery</h2>
-        <p>
+        <p className={instructionsStyles.subtitle}>
           Follow these steps to recover your account
         </p>
         <Grid>
           <Grid.Column computer={13} tablet={16} mobile={16}>
-            <strong>
-              Choose your platform for recovery
-            </strong>
+            <p className={instructionsStyles.subtitle}>
+              <strong >
+                Choose your platform for recovery
+              </strong>
+            </p>
             <div className={instructionsStyles.buttonsContainer}>
               {platforms.map(platform => (
                 <button

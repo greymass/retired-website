@@ -42,10 +42,10 @@ class InstructionsIOS extends Component {
           </Instruction>
 
           <Grid.Row>
-            <Grid.Column width={1}>
+            <Grid.Column computer={1} tablet={1} mobile={2}>
               <Icon className={sharedStyles.checkIcon} name="check circle" />
             </Grid.Column>
-            <Grid.Column width={15}>
+            <Grid.Column computer={15} tablet={15} mobile={14}>
               <strong>Recovery Completed</strong><br />
               <p>Continue keeping the owner key certificate safe</p>
             </Grid.Column>
