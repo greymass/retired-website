@@ -1,0 +1,57 @@
+.container {
+  background-color: white;
+}
+
+h2.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header {
+  margin-top: -130px;
+  background-color: var(--metallicSilver);
+}
+
+.innerContainer {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.buttonsContainer {
+  padding: 10px;
+}
+
+.steps {
+  margin-bottom: 40px;
+}
+
+.steps button {
+  background-color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.steps button:hover {
+  background-color: var(--mediumGrey);
+}
+
+.steps button.active {
+  background-color: var(--mediumGrey);
+}
+
+.steps button.inactive {
+  color: var(--mainBlue);
+}
+
+.explanation {
+}
+
+.advanced {
+}
+
+hr {
+  border-top: 1px solid var(--lightGrey);
+}

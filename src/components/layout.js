@@ -11,7 +11,7 @@ import layoutStyles from "./layout.module.css";
 
 class Layout extends Component {
   render() {
-    const { children, data, location } = this.props;
+    const { children, data, location,  } = this.props;
 
     let { containerClassName } = this.props;
 
