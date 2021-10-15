@@ -29,7 +29,7 @@ class Backups extends Component {
             <Image
               alt='backups-header-image'
               src={backupsHeader}
-              style={{ margin: 'auto', width: 1200 }}
+              style={{ margin: 'auto', width: 2000 }}
             />
           </div>
 
