@@ -1,5 +1,6 @@
 :root {
   --anchorGreen: #80c341;
+  --successGreen: #3BB14A;
   --darkGrey: #424954;
   --lightGrey: #f4f4f4;
   --mediumGrey: #f0f0f0;
@@ -10,6 +11,7 @@
   --mainGrey: #b6bdc9;
   --mainPurple: #131b33;
   --metallicSilver: #99a5af;
+  --warningYellow: #FFF8D6;
   --lightBlueGradient: linear-gradient(112.06deg, #0091e2 9.23%, #00abd0 100%);
 }
 
