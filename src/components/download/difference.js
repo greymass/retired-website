@@ -33,14 +33,12 @@ class VersionDifference extends Component {
         name: "download_feature_5",
         pc: true,
         mobile: true,
-        markPC: 1,
-        markMob: 2,
       },
       {
         name: "download_feature_6",
         pc: true,
         mobile: true,
-        markMob: 2,
+        markMob: 1,
       },
       {
         name: "download_feature_7",
@@ -132,10 +130,6 @@ class VersionDifference extends Component {
               <div className={differenceStyles.underTable}>
                 <div className={differenceStyles.row}>
                   <span className={differenceStyles.num}>1</span>
-                  <span>{intl.formatMessage({ id: "additional_1" })}</span>
-                </div>
-                <div className={differenceStyles.row}>
-                  <span className={differenceStyles.num}>2</span>
                   <span>{intl.formatMessage({ id: "additional_2" })}</span>
                 </div>
               </div>
