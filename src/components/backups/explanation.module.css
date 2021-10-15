@@ -1,0 +1,44 @@
+
+h2.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.imageContainer {
+  padding: 30px;
+}
+
+.keyCertificateArrowExplanations {
+
+}
+.explanationArrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.arrow {
+  width: 126px;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.arrowLine {
+  margin-top: 3px;
+  width: 120px;
+  background: var(--arrowOrange);
+  height: 2px;
+  float: left;
+}
+
+.arrowPoint {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid var(--arrowOrange);
+  float: right;
+}
