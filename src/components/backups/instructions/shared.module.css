@@ -1,3 +1,15 @@
 .container {
   padding-top: 20px;
 }
+
+a {
+  cursor: pointer;
+  color: var(--mainBlue);
+}
+
+div[class="one wide column"] i.checkIcon {
+  color: var(--successGreen);
+  font-size: 30px;
+  margin: 10px -2px 0 0;
+  float: right;
+}

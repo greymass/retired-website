@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { Grid } from "semantic-ui-react";
+import { graphql, StaticQuery } from "gatsby";
+import { Grid, Icon } from "semantic-ui-react";
 
 import Instruction from './shared/Instruction';
 
@@ -7,6 +8,8 @@ import sharedStyles from './shared.module.css';
 
 class InstructionsIOS extends Component {
   render() {
+    const { iosDownloadUrl } = this.props.data.site.siteMetadata.anchor;
+
     return (
       <div className={sharedStyles.container}>
         <Grid>
@@ -17,28 +20,55 @@ class InstructionsIOS extends Component {
           </Instruction>
           <Instruction number={2}>
             <p>
-              Verify that you have a <strong>valid certificate</strong> and that encryption key words are clearly written down
+              Download Anchor if you dont have it installed yet and <strong>launch the app</strong>.
+              &nbsp;<a href={iosDownloadUrl}>Download Anchor now</a>
             </p>
           </Instruction>
           <Instruction number={3}>
             <p>
-              Verify that you have a <strong>valid certificate</strong> and that encryption key words are clearly written down
+              In Anchor app -> add account -> <strong>recover from key certificate</strong>
             </p>
           </Instruction>
           <Instruction number={4}>
             <p>
-              Verify that you have a <strong>valid certificate</strong> and that encryption key words are clearly written down
+              <strong>Scan QR Code</strong> on the key certificate or enter the memonic key manually
             </p>
           </Instruction>
           <Instruction number={5}>
-            <p>
-              Verify that you have a <strong>valid certificate</strong> and that encryption key words are clearly written down
-            </p>
+            <p><strong>Enter the encryption key words</strong></p>
           </Instruction>
+          <Instruction number={6}>
+            <p>Select your security options and <strong>complete the setup</strong></p>
+          </Instruction>
+
+          <Grid.Row>
+            <Grid.Column width={1}>
+              <Icon className={sharedStyles.checkIcon} name="check circle" />
+            </Grid.Column>
+            <Grid.Column width={15}>
+              <strong>Recovery Completed</strong><br />
+              <p>Continue keeping the owner key certificate safe</p>
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
       </div>
     )
   }
 }
 
-export default InstructionsIOS;
+export default props => (
+  <StaticQuery
+    query={graphql`
+       query {
+          site {
+            siteMetadata {
+              anchor {
+                iosDownloadUrl
+              }
+            }
+          }
+        }
+    `}
+    render={data => <InstructionsIOS data={data} {...props} />}
+  />
+);

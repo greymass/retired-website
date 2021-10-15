@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { injectIntl } from "gatsby-plugin-intl";
 
-import { Image } from "semantic-ui-react";
+import { Image, Grid } from "semantic-ui-react";
 
 import Layout from '../components/layout';
 import SEO from '../components/shared/seo';
@@ -47,31 +47,46 @@ class Backups extends Component {
               <p>
                 Follow these steps to recover your account
               </p>
-              <strong>
-                Choose your platform for recovery
-              </strong>
-              <div className={backupStyles.buttonsContainer}>
-                {platforms.map(platform => (
-                  <button
-                    onClick={() => this.setState({currentPlatform: platform})}
-                    className={currentPlatform === platform ? backupStyles.active : backupStyles.inactive}
-                  >
-                    {platform}
-                  </button>
-                ))}
-              </div>
+              <Grid>
+                <Grid.Column computer={13} tablet={16} mobile={16}>
+                  <strong>
+                    Choose your platform for recovery
+                  </strong>
+                  <div className={backupStyles.buttonsContainer}>
+                    {platforms.map(platform => (
+                      <button
+                        onClick={() => this.setState({currentPlatform: platform})}
+                        className={currentPlatform === platform ? backupStyles.active : backupStyles.inactive}
+                      >
+                        {platform}
+                      </button>
+                    ))}
+                  </div>
 
-              {currentPlatform === 'iOS' && (
-                <IOSInstructions />
-              )}
+                  {currentPlatform === 'iOS' && (
+                    <IOSInstructions />
+                  )}
 
-              {currentPlatform === 'Android' && (
-                <AndroidInstructions />
-              )}
+                  {currentPlatform === 'Android' && (
+                    <AndroidInstructions />
+                  )}
 
-              {currentPlatform === 'Win/OSX/Linux' && (
-                <DesktopInstructions />
-              )}
+                  {currentPlatform === 'Win/OSX/Linux' && (
+                    <DesktopInstructions />
+                  )}
+                </Grid.Column>
+                <Grid.Column computer={3} tablet={16} mobile={16}>
+                  <div className={backupStyles.warningBox}>
+                    <strong>
+                      Did you know?
+                    </strong>
+                    <br /><br />
+                    <p>
+                      This process can be used to setup your account on multiple devices securely or revoke all device keys if you have lost access to any devices
+                    </p>
+                  </div>
+                </Grid.Column>
+              </Grid>
             </div>
             <hr />
             <div className={backupStyles.explanation}>
@@ -79,6 +94,14 @@ class Backups extends Component {
             </div>
             <div className={backupStyles.advanced}>
               <h2 className={backupStyles.title}>Advanced</h2>
+
+              <a href="https://github.com/greymass/keycert-js">
+                JS implementation of our keycert library
+              </a>
+
+              <a href="https://github.com/greymass/keycert-js">
+                Keycert PDF generation library
+              </a>
             </div>
           </div>
         </div>
