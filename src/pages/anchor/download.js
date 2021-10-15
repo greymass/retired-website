@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { injectIntl } from "gatsby-plugin-intl";
+import image from '../../images/oganchor.png';
 
 import Layout from "../../components/layout";
 import VersionsDownload from "../../components/download/download";
@@ -12,7 +13,23 @@ class Download extends Component {
 
     return (
       <Layout location={location} containerClassName="anchor">
-        <SEO lang={intl.locale} keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          lang={intl.locale}
+          image={image}
+          keywords={[
+            "anchor",
+            "wallet",
+            "eosio",
+            "mobile",
+            "desktop",
+            "eos",
+            "wax",
+            "lynx",
+            "telos",
+            "greymass",
+          ]}
+          title="Anchor Wallet for Desktop and Mobile"
+        />
         <VersionsDownload />
         <VersionDifference />
       </Layout>

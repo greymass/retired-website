@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+import logo from '../../images/ogimage.png';
 import favicon from '../../images/favicon.ico';
 
 function SEO({
@@ -27,6 +28,8 @@ function SEO({
       query {
         site {
           siteMetadata {
+            author
+            description
             title
           }
         }
@@ -35,7 +38,7 @@ function SEO({
   );
 
   const metaDescription = description || site.siteMetadata.description
-  const renderedTitle = (title)
+  const renderedTitle = title && title !== 'title'
     ? `${title} | ${site.siteMetadata.title}`
     : site.siteMetadata.title;
 
@@ -58,12 +61,16 @@ function SEO({
           content: description || metaDescription,
         },
         {
+          name: 'image',
+          content: image || logo,
+        },
+        {
           property: 'og:description',
           content: description || metaDescription,
         },
         {
           property: 'og:image',
-          content: image,
+          content: image || logo,
         },
         {
           property: 'og:title',
@@ -99,7 +106,7 @@ function SEO({
         },
         {
           name: 'twitter:image',
-          content: image,
+          content: image || logo,
         },
         ]
         .concat(

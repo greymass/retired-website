@@ -8,6 +8,7 @@ import fioLogo from '../../../images/blockchains/fio.svg';
 import instarLogo from '../../../images/blockchains/instar.svg';
 import jungleLogo from '../../../images/blockchains/jungle.png';
 import lynxLogo from '../../../images/blockchains/lynx.svg'
+import protonLogo from '../../../images/blockchains/proton.png'
 import telosLogo from '../../../images/blockchains/telos.png';
 import waxLogo from '../../../images/blockchains/wax.png';
 
@@ -17,6 +18,7 @@ const logos = {
   'instar': instarLogo,
   'jungle': jungleLogo,
   'lynx': lynxLogo,
+  'proton': protonLogo,
   'telos': telosLogo,
   'wax': waxLogo,
 }

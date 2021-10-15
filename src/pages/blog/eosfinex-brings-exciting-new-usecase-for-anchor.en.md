@@ -21,4 +21,4 @@ You can learn more about the [eosfinex vision here](https://www.eosfinex.com/blo
 
 
 ​
-To download the latest version of Anchor, please visit the [Anchor website on greymass.com](https://greymass.com/anchor). If you have any questions, feel free to stop by [our forums](https://forums.greymass.com/), or message us on Telegram.
+To download the latest version of Anchor, please visit the [Anchor website on greymass.com](https://greymass.com/anchor). If you have any questions, feel free to stop by [the EOSCommunity forums](https://forums.eoscommunity.org/), or message us on Telegram.

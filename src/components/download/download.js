@@ -168,7 +168,7 @@ class VersionsDownload extends Component {
                 <span className={downloadStyles.updated}>
                   {intl.formatMessage({ id: "last_updated_desktop" }, { updateData: `${desktopReleaseDate} (${desktopVersion})` })}
                 </span>{" "}
-                <a className={downloadStyles.githubLink} href={githubLink}>
+                <a className={downloadStyles.githubLink} href="https://github.com/greymass/anchor">
                   Github
                 </a>
               </div>
