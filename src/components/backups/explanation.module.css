@@ -8,30 +8,66 @@ h2.title {
   padding: 30px;
 }
 
-.keyCertificateArrowExplanations {
-
-}
-.explanationArrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
+.container {
+  position: relative;
 }
 
-.arrow {
-  width: 126px;
+.arrowExplanation {
+  position: absolute;
+  left: 290px;
+}
+
+.arrowExplanation.privateKey {
+  top: 165px;
+}
+
+.arrowExplanation.QR {
+  top: 220px;
+  left: 135px;
+}
+
+.arrowExplanation.mnemonicKey {
+  top: 290px;
+}
+
+.arrowExplanation.encryptionKey {
+  top: 380px;
+}
+
+.arrowExplanation {
+  width: 800px;
+}
+
+.arrowExplanation p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.longArrow {
+  margin-top: 14px;
+  width: 231px;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.shortArrow {
+  margin-top: 14px;
+  width: 76px;
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
 }
 
 .arrowLine {
   margin-top: 3px;
-  width: 120px;
+  width: 70px;
   background: var(--arrowOrange);
   height: 2px;
   float: left;
+}
+
+.longArrow .arrowLine {
+  width: 225px
 }
 
 .arrowPoint {
