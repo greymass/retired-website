@@ -7,11 +7,6 @@ h2.title {
   font-size: 20px;
 }
 
-.header {
-  margin-top: -130px;
-  background-color: var(--metallicSilver);
-}
-
 .innerContainer {
   padding: 40px;
   max-width: 1100px;
