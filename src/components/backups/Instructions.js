@@ -59,7 +59,7 @@ export default class Instructions extends Component {
         </div>
         <div className={instructionsStyles.innerContainer}>
           <Grid>
-            <Grid.Column computer={13} tablet={16} mobile={16}>
+            <Grid.Column computer={12} tablet={16} mobile={16}>
               {currentPlatform === 'iOS' && (
                 <IOSInstructions />
               )}
@@ -72,7 +72,7 @@ export default class Instructions extends Component {
                 <DesktopInstructions />
               )}
             </Grid.Column>
-            <Grid.Column computer={3} tablet={16} mobile={16}>
+            <Grid.Column computer={4} tablet={16} mobile={16}>
               <div className={instructionsStyles.warningBox}>
                 <strong>
                   Did you know?
