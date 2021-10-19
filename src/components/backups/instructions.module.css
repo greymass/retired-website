@@ -4,16 +4,20 @@ h2.title {
   font-size: 20px;
 }
 
+.subtitle {
+  padding: 5px 0;
+  margin-bottom: 0;
+}
+
 .buttonsContainer {
-  padding: 10px 10px 10px 0;
+  padding: 0 10px 10px 0;
 }
 
 .container {
-  margin-bottom: 40px;
 }
 
 .container button {
-  background-color: white;
+  background-color: var(--metallicSilver);
   margin: 5px 10px 5px 0;
   padding: 10px;
   border-radius: 20px;
@@ -28,13 +32,23 @@ h2.title {
 }
 
 .container button.inactive {
-  color: var(--mainBlue);
+  color: black;
 }
 
 .container .warningBox {
   background-color: var(--warningYellow);
   padding: 15px;
   border-radius: 5px;
+}
+
+.innerContainer {
+  padding: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.headerTextContainer {
+  padding: 50px 40px;
 }
 
 @media only screen and (max-width: 600px) {
