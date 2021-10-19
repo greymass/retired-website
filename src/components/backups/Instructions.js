@@ -6,9 +6,9 @@ import IOSInstructions from "./instructions/IOS";
 import AndroidInstructions from "./instructions/Android";
 import DesktopInstructions from "./instructions/Desktop";
 
-import instructionsStyles from "./instructions.module.css";
-import backupStyles from "../../pages/account-recovery.module.css";
 import accountRecoveryHeaderImage from "../../images/account-recovery-header-image.jpg";
+
+import instructionsStyles from "./instructions.module.css";
 
 const platforms = ['iOS', 'Android', 'Win/OSX/Linux']
 
@@ -20,38 +20,43 @@ export default class Instructions extends Component {
 
     return (
       <div className={instructionsStyles.container}>
-        <Grid className={`tablet reversed computer reversed ${backupStyles.header}`}>
-          <Grid.Column computer={6} tablet={6} mobile={16} floated="right">
-            <Image
-              alt='account-recovery-header-image'
-              src={accountRecoveryHeaderImage}
-              style={{ margin: 'auto', width: 400 }}
-            />
-          </Grid.Column>
-          <Grid.Column computer={8} tablet={8} mobile={16} floated="left">
-            <div className={instructionsStyles.headerTextContainer}>
-              <h2 className={instructionsStyles.title}>Account recovery</h2>
-              <p className={instructionsStyles.subtitle}>
-                Follow these steps to recover your account
-              </p>
-              <p className={instructionsStyles.subtitle}>
-                <strong >
-                  Choose your platform for recovery
-                </strong>
-              </p>
-              <div className={instructionsStyles.buttonsContainer}>
-                {platforms.map(platform => (
-                  <button
-                    onClick={() => this.setState({currentPlatform: platform})}
-                    className={currentPlatform === platform ? instructionsStyles.active : instructionsStyles.inactive}
-                  >
-                    {platform}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </Grid.Column>
-        </Grid>
+        <div className={instructionsStyles.header}>
+          <div className={instructionsStyles.headerContent}>
+            <Grid className="tablet reversed computer reversed">
+              <Grid.Column computer={10} tablet={10} mobile={16}>
+                <Image
+                  alt='account-recovery-header-image'
+                  src={accountRecoveryHeaderImage}
+                  style={{ margin: 'auto', width: 400 }}
+                />
+              </Grid.Column>
+              <Grid.Column computer={6} tablet={6} mobile={16}>
+                <div className={instructionsStyles.headerTextContainer}>
+                  <h2 className={instructionsStyles.title}>Account recovery</h2>
+                  <p className={instructionsStyles.subtitle}>
+                    Follow these steps to recover your account
+                  </p>
+                  <br/>
+                  <p className={instructionsStyles.subtitle}>
+                    <strong >
+                      Choose your platform for recovery
+                    </strong>
+                  </p>
+                  <div className={instructionsStyles.buttonsContainer}>
+                    {platforms.map(platform => (
+                      <button
+                        onClick={() => this.setState({currentPlatform: platform})}
+                        className={currentPlatform === platform ? instructionsStyles.active : instructionsStyles.inactive}
+                      >
+                        {platform}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </Grid.Column>
+            </Grid>
+          </div>
+        </div>
         <div className={instructionsStyles.innerContainer}>
           <Grid>
             <Grid.Column computer={13} tablet={16} mobile={16}>
