@@ -18,6 +18,7 @@ module.exports = {
       youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
     },
     anchor: {
+      androidDownloadUrl: 'https://play.google.com/store/apps/details?id=com.greymass.anchor',
       desktopReleaseDate: '2021/10/21',
       desktopVersion: '1.3.1',
       iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
