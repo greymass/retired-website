@@ -4,7 +4,7 @@ module.exports = {
     title: 'Greymass',
     defaultLanguage: 'en',
     description: 'An eosio block producer creating solutions for the age of the distributed ledger. Projects include Anchor, Fuel, ESR and more.',
-    officialEmail: 'hello@greymass.com',
+    officialEmail: 'support@greymass.com',
     officialAddress: 'Suite 1700 - 1185 West Georgia Street, Vancouver BC V6E 4E6, Canada',
     localesWithBlog: ['en'],
     links: {
