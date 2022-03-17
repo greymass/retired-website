@@ -30,7 +30,7 @@ class Footer extends Component {
             </div>
           </div>
           <div className={footerStyles.info}>
-            <span>hello@greymass.com</span>
+            <span>support@greymass.com</span>
             <span>{intl.formatMessage({ id: "site_address" })}</span>
             <span>{intl.formatMessage({ id: "copyright_text" })}</span>
           </div>
