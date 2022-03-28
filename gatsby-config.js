@@ -4,7 +4,7 @@ module.exports = {
     title: 'Greymass',
     defaultLanguage: 'en',
     description: 'An eosio block producer creating solutions for the age of the distributed ledger. Projects include Anchor, Fuel, ESR and more.',
-    officialEmail: 'hello@greymass.com',
+    officialEmail: 'support@greymass.com',
     officialAddress: 'Suite 1700 - 1185 West Georgia Street, Vancouver BC V6E 4E6, Canada',
     localesWithBlog: ['en'],
     links: {
@@ -23,7 +23,7 @@ module.exports = {
       desktopVersion: '1.3.2',
       iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
       iosReleaseDate: '2021/05/04',
-      iosVersion: '1.2.1',
+      iosVersion: '1.2.2',
       linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
       macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.2/mac-anchor-wallet-1.3.2-x64.dmg',
       windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.2/win-anchor-wallet-1.3.2.exe',
