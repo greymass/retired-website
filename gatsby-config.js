@@ -20,13 +20,13 @@ module.exports = {
     anchor: {
       androidDownloadUrl: 'https://play.google.com/store/apps/details?id=com.greymass.anchor',
       desktopReleaseDate: '2021/10/21',
-      desktopVersion: '1.3.3',
+      desktopVersion: '1.3.4',
       iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
       iosReleaseDate: '2021/05/04',
       iosVersion: '1.2.2',
       linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
-      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.3/mac-anchor-wallet-1.3.3-x64.dmg',
-      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.3/win-anchor-wallet-1.3.3.exe',
+      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.4/mac-anchor-wallet-1.3.4-x64.dmg',
+      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.4/win-anchor-wallet-1.3.4.exe',
     }
   },
   plugins: [
