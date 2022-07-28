@@ -1,43 +1,50 @@
 module.exports = {
   siteMetadata: {
-    author: 'Greymass',
-    title: 'Greymass',
-    defaultLanguage: 'en',
-    description: 'An eosio block producer creating solutions for the age of the distributed ledger. Projects include Anchor, Fuel, ESR and more.',
-    officialEmail: 'support@greymass.com',
-    officialAddress: 'Suite 1700 - 1185 West Georgia Street, Vancouver BC V6E 4E6, Canada',
-    localesWithBlog: ['en'],
+    author: "Greymass",
+    title: "Greymass",
+    defaultLanguage: "en",
+    description:
+      "An eosio block producer creating solutions for the age of the distributed ledger. Projects include Anchor, Fuel, ESR and more.",
+    officialEmail: "support@greymass.com",
+    officialAddress:
+      "Suite 1700 - 1185 West Georgia Street, Vancouver BC V6E 4E6, Canada",
+    localesWithBlog: ["en"],
     links: {
-      github: 'https://github.com/greymass/',
-      twitter: 'https://twitter.com/greymass',
-      telegram: 'https://t.me/greymass',
-      forums: 'https://forums.eoscommunity.org/c/greymass/6',
-      devForums: 'https://forums.eoscommunity.org/c/eosio-development/anchor-link/7',
-      steem: 'https://steemit.com/@greymass',
-      reddit: 'https://www.reddit.com/user/greymass',
-      youtube: 'https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA',
+      github: "https://github.com/greymass/",
+      twitter: "https://twitter.com/greymass",
+      telegram: "https://t.me/greymass",
+      forums: "https://forums.eoscommunity.org/c/greymass/6",
+      devForums:
+        "https://forums.eoscommunity.org/c/eosio-development/anchor-link/7",
+      steem: "https://steemit.com/@greymass",
+      reddit: "https://www.reddit.com/user/greymass",
+      youtube: "https://www.youtube.com/channel/UCKUIgioqwxJhZFUTdSPCAGA",
     },
     anchor: {
-      androidDownloadUrl: 'https://play.google.com/store/apps/details?id=com.greymass.anchor',
-      desktopReleaseDate: '2021/10/21',
-      desktopVersion: '1.3.4',
-      iosDownloadUrl: 'https://apps.apple.com/us/app/anchor-wallet/id1487410877',
-      iosReleaseDate: '2021/05/04',
-      iosVersion: '1.2.2',
-      linuxDownloadUrl: 'https://github.com/greymass/anchor/releases',
-      macDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.4/mac-anchor-wallet-1.3.4-x64.dmg',
-      windowsDownloadUrl: 'https://github.com/greymass/anchor/releases/download/v1.3.4/win-anchor-wallet-1.3.4.exe',
-    }
+      androidDownloadUrl:
+        "https://play.google.com/store/apps/details?id=com.greymass.anchor",
+      desktopReleaseDate: "2021/10/21",
+      desktopVersion: "1.3.4",
+      iosDownloadUrl:
+        "https://apps.apple.com/us/app/anchor-wallet/id1487410877",
+      iosReleaseDate: "2021/05/04",
+      iosVersion: "1.2.2",
+      linuxDownloadUrl: "https://github.com/greymass/anchor/releases",
+      macDownloadUrl:
+        "https://github.com/greymass/anchor/releases/download/v1.3.4/mac-anchor-wallet-1.3.4-x64.dmg",
+      windowsDownloadUrl:
+        "https://github.com/greymass/anchor/releases/download/v1.3.4/win-anchor-wallet-1.3.4.exe",
+    },
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-webfonts',
+      resolve: "gatsby-plugin-webfonts",
       options: {
         fonts: {
           google: [
             {
               family: `Montserrat`,
-              variants: [`600`]
+              variants: [`600`],
               // subsets: [`latin`],
             },
             {
@@ -47,10 +54,10 @@ module.exports = {
             },
             {
               family: `Poppins`,
-              variants: [`400`, `700`]
+              variants: [`400`, `700`],
             },
           ],
-        }
+        },
       },
     },
     `gatsby-transformer-json`,
@@ -63,14 +70,14 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'blog',
+        name: "blog",
         path: `${__dirname}/src/pages/blog`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'website',
+        name: "website",
         path: `${__dirname}/src/pages/website`,
       },
     },
@@ -107,21 +114,22 @@ module.exports = {
           {
             resolve: `gatsby-remark-vscode`,
             options: {
-              theme: 'Dark (Visual Studio)', // Read on for list of included themes. Also accepts object and function forms.
-              wrapperClassName: '',   // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.
-              injectStyles: true,     // Injects (minimal) additional CSS for layout and scrolling
-              extensions: [],         // Third-party extensions providing additional themes and languages
-              languageAliases: {},    // Map of custom/unknown language codes to standard/known language codes
-              replaceColor: x => x,   // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
-              getLineClassName: ({    // Function allowing dynamic setting of additional class names on individual lines
-                content,              //   - the string content of the line
-                index,                //   - the zero-based index of the line within the code fence
-                language,             //   - the language specified for the code fence
-                meta                  //   - any options set on the code fence alongside the language (more on this later)
-              }) => '',
-              logLevel: 'info'       // Set to 'info' to debug if something looks wrong
-            }
-          }
+              theme: "Dark (Visual Studio)", // Read on for list of included themes. Also accepts object and function forms.
+              wrapperClassName: "", // Additional class put on 'pre' tag. Also accepts function to set the class dynamically.
+              injectStyles: true, // Injects (minimal) additional CSS for layout and scrolling
+              extensions: [], // Third-party extensions providing additional themes and languages
+              languageAliases: {}, // Map of custom/unknown language codes to standard/known language codes
+              replaceColor: x => x, // Function allowing replacement of a theme color with another. Useful for replacing hex colors with CSS variables.
+              getLineClassName: ({
+                // Function allowing dynamic setting of additional class names on individual lines
+                content, //   - the string content of the line
+                index, //   - the zero-based index of the line within the code fence
+                language, //   - the language specified for the code fence
+                meta, //   - any options set on the code fence alongside the language (more on this later)
+              }) => "",
+              logLevel: "info", // Set to 'info' to debug if something looks wrong
+            },
+          },
         ],
       },
     },
@@ -156,4 +164,4 @@ module.exports = {
     //   },
     // },
   ],
-}
+};
